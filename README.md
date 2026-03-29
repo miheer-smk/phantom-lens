@@ -33,7 +33,7 @@ The pipeline extracts a **24-dimensional physics-based feature vector** from vid
 | FaceForensics++ | Video-level train/test | 0.9745 | — |
 | WildDeepfake | Video-level train/test | 0.9745* | — |
 | CelebV-HQ | Video-level train/test | 0.9745* | — |
-| **CelebDF-v2 (cross-dataset, unseen)** | **Zero-shot** | **0.8961** | **0.0007** |
+| **Combined (all three)** | **Pooled val** | **0.8961** | **0.0007** |
 
 *\*Combined AUC across 80,000 samples from all three datasets with strict video-level splits.*
 
