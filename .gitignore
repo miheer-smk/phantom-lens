@@ -1,0 +1,34 @@
+__pycache__/
+phantomlens_env/
+phantomlens_env2/
+checkpoints/
+features/
+results/
+results_ffpp_analysis/
+results_ffpp_validation/
+results_v3/
+tsne_frame_results/
+tsne_video_results/
+data/
+.history/
+*.pkl
+*.pt
+*.pth
+*.npy
+*.h5
+
+Step 4 — Pull Latest from GitHub
+bashgit pull origin main
+
+Step 5 — Stage Files
+bashgit add .gitignore
+git add *.py
+git add requirements
+git add requirements_best
+git add README.md
+git add notebooks/
+git add src/
+
+Step 6 — Check (Very Important!)
+bashgit status
+📸 Send me a screenshot of the output — I'll verify nothing large is being committed before you push!
