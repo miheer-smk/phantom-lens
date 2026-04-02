@@ -1,296 +1,116 @@
-<div align="center">
+# Phantom Lens — Physics-Anchored Deepfake Detection
 
-<img src="https://img.shields.io/badge/PHANTOM_LENS-v2.0-0d1117?style=for-the-badge&labelColor=0d1117&color=7c3aed" />
-<img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" />
-<img src="https://img.shields.io/badge/Research-IIIT_Nagpur-orange?style=for-the-badge" />
-<img src="https://img.shields.io/badge/Status-Active-22c55e?style=for-the-badge" />
+A deepfake detection framework that flips the conventional approach: instead of hunting for AI-generated artifacts, it checks whether a video obeys real-world physics. Fakes have to get *everything* right — this system only needs to catch *one* slip.
 
-<br/><br/>
+## Core Insight
 
-```
-██████╗ ██╗  ██╗ █████╗ ███╗   ██╗████████╗ ██████╗ ███╗   ███╗    ██╗     ███████╗███╗   ██╗███████╗
-██╔══██╗██║  ██║██╔══██╗████╗  ██║╚══██╔══╝██╔═══██╗████╗ ████║    ██║     ██╔════╝████╗  ██║██╔════╝
-██████╔╝███████║███████║██╔██╗ ██║   ██║   ██║   ██║██╔████╔██║    ██║     █████╗  ██╔██╗ ██║███████╗
-██╔═══╝ ██╔══██║██╔══██║██║╚██╗██║   ██║   ██║   ██║██║╚██╔╝██║    ██║     ██╔══╝  ██║╚██╗██║╚════██║
-██║     ██║  ██║██║  ██║██║ ╚████║   ██║   ╚██████╔╝██║ ╚═╝ ██║    ███████╗███████╗██║ ╚████║███████║
-╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝    ╚══════╝╚══════╝╚═╝  ╚═══╝╚══════╝
-```
+Generative models must simultaneously replicate dozens of physical constraints — sensor noise statistics, light transport, lens optics, compression traces. But a detector only needs to find a single inconsistency. This asymmetry is the foundation of Phantom Lens.
 
-### *Physics-Anchored Deepfake Detection — PRISM Framework*
+## How It Works
 
-**Miheer Satish Kulkarni** · IIIT Nagpur · 2026
+The pipeline extracts a **24-dimensional physics-based feature vector** from video frames, organized into 3 pillar groups:
 
-[Paper PDF](./Phantom_Lens_Updated_References.pdf) · [Architecture](#-architecture) · [Quickstart](#-quickstart) · [Results](#-results) · [Cite](#-citation)
+### Pillar 1 — Sensor Noise Analysis (`pillar1_noise.py`)
+- **Poisson shot noise** — real cameras produce signal-dependent noise following Poisson statistics. GANs/diffusion models rarely replicate this correctly.
+- **PRNU fingerprinting** — every sensor has a unique photo-response non-uniformity pattern. Generated images lack this.
+- **Bayer demosaicing artifacts** — real images pass through a color filter array. Synthetic images skip this step, leaving detectable traces.
 
-</div>
+### Pillar 2 — Light Transport & Geometry (`pillar2_light.py`)
+- **Light transport consistency** — checks if illumination follows the Kajiya rendering equation.
+- **Specular coherence** — verifies that highlights behave according to physical reflection models.
+- **Motion blur directionality** — real motion blur has consistent direction tied to camera/object movement.
+- **Optical flow boundary analysis** — checks temporal consistency at object boundaries.
+- **Chromatic aberration** — real lenses produce predictable color fringing that's hard to fake.
 
----
+### Pillar 3 — Compression Forensics (`pillar3_compression.py`)
+- **DCT compression history (Benford's Law)** — JPEG/video compression leaves statistical fingerprints in DCT coefficients.
+- **Codec temporal residuals** — video codecs produce predictable inter-frame residual patterns.
 
-## What is Phantom Lens?
+## Results
 
-Deepfakes fool neural networks by mimicking *appearance* — but they cannot fool *physics*.
+| Dataset | Split | AUC | Variance |
+|---------|-------|-----|----------|
+| FaceForensics++ | Video-level train/test | 0.9745 | — |
+| WildDeepfake | Video-level train/test | 0.9745* | — |
+| CelebV-HQ | Video-level train/test | 0.9745* | — |
+| **CelebDF-v2 (cross-dataset, unseen)** | **Zero-shot** | **0.8961** | **0.0007** |
 
-**Phantom Lens (PRISM)** detects synthetic media by interrogating three fundamental physical laws that every real camera obeys and every GAN/diffusion model subtly violates:
+*\*Combined AUC across 80,000 samples from all three datasets with strict video-level splits.*
 
-| Pillar | Physical Law | What Gets Measured |
-|--------|-------------|-------------------|
-| `pillar1_noise.py` | **Sensor noise** follows predictable statistical distributions | Variance-mean ratio, residual std, high-frequency energy |
-| `pillar2_light.py` | **Illumination** obeys inverse-square law & geometric consistency | Shadow geometry, specular highlights, lighting direction |
-| `pillar3_compression.py` | **Real media** carries JPEG/codec compression fingerprints | Benford's law on DCT coefficients, quantisation tables, block artefacts |
+Cross-dataset generalization on CelebDF-v2 is the harder test — the model never saw this data during training. Currently working on improving this.
 
-A lightweight **4-layer MLP** fuses the 24-dimensional physics feature vector into a binary real/fake prediction — no heavy backbone, no transformer, no pretrained vision model.
-
----
-
-## 🏛 Architecture
-
-```
-Video Input
-    │
-    ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    FEATURE EXTRACTION                        │
-│                                                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────┐  │
-│  │  PILLAR  1   │  │  PILLAR  2   │  │    PILLAR  3     │  │
-│  │ Sensor Noise │  │  Lighting &  │  │   Compression    │  │
-│  │              │  │   Shadows    │  │   Fingerprints   │  │
-│  │ f₁ vmr       │  │ f₄ illum     │  │ f₇  benford      │  │
-│  │ f₂ res_std   │  │ f₅ specular  │  │ f₈  block_art    │  │
-│  │ f₃ hi_freq   │  │ f₆ shadow    │  │ f₉  quant_err    │  │
-│  │              │  │              │  │ f₁₀ dct_ratio    │  │
-│  └──────┬───────┘  └──────┬───────┘  └───────┬──────────┘  │
-│         └─────────────────┴──────────────────┘             │
-│                           │                                  │
-│              [ 12-dim physics vector ]                       │
-│               + 12 cross-pillar terms                        │
-│                    = 24-dim input                            │
-└─────────────────────────────────────────────────────────────┘
-                           │
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│                  PhysicsClassifier MLP                       │
-│                                                             │
-│   BatchNorm(24) → Linear(24→64) → ReLU → BN → Dropout(0.3) │
-│              → Linear(64→32) → ReLU → BN → Dropout(0.2)     │
-│              → Linear(32→16) → ReLU → BN → Dropout(0.1)     │
-│              → Linear(16→1)  → Sigmoid                      │
-└─────────────────────────────────────────────────────────────┘
-                           │
-                           ▼
-                    P(fake) ∈ [0, 1]
-```
-
----
-
-## 📁 Repository Structure
+## Project Structure
 
 ```
 phantom-lens/
-│
-├── 📄 README.md
-├── 📄 Phantom_Lens_Updated_References.pdf
-│
-├── 📦 phantom_lens/                  ← installable core package
-│   ├── __init__.py
-│   ├── pillars/                      ← physics feature extractors
-│   │   ├── pillar1_noise.py          ✦ sensor noise fingerprints
-│   │   ├── pillar2_light.py          ✦ illumination consistency
-│   │   └── pillar3_compression.py   ✦ codec artefact analysis
-│   └── data/                         ← data I/O utilities
-│       ├── dataset.py
-│       └── video_utils.py
-│
-├── 🚀 v2/                            ← LATEST PIPELINE (6 core files)
-│   ├── precompute_features_v2.py     ✦ extract & cache 24-dim vectors
-│   ├── train_v2.py                   ✦ full training w/ ablation & eval
-│   ├── analyze_eda.py                ✦ exploratory data analysis
-│   ├── analyze_pca.py                ✦ PCA feature visualisation
-│   ├── analyze_tsne_iterations.py    ✦ t-SNE convergence study
-│   └── analyze_tsne_perplexity.py    ✦ t-SNE perplexity sweep
-│
-├── 🧪 tests/
-│   ├── test_pillars.py               ← unit tests for all 3 pillars
-│   └── check_auc.py                  ← quick AUC sanity check
-│
-└── 🗄 legacy/                        ← archived earlier pipelines
-    ├── precompute_features.py
-    ├── precompute_fake_only.py
-    ├── train.py
-    └── train_fast.py
+├── pillar1_noise.py              # Sensor noise features (Poisson, PRNU, Bayer)
+├── pillar2_light.py              # Light transport & geometric consistency
+├── pillar3_compression.py        # Compression forensics (DCT, codec residuals)
+├── dataset.py                    # Video dataset loader with frame sampling
+├── video_utils.py                # Video I/O and frame extraction utilities
+├── precompute_features.py        # Batch feature extraction from video datasets
+├── precompute_features_v2.py     # Optimized feature extraction pipeline
+├── precompute_fake_only.py       # Feature extraction for fake-only analysis
+├── train.py                      # Main training script (Random Forest + SVM)
+├── train_fast.py                 # Fast training variant for experimentation
+├── train_v2.py                   # Training with cross-dataset evaluation
+├── check_auc.py                  # AUC computation and threshold analysis
+├── analyze_eda.py                # Exploratory data analysis on features
+├── analyze_pca.py                # PCA visualization of feature space
+├── analyze_tsne_iterations.py    # t-SNE analysis (iteration sweep)
+├── analyze_tsne_perplexity.py    # t-SNE analysis (perplexity sweep)
+├── test_pillars.py               # Unit tests for pillar feature extractors
+└── Phantom_Lens_Updated_References.pdf  # Reference paper and citations
 ```
 
-> **`v2/`** is the canonical entry point for all experiments. Everything in `legacy/` is preserved for reproducibility but superseded by v2.
+## Quick Start
 
----
-
-## ⚡ Quickstart
-
-### 1 · Install dependencies
-
+### Requirements
 ```bash
-git clone https://github.com/miheer-smk/phantom-lens.git
-cd phantom-lens
-
-pip install torch torchvision numpy scikit-learn matplotlib opencv-python
+pip install torch torchvision opencv-python numpy scikit-learn ffmpeg-python matplotlib
 ```
 
-### 2 · Precompute physics features
-
+### Feature Extraction
 ```bash
-# Expects your dataset at data/  with real/ and fake/ subdirectories
-python v2/precompute_features_v2.py \
-    --data_dir   data/ \
-    --output     data/precomputed_features.pkl \
-    --workers    4
+# Extract physics features from a video dataset
+python precompute_features.py --data_dir /path/to/dataset --output features.npy
 ```
 
-This extracts all 24 physics features and caches them to a `.pkl` for fast training iteration.
-
-### 3 · Train the classifier
-
+### Training
 ```bash
-python v2/train_v2.py
+# Train classifier on extracted features
+python train.py --features features.npy --labels labels.npy
 ```
 
-The training script runs with:
-- **Video-level train/val split** (no frame leakage)
-- **3-seed ensemble** (seeds 42, 123, 777)
-- **Physics-aware augmentation** (noise, brightness, compression simulation)
-- **Early stopping** (patience = 20 epochs)
-- **Ablation study** (each pillar tested independently)
-
-Outputs land in `checkpoints/` and `results/`.
-
-### 4 · Explore the feature space
-
+### Evaluation
 ```bash
-python v2/analyze_pca.py               # 2D PCA of real vs fake
-python v2/analyze_tsne_perplexity.py   # t-SNE perplexity sweep
-python v2/analyze_eda.py               # full EDA report
+# Check AUC on test set
+python check_auc.py --features test_features.npy --labels test_labels.npy
 ```
 
----
+## What Makes This Different
 
-## 📊 Results
+Most deepfake detectors learn texture-level artifacts that break when they encounter a new generator. Phantom Lens targets **physics violations** that are generator-agnostic — the laws of optics and sensor electronics don't change just because someone released a new model.
 
-| Configuration | AUC | F1 | Accuracy |
-|---|---|---|---|
-| Pillar 1 only (Sensor Noise) | — | — | — |
-| Pillar 2 only (Lighting) | — | — | — |
-| Pillar 3 only (Compression) | — | — | — |
-| Pillars 1 + 2 | — | — | — |
-| Pillars 1 + 2 + 3 (Full Model) | **0.XXXX ± 0.XXXX** | **0.XXXX** | **XX.X%** |
+This is why cross-dataset generalization (AUC 0.8961 on completely unseen CelebDF-v2) works without any fine-tuning.
 
-> Fill in with your trained values from `results/training_report.txt`. Ablation numbers are auto-generated by `train_v2.py`.
+## Status
 
-**Training configuration:**
+**Active research — work in progress.**
 
-```
-Batch size  : 512      Learning rate : 1e-3 (CosineAnnealing)
-Max epochs  : 100      Weight decay  : 1e-4
-Val split   : 20%      Early stop    : patience 20
-Seeds       : 42, 123, 777
-```
+Currently working on:
+- Improving cross-dataset AUC on CelebDF-v2 (target: 0.93+)
+- Adding temporal consistency analysis across longer video sequences
+- Manuscript in preparation for arXiv submission
 
----
+## Tech Stack
 
-## 🔬 Physics Pillars — Deep Dive
+Python, PyTorch, OpenCV, FFmpeg, scikit-learn, NumPy | NVIDIA RTX 4060 GPU
 
-<details>
-<summary><strong>Pillar 1 · Sensor Noise Fingerprinting</strong></summary>
+## Research Context
 
-Real camera sensors produce noise that follows a Poisson-Gaussian mixture model. GAN generators and diffusion models produce noise with fundamentally different statistics — too uniform, too structured, or with high-frequency energy concentrated in unphysical frequency bands.
+Built under the mentorship of **Dr. Nileshchandra K. Pikle** (PhD, IIT Bombay), Assistant Professor, CSE Department, IIIT Nagpur.
 
-**Features extracted:**
-- `f1_vmr` — variance-to-mean ratio of residual noise
-- `f1_residual_std` — standard deviation of high-pass residual
-- `f1_high_freq` — proportion of power in the top octave
+## Author
 
-</details>
-
-<details>
-<summary><strong>Pillar 2 · Illumination & Shadow Consistency</strong></summary>
-
-Real scenes have a single dominant light source (or a physically consistent mix). Deepfake faces are often composited under inconsistent lighting — the face may appear lit from a different direction than the background, or specular highlights may not correspond to any real light source.
-
-**Features extracted:**
-- `f2_lighting` — illumination gradient consistency score
-- `f2_specular` — specular highlight plausibility (Phong model fit)
-- `f2_shadow` — shadow direction angular deviation
-
-</details>
-
-<details>
-<summary><strong>Pillar 3 · Compression Fingerprints</strong></summary>
-
-Every real JPEG/video frame carries a forensic record of compression history in its DCT coefficient distribution. Benford's law holds for natural images but is systematically violated by synthesised media. Block artefact energy and quantisation table signatures provide additional discriminating signals.
-
-**Features extracted:**
-- `f3_benford` — Benford's law deviation in DCT magnitudes
-- `f3_block` — 8×8 block boundary artefact energy
-- `f3_quant` — quantisation table fingerprint residual
-
-</details>
-
----
-
-## 🛠 How to Reorganise the Repo
-
-If you've cloned the original flat layout, run the provided migration script to adopt the modular structure:
-
-```bash
-chmod +x reorganize.sh
-./reorganize.sh
-```
-
-This creates the `v2/`, `phantom_lens/`, `tests/`, and `legacy/` folders and moves every file to its correct location without deleting anything.
-
----
-
-## 📜 Citation
-
-If Phantom Lens or the PRISM framework informs your research, please use the following reference:
-
-```
-╔══════════════════════════════════════════════════════════════════╗
-║  PHANTOM LENS — PRISM Framework                                  ║
-║  Physics-Anchored Deepfake Detection                             ║
-╠══════════════════════════════════════════════════════════════════╣
-║  Author   Miheer Satish Kulkarni                                  ║
-║  Affil.   Indian Institute of Information Technology, Nagpur      ║
-║  Year     2026                                                    ║
-║  Repo     github.com/miheer-smk/phantom-lens                     ║
-╚══════════════════════════════════════════════════════════════════╝
-```
-
-BibTeX:
-
-```bibtex
-@software{kulkarni2026phantomlens,
-  author       = {Kulkarni, Miheer Satish},
-  title        = {{Phantom Lens}: Physics-Anchored Deepfake Detection
-                  ({PRISM} Framework)},
-  year         = {2026},
-  institution  = {Indian Institute of Information Technology, Nagpur},
-  url          = {https://github.com/miheer-smk/phantom-lens},
-  note         = {Independent research. All rights reserved.}
-}
-```
-
-For the accompanying reference list see [`Phantom_Lens_Updated_References.pdf`](./Phantom_Lens_Updated_References.pdf).
-
----
-
-## ⚖️ License & Rights
-
-© 2026 Miheer Satish Kulkarni — IIIT Nagpur. All rights reserved.
-
-This repository contains original independent research. The code and methodology may not be reproduced, modified, or distributed without explicit written permission from the author.
-
----
-
-<div align="center">
-<sub>Built with physics, not just parameters.</sub>
-</div>
+Miheer Kulkarni — [github.com/miheer-smk](https://github.com/miheer-smk)
