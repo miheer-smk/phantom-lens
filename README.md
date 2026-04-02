@@ -1,116 +1,155 @@
-# Phantom Lens — Physics-Anchored Deepfake Detection
+# Phantom Lens — PRISM Framework
 
-A deepfake detection framework that flips the conventional approach: instead of hunting for AI-generated artifacts, it checks whether a video obeys real-world physics. Fakes have to get *everything* right — this system only needs to catch *one* slip.
+**Physics-Anchored Deepfake Detection**  
+Miheer Satish Kulkarni · IIIT Nagpur · 2026
 
-## Core Insight
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square)](https://python.org)
+[![Framework](https://img.shields.io/badge/Framework-LightGBM%20%7C%20RF%20%7C%20LR-orange?style=flat-square)]()
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)]()
 
-Generative models must simultaneously replicate dozens of physical constraints — sensor noise statistics, light transport, lens optics, compression traces. But a detector only needs to find a single inconsistency. This asymmetry is the foundation of Phantom Lens.
+---
 
-## How It Works
+## About
 
-The pipeline extracts a **24-dimensional physics-based feature vector** from video frames, organized into 3 pillar groups:
+Phantom Lens (PRISM — *Physics-Reality Integrated Signal Multistream*) is a deepfake detection framework that uses **50 hand-crafted physics-grounded features** (37 temporal + 13 spatial) to distinguish real from AI-generated faces — with **no deep learning, no domain adaptation, and no data augmentation tricks**.
 
-### Pillar 1 — Sensor Noise Analysis (`pillar1_noise.py`)
-- **Poisson shot noise** — real cameras produce signal-dependent noise following Poisson statistics. GANs/diffusion models rarely replicate this correctly.
-- **PRNU fingerprinting** — every sensor has a unique photo-response non-uniformity pattern. Generated images lack this.
-- **Bayer demosaicing artifacts** — real images pass through a color filter array. Synthetic images skip this step, leaving detectable traces.
+The core idea: generative models fool human eyes, but they consistently violate the laws of physics. Sensor noise, rigid facial geometry, skin colour consistency, and compression behaviour are all measurable signals that deepfakes suppress poorly.
 
-### Pillar 2 — Light Transport & Geometry (`pillar2_light.py`)
-- **Light transport consistency** — checks if illumination follows the Kajiya rendering equation.
-- **Specular coherence** — verifies that highlights behave according to physical reflection models.
-- **Motion blur directionality** — real motion blur has consistent direction tied to camera/object movement.
-- **Optical flow boundary analysis** — checks temporal consistency at object boundaries.
-- **Chromatic aberration** — real lenses produce predictable color fringing that's hard to fake.
-
-### Pillar 3 — Compression Forensics (`pillar3_compression.py`)
-- **DCT compression history (Benford's Law)** — JPEG/video compression leaves statistical fingerprints in DCT coefficients.
-- **Codec temporal residuals** — video codecs produce predictable inter-frame residual patterns.
+---
 
 ## Results
 
-| Dataset | Split | AUC | Variance |
-|---------|-------|-----|----------|
-| FaceForensics++ | Video-level train/test | 0.9745 | — |
-| WildDeepfake | Video-level train/test | 0.9745* | — |
-| CelebV-HQ | Video-level train/test | 0.9745* | — |
-| **CelebDF-v2 (cross-dataset, unseen)** | **Zero-shot** | **0.8961** | **0.0007** |
+### FF++ In-Distribution Validation (5-Fold CV)
 
-*\*Combined AUC across 80,000 samples from all three datasets with strict video-level splits.*
+| Classifier | AUC | F1 | Precision | Recall | MCC |
+|------------|-----|----|-----------|--------|-----|
+| Logistic Regression | 0.9653 | 0.9139 | 0.9125 | 0.9154 | 0.8275 |
+| Random Forest | 0.9680 | 0.9048 | 0.9110 | 0.8986 | 0.8108 |
+| **LightGBM ★** | **0.9742** | **0.9197** | **0.9241** | **0.9154** | **0.8401** |
 
-Cross-dataset generalization on CelebDF-v2 is the harder test — the model never saw this data during training. Currently working on improving this.
+- Dataset: FaceForensics++ · 956 real + 957 fake · 50/50 balanced
+- LightGBM 95% bootstrap CI: AUC [0.968–0.979], F1 [0.906–0.932]
+- Optimal threshold θ = 0.50 (no recalibration required)
+- Brier Score: 0.0633 · Log Loss: 0.2186
+
+### Cross-Dataset Evaluation (Trained FF++ → Tested Celeb-DF v2)
+
+| Version | Features | Cross-Dataset AUC | vs Baseline |
+|---------|----------|-------------------|-------------|
+| v2 PRISM (spatial only) | 24 spatial | 0.48 | baseline |
+| **v3 PRISM (current)** | **50 (37T + 13S)** | **0.6132** | **+27.7%** |
+
+> Test set: 5894 samples (767 real + 5127 fake). AUC is the primary metric due to class imbalance.  
+> Context: SOTA deep learning methods reach 0.82–0.88 using massive augmentation + domain adaptation. PRISM achieves 0.61 with pure physics — above-chance generalisation on the hardest benchmark in the field.
+
+---
+
+## Top Physics Features
+
+By SHAP importance (FF++) and Cohen's d effect size (Celeb-DF v2):
+
+| Feature | Description | Domain |
+|---------|-------------|--------|
+| `t_nose_bridge_std` | Nose bridge geometry instability across frames | Geometry |
+| `t_skin_color_jitter` | Frame-to-frame colour variance from neural rendering | Colour |
+| `t_texture_warp_residual` | Blending artefacts at face boundary | GAN Artifacts |
+| `s_noise_res_std` | Shot noise residual — strongest cross-dataset signal | Sensor |
+| `s_prnu_energy` | Photo-response non-uniformity energy | Sensor |
+| `t_dct_temporal_std` | DCT coefficient instability over time | Compression |
+| `t_blink_symmetry` | Asymmetric blink patterns | Biological |
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/miheer-smk/phantom-lens.git
+cd phantom-lens
+
+python -m venv phantomlens_env
+phantomlens_env\Scripts\activate        # Windows
+# source phantomlens_env/bin/activate   # Linux/Mac
+
+pip install -r requirements_best.txt
+python test_pillars.py                  # verify setup
+```
+
+---
+
+## Usage
+
+```bash
+# 1. Prepare dataset
+python prepare_ffpp_official.py --data_path /path/to/ffpp
+
+# 2. Precompute physics features
+python precompute_features_best.py --dataset ffpp --split train
+
+# 3. Train
+python train_v3_best.py
+
+# 4. Evaluate in-distribution
+python validate_ffpp_indistribution.py
+
+# 5. Cross-dataset evaluation
+python cross_dataset_eval.py --source ffpp --target celebdf
+```
+
+---
+
+## Supported Datasets
+
+| Dataset | Script |
+|---------|--------|
+| FaceForensics++ | `prepare_ffpp_official.py` |
+| Celeb-DF v2 | `prepare_celebdf.py` |
+| CelebVHQ | `prepare_celebvhq_v2.py` |
+| WildDeepfake | `prepare_wilddeepfake_v2.py` |
+| DeeperForensics | `prepare_deeperforensics.py` |
+| DFFD | `prepare_dffd.py` |
+
+---
 
 ## Project Structure
 
 ```
 phantom-lens/
-├── pillar1_noise.py              # Sensor noise features (Poisson, PRNU, Bayer)
-├── pillar2_light.py              # Light transport & geometric consistency
-├── pillar3_compression.py        # Compression forensics (DCT, codec residuals)
-├── dataset.py                    # Video dataset loader with frame sampling
-├── video_utils.py                # Video I/O and frame extraction utilities
-├── precompute_features.py        # Batch feature extraction from video datasets
-├── precompute_features_v2.py     # Optimized feature extraction pipeline
-├── precompute_fake_only.py       # Feature extraction for fake-only analysis
-├── train.py                      # Main training script (Random Forest + SVM)
-├── train_fast.py                 # Fast training variant for experimentation
-├── train_v2.py                   # Training with cross-dataset evaluation
-├── check_auc.py                  # AUC computation and threshold analysis
-├── analyze_eda.py                # Exploratory data analysis on features
-├── analyze_pca.py                # PCA visualization of feature space
-├── analyze_tsne_iterations.py    # t-SNE analysis (iteration sweep)
-├── analyze_tsne_perplexity.py    # t-SNE analysis (perplexity sweep)
-├── test_pillars.py               # Unit tests for pillar feature extractors
-└── Phantom_Lens_Updated_References.pdf  # Reference paper and citations
+├── src/
+│   ├── pillars/               # Core physics feature extractors
+│   ├── models/                # Classifier definitions
+│   └── utils/                 # Dataset & video utilities
+├── notebooks/                 # Exploratory analysis
+├── train_v3_best.py           # Best training pipeline
+├── precompute_features_best.py
+├── evaluate_v3_best.py
+├── validate_ffpp_indistribution.py
+├── cross_dataset_eval.py
+├── rppg_extractor.py
+└── requirements_best.txt
 ```
 
-## Quick Start
+---
 
-### Requirements
-```bash
-pip install torch torchvision opencv-python numpy scikit-learn ffmpeg-python matplotlib
+## Technical Report
+
+Full validation details, confusion matrices, ROC curves, SHAP analysis, and cross-dataset breakdown:
+
+📎 [`Phantom_Lens_Updated_References.pdf`](./Phantom_Lens_Updated_References.pdf)
+
+---
+
+## Citation
+
+```bibtex
+@misc{kulkarni2026phantomlens,
+  title      = {Phantom Lens: Physics-Anchored Deepfake Detection via PRISM Framework},
+  author     = {Kulkarni, Miheer Satish},
+  year       = {2026},
+  institution = {IIIT Nagpur},
+  url        = {https://github.com/miheer-smk/phantom-lens}
+}
 ```
 
-### Feature Extraction
-```bash
-# Extract physics features from a video dataset
-python precompute_features.py --data_dir /path/to/dataset --output features.npy
-```
+---
 
-### Training
-```bash
-# Train classifier on extracted features
-python train.py --features features.npy --labels labels.npy
-```
-
-### Evaluation
-```bash
-# Check AUC on test set
-python check_auc.py --features test_features.npy --labels test_labels.npy
-```
-
-## What Makes This Different
-
-Most deepfake detectors learn texture-level artifacts that break when they encounter a new generator. Phantom Lens targets **physics violations** that are generator-agnostic — the laws of optics and sensor electronics don't change just because someone released a new model.
-
-This is why cross-dataset generalization (AUC 0.8961 on completely unseen CelebDF-v2) works without any fine-tuning.
-
-## Status
-
-**Active research — work in progress.**
-
-Currently working on:
-- Improving cross-dataset AUC on CelebDF-v2 (target: 0.93+)
-- Adding temporal consistency analysis across longer video sequences
-- Manuscript in preparation for arXiv submission
-
-## Tech Stack
-
-Python, PyTorch, OpenCV, FFmpeg, scikit-learn, NumPy | NVIDIA RTX 4060 GPU
-
-## Research Context
-
-Built under the mentorship of **Dr. Nileshchandra K. Pikle** (PhD, IIT Bombay), Assistant Professor, CSE Department, IIIT Nagpur.
-
-## Author
-
-Miheer Kulkarni — [github.com/miheer-smk](https://github.com/miheer-smk)
+MIT License · IIIT Nagpur · 2026
