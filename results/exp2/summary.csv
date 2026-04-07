@@ -1,0 +1,2 @@
+Compression,Best Model,AUC,CI Lo,CI Hi,F1,Precision,Recall,MCC
+c23 (light compression),LGBM,0.9995,0.9984,1.0,0.9943,0.9886,1.0,0.9654

@@ -1,0 +1,33 @@
+{
+  "cross_dataset_auc": 0.6866817952338486,
+  "average_precision": 0.9222113374841019,
+  "threshold": 0.5,
+  "confusion_matrix": {
+    "TN": 242,
+    "FP": 564,
+    "FN": 413,
+    "TP": 4910
+  },
+  "rates": {
+    "TNR": 0.3002,
+    "FPR": 0.6998,
+    "TPR": 0.9224,
+    "FNR": 0.0776
+  },
+  "per_class": {
+    "Real": {
+      "precision": 0.3695,
+      "recall": 0.3002,
+      "f1": 0.3313,
+      "support": 806
+    },
+    "Fake": {
+      "precision": 0.897,
+      "recall": 0.9224,
+      "f1": 0.9095,
+      "support": 5323
+    }
+  },
+  "n_test_real": 806,
+  "n_test_fake": 5323
+}

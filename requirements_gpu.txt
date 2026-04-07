@@ -1,0 +1,113 @@
+# =============================================================================
+# requirements_gpu.txt — precompute_features_best.py on NVIDIA DGX Spark
+#
+# Recommended base container (Dockerfile FROM line):
+#   nvcr.io/nvidia/pytorch:24.04-py3          (CUDA 12.4, cuDNN 9, Python 3.10)
+#   -- or --
+#   nvcr.io/nvidia/cuda:12.4.1-cudnn9-runtime-ubuntu22.04  (lighter, no PyTorch)
+#
+# Runtime GPU requirements:
+#   Driver  : >= 550.x  (CUDA 12.4 compatible)
+#   CUDA    : 12.x
+#   cuDNN   : 9.x
+#
+# Post-pip note — OpenCV with CUDA (see block below):
+#   pip's opencv-python-headless is CPU-only.
+#   For CUDA-accelerated cv2.calcOpticalFlowFarneback and cv2.dct,
+#   replace it with a CUDA-enabled build (see Dockerfile snippet at bottom).
+# =============================================================================
+
+
+# ── Numerical Computing ───────────────────────────────────────────────────────
+numpy==1.26.4                     # pinned; compatible with scipy, mediapipe, cupy
+
+
+# ── Scientific Signal Processing ─────────────────────────────────────────────
+# Used: scipy.signal (butter, filtfilt, welch, find_peaks, detrend)
+#       scipy.stats
+#       scipy.ndimage (uniform_filter)
+scipy==1.15.3
+
+
+# ── Video & Image Processing ──────────────────────────────────────────────────
+# headless variant — no GUI/display libs, suited for containers
+# WARNING: this build is CPU-only (no CUDA).
+# Replace with CUDA-enabled OpenCV for GPU-accelerated optical flow / DCT
+# (see Dockerfile snippet at the bottom of this file).
+opencv-python-headless==4.13.0.92
+
+
+# ── Face Landmark Detection ───────────────────────────────────────────────────
+# MediaPipe >= 0.10.14 supports GPU inference via its TFLite GPU delegate
+# on NVIDIA GPUs (CUDA 12.x + cuDNN 9.x).
+# GPU delegate is activated automatically when CUDA libs are present.
+mediapipe==0.10.21
+
+
+# ── Progress Bar ─────────────────────────────────────────────────────────────
+tqdm==4.67.3
+
+
+# ── GPU-Accelerated NumPy (CuPy) ─────────────────────────────────────────────
+# cupy-cuda12x provides a GPU drop-in for numpy array operations.
+# Targets CUDA 12.x on DGX Spark (GB10 SoC).
+# All numpy calls in precompute_features_best.py can be accelerated
+# if the code is later ported to use cupy instead of numpy.
+cupy-cuda12x==13.4.1
+
+
+# ── CUDA Runtime / Deep Learning (if NOT using the PyTorch NGC base image) ───
+# Uncomment the block below only when using a plain CUDA base image
+# (nvcr.io/nvidia/cuda:*) without a pre-installed PyTorch:
+#
+# --index-url https://download.pytorch.org/whl/cu124
+# torch==2.3.1+cu124
+# torchvision==0.18.1+cu124
+#
+# These pull in the full CUDA runtime context needed by mediapipe's GPU
+# delegate and cupy's CUDA kernels.
+
+
+# =============================================================================
+# Dockerfile snippet — CUDA-enabled OpenCV (replaces opencv-python-headless)
+# =============================================================================
+#
+# Place this in your Dockerfile BEFORE the pip install step:
+#
+#   ARG OPENCV_VERSION=4.10.0
+#
+#   RUN apt-get update && apt-get install -y --no-install-recommends \
+#         cmake build-essential git libgtk2.0-dev pkg-config \
+#         libavcodec-dev libavformat-dev libswscale-dev \
+#         libjpeg-dev libpng-dev libtiff-dev libdc1394-dev && \
+#       git clone --depth 1 -b ${OPENCV_VERSION} \
+#         https://github.com/opencv/opencv.git /tmp/opencv && \
+#       git clone --depth 1 -b ${OPENCV_VERSION} \
+#         https://github.com/opencv/opencv_contrib.git /tmp/opencv_contrib && \
+#       mkdir /tmp/opencv/build && cd /tmp/opencv/build && \
+#       cmake -D CMAKE_BUILD_TYPE=RELEASE \
+#             -D CMAKE_INSTALL_PREFIX=/usr/local \
+#             -D OPENCV_EXTRA_MODULES_PATH=/tmp/opencv_contrib/modules \
+#             -D WITH_CUDA=ON \
+#             -D WITH_CUDNN=ON \
+#             -D OPENCV_DNN_CUDA=ON \
+#             -D CUDA_ARCH_BIN="9.0"  \   # Blackwell (GB10) = compute 9.0
+#             -D ENABLE_FAST_MATH=ON \
+#             -D CUDA_FAST_MATH=ON \
+#             -D BUILD_opencv_python3=ON \
+#             -D BUILD_EXAMPLES=OFF \
+#             -D BUILD_TESTS=OFF \
+#             -D BUILD_DOCS=OFF \
+#             .. && \
+#       make -j$(nproc) && make install && ldconfig && \
+#       rm -rf /tmp/opencv /tmp/opencv_contrib
+#
+# After this, do NOT pip-install opencv-python-headless.
+# cv2 will be available from the system-installed CUDA build.
+#
+# CUDA_ARCH_BIN values:
+#   DGX Spark  (GB10  / Blackwell)  → 9.0
+#   DGX H100   (Hopper)             → 9.0
+#   DGX A100   (Ampere)             → 8.0
+#   DGX Station V100 (Volta)        → 7.0
+# =============================================================================

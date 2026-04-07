@@ -1,0 +1,11 @@
+Train,Test,Best Model,AUC
+Deepfakes,Face2Face,RF,0.6809
+Deepfakes,FaceSwap,RF,0.8402
+Deepfakes,NeuralTextures,RF,0.8078
+Deepfakes,FaceShifter,LGBM,0.9407
+FaceShifter,Deepfakes,LR,0.8451
+FaceShifter,Face2Face,RF,0.5622
+FaceShifter,FaceSwap,LGBM,1.0
+FaceShifter,NeuralTextures,LGBM,1.0
+Multi-manip,NeuralTextures,RF,0.9965
+Multi-manip,FaceShifter,RF,0.9957
