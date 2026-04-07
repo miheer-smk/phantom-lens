@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "phantom-lens"
+version = "0.1.0"
+description = "Physics-anchored deepfake detection framework"
+authors = [
+    { name = "Miheer Satish Kulkarni", email = "miheer@iiitn.ac.in" }
+]
+requires-python = ">=3.9"
+readme = "README.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "src*",
+    "config*",
+    "data_prep*",
+    "features*",
+    "training*",
+    "evaluation*",
+    "analysis*",
+    "experiments*",
+]
+
+[tool.setuptools.package-dir]
+"" = "."

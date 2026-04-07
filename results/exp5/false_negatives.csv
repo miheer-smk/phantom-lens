@@ -1,0 +1,14 @@
+video_path,confidence_fake,true_label,predicted_label
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/123_119.mp4,0.2413998092287445,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/213_083.mp4,0.3009683985309,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/012_026.mp4,0.3223389853936628,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/247_229.mp4,0.33804886350732394,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/619_620.mp4,0.35754462800299114,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/464_463.mp4,0.3650181840338497,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/800_840.mp4,0.3651441177420253,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/006_002.mp4,0.36986365675783967,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/870_001.mp4,0.39303785008748804,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/447_431.mp4,0.41193036207622213,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/791_770.mp4,0.4327554208722598,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/202_348.mp4,0.45575945145482566,1,0
+/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/102_114.mp4,0.4620919127380881,1,0

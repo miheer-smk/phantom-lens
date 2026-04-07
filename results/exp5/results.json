@@ -1,0 +1,84 @@
+{
+  "test_auc": 0.9708725182863115,
+  "n_fakes_total": 957,
+  "n_true_positives": 944,
+  "n_false_negatives": 13,
+  "fn_pct": 1.3584117032392895,
+  "fn_confidence": {
+    "mean": 0.37045397234047844,
+    "std": 0.06248962369971575,
+    "min": 0.2413998092287445,
+    "max": 0.4620919127380881
+  },
+  "tp_confidence": {
+    "mean": 0.9447671327604372,
+    "min": 0.5130739142429434,
+    "max": 0.9995818759790609
+  },
+  "top10_distinguishing_features": {
+    "t_blink_duration": 62.80050672554013,
+    "s_blur_mag": 26.536849101800613,
+    "t_dct_temporal_std": 8.097385859470151,
+    "t_specular_stability": 6.966750148633789,
+    "s_prnu_energy": 4.759957416658954,
+    "t_blink_rate": 4.141275822941893,
+    "t_coupling_consistency": 3.966663754272446,
+    "t_rppg_harmonic_ratio": 2.035041010027325,
+    "s_flow_mag": 1.5118137268499785,
+    "s_noise_vmr": 1.165498018407611
+  },
+  "false_negatives": [
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/123_119.mp4",
+      "confidence_fake": 0.2413998092287445
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/213_083.mp4",
+      "confidence_fake": 0.3009683985309
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/012_026.mp4",
+      "confidence_fake": 0.3223389853936628
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/247_229.mp4",
+      "confidence_fake": 0.33804886350732394
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/619_620.mp4",
+      "confidence_fake": 0.35754462800299114
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/464_463.mp4",
+      "confidence_fake": 0.3650181840338497
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/800_840.mp4",
+      "confidence_fake": 0.3651441177420253
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/006_002.mp4",
+      "confidence_fake": 0.36986365675783967
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/870_001.mp4",
+      "confidence_fake": 0.39303785008748804
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/447_431.mp4",
+      "confidence_fake": 0.41193036207622213
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/791_770.mp4",
+      "confidence_fake": 0.4327554208722598
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/202_348.mp4",
+      "confidence_fake": 0.45575945145482566
+    },
+    {
+      "video_path": "/home/iiitn/Miheer_Project/data/ffpp_official/manipulated_sequences/Deepfakes/c23/videos/102_114.mp4",
+      "confidence_fake": 0.4620919127380881
+    }
+  ]
+}

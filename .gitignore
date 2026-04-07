@@ -1,34 +1,48 @@
+# ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# ── Virtual environments ───────────────────────────────────────────────────────
 phantomlens_env/
 phantomlens_env2/
-checkpoints/
-features/
-results/
-results_ffpp_analysis/
-results_ffpp_validation/
-results_v3/
-tsne_frame_results/
-tsne_video_results/
+*_env/
+*_env2/
+venv/
+.venv/
+
+# ── Data — never commit raw video/image datasets ──────────────────────────────
 data/
-.history/
+
+# ── Extracted features (large CSV files, 100s MB) ─────────────────────────────
+features/
+
+# ── Trained model binaries ────────────────────────────────────────────────────
+checkpoints/
 *.pkl
 *.pt
 *.pth
 *.npy
 *.h5
 
-Step 4 — Pull Latest from GitHub
-bashgit pull origin main
+# ── Results: exclude only binary model artefacts, keep scripts/images/JSON/PDF
+results/**/*.pkl
+results/**/*.pt
+results/**/*.pth
+results/**/*.npy
 
-Step 5 — Stage Files
-bashgit add .gitignore
-git add *.py
-git add requirements
-git add requirements_best
-git add README.md
-git add notebooks/
-git add src/
+# ── Old result directories (superseded) ───────────────────────────────────────
+results_ffpp_analysis/
+results_ffpp_validation/
+results_v3/
+tsne_frame_results/
+tsne_video_results/
+archive/
 
-Step 6 — Check (Very Important!)
-bashgit status
-📸 Send me a screenshot of the output — I'll verify nothing large is being committed before you push!
+# ── Misc ──────────────────────────────────────────────────────────────────────
+.history/
+.DS_Store
+*.log
+nohup.out
