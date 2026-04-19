@@ -1,16 +1,32 @@
-# Phantom Lens
+<!--
+================================================================
+  FILE: README.md
+  GOES IN: github.com/miheer-smk/phantom-lens
+  HOW: Replace the existing README.md with this file
+  NOTE: License badge says "Research Only" — DO NOT add an MIT LICENSE
+        file to this repo without discussing with your supervisor.
+================================================================
+-->
 
-**Physics-Anchored Deepfake Detection Framework (PRISM)**
+<h1 align="center"> Phantom Lens</h1>
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)
-![LightGBM](https://img.shields.io/badge/LightGBM-Classifier-brightgreen)
-![MediaPipe](https://img.shields.io/badge/MediaPipe-Face%20Mesh-orange)
-![License](https://img.shields.io/badge/License-Research%20Only-lightgrey)
-![Status](https://img.shields.io/badge/Status-Active%20Research-yellow)
+<p align="center">
+  <b>Physics-Anchored Deepfake Detection Framework (PRISM)</b>
+</p>
 
-> **Researcher:** Miheer Satish Kulkarni — IIIT Nagpur, 2026  
-> **Supervisor:** Dr. Nileshchandra K. Pikle, Assistant Professor, CSE, IIIT Nagpur
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white" />
+  <img src="https://img.shields.io/badge/LightGBM-Classifier-brightgreen" />
+  <img src="https://img.shields.io/badge/MediaPipe-Face%20Mesh-orange" />
+  <img src="https://img.shields.io/badge/License-Research%20Only-lightgrey" />
+  <img src="https://img.shields.io/badge/Status-Active%20Research-yellow" />
+</p>
+
+<p align="center">
+  <b>Researcher:</b> Miheer Satish Kulkarni — IIIT Nagpur, 2026<br>
+  <b>Supervisor:</b> Dr. Nileshchandra K. Pikle, Assistant Professor, CSE, IIIT Nagpur
+</p>
 
 ---
 
@@ -310,7 +326,7 @@ The report includes:
 
 If you use this work, please cite:
 
-```
+```bibtex
 @misc{kulkarni2026phantomlens,
   author       = {Kulkarni, Miheer Satish},
   title        = {Phantom Lens: Physics-Anchored Deepfake Detection Framework (PRISM)},
@@ -324,8 +340,8 @@ If you use this work, please cite:
 
 ## Author
 
-**Miheer Satish Kulkarni**  
-B.Tech CSE, IIIT Nagpur  
+**Miheer Satish Kulkarni**
+B.Tech CSE, IIIT Nagpur
 [github.com/miheer-smk](https://github.com/miheer-smk)
 
 *Supervised by Dr. Nileshchandra K. Pikle — Assistant Professor, CSE Department, IIIT Nagpur (PhD, IIT Bombay)*
