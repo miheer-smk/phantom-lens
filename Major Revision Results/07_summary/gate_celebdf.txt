@@ -1,0 +1,13 @@
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+[env] lightgbm=4.6.0
+CelebDF zero-shot (n=6121: real=798 fake=5323)
+  AUC          = 0.6143   (published 0.6989)   Δ=-0.0846
+  AvgPrecision = 0.9051   (published 0.9243)
+  macro-F1     = 0.5503   (published 0.6252)
+  real recall  = 0.3847   (published 0.4020)
+  fake recall  = 0.7781   (published 0.8745)
+  MCC          = 0.1278   (published 0.2537)
+
+[note] This number is CLEAN (zero-shot, no train=test leakage). It is the honest
+       cross-dataset generalization result and is NOT affected by the exp1 leak.

@@ -1,0 +1,13 @@
+invariant(physiology+geometry)=21  camera/codec=29
+
+=== CROSS-DATASET legitimate improvement experiments (CelebDF, published 0.6989) ===
+--- ZERO-SHOT preserving (no target data used) ---
+  baseline: all 50, StandardScaler                     AUC=0.6172  real_recall=0.353
+  all 50, QuantileTransform (robust norm)              AUC=0.6086  real_recall=0.437
+  physics-invariant subset (physiology+geometry)       AUC=0.5833  real_recall=0.523
+  physics-invariant + QuantileTransform                AUC=0.5753  real_recall=0.530
+  camera/codec features only (should be WORSE x-domain) AUC=0.6242  real_recall=0.135
+--- UNSUPERVISED DA (uses UNLABELED CelebDF features — must disclose, NOT zero-shot) ---
+  all 50 + CORAL alignment                             AUC=0.5777  real_recall=0.234
+  invariant subset + CORAL                             AUC=0.5415  real_recall=0.298
+  invariant + Quantile + CORAL                         AUC=0.5439  real_recall=0.337

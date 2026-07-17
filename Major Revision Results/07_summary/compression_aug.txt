@@ -1,0 +1,10 @@
+=== COMPRESSION AUGMENTATION (same FF++ videos, c23+c40) — CelebDF zero-shot ===
+--- baseline (c23 only) ---
+  c23 only: real23 + DF23+F2F+FS+NT                    AUC=0.6172 real_rec=0.353 fake_rec=0.785 (n_tr=4797)
+--- + compression augmentation (add c40 of available: real + Deepfakes) [PARTIAL] ---
+  + real40                                             AUC=0.5852 real_rec=0.742 fake_rec=0.362 (n_tr=5750)
+  + real40 + deepfakes40                               AUC=0.6052 real_rec=0.618 fake_rec=0.527 (n_tr=6700)
+
+[note] PARTIAL: only real & Deepfakes c40 ready. Full test needs F2F/FS/NT c40 (extracting).
+[note] This is legitimate same-domain augmentation (FF++ videos, 2 compressions);
+       CelebDF remains fully zero-shot. Teaches compression-invariance, no foreign domain.

@@ -1,0 +1,66 @@
+[env] lgbm=4.6.0 xgb=yes  seed=42
+
+======================================================================
+1. IN-DISTRIBUTION per-manipulation (clean 5-fold CV, video-level)
+======================================================================
+  Deepfakes       LogReg=0.971 RandomForest=0.975 ExtraTrees=0.975 HistGB=0.979 LGBM-orig=0.980 LGBM-tuned=0.980 LGBM-deep=0.981 XGBoost=0.981  -> BEST XGBoost 0.9814
+  Face2Face       LogReg=0.773 RandomForest=0.770 ExtraTrees=0.715 HistGB=0.787 LGBM-orig=0.780 LGBM-tuned=0.783 LGBM-deep=0.787 XGBoost=0.789  -> BEST XGBoost 0.7895
+  FaceSwap        LogReg=0.943 RandomForest=0.950 ExtraTrees=0.949 HistGB=0.958 LGBM-orig=0.957 LGBM-tuned=0.959 LGBM-deep=0.960 XGBoost=0.961  -> BEST XGBoost 0.9612
+  NeuralTextures  LogReg=0.762 RandomForest=0.692 ExtraTrees=0.617 HistGB=0.723 LGBM-orig=0.733 LGBM-tuned=0.714 LGBM-deep=0.717 XGBoost=0.722  -> BEST LogReg 0.7621
+
+======================================================================
+2. IN-DISTRIBUTION combined multi-manip (clean 5-fold CV)
+======================================================================
+  LogReg         CV AUC=0.7776
+  RandomForest   CV AUC=0.7422
+  ExtraTrees     CV AUC=0.6720
+  HistGB         CV AUC=0.7590
+  LGBM-orig      CV AUC=0.7650
+  LGBM-tuned     CV AUC=0.7561
+  LGBM-deep      CV AUC=0.7530
+  XGBoost        CV AUC=0.7622
+  -> BEST combined: LogReg 0.7776
+
+======================================================================
+3. CROSS-DATASET CelebDF (model selected by FF++ CV, applied once)
+======================================================================
+  Standard  LogReg         FF++CV=0.7776  CelebDF=0.5980
+  Standard  RandomForest   FF++CV=0.7422  CelebDF=0.6276
+  Standard  ExtraTrees     FF++CV=0.6720  CelebDF=0.6275
+  Standard  HistGB         FF++CV=0.7590  CelebDF=0.6224
+  Standard  LGBM-orig      FF++CV=0.7650  CelebDF=0.6172
+  Standard  LGBM-tuned     FF++CV=0.7561  CelebDF=0.6368
+  Standard  LGBM-deep      FF++CV=0.7530  CelebDF=0.6342
+  Standard  XGBoost        FF++CV=0.7622  CelebDF=0.6218
+  Quantile  LogReg         FF++CV=0.7788  CelebDF=0.6468
+  Quantile  RandomForest   FF++CV=0.7420  CelebDF=0.6278
+  Quantile  ExtraTrees     FF++CV=0.6705  CelebDF=0.6205
+  Quantile  HistGB         FF++CV=0.7596  CelebDF=0.6225
+  Quantile  LGBM-orig      FF++CV=0.7629  CelebDF=0.6086
+  Quantile  LGBM-tuned     FF++CV=0.7550  CelebDF=0.6363
+  Quantile  LGBM-deep      FF++CV=0.7527  CelebDF=0.6264
+  Quantile  XGBoost        FF++CV=0.7619  CelebDF=0.6198
+  Power     LogReg         FF++CV=0.7796  CelebDF=0.6505
+  Power     RandomForest   FF++CV=0.7421  CelebDF=0.6277
+  Power     ExtraTrees     FF++CV=0.6762  CelebDF=0.6260
+  Power     HistGB         FF++CV=0.7599  CelebDF=0.6193
+  Power     LGBM-orig      FF++CV=0.7647  CelebDF=0.6202
+  Power     LGBM-tuned     FF++CV=0.7553  CelebDF=0.6365
+  Power     LGBM-deep      FF++CV=0.7535  CelebDF=0.6335
+  Power     XGBoost        FF++CV=0.7624  CelebDF=0.6124
+
+  MODEL SELECTED BY FF++ CV: LogReg+Power (FF++CV=0.7796) -> CelebDF=0.6505
+  [for reference only, NOT selectable: best CelebDF seen = LogReg+Power 0.6505]
+
+======================================================================
+4. ENSEMBLE (soft-vote top-3 tree models) cross-dataset
+======================================================================
+  Ensemble FF++CV=0.7591  CelebDF=0.6359 real_rec=0.173
+
+=== SUMMARY (honest, lockable) ===
+  in-dist Deepfakes       best XGBoost      0.9814
+  in-dist Face2Face       best XGBoost      0.7895
+  in-dist FaceSwap        best XGBoost      0.9612
+  in-dist NeuralTextures  best LogReg       0.7621
+  in-dist combined      best LogReg       0.7776
+  cross-dataset (FF++CV-selected)          CelebDF 0.6505

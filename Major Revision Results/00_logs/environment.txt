@@ -1,0 +1,42 @@
+PRISM / Phantom Lens — Environment Details (Rule 9)
+===================================================
+Recorded: 2026-07-15T14:06:02Z UTC
+venv: /home/iiitn/Downloads/phantom-lens-main/.venv  (full pins in pip_freeze.txt)
+
+-- Hardware --
+CPU cores            : 20
+Architecture         : aarch64 (ARM64) — NVIDIA DGX Spark / GB10 SoC
+RAM (total)          : 121 GiB
+GPU                  : NVIDIA GB10 (Grace Blackwell)
+OS                   : Linux 6.17.0-1014-nvidia
+libc                 : glibc 2.39
+
+-- Software (INSTALLED & IMPORT-VERIFIED) --
+Python               : 3.12.3
+numpy                : 1.26.4   (pinned <2 for mediapipe/lightgbm/shap compatibility)
+scipy                : 1.15.3
+pandas               : 3.0.3
+scikit-learn         : 1.7.2
+lightgbm             : 4.6.0    (PRIMARY CLASSIFIER)
+shap                 : 0.49.1
+matplotlib           : 3.10.8
+seaborn              : 0.13.2
+statsmodels          : 0.14.6
+psutil               : 7.2.2
+opencv (cv2)         : 4.11.0   (via opencv-python-headless, numpy<2-compatible build)
+mediapipe            : 0.10.18
+torch/torchvision    : NOT installed (needed only for Exp 7 Xception; deferred to Phase 2)
+
+-- Reproducibility --
+RANDOM_SEED          : 42 (primary; config/training.py SEEDS=[42,123,777,999,2024])
+
+-- KNOWN VERSION DRIFT vs original pins (see open_ambiguities.md #A7) --
+mediapipe   : original requirements_gpu.txt pins 0.10.21; NO aarch64/py3.12 wheel exists
+              (max available = 0.10.18). Landmark outputs may differ slightly → possible
+              small drift in extracted features vs the published 0.9939 / 0.6867 numbers.
+opencv      : original requirements pin 4.13.0.92 (needs numpy>=2, which breaks mediapipe);
+              using 4.11.0 headless instead. Affects optical-flow / DCT ops minimally.
+IMPLICATION : Re-extracted CSVs must be sanity-checked against results/exp3/ablation_summary.csv
+              (All-50 AUC 0.9939) within tolerance before trusting downstream experiments.
+              If the original was extracted inside the nvcr.io pytorch:24.04 (py3.10) container,
+              reproducing there would restore mediapipe 0.10.21 exactly — flagged for Miheer.

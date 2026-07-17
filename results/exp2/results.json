@@ -1,0 +1,68 @@
+{
+  "available_compressions": [
+    "c23"
+  ],
+  "unavailable_compressions": [
+    "c0",
+    "c40"
+  ],
+  "reason_unavailable": "Folders not present in dataset installation. Only c23 (light compression) was downloaded.",
+  "experiments_run": [
+    "c23"
+  ],
+  "results": {
+    "c23": {
+      "label": "c23 (light compression)",
+      "classifiers": {
+        "LR": {
+          "cv_auc_mean": 0.9742513957828095,
+          "cv_auc_std": 0.003456629488817567,
+          "test_auc": 0.9747964559386972,
+          "f1": 0.9622139435870144,
+          "precision": 0.9804772234273319,
+          "recall": 0.9446185997910136,
+          "mcc": 0.7972429564521695,
+          "ci_lo": 0.9638975827271534,
+          "ci_hi": 0.9847387694501651
+        },
+        "RF": {
+          "cv_auc_mean": 0.9719285940749984,
+          "cv_auc_std": 0.006819420560248764,
+          "test_auc": 0.9901874346917451,
+          "f1": 0.9698253043938592,
+          "precision": 0.9828326180257511,
+          "recall": 0.9571577847439916,
+          "mcc": 0.8329001746238907,
+          "ci_lo": 0.9850375841776089,
+          "ci_hi": 0.9940780146193006
+        },
+        "LGBM": {
+          "cv_auc_mean": 0.9797463281679482,
+          "cv_auc_std": 0.005241729095702582,
+          "test_auc": 0.999466649251132,
+          "f1": 0.9942857142857143,
+          "precision": 0.9886363636363636,
+          "recall": 1.0,
+          "mcc": 0.9653992638470177,
+          "ci_lo": 0.9983889952692048,
+          "ci_hi": 1.0
+        }
+      },
+      "best_classifier": "LGBM",
+      "best_auc": 0.999466649251132
+    }
+  },
+  "summary": [
+    {
+      "Compression": "c23 (light compression)",
+      "Best Model": "LGBM",
+      "AUC": 0.9995,
+      "CI Lo": 0.9984,
+      "CI Hi": 1.0,
+      "F1": 0.9943,
+      "Precision": 0.9886,
+      "Recall": 1.0,
+      "MCC": 0.9654
+    }
+  ]
+}

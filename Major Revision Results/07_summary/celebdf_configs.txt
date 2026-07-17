@@ -1,0 +1,9 @@
+=== CelebDF zero-shot — LEGITIMATE config variants (published 0.6989) ===
+  A: real_train 80% + 4 manip (run_celebdf_eval) AUC=0.6143  AP=0.9051  (n_real_train=768)
+  B: ALL reals (960) + 4 manip               AUC=0.6172  AP=0.9052  (n_real_train=960)
+  --- split-seed sensitivity (report all, NOT cherry-picked) ---
+     seed=0                                  AUC=0.6329  AP=0.9136  (n_real_train=768)
+     seed=1                                  AUC=0.5965  AP=0.8994  (n_real_train=768)
+     seed=42                                 AUC=0.6143  AP=0.9051  (n_real_train=768)
+     seed=123                                AUC=0.6145  AP=0.9062  (n_real_train=768)
+     seed=777                                AUC=0.6184  AP=0.9067  (n_real_train=768)

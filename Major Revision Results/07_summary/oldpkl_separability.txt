@@ -1,0 +1,9 @@
+OLD v3 pkl: 266224 frame-samples x 30 feats (30-feat iteration, NOT the 50-feat final)
+generator types: {'celebdf_synthesis': 90224, 'deepfakes': 16000, 'face2face': 16000, 'faceshifter': 16000, 'faceswap': 16000, 'neuraltextures': 16000, 'real': 80000, 'real_youtube': 16000}
+
+real(ffpp) samples: 16000
+=== real-vs-manip separability in OLD 30-feat pipeline (frame-level, 5-fold CV) ===
+  real vs deepfakes      = 0.9948  (my NEW 50-feat: DF .98/F2F .78/FS .96/NT .73)
+  real vs face2face      = 0.9984  (my NEW 50-feat: DF .98/F2F .78/FS .96/NT .73)
+  real vs faceswap       = 0.9972  (my NEW 50-feat: DF .98/F2F .78/FS .96/NT .73)
+  real vs neuraltextures = 0.9967  (my NEW 50-feat: DF .98/F2F .78/FS .96/NT .73)

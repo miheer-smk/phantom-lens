@@ -1,0 +1,22 @@
+[env] lightgbm=4.6.0 sklearn=1.7.2 numpy=1.26.4
+[seed] 42 everywhere
+
+[train] 4605 samples (real=768, fake=3837), feats=50
+[reals] official train=768 test=192
+
+manip                 AUC   target        Δ       F1     MCC
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+Deepfakes          0.9352   0.9709  -0.0357   0.7498  0.5740  !!
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+Face2Face          0.8045   0.8818  -0.0773   0.7045  0.4299  !!
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+FaceSwap           0.8714   0.9999  -0.1285   0.7302  0.5056  !!
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+NeuralTextures     0.7219   0.9991  -0.2772   0.6594  0.3207  !!
+
+[interpretation] |Δ|<0.01 OK · <0.03 close · else investigate.
+[note] exp3 All-50 0.9939 needs FaceShifter (train)+NeuralTextures(test) — not gated here.

@@ -1,0 +1,14 @@
+[env] lightgbm=4.6.0 sklearn=1.7.2 numpy=1.26.4
+[seed] 42 everywhere
+
+[train] 4530 samples (real=693, fake=3837), feats=50
+[reals] official train=693 test=134
+
+manip                 AUC   target        Δ       F1     MCC
+Deepfakes          0.9374   0.9709  -0.0335   0.7684  0.5897  !!
+Face2Face          0.8031   0.8818  -0.0787   0.7209  0.4525  !!
+FaceSwap           0.8729   0.9999  -0.1270   0.7472  0.5230  !!
+NeuralTextures     0.7205   0.9991  -0.2786   0.6483  0.2987  !!
+
+[interpretation] |Δ|<0.01 OK · <0.03 close · else investigate.
+[note] exp3 All-50 0.9939 needs FaceShifter (train)+NeuralTextures(test) — not gated here.

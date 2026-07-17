@@ -1,0 +1,52 @@
+=== per-file feature health ===
+  real           n= 960 NaN= 0.00% inf= 0.00% zero= 0.50% allzero_rows=0.0%
+  Deepfakes      n= 956 NaN= 0.00% inf= 0.00% zero= 1.38% allzero_rows=0.0%
+  Face2Face      n= 960 NaN= 0.00% inf= 0.00% zero= 0.66% allzero_rows=0.0%
+  FaceSwap       n= 960 NaN= 0.00% inf= 0.00% zero= 0.66% allzero_rows=0.0%
+  NeuralTextures n= 961 NaN= 0.00% inf= 0.00% zero= 0.34% allzero_rows=0.0%
+
+=== per-manip real-vs-fake 10-fold CV AUC (LightGBM) ===
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+  real vs Deepfakes      CV AUC = 0.9800
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+  real vs Face2Face      CV AUC = 0.7800
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+  real vs FaceSwap       CV AUC = 0.9572
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/home/iiitn/Downloads/phantom-lens-main/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+  real vs NeuralTextures CV AUC = 0.7333
