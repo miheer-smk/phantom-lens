@@ -1,0 +1,57 @@
+# LOCKED_NUMBERS.md — PRISM honest leakage-free baseline
+
+**Single source of truth.** Every number destined for the manuscript lives here with full
+provenance. Nothing enters the paper that is not in this file, regenerable from a committed script.
+
+## Provenance (baseline block)
+- **script:** `Major Revision Results/00_logs/baseline_clean.py`
+- **git commit:** `e8f5b7c` (baseline protocol) — rerun regenerates identical numbers
+- **seed:** 42 (splits, model, bootstrap)
+- **date:** 2026-07-17
+- **classifier:** LightGBM (n_estimators=200, max_depth=6, lr=0.05, num_leaves=31,
+  min_child_samples=20, class_weight=balanced) — PRISM's documented classifier; **no test-set
+  model selection**
+- **protocol:** identity-disjoint official FF++ 720/140/140 (`splits/ffpp_official_split.json`);
+  overlap assertion enforced (`src/protocol.py`), `identity_overlap=0` on all 9 evaluations
+  (`results_clean/protocol_matrix.csv`)
+- **n_features:** 50
+- **feature CSV SHA-256 (16-char):** original_c23 `fd7c0ac90c046e33` · deepfakes_c23
+  `730f064e3a414466` · face2face_c23 `e8c58381b1c14418` · faceswap_c23 `20be0632cf726e23` ·
+  neuraltextures_c23 `e569316d209cb5c7` · celebdf `d1be8a4a75515174`
+- **CI:** bootstrap 95% (2000 resamples, seed 42)
+
+## Regime 1 — In-distribution, per manipulation (identity-disjoint)
+| Manipulation | AUC | 95% CI | F1 | Prec | Recall | MCC | n_train | n_test |
+|---|---|---|---|---|---|---|---|---|
+| Deepfakes | **0.971** | [0.954, 0.985] | 0.899 | 0.921 | 0.872 | 0.799 | 1383 | 267 |
+| FaceSwap | **0.963** | [0.942, 0.980] | 0.892 | 0.853 | 0.948 | 0.789 | 1385 | 269 |
+| Face2Face | **0.810** | [0.758, 0.858] | 0.754 | 0.758 | 0.746 | 0.508 | 1386 | 268 |
+| NeuralTextures | **0.787** | [0.731, 0.837] | 0.699 | 0.690 | 0.726 | 0.398 | 1386 | 269 |
+
+## Regime 2 — Cross-manipulation, leave-one-manipulation-out (honest generalization)
+| Held-out manip | AUC | 95% CI | F1 | MCC | n_train | n_test |
+|---|---|---|---|---|---|---|
+| Deepfakes | 0.704 | [0.644, 0.765] | 0.616 | 0.253 | 2771 | 267 |
+| Face2Face | 0.690 | [0.624, 0.755] | 0.631 | 0.273 | 2768 | 268 |
+| FaceSwap | 0.598 | [0.531, 0.666] | 0.553 | 0.109 | 2769 | 269 |
+| NeuralTextures | 0.522 | [0.455, 0.592] | 0.521 | 0.058 | 2768 | 269 |
+
+## Regime 3 — Zero-shot cross-dataset, Celeb-DF v2 (never seen in training)
+| Train → Test | AUC | 95% CI | F1(macro) | real-rec | fake-rec | MCC | n_train | n_test |
+|---|---|---|---|---|---|---|---|---|
+| FF++ → Celeb-DF v2 | **0.632** | [0.613, 0.654] | 0.557 | — | 0.781 | 0.140 | 3461 | 6121 (798R/5323F) |
+
+## Headline summary (honest, lockable)
+- **In-distribution:** strong on structural manipulations (Deepfakes 0.97, FaceSwap 0.96),
+  moderate on subtle ones (Face2Face 0.81, NeuralTextures 0.79).
+- **Cross-manipulation generalization:** degrades to 0.52–0.70 — honest, expected, informative.
+- **Zero-shot Celeb-DF v2:** 0.63 (above chance, physics-only, no deep learning).
+
+## Retired (leaky — never reported)
+FaceSwap 0.9999, NeuralTextures 0.9991, combined "0.9939", Celeb-DF 0.6989. Leakage artifacts /
+unreproducible; permanently retired (see `07_summary/repro_gap_report.md`, `PROTOCOL.md`).
+
+## Notes toward Track C targets
+Regime 1 F2F/NT (0.81/0.79) and Regime 2 (esp. FaceSwap 0.60, NeuralTextures 0.52) are the
+improvement targets. Any Track C gain must be shown on the **validation** split first, then
+confirmed once on **test**, never tuned on test or Celeb-DF.

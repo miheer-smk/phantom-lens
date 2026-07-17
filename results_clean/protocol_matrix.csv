@@ -1,0 +1,10 @@
+regime,manip,n_train,n_test,n_test_real,n_test_fake,identity_overlap
+in_dist,Deepfakes,1383,267,134,133,0
+in_dist,Face2Face,1386,268,134,134,0
+in_dist,FaceSwap,1385,269,134,135,0
+in_dist,NeuralTextures,1386,269,134,135,0
+cross_manip_LOMO,Deepfakes,2771,267,134,133,0
+cross_manip_LOMO,Face2Face,2768,268,134,134,0
+cross_manip_LOMO,FaceSwap,2769,269,134,135,0
+cross_manip_LOMO,NeuralTextures,2768,269,134,135,0
+zero_shot,CelebDF_v2,3461,6121,798,5323,0
