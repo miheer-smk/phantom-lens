@@ -99,3 +99,26 @@ G1 HELPS ALL 4 manipulations (never hurts) -> consistent 53-D set justified, no 
 
 NOTE: the pillar-ablation "full-50 (ref)" rows use the 50-D PRE-G1 baseline (correct for ablation).
 The 53-D numbers above are the extended-set in-distribution results. Keep the two clearly distinct.
+
+---
+
+## XCEPTION BASELINE (fair DL comparison, R5.2/R3.4) — identity-disjoint, same protocol as PRISM
+Script `xception_train.py` · commit 1337bc8 · seed 42 · legacy_xception (ImageNet-pretrained,
+20.8M params, 83MB) · GPU NVIDIA GB10 · video-level mean aggregation · CelebDF zero-shot (complete: 875 real/5612 fake).
+
+| Metric | Xception (DL) | PRISM 53-D (physics) |
+|---|---|---|
+| FF++ Deepfakes | 0.994 | 0.978 |
+| FF++ Face2Face | 0.994 | 0.875 |
+| FF++ FaceSwap | 0.994 | 0.969 |
+| FF++ NeuralTextures | 0.977 | 0.905 |
+| FF++ test overall | 0.990 | (mean per-manip 0.932) |
+| **CelebDF zero-shot AUC** | **0.821** (real-rec 0.817, fake-rec 0.689) | **0.632** (real-rec low, fake-rec 0.78) |
+| Hardware | GPU (GB10), 83 MB | CPU-only, ~KB model |
+| Explainable | No (black box) | Yes (physics + SHAP) |
+
+HONEST FINDING: Xception OUTPERFORMS PRISM on BOTH in-distribution (0.99 vs 0.88-0.98) AND
+cross-dataset (0.821 vs 0.632). PRISM does NOT beat a standard deep baseline on accuracy.
+=> The paper's contribution must be positioned on INTERPRETABILITY + CPU EFFICIENCY, not
+accuracy/generalization superiority. Also note: Xception's cross-dataset failure mode differs
+(real-rec HIGH 0.817) — the real-class-mismatch is PRISM-specific, not universal.
