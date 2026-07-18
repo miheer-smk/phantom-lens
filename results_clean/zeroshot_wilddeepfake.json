@@ -1,0 +1,26 @@
+{
+ "dataset": "WildDeepfake_test",
+ "n": 124,
+ "n_real": 55,
+ "n_fake": 69,
+ "auc": 0.5212,
+ "auc_ci95": [
+  0.4139,
+  0.6297
+ ],
+ "ap": 0.5921,
+ "real_recall": 0.1091,
+ "fake_recall": 0.913,
+ "macro_f1": 0.4376,
+ "mcc": 0.0372,
+ "zero_feature_fraction": 0.183,
+ "provenance": {
+  "script": "eval_wdf.py",
+  "git_commit": "98d5d27",
+  "seed": 42,
+  "date": "2026-07-18",
+  "train": "FF++ 53-D (train identities, real+4manip+G1)",
+  "test": "WildDeepfake test (zero-shot, no tuning)",
+  "wdf_csv_sha256": "3ccac31969fdc71b"
+ }
+}
