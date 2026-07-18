@@ -12,5 +12,5 @@
 | 9 | rPPG POS/CHROM | R1 | ⬜ Phase 2 |
 | 10 | Case-level SHAP | R4,R5.6 | ⬜ Phase 1 (next) |
 | 11 | Statistical tests | R3.13 | ◑ core done, wrap-up pending |
-| 12 | Feature redundancy | R3.12 | ⬜ Phase 1 (after 10) |
+| 12 | Feature redundancy | R3.12 | ✅ done (92a4235) |
 | — | Zenodo package | editor | ⬜ Phase 3 |
