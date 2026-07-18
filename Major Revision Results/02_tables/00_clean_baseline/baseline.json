@@ -1,0 +1,171 @@
+{
+ "provenance": {
+  "script": "Major Revision Results/00_logs/baseline_clean.py",
+  "git_commit": "e8f5b7c",
+  "seed": 42,
+  "date": "2026-07-17",
+  "classifier": "LightGBM(n_est=200,depth=6,lr=0.05,leaves=31,min_child=20,balanced)",
+  "feature_csv_sha256": {
+   "ffpp_original_c23.csv": "fd7c0ac90c046e33",
+   "ffpp_deepfakes_c23.csv": "730f064e3a414466",
+   "ffpp_face2face_c23.csv": "e8c58381b1c14418",
+   "ffpp_faceswap_c23.csv": "20be0632cf726e23",
+   "ffpp_neuraltextures_c23.csv": "e569316d209cb5c7",
+   "celebdf_features.csv": "d1be8a4a75515174"
+  },
+  "n_features": 50,
+  "protocol": "identity-disjoint official FF++ 720/140/140, seed42"
+ },
+ "results": {
+  "regime1_in_distribution": {
+   "Deepfakes": {
+    "auc": 0.9706,
+    "ci95": [
+     0.9539,
+     0.9845
+    ],
+    "f1": 0.8988,
+    "precision": 0.9206,
+    "recall": 0.8722,
+    "mcc": 0.7988,
+    "n_test": 267,
+    "n_test_real": 134,
+    "n_test_fake": 133,
+    "n_train": 1383,
+    "tag": "indist_Deepfakes"
+   },
+   "Face2Face": {
+    "auc": 0.8096,
+    "ci95": [
+     0.7576,
+     0.858
+    ],
+    "f1": 0.7537,
+    "precision": 0.7576,
+    "recall": 0.7463,
+    "mcc": 0.5075,
+    "n_test": 268,
+    "n_test_real": 134,
+    "n_test_fake": 134,
+    "n_train": 1386,
+    "tag": "indist_Face2Face"
+   },
+   "FaceSwap": {
+    "auc": 0.9631,
+    "ci95": [
+     0.9416,
+     0.9799
+    ],
+    "f1": 0.8918,
+    "precision": 0.8533,
+    "recall": 0.9481,
+    "mcc": 0.7892,
+    "n_test": 269,
+    "n_test_real": 134,
+    "n_test_fake": 135,
+    "n_train": 1385,
+    "tag": "indist_FaceSwap"
+   },
+   "NeuralTextures": {
+    "auc": 0.7867,
+    "ci95": [
+     0.7306,
+     0.8372
+    ],
+    "f1": 0.6986,
+    "precision": 0.6901,
+    "recall": 0.7259,
+    "mcc": 0.3982,
+    "n_test": 269,
+    "n_test_real": 134,
+    "n_test_fake": 135,
+    "n_train": 1386,
+    "tag": "indist_NeuralTextures"
+   }
+  },
+  "regime2_cross_manip_LOMO": {
+   "Deepfakes": {
+    "auc": 0.7039,
+    "ci95": [
+     0.644,
+     0.7653
+    ],
+    "f1": 0.6155,
+    "precision": 0.5952,
+    "recall": 0.7519,
+    "mcc": 0.253,
+    "n_test": 267,
+    "n_test_real": 134,
+    "n_test_fake": 133,
+    "n_train": 2771,
+    "tag": "LOMO_Deepfakes"
+   },
+   "Face2Face": {
+    "auc": 0.6904,
+    "ci95": [
+     0.6243,
+     0.7545
+    ],
+    "f1": 0.6314,
+    "precision": 0.6139,
+    "recall": 0.7239,
+    "mcc": 0.2731,
+    "n_test": 268,
+    "n_test_real": 134,
+    "n_test_fake": 134,
+    "n_train": 2768,
+    "tag": "LOMO_Face2Face"
+   },
+   "FaceSwap": {
+    "auc": 0.5978,
+    "ci95": [
+     0.531,
+     0.6659
+    ],
+    "f1": 0.5532,
+    "precision": 0.561,
+    "recall": 0.5111,
+    "mcc": 0.1085,
+    "n_test": 269,
+    "n_test_real": 134,
+    "n_test_fake": 135,
+    "n_train": 2769,
+    "tag": "LOMO_FaceSwap"
+   },
+   "NeuralTextures": {
+    "auc": 0.5221,
+    "ci95": [
+     0.4554,
+     0.5919
+    ],
+    "f1": 0.5211,
+    "precision": 0.5392,
+    "recall": 0.4074,
+    "mcc": 0.0584,
+    "n_test": 269,
+    "n_test_real": 134,
+    "n_test_fake": 135,
+    "n_train": 2768,
+    "tag": "LOMO_NeuralTextures"
+   }
+  },
+  "regime3_zero_shot_celebdf": {
+   "CelebDF_v2": {
+    "auc": 0.6322,
+    "ci95": [
+     0.6125,
+     0.6537
+    ],
+    "f1": 0.5565,
+    "precision": 0.8963,
+    "recall": 0.7813,
+    "mcc": 0.1404,
+    "n_test": 6121,
+    "n_test_real": 798,
+    "n_test_fake": 5323,
+    "n_train": 3461,
+    "tag": "zeroshot_celebdf"
+   }
+  }
+ }
+}

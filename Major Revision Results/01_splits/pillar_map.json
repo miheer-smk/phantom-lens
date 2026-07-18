@@ -1,0 +1,92 @@
+{
+ "P1_noise": [
+  "s_noise_vmr",
+  "s_noise_res_std",
+  "s_noise_hf_ratio"
+ ],
+ "P2_prnu": [
+  "s_prnu_energy",
+  "s_prnu_face_periph"
+ ],
+ "P4_shadow": [
+  "s_shadow_score",
+  "s_face_bg_diff"
+ ],
+ "P6_compression": [
+  "s_benford_dev",
+  "s_block_artifact",
+  "s_dbl_compress"
+ ],
+ "P8_blur": [
+  "s_blur_mag"
+ ],
+ "P9_flow": [
+  "s_flow_mag",
+  "s_flow_dir_consist"
+ ],
+ "T1_temporal_noise": [
+  "t_noise_temporal_corr",
+  "t_noise_corr_std",
+  "t_noise_spectral_entropy"
+ ],
+ "T2_rppg": [
+  "t_rppg_snr",
+  "t_rppg_peak_prominence",
+  "t_rppg_interregion_corr",
+  "t_rppg_harmonic_ratio"
+ ],
+ "T3_temporal_prnu": [
+  "t_prnu_temporal_stability",
+  "t_prnu_face_vs_bg"
+ ],
+ "T4_face_ssim": [
+  "t_face_ssim_mean",
+  "t_face_ssim_std",
+  "t_face_ssim_min"
+ ],
+ "T5_codec_residual": [
+  "t_residual_flow_corr",
+  "t_residual_entropy"
+ ],
+ "T6_landmark_traj": [
+  "t_landmark_jitter",
+  "t_landmark_accel_var",
+  "t_landmark_velocity_autocorr",
+  "t_jaw_chin_rigidity"
+ ],
+ "T7_rigid_geometry": [
+  "t_rigid_dist_var",
+  "t_interpupillary_std",
+  "t_nose_bridge_std"
+ ],
+ "T8_face_bg_edge": [
+  "t_boundary_grad_temporal",
+  "t_boundary_color_disc",
+  "t_boundary_freq_leakage"
+ ],
+ "T9_skin_texture": [
+  "t_skin_texture_corr",
+  "t_texture_warp_residual"
+ ],
+ "T10_color_transfer": [
+  "t_skin_color_jitter",
+  "t_skin_bg_decorrelation"
+ ],
+ "T11_specular": [
+  "t_specular_stability",
+  "t_specular_symmetry"
+ ],
+ "T12_blink": [
+  "t_blink_rate",
+  "t_blink_duration",
+  "t_blink_symmetry"
+ ],
+ "T13_motion_blur_coupling": [
+  "t_motion_blur_coupling",
+  "t_coupling_consistency"
+ ],
+ "T14_dct_temporal": [
+  "t_dct_temporal_std",
+  "t_dct_temporal_autocorr"
+ ]
+}

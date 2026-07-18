@@ -1,0 +1,101 @@
+{
+ "provenance": {
+  "script": "Major Revision Results/00_logs/track_c_measure.py",
+  "git_commit": "e2a5cb9",
+  "seed": 42,
+  "date": "2026-07-18",
+  "protocol": "fit train / eval val (identity-disjoint); test+CelebDF untouched",
+  "roi_csv_sha256": {
+   "roi_original_c23.csv": "79d68500fb2311dc",
+   "roi_face2face_c23.csv": "2017899f4b8c1e79",
+   "roi_neuraltextures_c23.csv": "4bf35cbdda1d9f7f"
+  },
+  "note": "original 50-D locked & unmodified; ROI additive only"
+ },
+ "results": {
+  "Face2Face": {
+   "baseline_50_valAUC": 0.8077,
+   "groups": {
+    "G1_mouth_instability": {
+     "valAUC": 0.8517,
+     "delta": 0.044,
+     "features": [
+      "roi_mouth_dct_midband_std",
+      "roi_mouth_hf_residual_energy",
+      "roi_mouth_texture_flicker"
+     ]
+    },
+    "G2_inner_outer_seam": {
+     "valAUC": 0.8128,
+     "delta": 0.0051,
+     "features": [
+      "roi_seam_gradient_disc",
+      "roi_seam_texture_mismatch",
+      "roi_seam_color_mismatch"
+     ]
+    },
+    "G3_motion_tex_coupling": {
+     "valAUC": 0.8213,
+     "delta": 0.0136,
+     "features": [
+      "roi_mouth_motion_texture_corr",
+      "roi_mouth_motion_texture_lag"
+     ]
+    }
+   },
+   "all_roi_valAUC": 0.8534,
+   "cohens_d": {
+    "roi_mouth_dct_midband_std": -0.498,
+    "roi_mouth_hf_residual_energy": -0.437,
+    "roi_mouth_texture_flicker": -0.764,
+    "roi_seam_gradient_disc": -0.302,
+    "roi_seam_texture_mismatch": 0.108,
+    "roi_seam_color_mismatch": 0.005,
+    "roi_mouth_motion_texture_corr": -0.423,
+    "roi_mouth_motion_texture_lag": -0.089
+   }
+  },
+  "NeuralTextures": {
+   "baseline_50_valAUC": 0.7754,
+   "groups": {
+    "G1_mouth_instability": {
+     "valAUC": 0.8805,
+     "delta": 0.1051,
+     "features": [
+      "roi_mouth_dct_midband_std",
+      "roi_mouth_hf_residual_energy",
+      "roi_mouth_texture_flicker"
+     ]
+    },
+    "G2_inner_outer_seam": {
+     "valAUC": 0.7783,
+     "delta": 0.0029,
+     "features": [
+      "roi_seam_gradient_disc",
+      "roi_seam_texture_mismatch",
+      "roi_seam_color_mismatch"
+     ]
+    },
+    "G3_motion_tex_coupling": {
+     "valAUC": 0.782,
+     "delta": 0.0066,
+     "features": [
+      "roi_mouth_motion_texture_corr",
+      "roi_mouth_motion_texture_lag"
+     ]
+    }
+   },
+   "all_roi_valAUC": 0.879,
+   "cohens_d": {
+    "roi_mouth_dct_midband_std": -0.989,
+    "roi_mouth_hf_residual_energy": -0.565,
+    "roi_mouth_texture_flicker": -1.367,
+    "roi_seam_gradient_disc": -0.155,
+    "roi_seam_texture_mismatch": 0.022,
+    "roi_seam_color_mismatch": 0.002,
+    "roi_mouth_motion_texture_corr": -0.111,
+    "roi_mouth_motion_texture_lag": -0.029
+   }
+  }
+ }
+}
