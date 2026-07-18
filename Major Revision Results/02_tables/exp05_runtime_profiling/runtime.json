@@ -1,0 +1,84 @@
+{
+  "provenance": {
+    "script": "exp5_runtime.py",
+    "git_commit": "d6ec61f",
+    "seed": 42,
+    "date": "2026-07-18",
+    "note": "single-threaded per video (workers=1); extraction stages reused across configs; classifier inference measured per config"
+  },
+  "hardware": {
+    "cpu": "ARM Cortex-X925 (NVIDIA GB10 SoC)",
+    "cores": 20,
+    "arch": "aarch64",
+    "ram_gb": 121,
+    "gpu": "NVIDIA GB10",
+    "os": "Linux 6.17.0"
+  },
+  "software": {
+    "python": "3.12.3",
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "lightgbm": "4.6.0",
+    "opencv": "4.11.0",
+    "mediapipe": "0.10.18",
+    "torch": "2.11.0+cu128",
+    "timm": "1.0.28"
+  },
+  "n_videos": 95,
+  "aggregate": {
+    "mean_total_extract_s": 50.174,
+    "mean_rtf": 3.344,
+    "mean_peak_ram_mb": 3373.1,
+    "stage_means_s": {
+      "frame_load_s": 1.094,
+      "mediapipe_s": 2.297,
+      "optical_flow_s": 1.315,
+      "rppg_s": 3.997,
+      "other_s": 41.47
+    }
+  },
+  "configs": [
+    {
+      "config": "top-3",
+      "n_features": 3,
+      "extract_time_s": 50.174,
+      "classifier_inference_ms": 0.201,
+      "model_size_kb": 501.9,
+      "rtf": 3.344,
+      "peak_ram_mb": 3373.1
+    },
+    {
+      "config": "top-10",
+      "n_features": 10,
+      "extract_time_s": 50.174,
+      "classifier_inference_ms": 0.18,
+      "model_size_kb": 585.0,
+      "rtf": 3.344,
+      "peak_ram_mb": 3373.1
+    },
+    {
+      "config": "top-20",
+      "n_features": 20,
+      "extract_time_s": 50.174,
+      "classifier_inference_ms": 0.18,
+      "model_size_kb": 590.1,
+      "rtf": 3.344,
+      "peak_ram_mb": 3373.1
+    },
+    {
+      "config": "all-50",
+      "n_features": 50,
+      "extract_time_s": 50.174,
+      "classifier_inference_ms": 0.21,
+      "model_size_kb": 611.2,
+      "rtf": 3.344,
+      "peak_ram_mb": 3373.1
+    }
+  ],
+  "xception_inference": {
+    "device": "cuda",
+    "per_video_8frame_ms": 68.15,
+    "model_size_mb": 83.2
+  }
+}

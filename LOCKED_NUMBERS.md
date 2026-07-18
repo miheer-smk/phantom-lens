@@ -209,3 +209,32 @@ Deepfakes least). Cross-compression (train c23→test c40) drops further for F2F
 mismatch). The pillars that lose most under c40 are the high-frequency/sensor ones (noise, motion-
 blur coupling, rPPG, skin texture) — physically expected, as c40 quantises exactly those bands.
 Extends the paper's DeepFakes-only compression analysis to all four manipulations.
+
+---
+
+## EXP-5 RUNTIME / MEMORY / COMPLEXITY (R2.2, R2.3, R3.6) — n=95 videos, CPU single-thread
+Script `exp5_runtime.py` · commit d6ec61f · seed 42 · single-threaded per video (workers=1) for clean timing.
+HARDWARE: ARM Cortex-X925 (NVIDIA GB10 SoC), 20 cores, aarch64, 121 GB RAM, GPU NVIDIA GB10, Linux 6.17.0.
+SOFTWARE: python 3.12.3, numpy 1.26.4, scipy 1.15.3, sklearn 1.7.2, lightgbm 4.6.0, opencv 4.11.0,
+mediapipe 0.10.18, torch 2.11.0+cu128, timm 1.0.28.
+
+Aggregate (max_frames=300): mean total extraction **50.2 s/video**, **RTF 3.34** (slower than real-time,
+single CPU thread), peak RAM **3.37 GB**.
+Per-stage means (s): frame_load 1.09 · MediaPipe 2.30 · optical-flow 1.32 · rPPG 4.00 · **other(temporal) 41.5**.
+
+| config | n feat | extract_s | classifier_inf_ms | model_KB | RTF |
+|---|---|---|---|---|---|
+| top-3 | 3 | 50.2 | 0.20 | 502 | 3.34 |
+| top-10 | 10 | 50.2 | 0.18 | 585 | 3.34 |
+| top-20 | 20 | 50.2 | 0.18 | 590 | 3.34 |
+| all-50 | 50 | 50.2 | 0.21 | 611 | 3.34 |
+
+Xception inference (GPU GB10): 68.2 ms / 8-frame video; model 83.2 MB.
+
+FINDINGS: (1) classifier inference is negligible (0.2 ms) and model is tiny (~0.5-0.6 MB) at any feature
+count. (2) Extraction time does NOT drop with feature-count reduction — the top-ranked features are ALL
+temporal (t_*), so top-3/top-10 still require the expensive temporal stages (extraction is stage-shared,
+not per-feature). (3) Bottleneck is temporal feature computation (~83% of time), not MediaPipe/rPPG.
+(4) PRISM: CPU-only, tiny model, but RTF 3.34 (not real-time single-thread). Xception: 68 ms on GPU,
+83 MB. Honest tradeoff: PRISM = no GPU + tiny model; Xception = fast but needs GPU + 130x larger model.
+This is the hardware/timing detail the manuscript omitted (R2/R3.6).
