@@ -3,7 +3,7 @@
 |---|---|---|---|
 | 1 | Group ablation (2-view) | R1,R3,R5 | ✅ done |
 | 2 | SHAP stability (+NT correction) | R5 | ✅ done |
-| 3 | Compression all 4 manips | R5.4 | ⬜ Phase 2 |
+| 3 | Compression all 4 manips | R5.4 | ✅ done |
 | 4 | Threshold calibration | R1,R5.3 | ✅ done (81c6067) |
 | 5 | Runtime/memory profiling | R2,R3.6 | ⬜ Phase 2 |
 | 6 | Extra dataset (WildDF ✅ / DFDC 🔴) | R3.7,R5.1 | ◑ partial |
