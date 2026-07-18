@@ -55,3 +55,29 @@ unreproducible; permanently retired (see `07_summary/repro_gap_report.md`, `PROT
 Regime 1 F2F/NT (0.81/0.79) and Regime 2 (esp. FaceSwap 0.60, NeuralTextures 0.52) are the
 improvement targets. Any Track C gain must be shown on the **validation** split first, then
 confirmed once on **test**, never tuned on test or Celeb-DF.
+
+---
+
+## TRACK C — Region-localized ROI features (extended set; original 50 unchanged)
+Script `track_c_measure.py` + `track_c_test_confirm.json` · commit `e2a5cb9`+ · seed 42 ·
+fit=train ids, decision on val, confirmed ONCE on test · ROI features max_frames=150.
+ROI CSV sha256: roi_original `see track_c.json` / roi_face2face / roi_neuraltextures.
+
+**DECISION (on val + Cohen's d):** KEEP G1 (mouth-instability, 3 feats:
+roi_mouth_dct_midband_std, roi_mouth_hf_residual_energy, roi_mouth_texture_flicker).
+DROP G2 (inner/outer seam) and G3 (motion-texture coupling) — negligible Δ, negligible d.
+
+**Val incremental Δ:** F2F +G1 +0.044 / +ALL +0.046 · NT +G1 +0.105 / +ALL +0.104.
+**Cohen's d (val):** roi_mouth_texture_flicker F2F −0.76 / NT −1.37; roi_mouth_dct_midband_std NT −0.99.
+
+**TEST-CONFIRMED (one-time, identity-disjoint, bootstrap 95% CI):**
+| Manip | 50-D | 50+G1 | Δ |
+|---|---|---|---|
+| Face2Face | 0.810 [0.758,0.858] | **0.875 [0.833,0.914]** | +0.065 |
+| NeuralTextures | 0.787 [0.731,0.837] | **0.905 [0.866,0.940]** | +0.118 |
+
+Original 50-D baseline (Regime 1) UNCHANGED and remains the locked reference. G1 is an
+additive extended set. DF/FS with G1 pending (ROI extraction) to complete the 53-D table.
+
+## c40 EXTRACTION COMPLETE (all 5 sets, for Track D compression + reviewer Exp 3)
+ffpp_{original,deepfakes,face2face,faceswap,neuraltextures}_c40.csv — 950–959 rows each.
