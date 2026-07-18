@@ -23,15 +23,12 @@ def sha(p):
 def commit():
     try: return subprocess.check_output(["git","rev-parse","--short","HEAD"],text=True).strip()
     except: return "nogit"
-G1=RC.CANDIDATE_GROUPS["G1_mouth_instability"]
 MAN=["deepfakes","face2face","faceswap","neuraltextures"]
-def with_g1(name):
+def load50(name):
     o=pd.read_csv(f"{F}/ffpp_{name}_c23.csv") if name!="real" else pd.read_csv(f"{F}/ffpp_original_c23.csv")
-    r=pd.read_csv(f"{F}/roi_{'original' if name=='real' else name}_c23.csv")
-    o["_b"]=o.video_path.map(base); r["_b"]=r.video_path.map(base)
-    return make_splits(o.merge(r[["_b"]+G1],on="_b",how="inner"))
-real=with_g1("real"); MANd={m:with_g1(m) for m in MAN}
-FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")]); COLS=FC+G1
+    return make_splits(o)
+real=load50("real"); MANd={m:load50(m) for m in MAN}
+FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")]); COLS=FC  # 50-D (matches locked CelebDF 0.632; G1 not extracted for CelebDF)
 def clean(df):
     d=df.copy()
     for c in COLS: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
