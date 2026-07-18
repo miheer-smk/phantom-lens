@@ -1,0 +1,16 @@
+=== EXP-3 COMPRESSION (50-D, identity-disjoint) ===
+manip            c23_AUC  c40_AUC    ΔAUC  c23_MCC  c40_MCC  c23→c40
+deepfakes         0.9752   0.9437 -0.0315   0.7903   0.6973   0.9242
+face2face         0.8255   0.7574 -0.0681   0.5299   0.3420   0.6727
+faceswap          0.9689   0.8507 -0.1182   0.8248   0.5275   0.6943
+neuraltextures    0.8039   0.7343 -0.0696   0.5026   0.4009   0.6910
+
+=== feature-group degradation under c40 (pillar-only AUC, avg over 4 manips) ===
+  P1_noise               c23=0.729 c40=0.632 drop=+0.0970
+  T13_motion_blur_coupling c23=0.651 c40=0.561 drop=+0.0900
+  T2_rppg                c23=0.569 c40=0.499 drop=+0.0700
+  T9_skin_texture        c23=0.619 c40=0.557 drop=+0.0619
+  T5_codec_residual      c23=0.605 c40=0.546 drop=+0.0586
+  T12_blink              c23=0.629 c40=0.571 drop=+0.0577
+
+saved results_clean/compression_all_manips.csv, compression_group_degradation.csv, compression.json (commit 830a780)
