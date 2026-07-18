@@ -1,0 +1,16 @@
+method,descriptor,real_mean,fake_mean
+median,face_energy,22.8271,17.2634
+median,bg_energy,57.3215,57.0977
+median,face_bg_ratio,0.8268,0.7073
+median,face_bg_corr,0.8842,0.8787
+median,temporal_consistency,0.1381,0.1609
+gaussian,face_energy,13.203,10.5365
+gaussian,bg_energy,38.7672,38.4786
+gaussian,face_bg_ratio,0.5366,0.4698
+gaussian,face_bg_corr,0.9087,0.904
+gaussian,temporal_consistency,0.1201,0.1416
+wavelet,face_energy,0.8778,0.8288
+wavelet,bg_energy,0.8249,0.8322
+wavelet,face_bg_ratio,1.3776,1.3163
+wavelet,face_bg_corr,0.9824,0.9826
+wavelet,temporal_consistency,0.0217,0.0269

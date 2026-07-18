@@ -1,0 +1,6 @@
+residual_method,auc_deepfakes,auc_face2face,auc_faceswap,auc_neuraltextures,auc_mean
+median,0.9771,0.8174,0.9637,0.796,0.8886
+gaussian,0.9729,0.8297,0.9695,0.8056,0.8944
+wavelet,0.974,0.8308,0.9682,0.7887,0.8904
+current_50D_ref,0.9752,0.8255,0.9689,0.8039,0.8934
+bm3d,NOT COMPUTED — BM3D library unavailable (no linux-aarch64 binary),,,,

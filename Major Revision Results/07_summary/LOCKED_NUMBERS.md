@@ -238,3 +238,31 @@ not per-feature). (3) Bottleneck is temporal feature computation (~83% of time),
 (4) PRISM: CPU-only, tiny model, but RTF 3.34 (not real-time single-thread). Xception: 68 ms on GPU,
 83 MB. Honest tradeoff: PRISM = no GPU + tiny model; Xception = fast but needs GPU + 130x larger model.
 This is the hardware/timing detail the manuscript omitted (R2/R3.6).
+
+---
+
+## EXP-8 PRNU-INSPIRED RESIDUAL COMPARISON (R1) — median/gaussian/wavelet; BM3D NOT COMPUTED
+Script `exp8_analyze.py` · commit 33550c9 · seed 42 · identity-disjoint · residual descriptors on FF++ c23.
+BM3D = NOT COMPUTED (no linux-aarch64 native library — not approximated, per §0).
+
+Descriptor means (real vs fake), median residual: face_energy real 22.8 > fake 17.3; bg_energy real≈fake (57);
+face/bg ratio real 0.83 > fake 0.71; face/bg corr real≈fake; temporal_consistency real 0.14 < fake 0.16.
+(Gaussian & wavelet show the SAME direction: real face residual energy > fake.)
+
+Classification AUC (base-46 [50-D minus 4 PRNU feats] + method's 5 residual descriptors), per manip:
+| residual method | DF | F2F | FS | NT | mean |
+|---|---|---|---|---|---|
+| median (current) | 0.977 | 0.817 | 0.964 | 0.796 | 0.889 |
+| gaussian | 0.973 | 0.830 | 0.970 | 0.806 | **0.894** |
+| wavelet | 0.974 | 0.831 | 0.968 | 0.789 | 0.890 |
+| current 50-D (ref) | 0.975 | 0.826 | 0.969 | 0.804 | 0.893 |
+| BM3D | NOT COMPUTED — library unavailable (aarch64) | | | | |
+
+FINDING: all three residual methods give EQUIVALENT AUC (mean 0.889–0.894), matching the current
+50-D reference (0.893). The residual-energy signal is ROBUST to denoising method — the median-filter
+choice is not a limitation; any reasonable residual yields the same discrimination. Physical signal:
+real faces retain MORE residual energy than fakes (face_energy & face/bg ratio real>fake); manipulation
+suppresses sensor residual. This is a PRNU-INSPIRED residual-energy cue, NOT a camera PRNU fingerprint.
+
+AUTHOR REWRITE ITEM (terminology): rename "PRNU" descriptors to "PRNU-inspired residual-energy
+descriptors" / "sensor-residual consistency" — no reference sensor pattern is estimated. [flagged, not drafted]

@@ -7,3 +7,5 @@
 6. EXP-4: real-recall collapse is domain-shift, not fixable by threshold — informs the "limitations/threshold" text.
 7. Pending author rewrite items (from plan): "Without Deep Learning"/MediaPipe clarification; PRNU→"PRNU-inspired
    residual-energy descriptors"; blink-claim moderation; title. [to surface as EXP-8/9 land]
+8. EXP-8 terminology: rename "PRNU" → "PRNU-inspired residual-energy descriptors" / "sensor-residual
+   consistency" (no reference sensor pattern estimated). Residual method is robust (median≈gaussian≈wavelet).
