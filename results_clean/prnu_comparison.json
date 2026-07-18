@@ -1,0 +1,140 @@
+{
+  "provenance": {
+    "script": "exp8_analyze.py",
+    "git_commit": "33550c9",
+    "seed": 42,
+    "date": "2026-07-18",
+    "bm3d": "NOT COMPUTED \u2014 no linux-aarch64 native library",
+    "terminology_note": "descriptors are PRNU-INSPIRED residual-energy, not camera PRNU fingerprints"
+  },
+  "descriptors": [
+    {
+      "method": "median",
+      "descriptor": "face_energy",
+      "real_mean": 22.8271,
+      "fake_mean": 17.2634
+    },
+    {
+      "method": "median",
+      "descriptor": "bg_energy",
+      "real_mean": 57.3215,
+      "fake_mean": 57.0977
+    },
+    {
+      "method": "median",
+      "descriptor": "face_bg_ratio",
+      "real_mean": 0.8268,
+      "fake_mean": 0.7073
+    },
+    {
+      "method": "median",
+      "descriptor": "face_bg_corr",
+      "real_mean": 0.8842,
+      "fake_mean": 0.8787
+    },
+    {
+      "method": "median",
+      "descriptor": "temporal_consistency",
+      "real_mean": 0.1381,
+      "fake_mean": 0.1609
+    },
+    {
+      "method": "gaussian",
+      "descriptor": "face_energy",
+      "real_mean": 13.203,
+      "fake_mean": 10.5365
+    },
+    {
+      "method": "gaussian",
+      "descriptor": "bg_energy",
+      "real_mean": 38.7672,
+      "fake_mean": 38.4786
+    },
+    {
+      "method": "gaussian",
+      "descriptor": "face_bg_ratio",
+      "real_mean": 0.5366,
+      "fake_mean": 0.4698
+    },
+    {
+      "method": "gaussian",
+      "descriptor": "face_bg_corr",
+      "real_mean": 0.9087,
+      "fake_mean": 0.904
+    },
+    {
+      "method": "gaussian",
+      "descriptor": "temporal_consistency",
+      "real_mean": 0.1201,
+      "fake_mean": 0.1416
+    },
+    {
+      "method": "wavelet",
+      "descriptor": "face_energy",
+      "real_mean": 0.8778,
+      "fake_mean": 0.8288
+    },
+    {
+      "method": "wavelet",
+      "descriptor": "bg_energy",
+      "real_mean": 0.8249,
+      "fake_mean": 0.8322
+    },
+    {
+      "method": "wavelet",
+      "descriptor": "face_bg_ratio",
+      "real_mean": 1.3776,
+      "fake_mean": 1.3163
+    },
+    {
+      "method": "wavelet",
+      "descriptor": "face_bg_corr",
+      "real_mean": 0.9824,
+      "fake_mean": 0.9826
+    },
+    {
+      "method": "wavelet",
+      "descriptor": "temporal_consistency",
+      "real_mean": 0.0217,
+      "fake_mean": 0.0269
+    }
+  ],
+  "classification": [
+    {
+      "residual_method": "median",
+      "auc_deepfakes": 0.9771,
+      "auc_face2face": 0.8174,
+      "auc_faceswap": 0.9637,
+      "auc_neuraltextures": 0.796,
+      "auc_mean": 0.8886
+    },
+    {
+      "residual_method": "gaussian",
+      "auc_deepfakes": 0.9729,
+      "auc_face2face": 0.8297,
+      "auc_faceswap": 0.9695,
+      "auc_neuraltextures": 0.8056,
+      "auc_mean": 0.8944
+    },
+    {
+      "residual_method": "wavelet",
+      "auc_deepfakes": 0.974,
+      "auc_face2face": 0.8308,
+      "auc_faceswap": 0.9682,
+      "auc_neuraltextures": 0.7887,
+      "auc_mean": 0.8904
+    },
+    {
+      "residual_method": "current_50D_ref",
+      "auc_deepfakes": 0.9752,
+      "auc_face2face": 0.8255,
+      "auc_faceswap": 0.9689,
+      "auc_neuraltextures": 0.8039,
+      "auc_mean": 0.8934
+    },
+    {
+      "residual_method": "bm3d",
+      "auc_deepfakes": "NOT COMPUTED \u2014 BM3D library unavailable (no linux-aarch64 binary)"
+    }
+  ]
+}
