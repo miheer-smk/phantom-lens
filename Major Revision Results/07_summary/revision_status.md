@@ -5,7 +5,7 @@
 | 2 | SHAP stability (+NT correction) | R5 | ✅ done |
 | 3 | Compression all 4 manips | R5.4 | ✅ done |
 | 4 | Threshold calibration | R1,R5.3 | ✅ done (81c6067) |
-| 5 | Runtime/memory profiling | R2,R3.6 | ⬜ Phase 2 |
+| 5 | Runtime/memory profiling | R2,R3.6 | ✅ done (d6ec61f) |
 | 6 | Extra dataset (WildDF ✅ / DFDC 🔴) | R3.7,R5.1 | ◑ partial |
 | 7 | Xception baseline | R5.2,R3.4 | ✅ done |
 | 8 | PRNU comparison | R1 | ⬜ Phase 2 |
