@@ -1,0 +1,32 @@
+{
+  "provenance": {
+    "script": "xception_train.py",
+    "git_commit": "1337bc8",
+    "seed": 42,
+    "date": "2026-07-18",
+    "hardware": "NVIDIA GB10",
+    "model": "legacy_xception (timm, ImageNet-pretrained)",
+    "protocol": "identity-disjoint FF++; video-level mean aggregation; CelebDF zero-shot"
+  },
+  "val_best_auc": 0.9935,
+  "ffpp_test_overall": {
+    "auc": 0.9898,
+    "real_recall": 0.9708,
+    "fake_recall": 0.9689
+  },
+  "ffpp_per_manip_auc": {
+    "deepfakes": 0.9939,
+    "face2face": 0.9943,
+    "faceswap": 0.9937,
+    "neuraltextures": 0.9772
+  },
+  "celebdf_zeroshot": {
+    "auc": 0.8207,
+    "real_recall": 0.8171,
+    "fake_recall": 0.6891,
+    "n_real": 875,
+    "n_fake": 5612
+  },
+  "inference_sec_celebdf": 360.3,
+  "model_size_mb": 83.2
+}

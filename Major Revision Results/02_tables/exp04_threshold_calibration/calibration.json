@@ -1,0 +1,73 @@
+{
+  "provenance": {
+    "script": "exp4_calibration.py",
+    "git_commit": "81c6067",
+    "seed": 42,
+    "date": "2026-07-18",
+    "rule": "ALL thresholds/calibrators derived on FF++ VAL only, applied unchanged to CelebDF; test labels NEVER used for selection",
+    "thresholds": {
+      "youden": 0.7576,
+      "val_macroF1": 0.51,
+      "val_balacc": 0.76
+    },
+    "feature_csv_sha256": {
+      "celebdf_features.csv": "d1be8a4a75515174"
+    }
+  },
+  "celebdf": [
+    {
+      "config": "theta_0.50",
+      "threshold_source": "FF++ val only",
+      "auc": 0.6322,
+      "macro_f1": 0.5565,
+      "real_recall": 0.3972,
+      "fake_recall": 0.7813,
+      "mcc": 0.1404
+    },
+    {
+      "config": "Youden_J(val)",
+      "threshold_source": "FF++ val only",
+      "auc": 0.6322,
+      "macro_f1": 0.43,
+      "real_recall": 0.7293,
+      "fake_recall": 0.439,
+      "mcc": 0.115
+    },
+    {
+      "config": "val_macroF1_max",
+      "threshold_source": "FF++ val only",
+      "auc": 0.6322,
+      "macro_f1": 0.5551,
+      "real_recall": 0.4123,
+      "fake_recall": 0.7712,
+      "mcc": 0.1421
+    },
+    {
+      "config": "val_balacc_max",
+      "threshold_source": "FF++ val only",
+      "auc": 0.6322,
+      "macro_f1": 0.428,
+      "real_recall": 0.7343,
+      "fake_recall": 0.4343,
+      "mcc": 0.1154
+    },
+    {
+      "config": "Platt(val)",
+      "threshold_source": "FF++ val only",
+      "auc": 0.6322,
+      "macro_f1": 0.5588,
+      "real_recall": 0.1479,
+      "fake_recall": 0.9525,
+      "mcc": 0.1416
+    },
+    {
+      "config": "isotonic(val)",
+      "threshold_source": "FF++ val only",
+      "auc": 0.6322,
+      "macro_f1": 0.5449,
+      "real_recall": 0.109,
+      "fake_recall": 0.9707,
+      "mcc": 0.1375
+    }
+  ]
+}

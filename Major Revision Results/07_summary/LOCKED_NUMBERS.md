@@ -81,3 +81,89 @@ additive extended set. DF/FS with G1 pending (ROI extraction) to complete the 53
 
 ## c40 EXTRACTION COMPLETE (all 5 sets, for Track D compression + reviewer Exp 3)
 ffpp_{original,deepfakes,face2face,faceswap,neuraltextures}_c40.csv — 950–959 rows each.
+
+---
+
+## 53-D EXTENDED SET — FINAL in-distribution (original 50 + G1 mouth-instability)
+Script `track_c_53D_full.json` · commit see git · seed 42 · identity-disjoint TEST · bootstrap 95% CI.
+G1 = 3 mouth-region features (roi_mouth_dct_midband_std, roi_mouth_hf_residual_energy, roi_mouth_texture_flicker).
+G1 HELPS ALL 4 manipulations (never hurts) -> consistent 53-D set justified, no per-manip note needed.
+
+| Manipulation | 50-D (pre-G1 baseline) | 53-D (50+G1, FINAL) | Δ |
+|---|---|---|---|
+| Deepfakes | 0.971 [0.954,0.985] | **0.978 [0.963,0.989]** | +0.007 |
+| FaceSwap | 0.963 [0.942,0.980] | **0.969 [0.949,0.984]** | +0.006 |
+| Face2Face | 0.810 [0.758,0.858] | **0.875 [0.833,0.914]** | +0.065 |
+| NeuralTextures | 0.787 [0.731,0.837] | **0.905 [0.866,0.940]** | +0.118 |
+| **mean per-manip** | 0.883 | **0.932** | +0.049 |
+
+NOTE: the pillar-ablation "full-50 (ref)" rows use the 50-D PRE-G1 baseline (correct for ablation).
+The 53-D numbers above are the extended-set in-distribution results. Keep the two clearly distinct.
+
+---
+
+## XCEPTION BASELINE (fair DL comparison, R5.2/R3.4) — identity-disjoint, same protocol as PRISM
+Script `xception_train.py` · commit 1337bc8 · seed 42 · legacy_xception (ImageNet-pretrained,
+20.8M params, 83MB) · GPU NVIDIA GB10 · video-level mean aggregation · CelebDF zero-shot (complete: 875 real/5612 fake).
+
+| Metric | Xception (DL) | PRISM 53-D (physics) |
+|---|---|---|
+| FF++ Deepfakes | 0.994 | 0.978 |
+| FF++ Face2Face | 0.994 | 0.875 |
+| FF++ FaceSwap | 0.994 | 0.969 |
+| FF++ NeuralTextures | 0.977 | 0.905 |
+| FF++ test overall | 0.990 | (mean per-manip 0.932) |
+| **CelebDF zero-shot AUC** | **0.821** (real-rec 0.817, fake-rec 0.689) | **0.632** (real-rec low, fake-rec 0.78) |
+| Hardware | GPU (GB10), 83 MB | CPU-only, ~KB model |
+| Explainable | No (black box) | Yes (physics + SHAP) |
+
+HONEST FINDING: Xception OUTPERFORMS PRISM on BOTH in-distribution (0.99 vs 0.88-0.98) AND
+cross-dataset (0.821 vs 0.632). PRISM does NOT beat a standard deep baseline on accuracy.
+=> The paper's contribution must be positioned on INTERPRETABILITY + CPU EFFICIENCY, not
+accuracy/generalization superiority. Also note: Xception's cross-dataset failure mode differs
+(real-rec HIGH 0.817) — the real-class-mismatch is PRISM-specific, not universal.
+
+---
+
+## EXP-4 THRESHOLD CALIBRATION (R1/R5.3) — CelebDF, thresholds from FF++ VAL only
+Script `exp4_calibration.py` · commit 81c6067 · seed 42 · 50-D · celebdf sha d1be8a4a75515174 ·
+identity-disjoint assertion PASSED · thresholds/calibrators derived on FF++ val ONLY (test labels never used).
+
+| config | AUC | macro-F1 | real-rec | fake-rec | MCC |
+|---|---|---|---|---|---|
+| θ=0.50 | 0.632 | 0.557 | 0.397 | 0.781 | 0.140 |
+| Youden-J (val) | 0.632 | 0.430 | 0.729 | 0.439 | 0.115 |
+| val macro-F1 max | 0.632 | 0.555 | 0.412 | 0.771 | **0.142** |
+| val bal-acc max | 0.632 | 0.428 | 0.734 | 0.434 | 0.115 |
+| Platt (val) | 0.632 | 0.559 | 0.148 | 0.953 | 0.142 |
+| isotonic (val) | 0.632 | 0.545 | 0.109 | 0.971 | 0.138 |
+
+FINDING (null-ish): AUC fixed at 0.632 (threshold is ranking-independent). No threshold/calibrator
+FIXES the real-recall collapse — it only TRADES real vs fake recall along the fixed ROC. Youden/
+bal-acc raise real-rec to ~0.73 but drop fake-rec to ~0.44 (MCC no better); Platt/isotonic push the
+other way. Best MCC (val-macroF1) = 0.142 vs θ=0.5's 0.140 — negligible. => real-recall collapse is a
+DOMAIN-SHIFT/ranking problem, not a threshold problem; better thresholding cannot solve it.
+
+---
+
+## EXP-12 FEATURE REDUNDANCY (R3.12) — 50-D, identity-disjoint
+Script `exp12_redundancy.py` · commit 92a4235 · seed 42 · drop-decision on train+val importance only; test eval once.
+
+- **Highly-correlated pairs |r|>0.90: only 2 of 1225** →
+  s_noise_res_std ~ s_prnu_energy (r=0.958, drop s_prnu_energy);
+  s_noise_vmr ~ s_shadow_score (r=0.907, drop s_shadow_score)
+- **Near-zero-variance features: none.** VIF max=30.1 (6 features VIF>10 — moderate, not severe).
+- **Dropping the 2 redundant features (→48-D) is negligible:**
+
+| manip | full-50 | dedup-48 | Δ |
+|---|---|---|---|
+| Deepfakes | 0.975 | 0.977 | +0.001 |
+| Face2Face | 0.826 | 0.826 | +0.000 |
+| FaceSwap | 0.969 | 0.966 | −0.003 |
+| NeuralTextures | 0.804 | 0.796 | −0.008 |
+
+FINDING: the 50-feature set is largely NON-redundant — only 2/1225 pairs strongly correlated,
+no zero-variance features, negligible AUC change on dedup. Complements: (i) pillar-only (each
+domain has standalone power) and (ii) remove-one ablation (functional compensation redundancy).
+So: linearly near-independent features, with functional compensation at the pillar level.
+Figures: 03_figures/exp12_feature_redundancy/{corr_heatmap.png, dendrogram.png}.
