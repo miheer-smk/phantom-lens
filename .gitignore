@@ -46,3 +46,4 @@ archive/
 .DS_Store
 *.log
 nohup.out
+data_xception/
