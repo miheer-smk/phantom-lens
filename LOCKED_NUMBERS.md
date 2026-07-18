@@ -143,3 +143,27 @@ FIXES the real-recall collapse — it only TRADES real vs fake recall along the 
 bal-acc raise real-rec to ~0.73 but drop fake-rec to ~0.44 (MCC no better); Platt/isotonic push the
 other way. Best MCC (val-macroF1) = 0.142 vs θ=0.5's 0.140 — negligible. => real-recall collapse is a
 DOMAIN-SHIFT/ranking problem, not a threshold problem; better thresholding cannot solve it.
+
+---
+
+## EXP-12 FEATURE REDUNDANCY (R3.12) — 50-D, identity-disjoint
+Script `exp12_redundancy.py` · commit 92a4235 · seed 42 · drop-decision on train+val importance only; test eval once.
+
+- **Highly-correlated pairs |r|>0.90: only 2 of 1225** →
+  s_noise_res_std ~ s_prnu_energy (r=0.958, drop s_prnu_energy);
+  s_noise_vmr ~ s_shadow_score (r=0.907, drop s_shadow_score)
+- **Near-zero-variance features: none.** VIF max=30.1 (6 features VIF>10 — moderate, not severe).
+- **Dropping the 2 redundant features (→48-D) is negligible:**
+
+| manip | full-50 | dedup-48 | Δ |
+|---|---|---|---|
+| Deepfakes | 0.975 | 0.977 | +0.001 |
+| Face2Face | 0.826 | 0.826 | +0.000 |
+| FaceSwap | 0.969 | 0.966 | −0.003 |
+| NeuralTextures | 0.804 | 0.796 | −0.008 |
+
+FINDING: the 50-feature set is largely NON-redundant — only 2/1225 pairs strongly correlated,
+no zero-variance features, negligible AUC change on dedup. Complements: (i) pillar-only (each
+domain has standalone power) and (ii) remove-one ablation (functional compensation redundancy).
+So: linearly near-independent features, with functional compensation at the pillar level.
+Figures: 03_figures/exp12_feature_redundancy/{corr_heatmap.png, dendrogram.png}.

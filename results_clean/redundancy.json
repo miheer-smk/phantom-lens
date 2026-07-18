@@ -1,7 +1,7 @@
 {
   "provenance": {
     "script": "exp12_redundancy.py",
-    "git_commit": "cbb234e",
+    "git_commit": "92a4235",
     "seed": 42,
     "date": "2026-07-18",
     "protocol": "identity-disjoint; drop-decision on train+val importance only; test eval once"
@@ -30,15 +30,15 @@
     }
   ],
   "full_auc": {
-    "deepfakes": 0.9103,
-    "face2face": 0.7826,
-    "faceswap": 0.8761,
-    "neuraltextures": 0.7006
+    "deepfakes": 0.9752,
+    "face2face": 0.8255,
+    "faceswap": 0.9689,
+    "neuraltextures": 0.8039
   },
   "dedup_auc": {
-    "deepfakes": 0.9152,
-    "face2face": 0.7814,
-    "faceswap": 0.8738,
-    "neuraltextures": 0.7031
+    "deepfakes": 0.9766,
+    "face2face": 0.8257,
+    "faceswap": 0.9657,
+    "neuraltextures": 0.7955
   }
 }
