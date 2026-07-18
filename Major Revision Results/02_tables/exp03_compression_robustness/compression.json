@@ -1,0 +1,201 @@
+{
+  "provenance": {
+    "script": "exp3_compression.py",
+    "git_commit": "830a780",
+    "seed": 42,
+    "date": "2026-07-18",
+    "protocol": "identity-disjoint; per-manip train(train+val ids)/test(test ids); 50-D"
+  },
+  "per_manip": [
+    {
+      "manipulation": "deepfakes",
+      "c23_auc": 0.9752,
+      "c23_ci": [
+        0.9603,
+        0.9872
+      ],
+      "c40_auc": 0.9437,
+      "c40_ci": [
+        0.9154,
+        0.9667
+      ],
+      "delta_auc": -0.0315,
+      "c23_mcc": 0.7903,
+      "c40_mcc": 0.6973,
+      "cross_c23train_c40test_auc": 0.9242
+    },
+    {
+      "manipulation": "face2face",
+      "c23_auc": 0.8255,
+      "c23_ci": [
+        0.7747,
+        0.8727
+      ],
+      "c40_auc": 0.7574,
+      "c40_ci": [
+        0.6986,
+        0.8114
+      ],
+      "delta_auc": -0.0681,
+      "c23_mcc": 0.5299,
+      "c40_mcc": 0.342,
+      "cross_c23train_c40test_auc": 0.6727
+    },
+    {
+      "manipulation": "faceswap",
+      "c23_auc": 0.9689,
+      "c23_ci": [
+        0.9497,
+        0.9839
+      ],
+      "c40_auc": 0.8507,
+      "c40_ci": [
+        0.8033,
+        0.8941
+      ],
+      "delta_auc": -0.1182,
+      "c23_mcc": 0.8248,
+      "c40_mcc": 0.5275,
+      "cross_c23train_c40test_auc": 0.6943
+    },
+    {
+      "manipulation": "neuraltextures",
+      "c23_auc": 0.8039,
+      "c23_ci": [
+        0.7489,
+        0.854
+      ],
+      "c40_auc": 0.7343,
+      "c40_ci": [
+        0.6763,
+        0.7935
+      ],
+      "delta_auc": -0.0696,
+      "c23_mcc": 0.5026,
+      "c40_mcc": 0.4009,
+      "cross_c23train_c40test_auc": 0.691
+    }
+  ],
+  "group_degradation": [
+    {
+      "pillar": "P1_noise",
+      "c23_auc": 0.7286,
+      "c40_auc": 0.6316,
+      "degradation": 0.097
+    },
+    {
+      "pillar": "T13_motion_blur_coupling",
+      "c23_auc": 0.6514,
+      "c40_auc": 0.5614,
+      "degradation": 0.09
+    },
+    {
+      "pillar": "T2_rppg",
+      "c23_auc": 0.5693,
+      "c40_auc": 0.4994,
+      "degradation": 0.07
+    },
+    {
+      "pillar": "T9_skin_texture",
+      "c23_auc": 0.6186,
+      "c40_auc": 0.5567,
+      "degradation": 0.0619
+    },
+    {
+      "pillar": "T5_codec_residual",
+      "c23_auc": 0.6052,
+      "c40_auc": 0.5465,
+      "degradation": 0.0586
+    },
+    {
+      "pillar": "T12_blink",
+      "c23_auc": 0.6286,
+      "c40_auc": 0.5709,
+      "degradation": 0.0577
+    },
+    {
+      "pillar": "T10_color_transfer",
+      "c23_auc": 0.5941,
+      "c40_auc": 0.5382,
+      "degradation": 0.0559
+    },
+    {
+      "pillar": "T14_dct_temporal",
+      "c23_auc": 0.5847,
+      "c40_auc": 0.546,
+      "degradation": 0.0387
+    },
+    {
+      "pillar": "T7_rigid_geometry",
+      "c23_auc": 0.6389,
+      "c40_auc": 0.604,
+      "degradation": 0.0349
+    },
+    {
+      "pillar": "P2_prnu",
+      "c23_auc": 0.5889,
+      "c40_auc": 0.5612,
+      "degradation": 0.0277
+    },
+    {
+      "pillar": "T1_temporal_noise",
+      "c23_auc": 0.6004,
+      "c40_auc": 0.5737,
+      "degradation": 0.0267
+    },
+    {
+      "pillar": "T4_face_ssim",
+      "c23_auc": 0.6089,
+      "c40_auc": 0.5868,
+      "degradation": 0.022
+    },
+    {
+      "pillar": "T8_face_bg_edge",
+      "c23_auc": 0.529,
+      "c40_auc": 0.5088,
+      "degradation": 0.0202
+    },
+    {
+      "pillar": "P6_compression",
+      "c23_auc": 0.5425,
+      "c40_auc": 0.5266,
+      "degradation": 0.0158
+    },
+    {
+      "pillar": "T6_landmark_traj",
+      "c23_auc": 0.5881,
+      "c40_auc": 0.5786,
+      "degradation": 0.0095
+    },
+    {
+      "pillar": "P9_flow",
+      "c23_auc": 0.5418,
+      "c40_auc": 0.5497,
+      "degradation": -0.008
+    },
+    {
+      "pillar": "P4_shadow",
+      "c23_auc": 0.5096,
+      "c40_auc": 0.5238,
+      "degradation": -0.0141
+    },
+    {
+      "pillar": "T11_specular",
+      "c23_auc": 0.5367,
+      "c40_auc": 0.5512,
+      "degradation": -0.0146
+    },
+    {
+      "pillar": "P8_blur",
+      "c23_auc": 0.4857,
+      "c40_auc": 0.5088,
+      "degradation": -0.0231
+    },
+    {
+      "pillar": "T3_temporal_prnu",
+      "c23_auc": 0.5145,
+      "c40_auc": 0.5395,
+      "degradation": -0.025
+    }
+  ]
+}

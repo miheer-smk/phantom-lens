@@ -188,3 +188,24 @@ FINDINGS (visible forensic evidence): (TP) G1 mouth-instability drives correct f
 real) — honest failure mode. (FP) a real CelebDF video is flagged fake because coupling/texture/
 noise features read as fake to the FF++-trained model — the cross-dataset real-class mismatch,
 made visible. Figures: 03_figures/exp10_case_level_shap/{case_shap_*,case_signal_*,case_signals_all}.png
+
+---
+
+## EXP-3 COMPRESSION c23/c40 — ALL 4 manipulations (R5.4) — 50-D, identity-disjoint
+Script `exp3_compression.py` · commit see git · seed 42 · per-manip train(train+val ids)/test(test ids); bootstrap CI.
+
+| manip | c23 AUC | c40 AUC | ΔAUC | c23 MCC | c40 MCC | train-c23→test-c40 |
+|---|---|---|---|---|---|---|
+| Deepfakes | 0.975 | 0.944 | −0.032 | 0.790 | 0.697 | 0.924 |
+| Face2Face | 0.826 | 0.757 | −0.068 | 0.530 | 0.342 | 0.673 |
+| FaceSwap | 0.969 | 0.851 | −0.118 | 0.825 | 0.528 | 0.694 |
+| NeuralTextures | 0.804 | 0.734 | −0.070 | 0.503 | 0.401 | 0.691 |
+
+Feature-GROUP degradation under c40 (pillar-only AUC, avg over 4 manips; top degraders):
+P1_noise −0.097 · T13_motion_blur_coupling −0.090 · T2_rppg −0.070 · T9_skin_texture −0.062 · T5_codec_residual −0.059 · T12_blink −0.058
+
+FINDING: heavy compression (c40) degrades ALL manipulations (Δ −0.03 to −0.12; FaceSwap most,
+Deepfakes least). Cross-compression (train c23→test c40) drops further for F2F/FS/NT (compression
+mismatch). The pillars that lose most under c40 are the high-frequency/sensor ones (noise, motion-
+blur coupling, rPPG, skin texture) — physically expected, as c40 quantises exactly those bands.
+Extends the paper's DeepFakes-only compression analysis to all four manipulations.
