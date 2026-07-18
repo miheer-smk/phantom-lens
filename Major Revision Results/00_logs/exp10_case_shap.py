@@ -36,6 +36,7 @@ real=clean(real,COLS); MANd={m:clean(v,COLS) for m,v in MANd.items()}
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)
 
 # 53-D model on FF++ (train ids) -> test predictions (for TP/TN/FN)
+for _df,_src in [(real,"real")]+[(MANd[m],m) for m in MAN]: _df["source"]=_src
 tr=pd.concat([real[real.partition=="train"]]+[MANd[m][MANd[m].partition=="train"] for m in MAN],ignore_index=True)
 te=pd.concat([real[real.partition=="test"]]+[MANd[m][MANd[m].partition=="test"] for m in MAN],ignore_index=True)
 sc=StandardScaler().fit(tr[COLS].values); clf=LGBM(); clf.fit(sc.transform(tr[COLS].values),tr['label'].values.astype(int))
@@ -47,7 +48,7 @@ if isinstance(base_val,(list,np.ndarray)): base_val=float(np.ravel(base_val)[-1]
 cd=clean(pd.read_csv(f"{F}/celebdf_features.csv"),FC)
 tr50=pd.concat([real[real.partition=="train"]]+[MANd[m][MANd[m].partition=="train"] for m in MAN],ignore_index=True)
 sc50=StandardScaler().fit(tr50[FC].values); clf50=LGBM(); clf50.fit(sc50.transform(tr50[FC].values),tr50['label'].values.astype(int))
-cd=cd.reset_index(drop=True); cd["p"]=clf50.predict_proba(sc50.transform(cd[FC].values))[:,1]
+cd["source"]="celebdf"; cd=cd.reset_index(drop=True); cd["p"]=clf50.predict_proba(sc50.transform(cd[FC].values))[:,1]
 expl50=shap.TreeExplainer(clf50); base50=expl50.expected_value
 if isinstance(base50,(list,np.ndarray)): base50=float(np.ravel(base50)[-1])
 
@@ -74,7 +75,7 @@ def shap_case(row, cols, scaler, explainer, bval, tag, model):
         plt.tight_layout(); plt.savefig(f"{FIG}/case_shap_{tag}.png",dpi=130,bbox_inches="tight"); plt.close()
     except Exception as ex:
         print(f"  waterfall {tag} failed: {ex}")
-    return dict(case=tag,video=base(row['video_path']),dataset=row.get('dataset','celebdf'),
+    return dict(case=tag,video=base(row['video_path']),dataset=row.get('source','?'),
         p_fake=round(float(row['p']),4),true_class=("fake" if row['label']==1 else "real"),
         top5_push_to_fake=push_fake,top5_push_to_real=push_real,model=model,caveat=CAVEAT)
 
