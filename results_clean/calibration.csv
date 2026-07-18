@@ -1,0 +1,7 @@
+config,threshold_source,auc,macro_f1,real_recall,fake_recall,mcc
+theta_0.50,FF++ val only,0.6322,0.5565,0.3972,0.7813,0.1404
+Youden_J(val),FF++ val only,0.6322,0.43,0.7293,0.439,0.115
+val_macroF1_max,FF++ val only,0.6322,0.5551,0.4123,0.7712,0.1421
+val_balacc_max,FF++ val only,0.6322,0.428,0.7343,0.4343,0.1154
+Platt(val),FF++ val only,0.6322,0.5588,0.1479,0.9525,0.1416
+isotonic(val),FF++ val only,0.6322,0.5449,0.109,0.9707,0.1375

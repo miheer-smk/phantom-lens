@@ -122,3 +122,24 @@ cross-dataset (0.821 vs 0.632). PRISM does NOT beat a standard deep baseline on 
 => The paper's contribution must be positioned on INTERPRETABILITY + CPU EFFICIENCY, not
 accuracy/generalization superiority. Also note: Xception's cross-dataset failure mode differs
 (real-rec HIGH 0.817) — the real-class-mismatch is PRISM-specific, not universal.
+
+---
+
+## EXP-4 THRESHOLD CALIBRATION (R1/R5.3) — CelebDF, thresholds from FF++ VAL only
+Script `exp4_calibration.py` · commit 81c6067 · seed 42 · 50-D · celebdf sha d1be8a4a75515174 ·
+identity-disjoint assertion PASSED · thresholds/calibrators derived on FF++ val ONLY (test labels never used).
+
+| config | AUC | macro-F1 | real-rec | fake-rec | MCC |
+|---|---|---|---|---|---|
+| θ=0.50 | 0.632 | 0.557 | 0.397 | 0.781 | 0.140 |
+| Youden-J (val) | 0.632 | 0.430 | 0.729 | 0.439 | 0.115 |
+| val macro-F1 max | 0.632 | 0.555 | 0.412 | 0.771 | **0.142** |
+| val bal-acc max | 0.632 | 0.428 | 0.734 | 0.434 | 0.115 |
+| Platt (val) | 0.632 | 0.559 | 0.148 | 0.953 | 0.142 |
+| isotonic (val) | 0.632 | 0.545 | 0.109 | 0.971 | 0.138 |
+
+FINDING (null-ish): AUC fixed at 0.632 (threshold is ranking-independent). No threshold/calibrator
+FIXES the real-recall collapse — it only TRADES real vs fake recall along the fixed ROC. Youden/
+bal-acc raise real-rec to ~0.73 but drop fake-rec to ~0.44 (MCC no better); Platt/isotonic push the
+other way. Best MCC (val-macroF1) = 0.142 vs θ=0.5's 0.140 — negligible. => real-recall collapse is a
+DOMAIN-SHIFT/ranking problem, not a threshold problem; better thresholding cannot solve it.

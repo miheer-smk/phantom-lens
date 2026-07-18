@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """EXP-4 Threshold calibration (R1/R5.3). Answers the real-recall-collapse criticism.
 ALL thresholds/calibrators derived on FF++ VALIDATION split only, then applied UNCHANGED to
-CelebDF (and WildDeepfake). Never selected on test labels (§0 rule 2). 53-D model.
-Configs: 0.50, Youden-J, val-macroF1-max, val-balacc-max, Platt, isotonic."""
+CelebDF. Never selected on test labels (§0 rule 2).
+Configs: 0.50, Youden-J, val-macroF1-max, val-balacc-max, Platt, isotonic. 50-D model (matches locked CelebDF 0.632; G1 not extracted for CelebDF)."""
 import os,sys,json,hashlib,subprocess,datetime
 import numpy as np, pandas as pd, warnings
 warnings.filterwarnings("ignore"); sys.path.insert(0,"src")
