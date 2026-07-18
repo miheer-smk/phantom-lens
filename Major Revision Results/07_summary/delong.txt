@@ -1,0 +1,18 @@
+==========================================================================
+(A) DeLong: 53-D vs 50-D per manipulation (identity-disjoint test)
+==========================================================================
+  Deepfakes       50-D=0.9706 53-D=0.9776 Δ=+0.0070  DeLong z=+1.229 p=0.2191  [n.s.]
+  Face2Face       50-D=0.8096 53-D=0.8746 Δ=+0.0650  DeLong z=+3.312 p=0.0009269  [SIGNIFICANT]
+  FaceSwap        50-D=0.9631 53-D=0.9691 Δ=+0.0060  DeLong z=+0.923 p=0.356  [n.s.]
+  NeuralTextures  50-D=0.7867 53-D=0.9049 Δ=+0.1181  DeLong z=+4.878 p=1.073e-06  [SIGNIFICANT]
+
+==========================================================================
+(B) DeLong: full-50 vs leave-one-pillar-out (Holm-corrected per dataset)
+==========================================================================
+  Deepfakes: 0/20 pillars significant after Holm — none
+  Face2Face: 0/20 pillars significant after Holm — none
+  FaceSwap: 0/20 pillars significant after Holm — none
+  NeuralTextures: 0/20 pillars significant after Holm — none
+  CelebDF: 2/20 pillars significant after Holm — P6_compression(Δ+0.011,p=0.048), T2_rppg(Δ-0.014,p=0.048)
+
+saved results_clean/delong.json, delong_53vs50.csv, delong_pillars.csv (commit 810673e)

@@ -1,0 +1,1045 @@
+{
+ "provenance": {
+  "script": "run_delong.py",
+  "git_commit": "810673e",
+  "seed": 42,
+  "date": "2026-07-18",
+  "test": "DeLong paired AUC; Holm across 20 pillars per dataset"
+ },
+ "A_53vs50": [
+  {
+   "manip": "Deepfakes",
+   "auc_50": 0.9706,
+   "auc_53": 0.9776,
+   "delta": 0.007,
+   "z": 1.229,
+   "p_value": 0.21907613950765148
+  },
+  {
+   "manip": "Face2Face",
+   "auc_50": 0.8096,
+   "auc_53": 0.8746,
+   "delta": 0.065,
+   "z": 3.312,
+   "p_value": 0.000926919552503902
+  },
+  {
+   "manip": "FaceSwap",
+   "auc_50": 0.9631,
+   "auc_53": 0.9691,
+   "delta": 0.006,
+   "z": 0.923,
+   "p_value": 0.35599087461662915
+  },
+  {
+   "manip": "NeuralTextures",
+   "auc_50": 0.7867,
+   "auc_53": 0.9049,
+   "delta": 0.1181,
+   "z": 4.878,
+   "p_value": 1.0732134176905106e-06
+  }
+ ],
+ "B_pillars": [
+  {
+   "dataset": "Deepfakes",
+   "pillar": "P1_noise",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9717,
+   "delta": -0.0011,
+   "z": -0.519,
+   "p_value": 0.6037772791693619,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "P2_prnu",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9723,
+   "delta": -0.0017,
+   "z": -0.743,
+   "p_value": 0.4575424126269927,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "P4_shadow",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9713,
+   "delta": -0.0007,
+   "z": -0.501,
+   "p_value": 0.6161629781575821,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "P6_compression",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9702,
+   "delta": 0.0004,
+   "z": 0.212,
+   "p_value": 0.831737813097746,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "P8_blur",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.971,
+   "delta": -0.0004,
+   "z": -0.203,
+   "p_value": 0.8394783493947411,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "P9_flow",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9728,
+   "delta": -0.0022,
+   "z": -1.34,
+   "p_value": 0.18037281691215767,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T1_temporal_noise",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9694,
+   "delta": 0.0012,
+   "z": 0.774,
+   "p_value": 0.4391727074230274,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T2_rppg",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9723,
+   "delta": -0.0017,
+   "z": -1.169,
+   "p_value": 0.24228515435750908,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T3_temporal_prnu",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9713,
+   "delta": -0.0007,
+   "z": -0.279,
+   "p_value": 0.7798791992198244,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T4_face_ssim",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9719,
+   "delta": -0.0013,
+   "z": -0.827,
+   "p_value": 0.4083592886520484,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T5_codec_residual",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.969,
+   "delta": 0.0016,
+   "z": 0.651,
+   "p_value": 0.5148177228913196,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T6_landmark_traj",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9716,
+   "delta": -0.001,
+   "z": -0.46,
+   "p_value": 0.6452862637633321,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T7_rigid_geometry",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9548,
+   "delta": 0.0158,
+   "z": 1.942,
+   "p_value": 0.05210552613849284,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T8_face_bg_edge",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.975,
+   "delta": -0.0044,
+   "z": -1.712,
+   "p_value": 0.0869459117419975,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T9_skin_texture",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.975,
+   "delta": -0.0044,
+   "z": -0.915,
+   "p_value": 0.36019187629010085,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T10_color_transfer",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9591,
+   "delta": 0.0115,
+   "z": 1.701,
+   "p_value": 0.08895165208473643,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T11_specular",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.971,
+   "delta": -0.0004,
+   "z": -0.214,
+   "p_value": 0.8303367758863329,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T12_blink",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.969,
+   "delta": 0.0016,
+   "z": 0.584,
+   "p_value": 0.5591104433502152,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T13_motion_blur_coupling",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9708,
+   "delta": -0.0002,
+   "z": -0.081,
+   "p_value": 0.9353095192792953,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Deepfakes",
+   "pillar": "T14_dct_temporal",
+   "full_auc": 0.9706,
+   "loGo_auc": 0.9693,
+   "delta": 0.0013,
+   "z": 0.566,
+   "p_value": 0.5712953789768611,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "P1_noise",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8048,
+   "delta": 0.0048,
+   "z": 0.537,
+   "p_value": 0.5914373977757341,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "P2_prnu",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8176,
+   "delta": -0.008,
+   "z": -1.209,
+   "p_value": 0.22669534007035397,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "P4_shadow",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8208,
+   "delta": -0.0112,
+   "z": -1.574,
+   "p_value": 0.11557033607865996,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "P6_compression",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8181,
+   "delta": -0.0085,
+   "z": -1.219,
+   "p_value": 0.22267937436293073,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "P8_blur",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8158,
+   "delta": -0.0062,
+   "z": -0.883,
+   "p_value": 0.37718208720024515,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "P9_flow",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8061,
+   "delta": 0.0035,
+   "z": 0.391,
+   "p_value": 0.6960085262599753,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T1_temporal_noise",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8132,
+   "delta": -0.0036,
+   "z": -0.517,
+   "p_value": 0.6050185391111285,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T2_rppg",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8128,
+   "delta": -0.0032,
+   "z": -0.227,
+   "p_value": 0.8204803660361712,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T3_temporal_prnu",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8175,
+   "delta": -0.0079,
+   "z": -0.972,
+   "p_value": 0.3308892437893671,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T4_face_ssim",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8138,
+   "delta": -0.0042,
+   "z": -0.505,
+   "p_value": 0.6138114507813526,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T5_codec_residual",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8102,
+   "delta": -0.0006,
+   "z": -0.066,
+   "p_value": 0.9471338195706698,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T6_landmark_traj",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8188,
+   "delta": -0.0092,
+   "z": -1.046,
+   "p_value": 0.2957834869954421,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T7_rigid_geometry",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8098,
+   "delta": -0.0002,
+   "z": -0.015,
+   "p_value": 0.9877858041248071,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T8_face_bg_edge",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.82,
+   "delta": -0.0104,
+   "z": -1.327,
+   "p_value": 0.1846645757885952,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T9_skin_texture",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8028,
+   "delta": 0.0068,
+   "z": 0.69,
+   "p_value": 0.4901439204731193,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T10_color_transfer",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8111,
+   "delta": -0.0016,
+   "z": -0.221,
+   "p_value": 0.8248001005495484,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T11_specular",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.815,
+   "delta": -0.0055,
+   "z": -0.72,
+   "p_value": 0.47174999820651875,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T12_blink",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8099,
+   "delta": -0.0003,
+   "z": -0.03,
+   "p_value": 0.9761444082743589,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T13_motion_blur_coupling",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.7966,
+   "delta": 0.013,
+   "z": 0.683,
+   "p_value": 0.4949098494012807,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "Face2Face",
+   "pillar": "T14_dct_temporal",
+   "full_auc": 0.8096,
+   "loGo_auc": 0.8164,
+   "delta": -0.0068,
+   "z": -0.889,
+   "p_value": 0.37415051701828794,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "P1_noise",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9357,
+   "delta": 0.0274,
+   "z": 2.823,
+   "p_value": 0.004758243851091137,
+   "p_holm": 0.0952
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "P2_prnu",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9618,
+   "delta": 0.0013,
+   "z": 0.52,
+   "p_value": 0.6033297397519779,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "P4_shadow",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9639,
+   "delta": -0.0008,
+   "z": -0.309,
+   "p_value": 0.7576432784436062,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "P6_compression",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.962,
+   "delta": 0.0012,
+   "z": 0.515,
+   "p_value": 0.6068875004666927,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "P8_blur",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9619,
+   "delta": 0.0013,
+   "z": 0.631,
+   "p_value": 0.5282610441997584,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "P9_flow",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9666,
+   "delta": -0.0034,
+   "z": -1.181,
+   "p_value": 0.23754477542793584,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T1_temporal_noise",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9646,
+   "delta": -0.0015,
+   "z": -0.519,
+   "p_value": 0.6035504346321732,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T2_rppg",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9645,
+   "delta": -0.0013,
+   "z": -0.778,
+   "p_value": 0.43678506363827485,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T3_temporal_prnu",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9614,
+   "delta": 0.0018,
+   "z": 0.849,
+   "p_value": 0.3959991699944174,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T4_face_ssim",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.96,
+   "delta": 0.0032,
+   "z": 0.979,
+   "p_value": 0.3275091656191407,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T5_codec_residual",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9559,
+   "delta": 0.0072,
+   "z": 1.673,
+   "p_value": 0.09431758063579032,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T6_landmark_traj",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9591,
+   "delta": 0.004,
+   "z": 1.024,
+   "p_value": 0.30592538606527664,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T7_rigid_geometry",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9623,
+   "delta": 0.0008,
+   "z": 0.296,
+   "p_value": 0.7668623293087597,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T8_face_bg_edge",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9617,
+   "delta": 0.0014,
+   "z": 0.633,
+   "p_value": 0.526413095447839,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T9_skin_texture",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9621,
+   "delta": 0.001,
+   "z": 0.363,
+   "p_value": 0.7163058542184446,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T10_color_transfer",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.964,
+   "delta": -0.0008,
+   "z": -0.318,
+   "p_value": 0.7507151262205669,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T11_specular",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9614,
+   "delta": 0.0017,
+   "z": 0.719,
+   "p_value": 0.4722128284160072,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T12_blink",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9399,
+   "delta": 0.0233,
+   "z": 2.115,
+   "p_value": 0.03443091829853606,
+   "p_holm": 0.6542
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T13_motion_blur_coupling",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9613,
+   "delta": 0.0018,
+   "z": 0.277,
+   "p_value": 0.7817552277225863,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "FaceSwap",
+   "pillar": "T14_dct_temporal",
+   "full_auc": 0.9631,
+   "loGo_auc": 0.9636,
+   "delta": -0.0004,
+   "z": -0.128,
+   "p_value": 0.8984070941763105,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "P1_noise",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7605,
+   "delta": 0.0262,
+   "z": 2.077,
+   "p_value": 0.037835394040434345,
+   "p_holm": 0.7567
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "P2_prnu",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7803,
+   "delta": 0.0064,
+   "z": 0.686,
+   "p_value": 0.4929490889697665,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "P4_shadow",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.784,
+   "delta": 0.0028,
+   "z": 0.416,
+   "p_value": 0.6777709443634257,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "P6_compression",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.786,
+   "delta": 0.0007,
+   "z": 0.095,
+   "p_value": 0.9242313920069094,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "P8_blur",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7899,
+   "delta": -0.0032,
+   "z": -0.631,
+   "p_value": 0.5277947058114394,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "P9_flow",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7692,
+   "delta": 0.0176,
+   "z": 1.866,
+   "p_value": 0.06199548713629732,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T1_temporal_noise",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7887,
+   "delta": -0.002,
+   "z": -0.294,
+   "p_value": 0.768610346758297,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T2_rppg",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.796,
+   "delta": -0.0092,
+   "z": -0.969,
+   "p_value": 0.3327746862732295,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T3_temporal_prnu",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.783,
+   "delta": 0.0037,
+   "z": 0.45,
+   "p_value": 0.6527408541550637,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T4_face_ssim",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7986,
+   "delta": -0.0118,
+   "z": -1.292,
+   "p_value": 0.19630828160695657,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T5_codec_residual",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7771,
+   "delta": 0.0096,
+   "z": 1.396,
+   "p_value": 0.16268241281296558,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T6_landmark_traj",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7943,
+   "delta": -0.0075,
+   "z": -0.637,
+   "p_value": 0.5238633843609273,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T7_rigid_geometry",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7926,
+   "delta": -0.0059,
+   "z": -0.754,
+   "p_value": 0.4508044548238601,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T8_face_bg_edge",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7922,
+   "delta": -0.0055,
+   "z": -0.817,
+   "p_value": 0.4138646448463361,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T9_skin_texture",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.787,
+   "delta": -0.0002,
+   "z": -0.024,
+   "p_value": 0.9812072100377787,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T10_color_transfer",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.793,
+   "delta": -0.0062,
+   "z": -0.764,
+   "p_value": 0.4448954407959911,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T11_specular",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7883,
+   "delta": -0.0015,
+   "z": -0.223,
+   "p_value": 0.823336191436068,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T12_blink",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7893,
+   "delta": -0.0025,
+   "z": -0.373,
+   "p_value": 0.7092464561982577,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T13_motion_blur_coupling",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.7804,
+   "delta": 0.0064,
+   "z": 0.673,
+   "p_value": 0.5007520173696727,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "NeuralTextures",
+   "pillar": "T14_dct_temporal",
+   "full_auc": 0.7867,
+   "loGo_auc": 0.783,
+   "delta": 0.0038,
+   "z": 0.492,
+   "p_value": 0.6225619456754212,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "P1_noise",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6194,
+   "delta": 0.0128,
+   "z": 2.629,
+   "p_value": 0.008563300546316377,
+   "p_holm": 0.1456
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "P2_prnu",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6331,
+   "delta": -0.0009,
+   "z": -0.21,
+   "p_value": 0.8337573368322209,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "P4_shadow",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6274,
+   "delta": 0.0048,
+   "z": 1.11,
+   "p_value": 0.26678894152826826,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "P6_compression",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6212,
+   "delta": 0.011,
+   "z": 3.035,
+   "p_value": 0.002406310289206459,
+   "p_holm": 0.0481
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "P8_blur",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6346,
+   "delta": -0.0025,
+   "z": -0.653,
+   "p_value": 0.5137970548776225,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "P9_flow",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6258,
+   "delta": 0.0063,
+   "z": 1.317,
+   "p_value": 0.1877639800312041,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T1_temporal_noise",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6324,
+   "delta": -0.0002,
+   "z": -0.034,
+   "p_value": 0.9729365091001558,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T2_rppg",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6461,
+   "delta": -0.0139,
+   "z": -3.026,
+   "p_value": 0.0024758149080692515,
+   "p_holm": 0.0481
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T3_temporal_prnu",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6221,
+   "delta": 0.0101,
+   "z": 2.73,
+   "p_value": 0.006330304211350279,
+   "p_holm": 0.1139
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T4_face_ssim",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6206,
+   "delta": 0.0116,
+   "z": 2.279,
+   "p_value": 0.022666510887335622,
+   "p_holm": 0.3627
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T5_codec_residual",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6301,
+   "delta": 0.0021,
+   "z": 0.448,
+   "p_value": 0.654491097258848,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T6_landmark_traj",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6253,
+   "delta": 0.0069,
+   "z": 1.376,
+   "p_value": 0.16868195228271343,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T7_rigid_geometry",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6441,
+   "delta": -0.0119,
+   "z": -1.805,
+   "p_value": 0.07104355660980421,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T8_face_bg_edge",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.632,
+   "delta": 0.0002,
+   "z": 0.031,
+   "p_value": 0.9750579091214002,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T9_skin_texture",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.637,
+   "delta": -0.0048,
+   "z": -1.03,
+   "p_value": 0.30301842353772424,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T10_color_transfer",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6295,
+   "delta": 0.0027,
+   "z": 0.505,
+   "p_value": 0.6139058246219242,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T11_specular",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.635,
+   "delta": -0.0028,
+   "z": -0.693,
+   "p_value": 0.48847360073043533,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T12_blink",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.629,
+   "delta": 0.0032,
+   "z": 0.463,
+   "p_value": 0.6435145472722379,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T13_motion_blur_coupling",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6273,
+   "delta": 0.0049,
+   "z": 0.63,
+   "p_value": 0.5284793246891888,
+   "p_holm": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "pillar": "T14_dct_temporal",
+   "full_auc": 0.6322,
+   "loGo_auc": 0.6333,
+   "delta": -0.0011,
+   "z": -0.259,
+   "p_value": 0.7953034389865243,
+   "p_holm": 1.0
+  }
+ ]
+}
