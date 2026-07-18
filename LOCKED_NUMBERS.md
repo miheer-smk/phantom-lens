@@ -167,3 +167,24 @@ no zero-variance features, negligible AUC change on dedup. Complements: (i) pill
 domain has standalone power) and (ii) remove-one ablation (functional compensation redundancy).
 So: linearly near-independent features, with functional compensation at the pillar level.
 Figures: 03_figures/exp12_feature_redundancy/{corr_heatmap.png, dendrogram.png}.
+
+---
+
+## EXP-10 CASE-LEVEL SHAP (R4, R5.6) — 4 principled cases, identity-disjoint
+Script `exp10_case_shap.py` + `exp10_signals.py` · commit ce496db · seed 42 ·
+Selection: TP=highest-conf correct fake; TN=lowest P_fake correct real; FN=fake w/ lowest P_fake;
+FP=CelebDF real w/ highest P_fake. Caveat on every figure: "SHAP explains the classifier's output;
+it does not prove a feature causally establishes manipulation."
+
+| case | video | true | P(fake) | top push→fake | top push→real |
+|---|---|---|---|---|---|
+| TP | 739_865 (Deepfakes) | fake | 0.9996 | roi_mouth_texture_flicker +1.10 | t_skin_texture_corr −0.07 |
+| TN | 949 (real) | real | 0.022 | t_dct_temporal_autocorr +0.13 | roi_mouth_texture_flicker −2.12 |
+| FN | 128_896 (Face2Face) | fake | 0.078 | s_noise_vmr +0.19 | roi_mouth_texture_flicker −0.98 |
+| FP | 00111 (CelebDF real) | real | 0.993 | t_coupling_consistency +1.28 | t_boundary_color_disc −0.30 |
+
+FINDINGS (visible forensic evidence): (TP) G1 mouth-instability drives correct fake detection.
+(FN) the F2F fake was MISSED because its mouth stayed stable (mouth features pushed it toward
+real) — honest failure mode. (FP) a real CelebDF video is flagged fake because coupling/texture/
+noise features read as fake to the FF++-trained model — the cross-dataset real-class mismatch,
+made visible. Figures: 03_figures/exp10_case_level_shap/{case_shap_*,case_signal_*,case_signals_all}.png
