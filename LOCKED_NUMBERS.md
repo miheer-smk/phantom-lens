@@ -81,3 +81,21 @@ additive extended set. DF/FS with G1 pending (ROI extraction) to complete the 53
 
 ## c40 EXTRACTION COMPLETE (all 5 sets, for Track D compression + reviewer Exp 3)
 ffpp_{original,deepfakes,face2face,faceswap,neuraltextures}_c40.csv — 950–959 rows each.
+
+---
+
+## 53-D EXTENDED SET — FINAL in-distribution (original 50 + G1 mouth-instability)
+Script `track_c_53D_full.json` · commit see git · seed 42 · identity-disjoint TEST · bootstrap 95% CI.
+G1 = 3 mouth-region features (roi_mouth_dct_midband_std, roi_mouth_hf_residual_energy, roi_mouth_texture_flicker).
+G1 HELPS ALL 4 manipulations (never hurts) -> consistent 53-D set justified, no per-manip note needed.
+
+| Manipulation | 50-D (pre-G1 baseline) | 53-D (50+G1, FINAL) | Δ |
+|---|---|---|---|
+| Deepfakes | 0.971 [0.954,0.985] | **0.978 [0.963,0.989]** | +0.007 |
+| FaceSwap | 0.963 [0.942,0.980] | **0.969 [0.949,0.984]** | +0.006 |
+| Face2Face | 0.810 [0.758,0.858] | **0.875 [0.833,0.914]** | +0.065 |
+| NeuralTextures | 0.787 [0.731,0.837] | **0.905 [0.866,0.940]** | +0.118 |
+| **mean per-manip** | 0.883 | **0.932** | +0.049 |
+
+NOTE: the pillar-ablation "full-50 (ref)" rows use the 50-D PRE-G1 baseline (correct for ablation).
+The 53-D numbers above are the extended-set in-distribution results. Keep the two clearly distinct.
