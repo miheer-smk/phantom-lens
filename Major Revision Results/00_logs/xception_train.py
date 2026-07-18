@@ -13,8 +13,8 @@ SEED=42; torch.manual_seed(SEED); np.random.seed(SEED)
 DEV='cuda' if torch.cuda.is_available() else 'cpu'
 MEAN=np.array([0.485,0.456,0.406],np.float32); STD=np.array([0.229,0.224,0.225],np.float32)
 
-ff=pd.read_csv("data_xception/manifest_ffpp.csv")
-cd=pd.read_csv("data_xception/manifest_celebdf.csv")
+ff=pd.read_csv("data_xception/manifest_ffpp.csv").drop_duplicates("crop_path")
+cd=pd.read_csv("data_xception/manifest_celebdf.csv").drop_duplicates("crop_path")
 class DS(Dataset):
     def __init__(self,df,train=False): self.df=df.reset_index(drop=True); self.train=train
     def __len__(self): return len(self.df)
