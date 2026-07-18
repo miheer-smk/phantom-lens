@@ -74,13 +74,12 @@ kept=[f for f in FC if f not in to_drop]
 # ---- AUC after dedup (evaluate ONCE on test, per manip + overall) ----
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)
 def auc_on(cols):
-    scaler=StandardScaler().fit(trv[cols].values); m=LGBM(); m.fit(scaler.transform(trv[cols].values),trv['label'].values.astype(int))
+    # PER-MANIPULATION (matches locked baseline): train on real+that-manip (train+val ids), test on that-manip test ids
     res={}
-    for mm in MAN:
-        sub=te[(te.dataset==mm)|(te.dataset=="real")] if 'dataset' in te else None
-    # per-manip via test partition of each manip + real test
     for mm,md in MANd.items():
+        tr=pd.concat([real[real.partition.isin(["train","val"])],md[md.partition.isin(["train","val"])]],ignore_index=True)
         tt=pd.concat([real[real.partition=="test"],md[md.partition=="test"]],ignore_index=True)
+        scaler=StandardScaler().fit(tr[cols].values); m=LGBM(); m.fit(scaler.transform(tr[cols].values),tr['label'].values.astype(int))
         p=m.predict_proba(scaler.transform(tt[cols].values))[:,1]; res[mm]=round(roc_auc_score(tt['label'].values.astype(int),p),4)
     return res
 full_auc=auc_on(FC); dedup_auc=auc_on(kept)

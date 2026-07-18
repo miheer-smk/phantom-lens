@@ -1,0 +1,3 @@
+feature_1,feature_2,pearson,spearman,dropped,action
+s_noise_res_std,s_prnu_energy,0.9577,0.9999,s_prnu_energy,Removed one (lower train+val importance)
+s_noise_vmr,s_shadow_score,0.9067,0.9192,s_shadow_score,Removed one (lower train+val importance)
