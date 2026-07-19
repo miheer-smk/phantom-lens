@@ -1,0 +1,4 @@
+=== PRISM vs Xception (CelebDF, DeLong paired) ===
+  matched videos: 6121
+  Xception AUC=0.6322  PRISM AUC=0.8211  Δ(X-P)=-0.1889  z=+15.426  p=0.000e+00
+saved -> results_clean/statistical_tests.json (commit 0b46c06)

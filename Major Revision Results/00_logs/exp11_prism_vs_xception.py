@@ -53,7 +53,7 @@ cd["p"]=clf.predict_proba(sc.transform(cd[FC].values))[:,1]; cd["vid"]=cd.video_
 xvid["vid"]=xvid.vid.map(lambda v: os.path.splitext(str(v))[0])
 mg=cd[["vid","label","p"]].rename(columns={"p":"p_prism"}).merge(xvid[["vid","p"]].rename(columns={"p":"p_xcep"}),on="vid")
 y=mg.label.values.astype(int); pP=mg.p_prism.values; pX=mg.p_xcep.values
-aP,aX,z,p=delong_roc_test(y,pX,pP)  # test Xception vs PRISM
+aX,aP,z,p=delong_roc_test(y,pX,pP)  # returns (auc_pX=Xception, auc_pP=PRISM)
 res=dict(comparison="PRISM_vs_Xception_CelebDF",test="DeLong",n_matched_videos=int(len(mg)),
     auc_xception=round(aX,4),auc_prism=round(aP,4),auc_diff_xcep_minus_prism=round(aX-aP,4),z=round(z,3),p_value=float(p))
 # merge into statistical_tests.json
