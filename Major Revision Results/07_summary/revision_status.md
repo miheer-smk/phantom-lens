@@ -11,6 +11,6 @@
 | 8 | PRNU comparison | R1 | ✅ done (33550c9) |
 | 9 | rPPG POS/CHROM | R1 | ✅ done (d9105fd) |
 | 10 | Case-level SHAP | R4,R5.6 | ✅ done (ce496db) |
-| 11 | Statistical tests | R3.13 | ◑ core done, wrap-up pending |
+| 11 | Statistical tests | R3.13 | ✅ done (0b46c06) |
 | 12 | Feature redundancy | R3.12 | ✅ done (92a4235) |
 | — | Zenodo package | editor | ⬜ Phase 3 |
