@@ -288,3 +288,31 @@ CONFIRMED. (4) pure POS > current dual (0.518 vs 0.478) — the dual fallback is
 
 AUTHOR ITEMS: (a) rPPG is a forensic temporal descriptor, NOT medical-grade pulse estimation.
 (b) consider pure POS over the POS+CHROM dual. (c) rPPG's value is a weak complementary cue, not standalone. [flagged, not drafted]
+
+---
+
+## EXP-11 STATISTICAL TESTS WRAP-UP (R3.13) — all p-values from ACTUAL scores, seed 42
+Script `exp11_stats.py` + `exp11_prism_vs_xception.py` · commit 0b46c06 · identity-disjoint.
+
+### DeLong (paired AUC, Holm-corrected across family)
+| comparison | ΔAUC | z | p | p_holm | sig |
+|---|---|---|---|---|---|
+| full-50 vs top-3 (DF/F2F/FS/NT) | +0.20/+0.18/+0.11/+0.15 | 4.6–7.6 | ≤5e-6 | **0.000** | ✅ all |
+| full-50 vs top-10 (F2F/FS/NT) | +0.066/+0.042/+0.059 | 2.6–3.3 | ≤9e-3 | 0.008–0.026 | ✅ |
+| full-50 vs top-10 (Deepfakes) | +0.014 | 2.10 | 0.036 | 0.063 | ~n.s. |
+| c23 vs c40 (DF/FS/NT) | +0.031/+0.118/+0.069 | 2.9–5.6 | ≤3.5e-3 | 0.000–0.014 | ✅ |
+| c23 vs c40 (Face2Face) | +0.070 | 2.15 | 0.031 | 0.063 | ~n.s. |
+| **PRISM vs Xception (CelebDF)** | Xcep 0.821 vs PRISM 0.632 = **+0.189** | 15.43 | <1e-16 | — | ✅ Xception better |
+
+### McNemar (CelebDF, baseline θ=0.50 vs val-calibrated θ=0.510)
+stat=25.47, p=4.5e-7. b=54 (only baseline correct) vs c=12 (only calibrated correct) → baseline classifies
+MORE correctly; calibration significantly HURTS. Confirms EXP-4 (threshold calibration doesn't help).
+
+### Wilcoxon signed-rank (full-50 vs top-3 across 10 identity-grouped folds)
+stat=0.0, p=1.95e-3 (full 0.773 vs top-3 0.644) → full-50 beats top-3 in EVERY fold.
+
+FINDINGS: (1) the full 50-feature model SIGNIFICANTLY outperforms top-3 (all manips, p_holm<0.001) and
+top-10 (3/4 manips) — statistically justifies using 50 features (answers "why 50?"). (2) Compression c23→c40
+significantly degrades AUC (3/4 manips). (3) Threshold calibration significantly HURTS (McNemar) — not a fix.
+(4) Xception significantly outperforms PRISM zero-shot (DeLong z=15.4, p<1e-16) — the interpretability/
+efficiency contribution, not accuracy, is confirmed as the honest framing.

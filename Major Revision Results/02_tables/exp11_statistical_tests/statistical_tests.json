@@ -1,0 +1,229 @@
+{
+  "provenance": {
+    "script": "exp11_stats.py",
+    "git_commit": "af80bd5",
+    "seed": 42,
+    "date": "2026-07-19",
+    "note": "all p-values computed from actual prediction scores; DeLong Holm-corrected across family"
+  },
+  "top3": [
+    "t_coupling_consistency",
+    "s_noise_hf_ratio",
+    "t_texture_warp_residual"
+  ],
+  "top10": [
+    "t_coupling_consistency",
+    "s_noise_hf_ratio",
+    "t_texture_warp_residual",
+    "t_blink_symmetry",
+    "t_skin_color_jitter",
+    "t_nose_bridge_std",
+    "t_rppg_peak_prominence",
+    "t_motion_blur_coupling",
+    "t_skin_texture_corr",
+    "t_residual_flow_corr"
+  ],
+  "delong": [
+    {
+      "comparison": "full50_vs_top3[deepfakes]",
+      "test": "DeLong",
+      "auc_full": 0.9752,
+      "auc_sub": 0.7752,
+      "auc_diff": 0.2,
+      "z": 7.626,
+      "p_value": 2.4202861936828413e-14,
+      "ci95": [
+        0.1521,
+        0.2536
+      ],
+      "p_holm": 0.0
+    },
+    {
+      "comparison": "full50_vs_top10[deepfakes]",
+      "test": "DeLong",
+      "auc_full": 0.9752,
+      "auc_sub": 0.9612,
+      "auc_diff": 0.014,
+      "z": 2.095,
+      "p_value": 0.03613352569881778,
+      "ci95": [
+        0.0021,
+        0.0284
+      ],
+      "p_holm": 0.0626
+    },
+    {
+      "comparison": "full50_vs_top3[face2face]",
+      "test": "DeLong",
+      "auc_full": 0.8255,
+      "auc_sub": 0.6426,
+      "auc_diff": 0.1829,
+      "z": 5.306,
+      "p_value": 1.1227692020554514e-07,
+      "ci95": [
+        0.1145,
+        0.2495
+      ],
+      "p_holm": 0.0
+    },
+    {
+      "comparison": "full50_vs_top10[face2face]",
+      "test": "DeLong",
+      "auc_full": 0.8255,
+      "auc_sub": 0.7594,
+      "auc_diff": 0.0662,
+      "z": 3.105,
+      "p_value": 0.0019021172790525398,
+      "ci95": [
+        0.0254,
+        0.1085
+      ],
+      "p_holm": 0.0114
+    },
+    {
+      "comparison": "full50_vs_top3[faceswap]",
+      "test": "DeLong",
+      "auc_full": 0.9689,
+      "auc_sub": 0.8632,
+      "auc_diff": 0.1057,
+      "z": 5.276,
+      "p_value": 1.319786100406617e-07,
+      "ci95": [
+        0.0689,
+        0.1451
+      ],
+      "p_holm": 0.0
+    },
+    {
+      "comparison": "full50_vs_top10[faceswap]",
+      "test": "DeLong",
+      "auc_full": 0.9689,
+      "auc_sub": 0.9275,
+      "auc_diff": 0.0415,
+      "z": 3.257,
+      "p_value": 0.0011273048974249633,
+      "ci95": [
+        0.018,
+        0.0684
+      ],
+      "p_holm": 0.0079
+    },
+    {
+      "comparison": "full50_vs_top3[neuraltextures]",
+      "test": "DeLong",
+      "auc_full": 0.8039,
+      "auc_sub": 0.6514,
+      "auc_diff": 0.1524,
+      "z": 4.568,
+      "p_value": 4.927495231399348e-06,
+      "ci95": [
+        0.0882,
+        0.2196
+      ],
+      "p_holm": 0.0
+    },
+    {
+      "comparison": "full50_vs_top10[neuraltextures]",
+      "test": "DeLong",
+      "auc_full": 0.8039,
+      "auc_sub": 0.7446,
+      "auc_diff": 0.0593,
+      "z": 2.626,
+      "p_value": 0.008630637637471184,
+      "ci95": [
+        0.0157,
+        0.1037
+      ],
+      "p_holm": 0.0259
+    },
+    {
+      "comparison": "c23_vs_c40[deepfakes]",
+      "test": "DeLong",
+      "auc_full": 0.9751,
+      "auc_sub": 0.9437,
+      "auc_diff": 0.0314,
+      "z": 2.921,
+      "p_value": 0.003491302782758998,
+      "ci95": [
+        0.0107,
+        0.0539
+      ],
+      "p_holm": 0.014
+    },
+    {
+      "comparison": "c23_vs_c40[face2face]",
+      "test": "DeLong",
+      "auc_full": 0.8279,
+      "auc_sub": 0.7581,
+      "auc_diff": 0.0698,
+      "z": 2.154,
+      "p_value": 0.03127721205909406,
+      "ci95": [
+        0.0051,
+        0.133
+      ],
+      "p_holm": 0.0626
+    },
+    {
+      "comparison": "c23_vs_c40[faceswap]",
+      "test": "DeLong",
+      "auc_full": 0.9691,
+      "auc_sub": 0.8507,
+      "auc_diff": 0.1184,
+      "z": 5.567,
+      "p_value": 2.5880236842468207e-08,
+      "ci95": [
+        0.0791,
+        0.1608
+      ],
+      "p_holm": 0.0
+    },
+    {
+      "comparison": "c23_vs_c40[neuraltextures]",
+      "test": "DeLong",
+      "auc_full": 0.8035,
+      "auc_sub": 0.7343,
+      "auc_diff": 0.0692,
+      "z": 2.99,
+      "p_value": 0.002791064070183369,
+      "ci95": [
+        0.0242,
+        0.1152
+      ],
+      "p_holm": 0.014
+    }
+  ],
+  "mcnemar": [
+    {
+      "comparison": "CelebDF baseline(0.50) vs val-calibrated(0.510)",
+      "test": "McNemar",
+      "statistic": 25.4697,
+      "p_value": 4.493860940242397e-07,
+      "b_only_base_correct": 54,
+      "c_only_cal_correct": 12
+    }
+  ],
+  "wilcoxon": [
+    {
+      "comparison": "full50_vs_top3 across 10 folds",
+      "test": "Wilcoxon signed-rank",
+      "statistic": 0.0,
+      "p_value": 0.001953125,
+      "mean_full": 0.7728,
+      "mean_top3": 0.6443
+    }
+  ],
+  "prism_vs_xception": [
+    {
+      "comparison": "PRISM_vs_Xception_CelebDF",
+      "test": "DeLong",
+      "n_matched_videos": 6121,
+      "auc_xception": 0.8211,
+      "auc_prism": 0.6322,
+      "auc_diff_xcep_minus_prism": 0.1889,
+      "z": 15.426,
+      "p_value": 0.0,
+      "note": "Xception significantly outperforms PRISM on CelebDF zero-shot (paired DeLong, z=15.43, p<1e-16)"
+    }
+  ]
+}
