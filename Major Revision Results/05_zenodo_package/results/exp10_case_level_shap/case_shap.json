@@ -1,0 +1,264 @@
+{
+  "provenance": {
+    "script": "exp10_case_shap.py",
+    "git_commit": "ce496db",
+    "seed": 42,
+    "date": "2026-07-18",
+    "selection": "TP=highest-conf correct fake; TN=lowest P_fake correct real; FN=fake w/ lowest P_fake; FP=CelebDF real w/ highest P_fake",
+    "caveat": "SHAP explains the classifier's output; it does not prove a feature causally establishes manipulation."
+  },
+  "cases": [
+    {
+      "case": "tp",
+      "video": "739_865.mp4",
+      "dataset": "deepfakes",
+      "p_fake": 0.9996,
+      "true_class": "fake",
+      "top5_push_to_fake": [
+        [
+          "roi_mouth_texture_flicker",
+          1.0993,
+          0.0199
+        ],
+        [
+          "roi_mouth_dct_midband_std",
+          0.9674,
+          0.0084
+        ],
+        [
+          "t_coupling_consistency",
+          0.6964,
+          23.3917
+        ],
+        [
+          "roi_mouth_hf_residual_energy",
+          0.5942,
+          0.5664
+        ],
+        [
+          "t_texture_warp_residual",
+          0.5308,
+          4.121
+        ]
+      ],
+      "top5_push_to_real": [
+        [
+          "t_skin_texture_corr",
+          -0.0697,
+          0.8766
+        ],
+        [
+          "s_prnu_energy",
+          -0.064,
+          2.0274
+        ],
+        [
+          "t_face_ssim_mean",
+          -0.0469,
+          0.9923
+        ],
+        [
+          "t_rigid_dist_var",
+          -0.041,
+          0.0076
+        ],
+        [
+          "t_prnu_temporal_stability",
+          -0.0334,
+          0.008
+        ]
+      ],
+      "model": "53-D FF++",
+      "caveat": "SHAP explains the classifier's output; it does not prove a feature causally establishes manipulation."
+    },
+    {
+      "case": "tn",
+      "video": "949.mp4",
+      "dataset": "real",
+      "p_fake": 0.0221,
+      "true_class": "real",
+      "top5_push_to_fake": [
+        [
+          "t_dct_temporal_autocorr",
+          0.1267,
+          0.6348
+        ],
+        [
+          "t_texture_warp_residual",
+          0.1124,
+          2.9205
+        ],
+        [
+          "t_boundary_color_disc",
+          0.0861,
+          4.103
+        ],
+        [
+          "s_block_artifact",
+          0.0847,
+          6.4627
+        ],
+        [
+          "t_landmark_velocity_autocorr",
+          0.0738,
+          0.2368
+        ]
+      ],
+      "top5_push_to_real": [
+        [
+          "roi_mouth_texture_flicker",
+          -2.1161,
+          0.3336
+        ],
+        [
+          "roi_mouth_dct_midband_std",
+          -0.8375,
+          0.0251
+        ],
+        [
+          "t_blink_symmetry",
+          -0.7428,
+          0.924
+        ],
+        [
+          "t_coupling_consistency",
+          -0.5374,
+          14.8206
+        ],
+        [
+          "s_noise_hf_ratio",
+          -0.5206,
+          0.5848
+        ]
+      ],
+      "model": "53-D FF++",
+      "caveat": "SHAP explains the classifier's output; it does not prove a feature causally establishes manipulation."
+    },
+    {
+      "case": "fn",
+      "video": "128_896.mp4",
+      "dataset": "face2face",
+      "p_fake": 0.0784,
+      "true_class": "fake",
+      "top5_push_to_fake": [
+        [
+          "s_noise_vmr",
+          0.1882,
+          6.8034
+        ],
+        [
+          "t_residual_entropy",
+          0.1864,
+          3.0559
+        ],
+        [
+          "t_rppg_interregion_corr",
+          0.1646,
+          0.4506
+        ],
+        [
+          "t_texture_warp_residual",
+          0.1352,
+          3.856
+        ],
+        [
+          "t_jaw_chin_rigidity",
+          0.0967,
+          0.9983
+        ]
+      ],
+      "top5_push_to_real": [
+        [
+          "roi_mouth_texture_flicker",
+          -0.9838,
+          0.1734
+        ],
+        [
+          "roi_mouth_dct_midband_std",
+          -0.9714,
+          0.0322
+        ],
+        [
+          "t_blink_symmetry",
+          -0.6079,
+          0.9322
+        ],
+        [
+          "t_dct_temporal_autocorr",
+          -0.4725,
+          0.9037
+        ],
+        [
+          "t_coupling_consistency",
+          -0.3974,
+          14.1359
+        ]
+      ],
+      "model": "53-D FF++",
+      "caveat": "SHAP explains the classifier's output; it does not prove a feature causally establishes manipulation."
+    },
+    {
+      "case": "fp",
+      "video": "00111.mp4",
+      "dataset": "celebdf",
+      "p_fake": 0.9928,
+      "true_class": "real",
+      "top5_push_to_fake": [
+        [
+          "t_coupling_consistency",
+          1.2781,
+          20.9929
+        ],
+        [
+          "t_texture_warp_residual",
+          0.5883,
+          3.1558
+        ],
+        [
+          "s_noise_hf_ratio",
+          0.5035,
+          0.7307
+        ],
+        [
+          "t_rppg_peak_prominence",
+          0.2554,
+          3.6892
+        ],
+        [
+          "t_landmark_velocity_autocorr",
+          0.2247,
+          0.0447
+        ]
+      ],
+      "top5_push_to_real": [
+        [
+          "t_boundary_color_disc",
+          -0.2976,
+          1.0437
+        ],
+        [
+          "t_blink_symmetry",
+          -0.2596,
+          0.8782
+        ],
+        [
+          "t_face_ssim_std",
+          -0.129,
+          0.0223
+        ],
+        [
+          "t_landmark_jitter",
+          -0.1029,
+          0.0154
+        ],
+        [
+          "t_skin_texture_corr",
+          -0.0792,
+          0.9702
+        ]
+      ],
+      "model": "50-D CelebDF",
+      "caveat": "SHAP explains the classifier's output; it does not prove a feature causally establishes manipulation."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+ "provenance": {
+  "script": "shap_stability.py",
+  "git_commit": "c9afcd9",
+  "seed": 42,
+  "date": "2026-07-18",
+  "method": "shap.TreeExplainer on LightGBM, 50-D, identity-disjoint; GroupKFold by source identity"
+ },
+ "per_manip_spearman": {
+  "Deepfakes~Face2Face": 0.358,
+  "Deepfakes~FaceSwap": 0.212,
+  "Deepfakes~NeuralTextures": 0.069,
+  "Face2Face~FaceSwap": 0.256,
+  "Face2Face~NeuralTextures": 0.131,
+  "FaceSwap~NeuralTextures": 0.072
+ },
+ "top5_overlap": {
+  "Deepfakes~Face2Face": 1,
+  "Deepfakes~FaceSwap": 0,
+  "Deepfakes~NeuralTextures": 0,
+  "Face2Face~FaceSwap": 2,
+  "Face2Face~NeuralTextures": 1,
+  "FaceSwap~NeuralTextures": 1
+ },
+ "top10_overlap": {
+  "Deepfakes~Face2Face": 3,
+  "Deepfakes~FaceSwap": 2,
+  "Deepfakes~NeuralTextures": 2,
+  "Face2Face~FaceSwap": 3,
+  "Face2Face~NeuralTextures": 6,
+  "FaceSwap~NeuralTextures": 3
+ },
+ "mean_cross_fold_spearman": 0.911,
+ "nt_top3": [
+  "s_noise_hf_ratio",
+  "t_face_ssim_mean",
+  "t_skin_texture_corr"
+ ],
+ "nt_top3_stability": {
+  "s_noise_hf_ratio": {
+   "mean_rank": 8.0,
+   "rank_sd_manip": 8.8,
+   "fold_rank_sd": 1.0
+  },
+  "t_face_ssim_mean": {
+   "mean_rank": 27.5,
+   "rank_sd_manip": 17.3,
+   "fold_rank_sd": 3.9
+  },
+  "t_skin_texture_corr": {
+   "mean_rank": 14.8,
+   "rank_sd_manip": 12.7,
+   "fold_rank_sd": 2.6
+  }
+ }
+}

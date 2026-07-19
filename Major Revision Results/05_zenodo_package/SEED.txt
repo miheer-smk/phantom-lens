@@ -1,0 +1,1 @@
+RANDOM_SEED = 42 (used for every split, model init, bootstrap, CV fold — src/protocol.py, all scripts)

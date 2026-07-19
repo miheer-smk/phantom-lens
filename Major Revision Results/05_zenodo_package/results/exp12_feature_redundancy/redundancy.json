@@ -1,0 +1,44 @@
+{
+  "provenance": {
+    "script": "exp12_redundancy.py",
+    "git_commit": "92a4235",
+    "seed": 42,
+    "date": "2026-07-18",
+    "protocol": "identity-disjoint; drop-decision on train+val importance only; test eval once"
+  },
+  "n_highly_correlated_pairs": 2,
+  "n_features_dropped": 2,
+  "n_kept": 48,
+  "near_zero_variance": [],
+  "vif_max": 30.1,
+  "pairs": [
+    {
+      "feature_1": "s_noise_res_std",
+      "feature_2": "s_prnu_energy",
+      "pearson": 0.9577,
+      "spearman": 0.9999,
+      "dropped": "s_prnu_energy",
+      "action": "Removed one (lower train+val importance)"
+    },
+    {
+      "feature_1": "s_noise_vmr",
+      "feature_2": "s_shadow_score",
+      "pearson": 0.9067,
+      "spearman": 0.9192,
+      "dropped": "s_shadow_score",
+      "action": "Removed one (lower train+val importance)"
+    }
+  ],
+  "full_auc": {
+    "deepfakes": 0.9752,
+    "face2face": 0.8255,
+    "faceswap": 0.9689,
+    "neuraltextures": 0.8039
+  },
+  "dedup_auc": {
+    "deepfakes": 0.9766,
+    "face2face": 0.8257,
+    "faceswap": 0.9657,
+    "neuraltextures": 0.7955
+  }
+}

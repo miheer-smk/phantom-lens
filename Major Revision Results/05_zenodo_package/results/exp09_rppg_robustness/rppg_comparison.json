@@ -1,0 +1,53 @@
+{
+  "provenance": {
+    "script": "exp9_analyze.py",
+    "git_commit": "d9105fd",
+    "seed": 42,
+    "date": "2026-07-19",
+    "note": "rPPG = forensic temporal descriptor, not medical-grade pulse; current=POS+CHROM dual (50-D t_rppg_*)",
+    "strata_thresholds": {
+      "motion": 6.0495,
+      "illum": 1.48,
+      "length": 411
+    }
+  },
+  "n_test": 1337,
+  "results": [
+    {
+      "method": "current(POS+CHROM)",
+      "overall": 0.4782,
+      "c23": 0.4792,
+      "c40": 0.478,
+      "low_motion": 0.4939,
+      "high_motion": 0.4649,
+      "low_illum": 0.4711,
+      "high_illum": 0.4845,
+      "short_seq": 0.5004,
+      "long_seq": 0.4627
+    },
+    {
+      "method": "POS",
+      "overall": 0.5178,
+      "c23": 0.5464,
+      "c40": 0.4913,
+      "low_motion": 0.5715,
+      "high_motion": 0.4753,
+      "low_illum": 0.5068,
+      "high_illum": 0.5272,
+      "short_seq": 0.5331,
+      "long_seq": 0.5098
+    },
+    {
+      "method": "CHROM",
+      "overall": 0.4663,
+      "c23": 0.4842,
+      "c40": 0.4481,
+      "low_motion": 0.4165,
+      "high_motion": 0.5129,
+      "low_illum": 0.4622,
+      "high_illum": 0.4697,
+      "short_seq": 0.4929,
+      "long_seq": 0.4528
+    }
+  ]
+}
