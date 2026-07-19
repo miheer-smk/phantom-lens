@@ -266,3 +266,25 @@ suppresses sensor residual. This is a PRNU-INSPIRED residual-energy cue, NOT a c
 
 AUTHOR REWRITE ITEM (terminology): rename "PRNU" descriptors to "PRNU-inspired residual-energy
 descriptors" / "sensor-residual consistency" — no reference sensor pattern is estimated. [flagged, not drafted]
+
+---
+
+## EXP-9 rPPG POS/CHROM COMPARISON (R1) — real-vs-fake AUC per condition, identity-disjoint
+Script `exp9_analyze.py` + `exp9_rppg_extract.py` · commit d9105fd · seed 42 · rPPG-only 4 descriptors per method.
+current = existing POS+CHROM dual (50-D t_rppg_*); POS/CHROM = pure implementations. BM3D n/a (rPPG expt).
+
+| method | overall | c23 | c40 | low-motion | high-motion | low-illum | high-illum | short-seq | long-seq |
+|---|---|---|---|---|---|---|---|---|---|
+| current (POS+CHROM) | 0.478 | 0.479 | 0.478 | 0.494 | 0.465 | 0.471 | 0.485 | 0.500 | 0.463 |
+| POS | **0.518** | 0.546 | 0.491 | 0.572 | 0.475 | 0.507 | 0.527 | 0.533 | 0.510 |
+| CHROM | 0.466 | 0.484 | 0.448 | 0.417 | 0.513 | 0.462 | 0.470 | 0.493 | 0.453 |
+
+FINDINGS (null-ish, honest): (1) rPPG ALONE is a WEAK forensic cue — all methods near chance (0.47–0.52);
+none is a strong standalone discriminator. Corroborates DeLong (rPPG hurts cross-dataset) + pillar-only
+(weak standalone). (2) POS is marginally best overall (0.518) and MORE compression-robust than CHROM
+(POS c23 0.546→c40 0.491; CHROM 0.484→0.448) — validates the extractor's POS-primary design choice.
+(3) rPPG degrades under high motion (POS 0.572→0.475) and heavy compression — R1's sensitivity concern
+CONFIRMED. (4) pure POS > current dual (0.518 vs 0.478) — the dual fallback isn't optimal.
+
+AUTHOR ITEMS: (a) rPPG is a forensic temporal descriptor, NOT medical-grade pulse estimation.
+(b) consider pure POS over the POS+CHROM dual. (c) rPPG's value is a weak complementary cue, not standalone. [flagged, not drafted]

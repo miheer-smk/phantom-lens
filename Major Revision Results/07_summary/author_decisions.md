@@ -9,3 +9,6 @@
    residual-energy descriptors"; blink-claim moderation; title. [to surface as EXP-8/9 land]
 8. EXP-8 terminology: rename "PRNU" → "PRNU-inspired residual-energy descriptors" / "sensor-residual
    consistency" (no reference sensor pattern estimated). Residual method is robust (median≈gaussian≈wavelet).
+9. EXP-9 rPPG: (a) call rPPG a forensic temporal descriptor, NOT medical-grade pulse. (b) rPPG is a WEAK
+   standalone cue (~chance); value is complementary only. (c) pure POS marginally beats the POS+CHROM dual
+   and is more compression-robust — consider switching. Sensitivity to motion/compression CONFIRMED (R1).
