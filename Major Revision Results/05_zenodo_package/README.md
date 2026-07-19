@@ -4,10 +4,20 @@ Physics-grounded, interpretable deepfake detection. All results are leakage-free
 official FaceForensics++ split), deterministic (seed 42), and regenerable from the scripts here.
 
 ## Layout
-- scripts/       feature extraction + all experiment scripts (one per experiment)
-- splits/        ffpp_official_split.json (720/140/140 identity split), pillar_map.json (20 pillars)
-- results/       all result tables/JSON per experiment (02_tables mirror)
+- scripts/            feature extraction + all experiment scripts (one per experiment)
+- splits/             ffpp_official_split.json (720/140/140 identity split), pillar_map.json (20 pillars)
+- results/            all result tables/JSON per experiment (02_tables mirror)
+- features_regenerated/  the extracted feature CSVs (50-D spatial+temporal, ROI/G1, PRNU-residual,
+                     rPPG, c40-compressed). These are numeric descriptors — NOT video content — so
+                     every headline number regenerates directly from them WITHOUT re-downloading the
+                     license-gated FF++/Celeb-DF videos. 32 files.
 - requirements.txt, ENVIRONMENT.txt, SEED.txt, DATASET_ACCESS.md
+
+## Reproduce numbers directly from deposited features (no video download needed)
+The scripts default to reading `features/*.csv`; point them at `features_regenerated/` (or symlink it
+to `features/`) and re-run any experiment below to reproduce the exact locked numbers, seed 42.
+NOT deposited (license): raw FF++/Celeb-DF videos and the derived face crops (see DATASET_ACCESS.md);
+trained Xception checkpoint (regenerable; author's private off-machine backup).
 
 ## Protocol (critical)
 Identity-disjoint splitting via scripts/protocol.py (assert_no_identity_overlap runs at the start of

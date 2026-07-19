@@ -1,6 +1,8 @@
 # Zenodo Package Manifest (2026-07-19)
-scripts: 22 files | result dirs: 14 | requirements: 88 pkgs
-git commit at packaging: a3a66f1
-Contents: extraction+training+eval+ablation+SHAP+runtime+stats scripts, official split, pillar map,
-all result tables, requirements, environment, seed, dataset-access instructions, README.
-NOT included: raw videos (license-restricted), trained model binaries (regenerable), .venv.
+scripts: 22 files | result dirs: 14 | feature CSVs: 32 | requirements: 88 lines
+git commit at packaging: 12d1d2a (branch major-revision, github.com/miheer-smk/phantom-lens)
+Contents: extraction+training+eval+ablation+SHAP+runtime+stats scripts, official identity split,
+pillar map, all result tables, all extracted feature CSVs (numbers regenerate WITHOUT videos),
+requirements, environment, seed, dataset-access instructions, README, zenodo metadata + upload script.
+NOT included: raw videos + derived face crops (license-restricted), trained model binaries (regenerable;
+author private off-machine backup). Upload/DOI mint = author action (zenodo_upload.sh, draft-only).

@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "upload_type": "software",
+    "title": "PRISM / PhantomLens: Physics-grounded interpretable deepfake detection — reproducibility package",
+    "description": "<p>Code, identity-disjoint splits, extracted feature CSVs, and all result tables for the Scientific Reports paper on physics-grounded, interpretable deepfake detection. All numbers are leakage-free (identity-disjoint official FaceForensics++ split), deterministic (seed 42), and regenerable from the deposited feature CSVs without re-downloading the license-gated source videos. Raw videos and derived face crops are NOT included (dataset license); see DATASET_ACCESS.md.</p>",
+    "access_right": "open",
+    "license": "TODO-AUTHORS: confirm code license (e.g. \"mit\") and note any dataset-derived constraints",
+    "keywords": ["deepfake detection", "media forensics", "interpretability", "SHAP", "FaceForensics++", "Celeb-DF", "reproducibility"],
+    "version": "1.0.0",
+    "language": "eng",
+
+    "__HOLD__": "DO NOT PUBLISH until Miheer + co-author confirm the author list, ORCIDs, affiliations, license, and the related-identifier link to the paper. The DOI is permanent and goes in the manuscript — this is an author decision, not an automated one.",
+
+    "creators": [
+      { "name": "TODO-AUTHORS: Lastname, Firstname", "affiliation": "TODO", "orcid": "TODO-optional" }
+    ],
+
+    "related_identifiers": [
+      { "relation": "isSupplementTo", "identifier": "TODO-AUTHORS: paper DOI once assigned", "scheme": "doi" },
+      { "relation": "isSupplementTo", "identifier": "https://github.com/miheer-smk/phantom-lens/tree/major-revision", "scheme": "url" }
+    ]
+  }
+}
