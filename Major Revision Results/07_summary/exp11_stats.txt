@@ -1,0 +1,20 @@
+=== EXP-11 STATISTICAL TESTS ===
+-- DeLong (Holm-corrected) --
+  full50_vs_top3[deepfakes]  Δ=+0.2000 z=+7.63 p=2.42e-14 p_holm=0.000
+  full50_vs_top10[deepfakes] Δ=+0.0140 z=+2.10 p=3.61e-02 p_holm=0.063
+  full50_vs_top3[face2face]  Δ=+0.1829 z=+5.31 p=1.12e-07 p_holm=0.000
+  full50_vs_top10[face2face] Δ=+0.0662 z=+3.10 p=1.90e-03 p_holm=0.011
+  full50_vs_top3[faceswap]   Δ=+0.1057 z=+5.28 p=1.32e-07 p_holm=0.000
+  full50_vs_top10[faceswap]  Δ=+0.0415 z=+3.26 p=1.13e-03 p_holm=0.008
+  full50_vs_top3[neuraltextures] Δ=+0.1524 z=+4.57 p=4.93e-06 p_holm=0.000
+  full50_vs_top10[neuraltextures] Δ=+0.0593 z=+2.63 p=8.63e-03 p_holm=0.026
+  c23_vs_c40[deepfakes]      Δ=+0.0314 z=+2.92 p=3.49e-03 p_holm=0.014
+  c23_vs_c40[face2face]      Δ=+0.0698 z=+2.15 p=3.13e-02 p_holm=0.063
+  c23_vs_c40[faceswap]       Δ=+0.1184 z=+5.57 p=2.59e-08 p_holm=0.000
+  c23_vs_c40[neuraltextures] Δ=+0.0692 z=+2.99 p=2.79e-03 p_holm=0.014
+-- McNemar --
+  CelebDF baseline(0.50) vs val-calibrated(0.510): stat=25.4697 p=4.494e-07 (b=54, c=12)
+-- Wilcoxon --
+  full50_vs_top3 across 10 folds: stat=0.0 p=1.953e-03 (full 0.7728 vs top3 0.6443)
+
+saved results_clean/statistical_tests.csv, statistical_tests.json (commit af80bd5)
