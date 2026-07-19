@@ -28,9 +28,9 @@ lbl(ax,b1,dy=0.012); lbl(ax,b2,dy=0.012)
 for i,m in enumerate(MAN):
     p=dl[m]['p_value'] if m in dl else 1
     s='***' if p<1e-3 else '**' if p<1e-2 else '*' if p<0.05 else 'n.s.'
-    yst=max(a50[i]+e50[1][i],a53[i]+e53[1][i])+0.012; ax.text(x[i],yst,s,ha='center',fontsize=11,fontweight='bold')
-ax.set_xticks(x); ax.set_xticklabels(MAN); ax.set_ylabel('AUC (identity-disjoint test)'); ax.set_ylim(0.6,1.06)
-ax.set_title('In-distribution detection: 50-D vs 53-D (extended)',pad=14); ax.legend(loc='lower right'); grid(ax)
+    yst=max(a50[i]+e50[1][i],a53[i]+e53[1][i])+0.030; ax.text(x[i],yst,s,ha='center',fontsize=11,fontweight='bold',color='#222222')
+ax.set_xticks(x); ax.set_xticklabels(MAN); ax.set_ylabel('AUC (identity-disjoint test)'); ax.set_ylim(0.6,1.08)
+ax.set_title('In-distribution detection: 50-D vs 53-D (extended)',pad=16); ax.legend(loc='lower right'); grid(ax)
 ax.text(0.01,-0.17,'Error bars: bootstrap 95% CI. Significance: DeLong test (*** p<0.001, ** p<0.01, * p<0.05, n.s. not sig.).',transform=ax.transAxes,fontsize=7.5,color=GREY)
 plt.savefig(f"{FIG}/fig1_indist_50v53.png"); plt.close()
 
