@@ -9,7 +9,11 @@ warnings.filterwarnings("ignore"); sys.path.insert(0,"src")
 from protocol import make_splits
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import roc_auc_score
-import lightgbm as lgb
+import lightgbm as lgb, cv2
+def true_len(vp):
+    try:
+        c=cv2.VideoCapture(vp); n=int(c.get(cv2.CAP_PROP_FRAME_COUNT)); c.release(); return n
+    except: return 0
 SEED=42; F="features"; OUT="results_clean"
 MAN=["deepfakes","face2face","faceswap","neuraltextures"]
 CUR=["t_rppg_snr","t_rppg_peak_prominence","t_rppg_interregion_corr","t_rppg_harmonic_ratio"]
@@ -38,7 +42,9 @@ tr=D[D.partition.isin(["train","val"])]; te=D[D.partition=="test"].copy()
 thr_motion=tr.s_flow_mag.median(); thr_illum=tr.brightness_var.median(); thr_len=tr.n_frames.median()
 te["motion"]=np.where(te.s_flow_mag>=thr_motion,"high_motion","low_motion")
 te["illum"]=np.where(te.brightness_var>=thr_illum,"high_illum","low_illum")
-te["length"]=np.where(te.n_frames>=thr_len,"long_seq","short_seq")
+te=te.copy(); te["true_len"]=te.video_path.map(true_len)
+thr_len=tr.assign(tl=tr.video_path.map(true_len)).tl.median()
+te["length"]=np.where(te.true_len>=thr_len,"long_seq","short_seq")
 def auc(cols,sub):
     if sub.label.nunique()<2 or len(sub)<20: return None
     return round(roc_auc_score(sub.label.values.astype(int),sub["_score_"].values),4)
