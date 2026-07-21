@@ -3,6 +3,21 @@
 **Single source of truth.** Every number destined for the manuscript lives here with full
 provenance. Nothing enters the paper that is not in this file, regenerable from a committed script.
 
+## Methodology changelog
+- **2026-07-21 — M1 imputation-leakage fix (guide #6).** The shared `clean()` idiom previously
+  computed `fillna(median)` over an entire feature CSV (train+val+test) **before** partitioning, so
+  test rows could influence imputation medians. Replaced with a **train-only imputer**
+  (`src/leakfree.py`: medians from the TRAIN partition only, applied unchanged to val/test; zero-shot
+  Celeb-DF/WildDeepfake imputed with the FF++ TRAIN median). Applied to all 12 classifier scripts
+  (baseline, pillar_ablation, pillar_only, shap_stability, exp3, exp4, exp8, exp9, track_c, run_delong,
+  exp11_stats, exp11_prism_vs_xception) + exp10_case_shap. **Impact: none.** The 50-D/ROI/rPPG matrices
+  have 0 missing cells and residual CSVs ~1 cell/file, so imputation never (or barely) fires. Re-ran
+  every affected script and verified **all 35 locked result files reproduce bit-identically
+  (worst abs diff 0.00e+00)** vs the pre-fix snapshot. This is a code-defensibility fix, NOT a
+  re-baseline; no reported number changes. Verification: `diff_m1.py`.
+- M2 (scaler-in-CV) and M3 (test-set model selection): audited clean — no change needed. `rigorous_search.py`
+  confirmed exploratory (writes nothing to disk; feeds no locked number).
+
 ## Provenance (baseline block)
 - **script:** `Major Revision Results/00_logs/baseline_clean.py`
 - **git commit:** `e8f5b7c` (baseline protocol) — rerun regenerates identical numbers

@@ -7,6 +7,7 @@ import os,sys,json,hashlib,subprocess,datetime
 import numpy as np, pandas as pd, warnings
 warnings.filterwarnings("ignore"); sys.path.insert(0,"src")
 from protocol import make_splits, assert_no_identity_overlap
+from leakfree import impute_with
 import roi_config as RC
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
@@ -29,9 +30,10 @@ def load50(name):
     return make_splits(o)
 real=load50("real"); MANd={m:load50(m) for m in MAN}
 FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")]); COLS=FC  # 50-D (matches locked CelebDF 0.632; G1 not extracted for CelebDF)
-def clean(df):
+def clean(df):  # M1 fix: TRAIN-partition medians only (df already has 'partition' from load50->make_splits)
     d=df.copy()
-    for c in COLS: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
+    for c in COLS: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan)
+    d[COLS]=d[COLS].fillna(d.loc[d.partition=="train",COLS].median())
     return d
 real=clean(real); MANd={m:clean(v) for m,v in MANd.items()}
 
@@ -49,7 +51,8 @@ clf.fit(sc.transform(tr[COLS].values),tr['label'].values.astype(int))
 pv=clf.predict_proba(sc.transform(va[COLS].values))[:,1]; yv=va['label'].values.astype(int)  # VAL scores (for deriving thresholds)
 
 # CelebDF test scores (labels NOT used for any threshold selection)
-cd=clean(pd.read_csv(f"{F}/celebdf_features.csv")); pc=clf.predict_proba(sc.transform(cd[COLS].values))[:,1]; yc=cd['label'].values.astype(int)
+cd=impute_with(pd.read_csv(f"{F}/celebdf_features.csv"),COLS,tr[COLS].median())  # M1 fix: FF++ train median
+pc=clf.predict_proba(sc.transform(cd[COLS].values))[:,1]; yc=cd['label'].values.astype(int)
 
 # ---- derive thresholds/calibrators on VAL only ----
 fpr,tpr,thr=roc_curve(yv,pv); youden=thr[np.argmax(tpr-fpr)]

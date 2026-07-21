@@ -1,9 +1,9 @@
 {
   "provenance": {
     "script": "exp4_calibration.py",
-    "git_commit": "81c6067",
+    "git_commit": "36a43a1",
     "seed": 42,
-    "date": "2026-07-18",
+    "date": "2026-07-21",
     "rule": "ALL thresholds/calibrators derived on FF++ VAL only, applied unchanged to CelebDF; test labels NEVER used for selection",
     "thresholds": {
       "youden": 0.7576,

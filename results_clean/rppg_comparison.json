@@ -1,9 +1,9 @@
 {
   "provenance": {
     "script": "exp9_analyze.py",
-    "git_commit": "d9105fd",
+    "git_commit": "36a43a1",
     "seed": 42,
-    "date": "2026-07-19",
+    "date": "2026-07-21",
     "note": "rPPG = forensic temporal descriptor, not medical-grade pulse; current=POS+CHROM dual (50-D t_rppg_*)",
     "strata_thresholds": {
       "motion": 6.0495,

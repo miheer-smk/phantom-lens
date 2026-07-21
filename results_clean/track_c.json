@@ -1,9 +1,9 @@
 {
  "provenance": {
   "script": "Major Revision Results/00_logs/track_c_measure.py",
-  "git_commit": "e2a5cb9",
+  "git_commit": "36a43a1",
   "seed": 42,
-  "date": "2026-07-18",
+  "date": "2026-07-21",
   "protocol": "fit train / eval val (identity-disjoint); test+CelebDF untouched",
   "roi_csv_sha256": {
    "roi_original_c23.csv": "79d68500fb2311dc",

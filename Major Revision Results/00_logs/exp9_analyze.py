@@ -32,7 +32,8 @@ for comp in ("c23","c40"):
     for mm in MAN: frames.append(load(mm,comp).assign(src=mm))
 D=pd.concat(frames,ignore_index=True)
 allc=CUR+POS+CHR+["s_flow_mag","brightness_var","n_frames"]
-for c in allc: D[c]=pd.to_numeric(D[c],errors="coerce").replace([np.inf,-np.inf],np.nan); D[c]=D[c].fillna(D[c].median())
+for c in allc: D[c]=pd.to_numeric(D[c],errors="coerce").replace([np.inf,-np.inf],np.nan)
+D[allc]=D[allc].fillna(D.loc[D.partition=="train",allc].median())  # M1 fix: TRAIN-only medians
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)
 def commit():
     try: return subprocess.check_output(["git","rev-parse","--short","HEAD"],text=True).strip()

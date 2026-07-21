@@ -1,9 +1,9 @@
 {
   "provenance": {
     "script": "exp3_compression.py",
-    "git_commit": "830a780",
+    "git_commit": "36a43a1",
     "seed": 42,
-    "date": "2026-07-18",
+    "date": "2026-07-21",
     "protocol": "identity-disjoint; per-manip train(train+val ids)/test(test ids); 50-D"
   },
   "per_manip": [

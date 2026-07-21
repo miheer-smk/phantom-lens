@@ -1,9 +1,9 @@
 {
  "provenance": {
   "script": "run_delong.py",
-  "git_commit": "810673e",
+  "git_commit": "36a43a1",
   "seed": 42,
-  "date": "2026-07-18",
+  "date": "2026-07-21",
   "test": "DeLong paired AUC; Holm across 20 pillars per dataset"
  },
  "A_53vs50": [

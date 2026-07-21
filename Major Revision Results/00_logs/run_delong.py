@@ -20,10 +20,9 @@ def load(name,roi=False):
     df=pd.read_csv(f"{F}/ffpp_{name}_c23.csv") if name!="real" else pd.read_csv(f"{F}/ffpp_original_c23.csv")
     return df
 real=pd.read_csv(f"{F}/ffpp_original_c23.csv"); FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")])
-def clean(df,cols):
-    d=df.copy()
-    for c in cols: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
-    return d
+from leakfree import split_impute, impute_with
+def clean(df,cols):  # M1 fix: partition by identity, TRAIN-partition medians only
+    return split_impute(df, cols)[0]
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)
 def commit():
     try: return subprocess.check_output(["git","rev-parse","--short","HEAD"],text=True).strip()
@@ -81,9 +80,9 @@ for disp,short in MAN.items():
     te=pd.concat([rl[rl.partition=="test"], man[man.partition=="test"]], ignore_index=True)
     eval_pillars(disp,tr,te)
 # CelebDF zero-shot
-cd=clean(pd.read_csv(f"{F}/celebdf_features.csv"),FC)
 rl=make_splits(clean(pd.read_csv(f"{F}/ffpp_original_c23.csv"),FC))
 trf=pd.concat([rl[rl.partition=="train"]]+[make_splits(clean(pd.read_csv(f"{F}/ffpp_{s}_c23.csv"),FC)).query("partition=='train'") for s in MAN.values()],ignore_index=True)
+cd=impute_with(pd.read_csv(f"{F}/celebdf_features.csv"),FC,trf[FC].median())  # M1 fix: FF++ train median
 eval_pillars("CelebDF",trf,cd)
 
 json.dump({"provenance":{"script":"run_delong.py","git_commit":commit(),"seed":SEED,"date":datetime.date.today().isoformat(),

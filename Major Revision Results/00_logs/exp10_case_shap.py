@@ -28,11 +28,11 @@ def with_g1(name):
     return make_splits(o.merge(r[["_b"]+G1],on="_b",how="inner"))
 real=with_g1("real"); MANd={m:with_g1(m) for m in MAN}
 FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")]); COLS=FC+G1
-def clean(df,cols):
-    d=df.copy()
-    for c in cols: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
-    return d
+from leakfree import split_impute, impute_with, pooled_train_median
+def clean(df,cols):  # M1 fix: TRAIN-partition medians only
+    return split_impute(df, cols)[0]
 real=clean(real,COLS); MANd={m:clean(v,COLS) for m,v in MANd.items()}
+ff_med=pooled_train_median([real]+list(MANd.values()),FC)  # for zero-shot CelebDF imputation
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)
 
 # 53-D model on FF++ (train ids) -> test predictions (for TP/TN/FN)
@@ -45,7 +45,7 @@ expl=shap.TreeExplainer(clf); base_val=expl.expected_value
 if isinstance(base_val,(list,np.ndarray)): base_val=float(np.ravel(base_val)[-1])
 
 # 50-D model for CelebDF FP
-cd=clean(pd.read_csv(f"{F}/celebdf_features.csv"),FC)
+cd=impute_with(pd.read_csv(f"{F}/celebdf_features.csv"),FC,ff_med)  # M1 fix: FF++ train median
 tr50=pd.concat([real[real.partition=="train"]]+[MANd[m][MANd[m].partition=="train"] for m in MAN],ignore_index=True)
 sc50=StandardScaler().fit(tr50[FC].values); clf50=LGBM(); clf50.fit(sc50.transform(tr50[FC].values),tr50['label'].values.astype(int))
 cd["source"]="celebdf"; cd=cd.reset_index(drop=True); cd["p"]=clf50.predict_proba(sc50.transform(cd[FC].values))[:,1]

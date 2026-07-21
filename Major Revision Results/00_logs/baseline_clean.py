@@ -10,6 +10,7 @@ warnings.filterwarnings("ignore")
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 sys.path.insert(0, "src")
 from protocol import make_splits, assert_no_identity_overlap, load_id2split
+from leakfree import split_impute, impute_with, pooled_train_median
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import roc_auc_score, f1_score, precision_score, recall_score, matthews_corrcoef
 import lightgbm as lgb
@@ -32,13 +33,11 @@ id2split=load_id2split()
 raw={k:pd.read_csv(f"{FEAT}/{v}") for k,v in FILES.items()}
 hashes={v:sha(f"{FEAT}/{v}") for v in FILES.values()}
 fc=sorted([c for c in raw["real"].columns if c[:2] in ("s_","t_")])
-def clean(df):
-    d=df.copy(); d[fc]=d[fc].replace([np.inf,-np.inf],np.nan)
-    for c in fc: d[c]=d[c].fillna(d[c].median())
-    return d
-# partition FF++ frames by identity
-P={k:make_splits(clean(v)) for k,v in raw.items() if k!="CelebDF"}
-CD=clean(raw["CelebDF"])
+# M1 fix: partition by identity, then impute with TRAIN-partition medians ONLY (leakfree.split_impute).
+P={k:split_impute(v,fc)[0] for k,v in raw.items() if k!="CelebDF"}
+# Celeb-DF is a zero-shot TEST set: impute with the pooled FF++ TRAIN median (never its own rows).
+ff_train_med=pooled_train_median(list(P.values()), fc)
+CD=impute_with(raw["CelebDF"], fc, ff_train_med)
 def part(k,p): d=P[k]; return d[d.partition==p]
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,
     num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)

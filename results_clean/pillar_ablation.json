@@ -1,9 +1,9 @@
 {
  "provenance": {
   "script": "Major Revision Results/00_logs/pillar_ablation.py",
-  "git_commit": "851551a",
+  "git_commit": "36a43a1",
   "seed": 42,
-  "date": "2026-07-18",
+  "date": "2026-07-21",
   "protocol": "identity-disjoint; column-mask only; 50-D unchanged",
   "n_pillars": 20,
   "classifier": "LightGBM(200,6,0.05,31,20,balanced)"

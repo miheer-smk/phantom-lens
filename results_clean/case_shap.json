@@ -1,9 +1,9 @@
 {
   "provenance": {
     "script": "exp10_case_shap.py",
-    "git_commit": "ce496db",
+    "git_commit": "36a43a1",
     "seed": 42,
-    "date": "2026-07-18",
+    "date": "2026-07-21",
     "selection": "TP=highest-conf correct fake; TN=lowest P_fake correct real; FN=fake w/ lowest P_fake; FP=CelebDF real w/ highest P_fake",
     "caveat": "SHAP explains the classifier's output; it does not prove a feature causally establishes manipulation."
   },

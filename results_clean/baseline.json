@@ -1,9 +1,9 @@
 {
  "provenance": {
   "script": "Major Revision Results/00_logs/baseline_clean.py",
-  "git_commit": "e8f5b7c",
+  "git_commit": "36a43a1",
   "seed": 42,
-  "date": "2026-07-17",
+  "date": "2026-07-21",
   "classifier": "LightGBM(n_est=200,depth=6,lr=0.05,leaves=31,min_child=20,balanced)",
   "feature_csv_sha256": {
    "ffpp_original_c23.csv": "fd7c0ac90c046e33",

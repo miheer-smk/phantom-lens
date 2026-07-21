@@ -8,6 +8,7 @@ import os,sys,json,subprocess,datetime,itertools
 import numpy as np, pandas as pd, warnings
 warnings.filterwarnings("ignore"); sys.path.insert(0,"src")
 from protocol import make_splits, clip_identities
+from leakfree import split_impute
 from scipy.stats import spearmanr
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GroupKFold
@@ -15,10 +16,8 @@ import lightgbm as lgb, shap
 SEED=42; F="features"; OUT="results_clean"
 MAN={"Deepfakes":"deepfakes","Face2Face":"face2face","FaceSwap":"faceswap","NeuralTextures":"neuraltextures"}
 real=pd.read_csv(f"{F}/ffpp_original_c23.csv"); FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")])
-def clean(df):
-    d=df.copy()
-    for c in FC: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
-    return make_splits(d)
+def clean(df):  # M1 fix: partition by identity, impute with TRAIN-partition medians only
+    return split_impute(df, FC)[0]
 realc=clean(real); MANc={k:clean(pd.read_csv(f"{F}/ffpp_{v}_c23.csv")) for k,v in MAN.items()}
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)
 def shap_rank(Xtr,ytr,Xexpl):

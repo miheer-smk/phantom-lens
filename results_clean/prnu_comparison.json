@@ -1,9 +1,9 @@
 {
   "provenance": {
     "script": "exp8_analyze.py",
-    "git_commit": "33550c9",
+    "git_commit": "36a43a1",
     "seed": 42,
-    "date": "2026-07-18",
+    "date": "2026-07-21",
     "bm3d": "NOT COMPUTED \u2014 no linux-aarch64 native library",
     "terminology_note": "descriptors are PRNU-INSPIRED residual-energy, not camera PRNU fingerprints"
   },

@@ -23,9 +23,10 @@ def load(name):
 real=load("real"); MANd={m:load(m) for m in MAN}
 FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")]); base46=[c for c in FC if c not in PRNU_RESID]
 allcols=base46+[f"{m}_{d}" for m in METHODS for d in DESC]
-def clean(df):
+def clean(df):  # M1 fix: TRAIN-partition medians only (df already has 'partition' from load->make_splits)
     d=df.copy()
-    for c in allcols: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
+    for c in allcols: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan)
+    d[allcols]=d[allcols].fillna(d.loc[d.partition=="train",allcols].median())
     return d
 real=clean(real); MANd={m:clean(v) for m,v in MANd.items()}
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)

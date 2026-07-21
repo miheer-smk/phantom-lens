@@ -40,13 +40,13 @@ def load(name):
     return make_splits(pd.read_csv(f"{F}/ffpp_{'original' if name=='real' else name}_c23.csv"))
 real=load("real"); MANd={m:load(m) for m in MAN}
 FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")])
-def clean(df):
-    d=df.copy()
-    for c in FC: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
-    return d
+from leakfree import split_impute, impute_with, pooled_train_median
+def clean(df):  # M1 fix: TRAIN-partition medians only
+    return split_impute(df, FC)[0]
 real=clean(real); MANd={m:clean(v) for m,v in MANd.items()}
 tr=pd.concat([real[real.partition=="train"]]+[MANd[m][MANd[m].partition=="train"] for m in MAN],ignore_index=True)
-cd=clean(pd.read_csv(f"{F}/celebdf_features.csv"))
+# Celeb-DF zero-shot: impute with pooled FF++ TRAIN median (never its own rows)
+cd=impute_with(pd.read_csv(f"{F}/celebdf_features.csv"), FC, pooled_train_median([real]+list(MANd.values()),FC))
 sc=StandardScaler().fit(tr[FC].values); clf=lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1).fit(sc.transform(tr[FC].values),tr['label'].values.astype(int))
 cd["p"]=clf.predict_proba(sc.transform(cd[FC].values))[:,1]; cd["vid"]=cd.video_path.map(lambda p: os.path.splitext(base(p))[0])
 # ---- align by video id (basename without extension), DeLong ----

@@ -1,9 +1,9 @@
 {
  "provenance": {
   "script": "Major Revision Results/00_logs/pillar_only.py",
-  "git_commit": "80d6c1b",
+  "git_commit": "36a43a1",
   "seed": 42,
-  "date": "2026-07-18",
+  "date": "2026-07-21",
   "protocol": "identity-disjoint; train on single pillar only"
  },
  "rows": [

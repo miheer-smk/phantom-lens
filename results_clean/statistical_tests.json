@@ -1,9 +1,9 @@
 {
   "provenance": {
     "script": "exp11_stats.py",
-    "git_commit": "af80bd5",
+    "git_commit": "36a43a1",
     "seed": 42,
-    "date": "2026-07-19",
+    "date": "2026-07-21",
     "note": "all p-values computed from actual prediction scores; DeLong Holm-corrected across family"
   },
   "top3": [
@@ -211,19 +211,6 @@
       "p_value": 0.001953125,
       "mean_full": 0.7728,
       "mean_top3": 0.6443
-    }
-  ],
-  "prism_vs_xception": [
-    {
-      "comparison": "PRISM_vs_Xception_CelebDF",
-      "test": "DeLong",
-      "n_matched_videos": 6121,
-      "auc_xception": 0.8211,
-      "auc_prism": 0.6322,
-      "auc_diff_xcep_minus_prism": 0.1889,
-      "z": 15.426,
-      "p_value": 0.0,
-      "note": "Xception significantly outperforms PRISM on CelebDF zero-shot (paired DeLong, z=15.43, p<1e-16)"
     }
   ]
 }

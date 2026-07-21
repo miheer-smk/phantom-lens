@@ -1,9 +1,9 @@
 {
  "provenance": {
   "script": "shap_stability.py",
-  "git_commit": "c9afcd9",
+  "git_commit": "36a43a1",
   "seed": 42,
-  "date": "2026-07-18",
+  "date": "2026-07-21",
   "method": "shap.TreeExplainer on LightGBM, 50-D, identity-disjoint; GroupKFold by source identity"
  },
  "per_manip_spearman": {
