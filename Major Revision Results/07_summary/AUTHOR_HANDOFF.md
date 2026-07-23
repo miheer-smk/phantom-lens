@@ -79,7 +79,26 @@ Rewrite drafts prepared: `04_manuscript_rewrite/PROTOCOL.md`, `08_shap_nt_featur
   ⚠️ Both on nvme0n1 — an OFFSITE copy (14–19 MB tarball) is still recommended (author action).
 - Zenodo staging: `05_zenodo_package/` (scripts, split, results, requirements, env, README, dataset-access). Upload = author action.
 
+## 6. GUIDE-AUDIT ADDITIONS (2026-07-21→23) — methodology fixes + new experiments
+Full numbers/provenance in `LOCKED_NUMBERS.md`; response-table values in `response_fill_sheet.{md,json}`.
+| # | Item | Headline result | File / commit |
+|---|---|---|---|
+| M1 | Imputation-leakage fix (train-only imputer `src/leakfree.py`) | code-defensibility only — all 35 locked files **bit-identical** (0.00e+00) | e09ffa5 |
+| M2/M3 | Scaler-in-CV / test-set selection | audited clean; `rigorous_search.py` confirmed exploratory | — |
+| M4 | Missingness-as-signal audit | real-vs-fake AUC **0.50/0.51 (at chance)** → detection not a missingness artifact; Celeb-DF real-class extraction gap disclosed | bc409a3 |
+| G1 | Hard-negative clean Deepfakes TEST | **17/133 (12.78%)** FN; retires leaky 13/957 | 13b8550 |
+| G3 | Runtime re-profile ≥100 vid | 113 vid, 48.6 s/vid, RTF 3.196, 3.5 GB; Xception 67.8 ms/83 MB | 3c2f80c |
+| G8 | Celeb-DF 3-way reconciliation | lock **0.632** authoritative; 0.6989/0.6867 retired (`celebdf_reconciliation.md`) | 3f94536 |
+| G9 | Per-video predictions + auditability | 16,635 rows; DeLong/McNemar recompute from persisted probs, reproduce locked exactly | 3c2f80c |
+| Phase C | Paths→env-var; package sync; fresh-checkout | 0 hardcoded paths; fresh regen bit-identical | b10462c |
+
+**Repository hygiene:** the original leakage-inflated tree (`exp1/2/3/5`, `exp_celebdf`, per-/cross-manip
+dirs) + recon-phase gate scripts are quarantined in `archive/deprecated_leaky/`; README rewritten to the
+honest headline numbers. Retired figures (0.9939/0.9991/0.9999/0.6989/0.6867/13-957) appear only in the
+deprecated archive and the reconciliation docs.
+
 ## 5. WHAT REMAINS
 - **DFDC** (EXP-6): blocked pending a real DFDC test-label file (needs both classes; the found `sample_submission.csv` was an all-zeros template). If unavailable, report Celeb-DF + WildDeepfake, DFDC as future work.
+- **Domain adaptation** (response Table 11): **no reproducing script** — author run-or-remove decision (`author_decisions.md` #11).
 - **Author framing decisions** (§3, esp. item 4) — the contribution/positioning paragraphs.
-- **Point-by-point response letter** — map §2 experiments + §3 corrections to each reviewer comment (author task).
+- **Point-by-point response letter** — map experiments + corrections to each reviewer comment (author task).

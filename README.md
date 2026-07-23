@@ -1,10 +1,8 @@
 <!--
 ================================================================
-  FILE: README.md
-  GOES IN: github.com/miheer-smk/phantom-lens
-  HOW: Replace the existing README.md with this file
+  FILE: README.md — github.com/miheer-smk/phantom-lens
   NOTE: License badge says "Research Only" — DO NOT add an MIT LICENSE
-        file to this repo without discussing with your supervisor.
+        file without discussing with the supervisor.
 ================================================================
 -->
 
@@ -16,11 +14,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white" />
   <img src="https://img.shields.io/badge/LightGBM-Classifier-brightgreen" />
   <img src="https://img.shields.io/badge/MediaPipe-Face%20Mesh-orange" />
+  <img src="https://img.shields.io/badge/Protocol-Identity--disjoint-blueviolet" />
   <img src="https://img.shields.io/badge/License-Research%20Only-lightgrey" />
-  <img src="https://img.shields.io/badge/Status-Active%20Research-yellow" />
 </p>
 
 <p align="center">
@@ -30,81 +27,82 @@
 
 ---
 
+> ### ⚠️ Results correction notice
+> An earlier version of this repository reported **leakage-inflated** numbers (test fakes were present
+> in the training set; no identity-disjoint split). Those figures — FF++ **0.9939 / 0.9991 / 0.9999**,
+> Celeb-DF **0.6989 / 0.6867**, hard-negative **13/957** — are **RETIRED** and must not be used.
+> The current numbers below are **leakage-free** (identity-disjoint official FaceForensics++
+> 720/140/140 split, seed 42). The superseded code/results are quarantined in
+> [`archive/deprecated_leaky/`](archive/deprecated_leaky/).
+>
+> **Authoritative numbers & provenance:**
+> [`Major Revision Results/07_summary/LOCKED_NUMBERS.md`](Major%20Revision%20Results/07_summary/LOCKED_NUMBERS.md) ·
+> [`AUTHOR_HANDOFF.md`](Major%20Revision%20Results/07_summary/AUTHOR_HANDOFF.md) ·
+> current tables in [`results_clean/`](results_clean/) · clean commands in [`REPRODUCE.md`](REPRODUCE.md).
+
+---
+
 ## About
 
-Phantom Lens is a physics-grounded deepfake detection framework that takes a fundamentally different approach from CNN-based detectors. Instead of learning texture artifacts that break when a new generator is released, it checks whether a video obeys the laws of real-world physics.
+Phantom Lens is a physics-grounded deepfake detection framework that takes a different approach from
+CNN-based detectors. Instead of learning texture artifacts that break when a new generator is released,
+it checks whether a video obeys the statistics of real-world physics.
 
-**The core asymmetry:** A generative model must simultaneously replicate dozens of physical constraints — sensor noise statistics, light transport, physiological signals, lens optics, compression traces. A detector only needs to catch *one* violation. Phantom Lens exploits this.
+**The core asymmetry:** a generative model must simultaneously replicate dozens of physical
+constraints — sensor noise statistics, light transport, physiological signals, lens optics, compression
+traces. A detector only needs to catch *one* violation.
 
-The system is built on **PRISM V3** (Physics-Reality Integrated Signal Multistream), a 50-feature extractor anchored to MediaPipe facial landmarks across 19 active physics pillars (13 spatial + 37 temporal). A LightGBM classifier trained on FaceForensics++ achieves near-perfect in-distribution detection and meaningful cross-dataset generalisation to CelebDF v2 without any target-domain data.
+The system is built on **PRISM** (Physics-Reality Integrated Signal Multistream), a 50-feature extractor
+anchored to MediaPipe facial landmarks (extended to a 53-feature variant with ROI mouth-instability
+descriptors). A LightGBM classifier trained on FaceForensics++ gives **strong in-distribution detection
+(mean AUC 0.932, 53-D)** and **moderate zero-shot cross-dataset generalisation (Celeb-DF v2 AUC 0.632)**.
+Its contribution is interpretability and CPU-efficiency, not raw accuracy over a deep baseline (see Xception below).
 
 ---
 
-## Key Results
+## Key Results  (leakage-free, identity-disjoint, seed 42)
 
-### In-Distribution — FaceForensics++ (c23, multi-manipulation)
-
-| Manipulation | Best Model | AUC | F1 |
+### In-distribution — FaceForensics++ c23 (per manipulation)
+| Manipulation | AUC 50-D | AUC 53-D (+ROI G1) | 95% CI (53-D) |
 |---|---|---|---|
-| Deepfakes | LightGBM | 0.9709 | 0.9633 |
-| Face2Face | LightGBM | 0.8818 | 0.7671 |
-| FaceSwap | Random Forest | 0.9999 | 0.9971 |
-| NeuralTextures | Random Forest | 0.9991 | 0.9946 |
+| Deepfakes | 0.971 | **0.978** | [0.963, 0.989] |
+| FaceSwap | 0.963 | **0.969** | [0.949, 0.984] |
+| Face2Face | 0.810 | **0.875** | [0.833, 0.914] |
+| NeuralTextures | 0.787 | **0.905** | [0.866, 0.940] |
+| **mean** | **0.883** | **0.932** | — |
 
-10-fold CV AUC (training set): LR = 0.895 · RF = 0.900 · **LGBM = 0.921**
+### Cross-dataset — zero-shot (never seen in training)
+| Dataset | AUC | 95% CI |
+|---|---|---|
+| **Celeb-DF v2** | **0.632** | [0.613, 0.654] |
+| WildDeepfake | 0.521 | — |
 
-### Cross-Dataset — CelebDF v2 (zero-shot, never seen during training)
+Cross-dataset degradation is expected; the drop reflects real-class domain shift (see limitations).
+Celeb-DF reconciliation of the retired vs honest values:
+[`celebdf_reconciliation.md`](Major%20Revision%20Results/07_summary/celebdf_reconciliation.md).
 
-| Metric | Value |
+### Deep-learning baseline & other analyses
+| Item | Result |
 |---|---|
-| AUC-ROC | **0.6867** |
-| Average Precision | 0.9222 |
-| Fake Recall (TPR) | 0.9224 |
-| Fake F1 | 0.9095 |
-| Test videos | 6,129 (806 real + 5,323 fake) |
+| Xception baseline (same protocol) | FF++ **0.990**, Celeb-DF **0.821** (GPU, 83 MB, not explainable) |
+| DeLong PRISM vs Xception (Celeb-DF) | Xception +0.189, z=15.4, p<1e-16 |
+| Hard-negative (clean Deepfakes test) | **17/133 false negatives (12.78%)** |
+| Runtime (CPU, per video) | 48.6 s, RTF 3.20, peak RAM 3.5 GB, model ~0.6 MB |
+| SHAP ranking stability (cross-fold) | Spearman 0.911 |
+| Missingness-only classifier (real vs fake) | AUC 0.50 — detection is **not** a missingness artifact |
 
-> Cross-dataset degradation is expected and well-studied; the high Average Precision (0.9222) confirms strong ranking quality. Domain adaptation is in progress.
+Full per-experiment numbers with provenance: **`LOCKED_NUMBERS.md`**.
 
 ---
 
-## Physics Pillars
+## Physics Pillars (summary)
 
-### Pillar 1 — Sensor Noise (`src/pillars/pillar1_noise.py`)
-Real cameras produce signal-dependent Poisson shot noise and a unique Photo-Response Non-Uniformity (PRNU) fingerprint. GAN and diffusion models rarely replicate these correctly.
+- **P1 — Sensor noise:** signal-dependent noise statistics + PRNU-inspired residual-energy descriptors.
+- **P2 — Light transport & geometry:** illumination consistency, specular stability, landmark rigidity, blink dynamics.
+- **P3 — Compression forensics:** Benford deviation, block artifacts, DCT temporal stability.
+- **P4 — Physiological (rPPG):** POS/CHROM temporal descriptors (forensic cue, not medical-grade pulse).
 
-| Feature Group | What it measures |
-|---|---|
-| Noise VMR / ResStd / HFRatio | Variance-to-mean ratio; noise residual standard deviation; high-frequency noise fraction |
-| PRNU Energy / Face-Periph ratio | Camera sensor fingerprint energy; face vs background PRNU disparity |
-| Temporal Noise Stability | Frame-to-frame noise correlation; spectral entropy of noise band |
-
-### Pillar 2 — Light Transport & Geometry (`src/pillars/pillar2_light.py`)
-Deepfakes struggle to maintain physically consistent illumination, specular reflections, and facial micro-geometry across time.
-
-| Feature Group | What it measures |
-|---|---|
-| Shadow score / Face-BG diff | Illumination physics consistency; face-to-background lighting discontinuity |
-| Specular stability / symmetry | Temporal coherence of highlight positions; bilateral symmetry of specular reflections |
-| Landmark trajectory / rigidity | Facial motion jitter; jaw-chin rigidity; interpupillary stability |
-| Blink dynamics | Blink rate, duration, and symmetry — neuromuscular physics hard to fake |
-
-### Pillar 3 — Compression Forensics (`src/pillars/pillar3_compression.py`)
-Video codecs leave statistical fingerprints that disappear or change character in synthesized content.
-
-| Feature Group | What it measures |
-|---|---|
-| Benford deviation | DCT coefficient distribution vs Benford's Law — detects double-compression |
-| Block artifact / DCT temporal | H.264 blocking artifacts; temporal DCT coefficient stability |
-| Codec residual entropy | Inter-frame residual distribution — changes under GAN synthesis |
-
-### Pillar 4 — Physiological Signals (rPPG)
-Remote photoplethysmography (rPPG) extracted via the CHROM method measures the cardiac pulse signal embedded in skin colour variation. Deepfakes cannot synthesize a coherent rPPG signal because it requires physically accurate blood-flow simulation.
-
-| Feature | What it measures |
-|---|---|
-| rPPG SNR / Peak prominence | Signal-to-noise of cardiac frequency; prominence of heartbeat peak |
-| Inter-region correlation | rPPG coherence across forehead, cheeks, nose — real faces are correlated |
-| rPPG–Motion coupling consistency | Physics law: head motion and rPPG are coupled in real video |
+Feature → pillar mapping: `splits/pillar_map.json`.
 
 ---
 
@@ -112,219 +110,78 @@ Remote photoplethysmography (rPPG) extracted via the CHROM method measures the c
 
 ```
 phantom-lens/
-│
-├── src/                              # Core library
-│   ├── pillars/
-│   │   ├── pillar1_noise.py          # Sensor noise physics features
-│   │   ├── pillar2_light.py          # Light transport & geometry features
-│   │   └── pillar3_compression.py    # Compression forensics features
-│   ├── models/                       # Classifier wrappers
-│   └── utils/
-│       ├── video_utils.py            # Video decoding and frame sampling
-│       └── dataset.py                # Dataset loaders
-│
-├── features/                         # PRISM V3 feature extractor (50 features)
-│   ├── precompute_features_best.py   # Main extractor — 13 spatial + 37 temporal
-│   ├── precompute_features_v3.py     # V3 extractor variant
-│   └── rppg_extractor.py             # Standalone rPPG signal extractor
-│
-├── training/                         # Training scripts
-│   ├── train.py                      # LR / RF / LGBM training pipeline
-│   ├── train_v3.py                   # V3 multi-manipulation training
-│   └── train_v3_best.py              # Best-model training with CV + test eval
-│
-├── evaluation/                       # Evaluation and analysis scripts
-│   ├── cross_dataset_eval.py         # Zero-shot cross-dataset evaluation
-│   ├── evaluate_v3_best.py           # Full metrics on best model
-│   └── validate_ffpp_indistribution.py  # In-distribution FF++ validation
-│
-├── data_prep/                        # Dataset preparation
-│   ├── prepare_ffpp.py               # FaceForensics++ preprocessing
-│   ├── prepare_celebdf.py            # CelebDF v2 preprocessing
-│   └── download.py                   # Dataset download utility
-│
-├── analysis/                         # EDA, t-SNE, visualisation
-│   ├── eda/                          # Exploratory data analysis
-│   ├── tsne/                         # t-SNE feature space visualisation
-│   └── visualization/                # Publication-quality plot generators
-│
-├── experiments/                      # Ablation and pillar experiments
-│   ├── test_pillars.py               # Unit tests for each physics pillar
-│   └── test_no_codec_norm.py         # Codec normalisation ablation
-│
-├── config/                           # Dataset paths and training hyperparameters
-│   ├── datasets.py
-│   └── training.py
-│
-├── results/                          # All experiment outputs
-│   ├── exp1/                         # Multi-manipulation evaluation (FF++)
-│   │   ├── run_exp1.py               # Reproducer script
-│   │   ├── results.json              # Full metrics
-│   │   ├── roc_combined.png          # ROC curves per manipulation
-│   │   └── confusion_matrices.png
-│   ├── exp2/                         # Compression comparison (c23 / c0 / c40)
-│   ├── exp3/                         # Feature ablation (SHAP, top-k subsets)
-│   ├── exp5/                         # Hard-negative analysis (false negatives)
-│   ├── exp_celebdf/                  # Cross-dataset CelebDF v2 evaluation
-│   │   ├── run_celebdf_eval.py       # Reproducer — extracts features + evaluates
-│   │   ├── results.json
-│   │   ├── threshold_sweep.csv       # Metrics at t=0.20…0.80
-│   │   ├── confusion_matrix_pr_curve.png
-│   │   └── threshold_analysis.png
-│   ├── generate_final_pdf.py         # 10-page PDF report generator
-│   └── final_report.pdf              # Latest compiled report
-│
-├── dockerfile                        # GPU-enabled Docker environment
-├── pyproject.toml                    # Package metadata (setuptools)
-├── requirements.txt                  # Full dependency list
-└── requirements_gpu.txt              # GPU/CUDA specific dependencies
+├── src/                              # Core library (protocol.py, leakfree.py, delong.py, roi_config.py, pillars/)
+├── features/                         # Extracted PRISM feature CSVs (50-D, ROI, residual, rPPG, c40) — committed
+├── splits/                           # ffpp_official_split.json (720/140/140), pillar_map.json
+├── results_clean/                    # ★ CURRENT leakage-free result tables (JSON/CSV)
+├── REPRODUCE.md                      # ★ Clean regeneration commands (fresh-checkout verified)
+├── Major Revision Results/
+│   ├── 00_logs/                      # All experiment scripts (baseline_clean, exp_m4_missingness, exp_g1_hardneg, …)
+│   ├── 02_tables/                    # Consolidated result tables
+│   ├── 03_figures/                   # Publication figures
+│   ├── 05_zenodo_package/            # Reproducibility package (scripts+splits+features+results+README)
+│   └── 07_summary/                   # ★ LOCKED_NUMBERS.md, AUTHOR_HANDOFF.md, author_decisions.md,
+│                                     #   celebdf_reconciliation.md, response_fill_sheet.{md,json}
+└── archive/
+    └── deprecated_leaky/             # ⛔ RETIRED leakage-inflated results/scripts — DO NOT USE
 ```
 
 ---
 
 ## Installation
 
-### Prerequisites
-- Python 3.9+
-- CUDA-capable GPU recommended (tested on NVIDIA RTX 4060)
-- FFmpeg installed system-wide
-
-### Install dependencies
-
 ```bash
 git clone https://github.com/miheer-smk/phantom-lens.git
 cd phantom-lens
-
-# CPU
-pip install -r requirements.txt
-
-# GPU (CUDA 12.x)
-pip install -r requirements_gpu.txt
+python -m venv .venv && . .venv/bin/activate
+pip install -r "Major Revision Results/05_zenodo_package/requirements.txt"
 ```
-
-### Docker (recommended)
-
-```bash
-docker build -f dockerfile -t phantom-lens .
-docker run --gpus all -v /path/to/data:/data phantom-lens
-```
+Python 3.9+, FFmpeg system-wide. GPU only needed for the Xception baseline and crop-based steps.
 
 ---
 
-## Usage
+## Reproducing the current (honest) results
 
-### 1 — Extract PRISM features from a video directory
-
-```bash
-# Real videos (label=0), recursive, 8 parallel workers
-python features/precompute_features_best.py \
-    --video_dir /data/celebdf/real \
-    --output features/celebdf_real.csv \
-    --label 0 \
-    --max_frames 150 \
-    --workers 8
-
-# Fake videos (label=1)
-python features/precompute_features_best.py \
-    --video_dir /data/celebdf/fake \
-    --output features/celebdf_fake.csv \
-    --label 1 \
-    --max_frames 150 \
-    --workers 8
-```
-
-### 2 — Run the multi-manipulation experiment (FF++)
+Every table regenerates deterministically (seed 42) from the committed feature CSVs in `features/` —
+**no raw videos or GPU needed**. Run from the repo root. Full command list: [`REPRODUCE.md`](REPRODUCE.md).
 
 ```bash
-python results/exp1/run_exp1.py
-# Outputs: results/exp1/results.json, roc_combined.png, confusion_matrices.png
+L="Major Revision Results/00_logs"
+python "$L/baseline_clean.py"      # -> results_clean/baseline.json        (FF++ 50-D + Celeb-DF)
+python "$L/track_c_measure.py"     # -> track_c_53D_full.json              (53-D +ROI)
+python "$L/run_delong.py"          # -> delong*.csv/json                   (DeLong significance)
+python "$L/exp_m4_missingness.py"  # -> missingness_audit.json             (missingness-as-signal)
+python "$L/exp_g1_hardneg.py"      # -> hardneg_deepfakes.json             (clean hard negatives)
+python "$L/exp_g9_predictions.py"  # -> predictions_per_video.csv          (per-video predictions)
 ```
-
-### 3 — Cross-dataset evaluation on CelebDF v2
-
-```bash
-python results/exp_celebdf/run_celebdf_eval.py
-# Extracts features (auto-resumes if interrupted), trains on FF++, tests on CelebDF
-# Outputs: results/exp_celebdf/results.json, threshold_analysis.png
-```
-
-### 4 — Feature ablation (SHAP)
-
-```bash
-python results/exp3/run_exp3.py
-# Outputs: SHAP rankings, ablation AUC curves, CV fold distribution
-```
-
-### 5 — Generate the full PDF report
-
-```bash
-python results/generate_final_pdf.py
-# Outputs: results/final_report.pdf  (10 pages, no recomputation)
-```
+Steps needing raw data/GPU (set `FFPP_ROOT` / `WILDDEEPFAKE_ROOT` / `DATASETS_ROOT`): `exp5_runtime.py`,
+`xception_prep.py`+`xception_train.py`, `exp_g9_xception_predictions.py`, `pub_figures.py`.
+Fresh-checkout reproduction of all CPU tables has been verified bit-identical.
 
 ---
 
-## Requirements
+## Superseded results
 
-Core dependencies (see `requirements.txt` for pinned versions):
-
-| Package | Purpose |
-|---|---|
-| `torch`, `torchvision` | Deep learning backend |
-| `lightgbm` | Primary classifier |
-| `scikit-learn` | LR, RF, metrics, CV |
-| `mediapipe` | 478-point facial landmark tracking |
-| `opencv-python` | Video decoding, image processing |
-| `numpy`, `scipy` | Numerical signal processing |
-| `matplotlib` | Plots and report figures |
-| `pandas` | Feature CSV management |
-| `shap` | Feature importance (TreeExplainer) |
-| `tqdm` | Progress bars |
-
----
-
-## Reproducing Results
-
-All experiments are fully reproducible from the extracted feature CSVs in `features/`. No video data is needed after extraction.
-
-| Script | Reproduces |
-|---|---|
-| `results/exp1/run_exp1.py` | Multi-manipulation FF++ evaluation (AUC 0.97–0.999) |
-| `results/exp2/run_exp2.py` | Compression comparison (c23 available; c0/c40 require download) |
-| `results/exp3/run_exp3.py` | SHAP feature ablation |
-| `results/exp5/run_exp5.py` | Hard-negative (false positive) analysis |
-| `results/exp_celebdf/run_celebdf_eval.py` | Full CelebDF v2 cross-dataset pipeline |
-| `results/generate_final_pdf.py` | 10-page PDF report |
-
----
-
-## Report
-
-A compiled research report covering all experiments is available at:
-
-📄 [`results/final_report.pdf`](results/final_report.pdf)
-
-The report includes:
-- PRISM V3 pipeline methodology
-- Per-manipulation ROC curves and confusion matrices
-- SHAP feature importance rankings and ablation results
-- Hard-negative analysis (13/957 missed DeepFakes, P(fake) ∈ [0.24, 0.46])
-- CelebDF v2 cross-dataset results and threshold sweep
-- Key insights and limitations
+The original, **leakage-inflated** experiment tree (`exp1`, `exp2`, `exp3`, `exp5`, `exp_celebdf`,
+per-/cross-manipulation dirs, old reports) and the recon-phase gate scripts have been moved to
+[`archive/deprecated_leaky/`](archive/deprecated_leaky/) with an explanatory README. They produced the
+retired numbers (0.9939 / 0.9991 / 0.9999 / 0.6989 / 0.6867 / 13-957) and **must not be run or cited**.
+The correction is a data-leakage fix: the earlier pipeline trained and tested on the same manipulation
+CSVs without identity-disjoint splitting.
 
 ---
 
 ## Limitations & Future Work
 
-- **Cross-dataset real-class boundary**: 70% of CelebDF real videos are falsely flagged at threshold=0.50 — caused by domain shift between FF++ c23 and YouTube-compressed CelebDF real videos. Planned fix: domain-adapted real boundary using physics-invariant feature subset.
-- **Compression c0/c40 unavailable**: Only c23 tested. Full compression generalisation study pending dataset download.
-- **Temporal window**: Features computed over ≤150 frames (~6s). Longer-sequence modelling is a future direction.
+- **Cross-dataset real-class boundary:** Celeb-DF real videos are disproportionately flagged at θ=0.50
+  (domain shift, FF++ c23 vs YouTube-compressed reals). Threshold calibration does **not** fix this
+  (AUC-invariant; see EXP-4). A mild class-dependent extraction gap is disclosed in the missingness audit.
+- **Domain adaptation:** under author decision (no reproducing script yet — see `author_decisions.md`).
+- **Temporal window:** features over ≤150 frames (~6 s); longer-sequence modelling is future work.
 
 ---
 
 ## Citation
-
-If you use this work, please cite:
 
 ```bibtex
 @misc{kulkarni2026phantomlens,
@@ -340,8 +197,6 @@ If you use this work, please cite:
 
 ## Author
 
-**Miheer Satish Kulkarni**
-B.Tech CSE, IIIT Nagpur
-[github.com/miheer-smk](https://github.com/miheer-smk)
+**Miheer Satish Kulkarni** — B.Tech CSE, IIIT Nagpur — [github.com/miheer-smk](https://github.com/miheer-smk)
 
-*Supervised by Dr. Nileshchandra K. Pikle — Assistant Professor, CSE Department, IIIT Nagpur (PhD, IIT Bombay)*
+*Supervised by Dr. Nileshchandra K. Pikle — Assistant Professor, CSE Department, IIIT Nagpur.*
