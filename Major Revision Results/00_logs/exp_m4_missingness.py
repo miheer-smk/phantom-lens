@@ -93,7 +93,7 @@ for name, patt in [("50D","ffpp_{o}_c23"),("ROI","roi_{o}_c23"),("rPPG","rppg_{o
 # ---------- (2a) missingness-only classifier: real vs fake (FF++, identity-disjoint) ----------
 rows = []
 for s, lab in SETS.items():
-    for b in fam[s]["attempted"]:
+    for b in sorted(fam[s]["attempted"]):   # sort: set iteration order is otherwise nondeterministic
         rows.append(dict(video_path=b, label=lab,
             v50=int(b in fam[s]["v50"]), vroi=int(b in fam[s]["vroi"]),
             vrppg=int(b in fam[s]["vrppg"])))
@@ -107,10 +107,10 @@ def fit_auc(model, tr, te, cols):
     m = model.fit(tr[cols].values, tr["label"].values)
     s = m.predict_proba(te[cols].values)[:,1]
     return roc_auc_score(te["label"].values, s), s
-lg = lgb.LGBMClassifier(n_estimators=200, max_depth=4, learning_rate=0.05, num_leaves=15,
-        min_child_samples=20, class_weight="balanced", random_state=SEED, verbose=-1)
-auc_rf_lgb, s_rf = fit_auc(lg, tr, te, IND)
-auc_rf_log, _ = fit_auc(LogisticRegression(max_iter=1000, class_weight="balanced"), tr, te, IND)
+# Deterministic LogisticRegression on the binary validity indicators. (LightGBM is not reproducible
+# on these degenerate few-binary-feature problems even with deterministic=True/n_jobs=1; a linear model
+# is the appropriate and fully reproducible choice, and the conclusion is unchanged.)
+auc_rf, s_rf = fit_auc(LogisticRegression(max_iter=1000, class_weight="balanced", solver="lbfgs"), tr, te, IND)
 ci_rf = bootci(te["label"].values, s_rf)
 
 # ---------- (2c) missingness-only classifier: real vs fake WITHIN Celeb-DF (v50 extraction flag) ----------
@@ -118,22 +118,18 @@ ci_rf = bootci(te["label"].values, s_rf)
 cdm = mani[["b","label"]].copy(); cdm["v50"] = cdm["b"].isin(cd_ext).astype(int)
 rng3 = np.random.RandomState(SEED); ix = rng3.permutation(len(cdm)); c3 = int(0.7*len(cdm))
 cdtr, cdte = cdm.iloc[ix[:c3]], cdm.iloc[ix[c3:]]
-lg3 = lgb.LGBMClassifier(n_estimators=100, max_depth=3, learning_rate=0.1, num_leaves=7,
-        min_child_samples=20, class_weight="balanced", random_state=SEED, verbose=-1)
-m3 = lg3.fit(cdtr[["v50"]].values, cdtr["label"].values)
+m3 = LogisticRegression(max_iter=1000, class_weight="balanced", solver="lbfgs").fit(cdtr[["v50"]].values, cdtr["label"].values)
 s_cd = m3.predict_proba(cdte[["v50"]].values)[:,1]
 auc_cdrf = roc_auc_score(cdte["label"].values, s_cd); ci_cdrf = bootci(cdte["label"].values, s_cd)
 
 # ---------- (2b) missingness-only classifier: dataset identity FF++ vs CelebDF (shared 50-D) ----------
 ff = pd.DataFrame([dict(v50=int(b in fam[s]["v50"]), ds=0)
-                   for s in SETS for b in fam[s]["attempted"]])
+                   for s in SETS for b in sorted(fam[s]["attempted"])])  # sort: deterministic order
 cd = pd.DataFrame([dict(v50=int(b in cd_ext), ds=1) for b in mani["b"]])
 di = pd.concat([ff, cd], ignore_index=True)
 rng = np.random.RandomState(SEED); idx = rng.permutation(len(di)); cut = int(0.7*len(di))
 ditr, dite = di.iloc[idx[:cut]], di.iloc[idx[cut:]]
-lg2 = lgb.LGBMClassifier(n_estimators=100, max_depth=3, learning_rate=0.1, num_leaves=7,
-        min_child_samples=20, class_weight="balanced", random_state=SEED, verbose=-1)
-m2 = lg2.fit(ditr[["v50"]].values, ditr["ds"].values)
+m2 = LogisticRegression(max_iter=1000, class_weight="balanced", solver="lbfgs").fit(ditr[["v50"]].values, ditr["ds"].values)
 s_di = m2.predict_proba(dite[["v50"]].values)[:,1]
 auc_di = roc_auc_score(dite["ds"].values, s_di); ci_di = bootci(dite["ds"].values, s_di)
 
@@ -145,14 +141,14 @@ res = dict(
     extraction_success=succ_rows,
     per_feature_cell_missingness=permiss,
     missingness_only_classifier=dict(
+        model="LogisticRegression (deterministic; binary validity indicators)",
         real_vs_fake_FFpp=dict(features=IND, n_train=int(len(tr)), n_test=int(len(te)),
-            auc_lgbm=round(auc_rf_lgb,4), auc_logreg=round(auc_rf_log,4), auc_ci95=list(ci_rf),
-            chance=0.5),
+            auc=round(auc_rf,4), auc_ci95=list(ci_rf), chance=0.5),
         real_vs_fake_CelebDF=dict(features=["v50"], n_train=int(len(cdtr)), n_test=int(len(cdte)),
-            auc_lgbm=round(auc_cdrf,4), auc_ci95=list(ci_cdrf), chance=0.5,
+            auc=round(auc_cdrf,4), auc_ci95=list(ci_cdrf), chance=0.5,
             note="CelebDF real 50-D extraction 0.912 vs fake 0.948 -> mild class-dependent selection bias"),
         dataset_identity_FFpp_vs_CelebDF=dict(features=["v50"], n_train=int(len(ditr)),
-            n_test=int(len(dite)), auc_lgbm=round(auc_di,4), auc_ci95=list(ci_di), chance=0.5,
+            n_test=int(len(dite)), auc=round(auc_di,4), auc_ci95=list(ci_di), chance=0.5,
             caveat="shared 50-D validity only (ROI/rPPG/residual not extracted for CelebDF)")))
 json.dump(res, open(f"{OUT}/missingness_audit.json","w"), indent=1)
 
@@ -162,11 +158,11 @@ print("\n[1] EXTRACTION SUCCESS RATE (extracted / attempted), by set & class")
 print(succ.to_string(index=False))
 print("\n[2] PER-FEATURE CELL MISSINGNESS within extracted rows")
 for k,v in permiss.items(): print(f"   {k:9s} {v['cell_missing']}/{v['cells']} cells = {v['pct']}%")
-print("\n[3] *** MISSINGNESS-ONLY CLASSIFIER AUCs (chance = 0.50) ***")
+print("\n[3] *** MISSINGNESS-ONLY CLASSIFIER AUCs — LogisticRegression, deterministic (chance = 0.50) ***")
 print(f"   (a) real-vs-fake  (FF++, identity-disjoint, {IND}):")
-print(f"         LightGBM AUC = {auc_rf_lgb:.4f}  CI{ci_rf}   |  LogReg AUC = {auc_rf_log:.4f}")
+print(f"         AUC = {auc_rf:.4f}  CI{ci_rf}")
 print(f"   (b) dataset identity (FF++ vs Celeb-DF, [v50] only):")
-print(f"         LightGBM AUC = {auc_di:.4f}  CI{ci_di}")
+print(f"         AUC = {auc_di:.4f}  CI{ci_di}")
 print(f"   (c) real-vs-fake WITHIN Celeb-DF ([v50] only):")
-print(f"         LightGBM AUC = {auc_cdrf:.4f}  CI{ci_cdrf}   (real extract 0.912 vs fake 0.948)")
+print(f"         AUC = {auc_cdrf:.4f}  CI{ci_cdrf}   (real extract 0.912 vs fake 0.948)")
 print(f"\nsaved {OUT}/missingness_audit.json, missingness_success_rates.csv (commit {commit()})")

@@ -63,12 +63,15 @@ rPPG 0.981–0.986, residual 1.000 — **near-identical across real and all four
 Celeb-DF 50-D: **real 0.912 vs fake 0.948** (attempted 875 real / 5612 fake).
 Cell-level missingness within extracted rows: 50-D/ROI/rPPG **0.0%**, residual 0.0063% (5/80000).
 
-**Missingness-ONLY classifier AUC (chance = 0.50):**
+**Missingness-ONLY classifier AUC (LogisticRegression, deterministic; chance = 0.50):**
 | Target | Features | AUC | 95% CI | Verdict |
 |---|---|---|---|---|
-| real-vs-fake (FF++, identity-disjoint) | valid_50d/roi/rppg | **0.5009** | [0.484, 0.520] | at chance — no confound |
+| real-vs-fake (FF++, identity-disjoint) | valid_50d/roi/rppg | **0.5009** | [0.482, 0.520] | at chance — no confound |
 | real-vs-fake (within Celeb-DF) | valid_50d | **0.5145** | [0.498, 0.532] | CI includes 0.5 — n.s. |
-| dataset identity (FF++ vs Celeb-DF) | valid_50d | **0.5118** | [0.504, 0.519] | statistically >0.5 but effect negligible |
+| dataset identity (FF++ vs Celeb-DF) | valid_50d | **0.5114** | [0.504, 0.519] | statistically >0.5 but effect negligible |
+(Classifier = LogisticRegression on binary validity indicators — deterministic and reproducible;
+LightGBM is not reproducible on these degenerate few-binary-feature problems. Set-iteration order
+sorted for full determinism. Values reproduce bit-identically across runs and on a fresh checkout.)
 
 **Conclusion:** Missingness does **not** explain the detector's real-vs-fake performance (AUC ≈ 0.50–0.51,
 CIs at/through chance). The honest headline numbers are **not** a missingness artifact. The only

@@ -1,7 +1,7 @@
 {
  "provenance": {
   "script": "Major Revision Results/00_logs/exp_m4_missingness.py",
-  "git_commit": "e09ffa5",
+  "git_commit": "3c2f80c",
   "seed": 42,
   "date": "2026-07-23",
   "note": "video-level validity indicators; identity-disjoint for real-vs-fake; chance AUC=0.5"
@@ -129,6 +129,7 @@
   }
  },
  "missingness_only_classifier": {
+  "model": "LogisticRegression (deterministic; binary validity indicators)",
   "real_vs_fake_FFpp": {
    "features": [
     "v50",
@@ -137,11 +138,10 @@
    ],
    "n_train": 3600,
    "n_test": 700,
-   "auc_lgbm": 0.5009,
-   "auc_logreg": 0.5009,
+   "auc": 0.5009,
    "auc_ci95": [
-    0.4835,
-    0.5197
+    0.4818,
+    0.5201
    ],
    "chance": 0.5
   },
@@ -151,7 +151,7 @@
    ],
    "n_train": 4540,
    "n_test": 1947,
-   "auc_lgbm": 0.5145,
+   "auc": 0.5145,
    "auc_ci95": [
     0.4981,
     0.5323
@@ -165,10 +165,10 @@
    ],
    "n_train": 8040,
    "n_test": 3447,
-   "auc_lgbm": 0.5118,
+   "auc": 0.5114,
    "auc_ci95": [
     0.5044,
-    0.5189
+    0.5187
    ],
    "chance": 0.5,
    "caveat": "shared 50-D validity only (ROI/rPPG/residual not extracted for CelebDF)"

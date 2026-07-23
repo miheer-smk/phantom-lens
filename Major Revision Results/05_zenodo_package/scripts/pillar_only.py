@@ -8,6 +8,7 @@ import os,sys,json,subprocess,datetime
 import numpy as np, pandas as pd, warnings
 warnings.filterwarnings("ignore"); sys.path.insert(0,"src")
 from protocol import make_splits
+from leakfree import split_impute, impute_with, pooled_train_median
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import roc_auc_score
 import lightgbm as lgb
@@ -17,11 +18,9 @@ MAN={"Deepfakes":"ffpp_deepfakes_c23.csv","Face2Face":"ffpp_face2face_c23.csv",
      "FaceSwap":"ffpp_faceswap_c23.csv","NeuralTextures":"ffpp_neuraltextures_c23.csv"}
 real=pd.read_csv(f"{F}/ffpp_original_c23.csv"); cd=pd.read_csv(f"{F}/celebdf_features.csv")
 FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")])
-def clean(df):
-    d=df.copy(); d[FC]=d[FC].replace([np.inf,-np.inf],np.nan)
-    for c in FC: d[c]=d[c].fillna(d[c].median())
-    return d
-real=make_splits(clean(real)); MANd={k:make_splits(clean(pd.read_csv(f"{F}/{v}"))) for k,v in MAN.items()}; cd=clean(cd)
+# M1 fix: partition by identity, impute with TRAIN-partition medians only; CelebDF gets FF++ train median.
+real=split_impute(real,FC)[0]; MANd={k:split_impute(pd.read_csv(f"{F}/{v}"),FC)[0] for k,v in MAN.items()}
+cd=impute_with(cd,FC,pooled_train_median([real]+list(MANd.values()),FC))
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,
     min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=4)
 def boot(y,p,n=1500,s=SEED):

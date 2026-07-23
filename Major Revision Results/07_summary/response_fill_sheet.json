@@ -1,0 +1,122 @@
+{
+  "_meta": {
+    "purpose": "Values-only fill sheet mapping the co-author response tables H1-H9 and the 19 [INSERT VERIFIED RESULT] placeholders to exact locked values with provenance. NO prose/framing (author-owned).",
+    "canonical_source": "Major Revision Results/07_summary/LOCKED_NUMBERS.md",
+    "protocol": "identity-disjoint official FF++ 720/140/140, seed 42, bootstrap 95% CI",
+    "generated": "2026-07-23"
+  },
+
+  "H1_leakage_free_ffpp": {
+    "source": "results_clean/baseline.json + track_c_53D_full.json",
+    "in_distribution_per_manip": {
+      "Deepfakes":      {"auc_50D": 0.9706, "auc_53D": 0.9776, "ci_53D": [0.9632, 0.9893], "delta": 0.0070},
+      "Face2Face":      {"auc_50D": 0.8096, "auc_53D": 0.8746, "ci_53D": [0.8326, 0.9142], "delta": 0.0650},
+      "FaceSwap":       {"auc_50D": 0.9631, "auc_53D": 0.9691, "ci_53D": [0.9494, 0.9843], "delta": 0.0060},
+      "NeuralTextures": {"auc_50D": 0.7867, "auc_53D": 0.9049, "ci_53D": [0.8662, 0.9403], "delta": 0.1181}
+    },
+    "mean_per_manip": {"auc_50D": 0.883, "auc_53D": 0.932},
+    "cross_manip_LOMO": {"Deepfakes": 0.7039, "Face2Face": 0.6904, "FaceSwap": 0.5978, "NeuralTextures": 0.5221},
+    "cross_dataset_zeroshot": {"CelebDF_v2": {"auc": 0.6322, "ci": [0.6125, 0.6537], "n": 6121},
+                               "WildDeepfake": {"auc": 0.5212}}
+  },
+
+  "H2_group_ablation": {
+    "source": "results_clean/pillar_ablation.csv + pillar_only.csv",
+    "remove_one_pillar": "no single pillar's removal is significant after Holm correction (redundancy)",
+    "pillar_only_standalone_examples_Deepfakes": {
+      "P1_noise": {"auc": 0.7299, "ci": [0.6712, 0.7878]},
+      "P2_prnu":  {"auc": 0.7068, "ci": [0.6443, 0.7712]},
+      "T12_blink": {"auc": 0.7013, "ci": [0.6354, 0.7619]},
+      "full50_reference": 0.9706
+    }
+  },
+
+  "H3_compression": {
+    "source": "results_clean/compression_all_manips.csv",
+    "per_manip": {
+      "Deepfakes":      {"c23_auc": 0.9752, "c40_auc": 0.9437, "delta": -0.0315, "cross_c23train_c40test": 0.9242},
+      "Face2Face":      {"c23_auc": 0.8255, "c40_auc": 0.7574, "delta": -0.0681, "cross_c23train_c40test": 0.6727},
+      "FaceSwap":       {"c23_auc": 0.9689, "c40_auc": 0.8507, "delta": -0.1182, "cross_c23train_c40test": 0.6943},
+      "NeuralTextures": {"c23_auc": 0.8039, "c40_auc": 0.7343, "delta": -0.0696, "cross_c23train_c40test": 0.6910}
+    }
+  },
+
+  "H4_calibration": {
+    "source": "results_clean/calibration.json (thresholds from FF++ val ONLY)",
+    "result": "NULL — AUC fixed at 0.6322 across all thresholds; thresholds only trade real/fake recall",
+    "celebdf_theta0.50": {"auc": 0.6322, "real_recall": 0.3972, "fake_recall": 0.7813, "macro_f1": 0.5565},
+    "celebdf_Youden_val": {"auc": 0.6322, "real_recall": 0.7293, "fake_recall": 0.4390, "macro_f1": 0.4300},
+    "mcnemar_baseline_vs_calibrated": {"statistic": 25.4697, "p_value": 4.49e-07,
+      "note": "calibration significantly WORSE than theta=0.50 on CelebDF (54 base-only-correct vs 12 cal-only-correct)"}
+  },
+
+  "H5_shap_stability": {
+    "source": "results_clean/shap_stability.json",
+    "mean_cross_fold_spearman": 0.911,
+    "cross_manip_spearman_range": [0.069, 0.358],
+    "cross_manip_spearman": {"DF~F2F": 0.358, "DF~FS": 0.212, "DF~NT": 0.069, "F2F~FS": 0.256, "F2F~NT": 0.131, "FS~NT": 0.072}
+  },
+
+  "H6_runtime": {
+    "source": "results_clean/runtime.json + runtime_profile.csv",
+    "n_videos": 113,
+    "mean_extract_s_per_video": 48.586, "rtf": 3.196, "peak_ram_mb": 3462.3,
+    "stage_means_s": {"frame_load": 1.066, "mediapipe": 2.183, "optical_flow": 1.255, "rppg": 3.822, "other": 40.261},
+    "configs": {"top-3": {"model_kb": 501.9, "clf_inf_ms": 0.169}, "top-10": {"model_kb": 585.0, "clf_inf_ms": 0.173},
+                "top-20": {"model_kb": 590.1, "clf_inf_ms": 0.177}, "all-50": {"model_kb": 611.2, "clf_inf_ms": 0.199}},
+    "extract_time_config_invariant": true,
+    "xception_inference": {"per_video_8frame_ms": 67.82, "model_size_mb": 83.2, "device": "cuda"}
+  },
+
+  "H7_external_and_baseline": {
+    "source": "results_clean/xception_baseline.json + zeroshot_wilddeepfake.json + baseline.json",
+    "PRISM": {"CelebDF_auc": 0.6322, "WildDeepfake_auc": 0.5212},
+    "Xception": {"ffpp_auc": 0.9898, "celebdf_auc": 0.8207, "model_size_mb": 83.2, "explainable": false},
+    "delong_prism_vs_xception_celebdf": {"auc_xception": 0.8211, "auc_prism": 0.6322,
+      "delta_xcep_minus_prism": 0.1889, "z": 15.426, "p_value": "<1e-16"}
+  },
+
+  "H8_feature_redundancy": {
+    "source": "results_clean/redundancy.json",
+    "n_pairs_abs_r_gt_0.90": 2, "total_pairs": 1225, "n_features_dropped": 2, "vif_max": 30.1,
+    "dedup_auc_vs_full": {"deepfakes": [0.9752, 0.9766], "face2face": [0.8255, 0.8257],
+                          "faceswap": [0.9689, 0.9657], "neuraltextures": [0.8039, 0.7955]},
+    "conclusion": "removing the 2 redundant features changes AUC negligibly"
+  },
+
+  "H9_statistical_comparisons": {
+    "source": "results_clean/delong_53vs50.csv + statistical_tests.json + prism_vs_xception_from_predictions.json",
+    "delong_53_vs_50": {
+      "Deepfakes":      {"auc50": 0.9706, "auc53": 0.9776, "delta": 0.0070, "z": 1.229, "p": 0.219076},
+      "Face2Face":      {"auc50": 0.8096, "auc53": 0.8746, "delta": 0.0650, "z": 3.312, "p": 0.000927},
+      "FaceSwap":       {"auc50": 0.9631, "auc53": 0.9691, "delta": 0.0060, "z": 0.923, "p": 0.355991},
+      "NeuralTextures": {"auc50": 0.7867, "auc53": 0.9049, "delta": 0.1181, "z": 4.878, "p": 0.000001}
+    },
+    "full50_vs_top3_deepfakes": {"auc_full": 0.9752, "auc_sub": 0.7752, "diff": 0.20, "z": 7.626, "p_holm": "<0.001"},
+    "wilcoxon_full_vs_top3_10folds": {"mean_full": 0.7728, "mean_top3": 0.6443, "p": 0.001953},
+    "mcnemar_calibration": {"statistic": 25.4697, "p": 4.49e-07},
+    "delong_prism_vs_xception": {"auc_xception": 0.8211, "auc_prism": 0.6322, "z": 15.426, "p": "<1e-16"}
+  },
+
+  "placeholders_INSERT_VERIFIED_RESULT": {
+    "P1_ffpp_indist_mean_50D": {"value": 0.883, "source": "baseline.json"},
+    "P2_ffpp_indist_mean_53D": {"value": 0.932, "source": "track_c_53D_full.json"},
+    "P3_celebdf_zeroshot_auc": {"value": 0.632, "ci": [0.613, 0.654], "source": "baseline.json regime3"},
+    "P4_wilddeepfake_zeroshot_auc": {"value": 0.5212, "source": "zeroshot_wilddeepfake.json"},
+    "P5_xception_ffpp_auc": {"value": 0.990, "exact": 0.9898, "source": "xception_baseline.json"},
+    "P6_xception_celebdf_auc": {"value": 0.821, "exact": 0.8207, "source": "xception_baseline.json"},
+    "P7_prism_vs_xception_delong": {"delta": 0.1889, "z": 15.426, "p": "<1e-16", "source": "prism_vs_xception_from_predictions.json"},
+    "P8_NT_53D_gain": {"from": 0.7867, "to": 0.9049, "delta": 0.1181, "delong_p": 0.000001, "source": "delong_53vs50.csv"},
+    "P9_F2F_53D_gain": {"from": 0.8096, "to": 0.8746, "delta": 0.0650, "delong_p": 0.000927, "source": "delong_53vs50.csv"},
+    "P10_runtime_per_video": {"value_s": 48.586, "rtf": 3.196, "source": "runtime.json"},
+    "P11_peak_ram_mb": {"value": 3462.3, "source": "runtime.json"},
+    "P12_model_size": {"prism_kb": 611.2, "xception_mb": 83.2, "source": "runtime_profile.csv + xception_baseline.json"},
+    "P13_redundancy_pairs": {"n_pairs_r_gt_0.9": 2, "of_total": 1225, "dedup_auc_change": "negligible", "source": "redundancy.json"},
+    "P14_calibration_null": {"auc_fixed": 0.6322, "mcnemar_p": 4.49e-07, "note": "calibration worse, not better", "source": "calibration.json + statistical_tests.json"},
+    "P15_shap_cross_fold_spearman": {"value": 0.911, "cross_manip_range": [0.069, 0.358], "source": "shap_stability.json"},
+    "P16_compression_c40_worst": {"faceswap_delta": -0.1182, "deepfakes_delta": -0.0315, "source": "compression_all_manips.csv"},
+    "P17_full50_vs_top3": {"auc_diff": 0.20, "z": 7.626, "p_holm": "<0.001", "source": "statistical_tests.json"},
+    "P18_missingness_real_vs_fake_auc": {"value": 0.5009, "ci": [0.482, 0.520], "verdict": "at chance (no confound)", "source": "missingness_audit.json"},
+    "P19_hardneg_clean": {"false_negatives": "17/133", "rate": 0.1278, "retires": "13/957 (leaky)", "source": "hardneg_deepfakes.json"}
+  }
+}

@@ -18,9 +18,10 @@ def load(name,comp):
     return make_splits(pd.read_csv(f"{F}/{fn}"))
 real={c:None for c in ("c23","c40")}
 FCref=None
-def clean(df,FC):
+def clean(df,FC):  # M1 fix: TRAIN-partition medians only (df already has 'partition' from load->make_splits)
     d=df.copy()
-    for c in FC: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
+    for c in FC: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan)
+    d[FC]=d[FC].fillna(d.loc[d.partition=="train",FC].median())
     return d
 # load all
 data={}

@@ -13,7 +13,7 @@ from protocol import make_splits
 from sklearn.preprocessing import StandardScaler
 import lightgbm as lgb
 SEED=42; random.seed(SEED); np.random.seed(SEED); F="features"; OUT="results_clean"
-ROOT="/home/iiitn/Datasets/FaceForensics++"
+ROOT=os.environ.get("FFPP_ROOT","data/FaceForensics++")  # set FFPP_ROOT to your FaceForensics++ path
 
 # ---- wrap stage functions with cumulative timers ----
 T={}

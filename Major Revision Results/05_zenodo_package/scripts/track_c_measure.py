@@ -44,9 +44,9 @@ def merged(k):
     o["_b"]=o["video_path"].map(base); r["_b"]=r["video_path"].map(base)
     m=o.merge(r[["_b"]+ROI_FEATS], on="_b", how="inner")
     m=make_splits(m)  # partition by identity (uses video_path from original)
-    for c in FC+ROI_FEATS:
-        m[c]=pd.to_numeric(m[c],errors="coerce").replace([np.inf,-np.inf],np.nan)
-        m[c]=m[c].fillna(m[c].median())
+    cols=FC+ROI_FEATS
+    for c in cols: m[c]=pd.to_numeric(m[c],errors="coerce").replace([np.inf,-np.inf],np.nan)
+    m[cols]=m[cols].fillna(m.loc[m.partition=="train",cols].median())  # M1 fix: TRAIN-only medians
     return m
 M={k:merged(k) for k in orig}
 

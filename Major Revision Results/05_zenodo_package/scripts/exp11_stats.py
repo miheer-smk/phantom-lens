@@ -23,13 +23,13 @@ def commit():
     except: return "nogit"
 def load(name,comp="c23"):
     return make_splits(pd.read_csv(f"{F}/ffpp_{'original' if name=='real' else name}_{comp}.csv"))
-def clean(df,FC):
-    d=df.copy()
-    for c in FC: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
-    return d
+from leakfree import split_impute, impute_with, pooled_train_median
+def clean(df,FC):  # M1 fix: TRAIN-partition medians only
+    return split_impute(df, FC)[0]
 real=load("real"); MANd={m:load(m) for m in MAN}
 FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")])
 real=clean(real,FC); MANd={m:clean(v,FC) for m,v in MANd.items()}
+ff_med=pooled_train_median([real]+list(MANd.values()),FC)  # for zero-shot CelebDF imputation
 def LGBM(): return lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)
 def scores(cols,tr,te):
     sc=StandardScaler().fit(tr[cols].values); m=LGBM(); m.fit(sc.transform(tr[cols].values),tr['label'].values.astype(int))
@@ -78,7 +78,7 @@ hp=holm(raw)
 for r,h in zip(tmp,hp): r["p_holm"]=round(h,4); results["delong"].append(r)
 
 # ---- (B) McNemar: CelebDF baseline θ=0.50 vs val-calibrated threshold ----
-cd=clean(pd.read_csv(f"{F}/celebdf_features.csv"),FC)
+cd=impute_with(pd.read_csv(f"{F}/celebdf_features.csv"),FC,ff_med)  # M1 fix: FF++ train median
 trv=pd.concat([real[real.partition.isin(["train"])]]+[MANd[m][MANd[m].partition=="train"] for m in MAN],ignore_index=True)
 va=pd.concat([real[real.partition=="val"]]+[MANd[m][MANd[m].partition=="val"] for m in MAN],ignore_index=True)
 sc=StandardScaler().fit(trv[FC].values); clf=LGBM().fit(sc.transform(trv[FC].values),trv['label'].values.astype(int))

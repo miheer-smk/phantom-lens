@@ -13,7 +13,7 @@ from protocol import make_splits
 from sklearn.preprocessing import StandardScaler
 import lightgbm as lgb
 SEED=42; random.seed(SEED); np.random.seed(SEED); F="features"; OUT="results_clean"
-ROOT="/home/iiitn/Datasets/FaceForensics++"
+ROOT=os.environ.get("FFPP_ROOT","data/FaceForensics++")  # set FFPP_ROOT to your FaceForensics++ path
 
 # ---- wrap stage functions with cumulative timers ----
 T={}
@@ -25,7 +25,7 @@ def wrap(mod,name,key):
 o1=wrap(P,"load_video_frames","frame_load"); o2=wrap(P,"get_landmarks","mediapipe")
 o3=wrap(P,"extract_optical_flow","optical_flow"); o4=wrap(P,"extract_rppg","rppg")
 
-# ---- select 100 videos: 5 sources x 2 comps x 10, seed 42 ----
+# ---- select >=100 videos: 5 sources x 2 comps x 12, seed 42 (a few may fail to load) ----
 specs=[("original_sequences/youtube","real"),("manipulated_sequences/Deepfakes","deepfakes"),
        ("manipulated_sequences/Face2Face","face2face"),("manipulated_sequences/FaceSwap","faceswap"),
        ("manipulated_sequences/NeuralTextures","neuraltextures")]
@@ -34,8 +34,8 @@ for sub,ds in specs:
     for comp in ("c23","c40"):
         d=f"{ROOT}/{sub}/{comp}/videos"
         fs=sorted([x for x in os.listdir(d) if x.endswith(".mp4")]); random.shuffle(fs)
-        for fn in fs[:10]: vids.append((f"{d}/{fn}",ds,comp))
-print(f"profiling {len(vids)} videos (5 sources x 2 comp x 10, seed 42)",flush=True)
+        for fn in fs[:12]: vids.append((f"{d}/{fn}",ds,comp))
+print(f"profiling {len(vids)} videos (5 sources x 2 comp x 12, seed 42)",flush=True)
 
 proc=psutil.Process()
 rows=[]

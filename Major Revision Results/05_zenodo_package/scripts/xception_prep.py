@@ -36,7 +36,7 @@ def main():
     ap.add_argument("--set",required=True,choices=["ffpp","celebdf"]); ap.add_argument("--workers",type=int,default=10)
     a=ap.parse_args()
     id2split=load_id2split(); tasks=[]
-    R="/home/iiitn/Datasets"
+    R=os.environ.get("DATASETS_ROOT","data")  # set DATASETS_ROOT to the parent dir of FaceForensics++/Celeb-DF-v2
     if a.set=="ffpp":
         specs=[("original_sequences/youtube/c23/videos",0,"real"),
                ("manipulated_sequences/Deepfakes/c23/videos",1,"deepfakes"),
