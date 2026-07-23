@@ -39,7 +39,8 @@ results_ffpp_validation/
 results_v3/
 tsne_frame_results/
 tsne_video_results/
-archive/
+archive/*
+!archive/deprecated_leaky/
 
 # ── Misc ──────────────────────────────────────────────────────────────────────
 .history/
