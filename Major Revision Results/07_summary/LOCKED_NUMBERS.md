@@ -18,6 +18,29 @@ provenance. Nothing enters the paper that is not in this file, regenerable from 
 - M2 (scaler-in-CV) and M3 (test-set model selection): audited clean — no change needed. `rigorous_search.py`
   confirmed exploratory (writes nothing to disk; feeds no locked number).
 
+## G3 — Runtime / memory profiling (re-profiled on ≥100 videos)
+Script `exp5_runtime.py` → `results_clean/runtime.json`, `runtime_profile.csv`, `runtime_per_video.csv`.
+Sample bumped 10→12 per source (5 sources × 2 comp) → **113 videos profiled** (was 96). Re-measured,
+supersedes the prior run. CPU single-thread, hardware **ARM Cortex-X925 (NVIDIA GB10 SoC)**.
+- **mean extraction 48.59 s/video** (was 50.17), **RTF 3.196** (was 3.344), **peak RAM 3462 MB**.
+- Stage means (s): frame_load 1.07, mediapipe 2.18, optical_flow 1.26, rppg 3.82, other 40.26.
+- 4 feature configs (top-3/10/20/all-50): extraction time identical (stage-shared), classifier
+  inference 0.169–0.199 ms, model 502–611 KB.
+- **Xception inference: 67.82 ms/video (8-frame, GPU), model 83.2 MB** (vs PRISM ~0.6 MB, CPU).
+
+## G9 — Per-video predictions persisted + statistics recomputed from them (auditability, guide #40)
+Scripts `exp_g9_predictions.py` (PRISM, CPU) + `exp_g9_xception_predictions.py` (Xception, GPU) →
+`results_clean/predictions_per_video.csv` (**16,635 rows**, schema `video_path, source_id, dataset,
+manipulation, compression, true_label, pred_prob, pred_label, split, model, seed`; 0 nulls in key cols).
+Coverage: PRISM_50D_indist/53D_indist/50D_LOMO (FF++ test 1073 ea.), PRISM_50D_zeroshot (CelebDF 6121),
+PRISM_53D_zeroshot (WildDeepfake 124), Xception (FF++ test 684 + CelebDF 6487).
+**Auditability check — statistics recomputed FROM the persisted probs reproduce the locked values exactly:**
+- DeLong 53-vs-50 per manip: auc_50/auc_53/Δ/|z|/p **identical** to `delong_53vs50.csv`
+  (DF 0.9706→0.9776 p=.219; F2F 0.8096→0.8746 p=9.3e-4; FS 0.9631→0.9691 p=.356; NT 0.7867→0.9049 p=1e-6).
+- PRISM-vs-Xception (CelebDF): Xcep **0.8211** / PRISM **0.6322**, z **15.43** — identical to locked.
+(`delong_53vs50_from_predictions.csv`, `prism_vs_xception_from_predictions.json`.) eval_wdf.py also moved to
+the M1 train-only imputer; `zeroshot_wilddeepfake.json` re-verified **bit-identical** (AUC 0.5212).
+
 ## G1 — Hard-negative analysis, CLEAN identity-disjoint Deepfakes TEST (retires leaky exp5)
 Script `exp_g1_hardneg.py` → `results_clean/hardneg_deepfakes.json` + figure
 `03_figures/expG1_hard_negatives/`. Old `results/exp5` was leaky (trained AND tested on the same full

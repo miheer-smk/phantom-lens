@@ -16,9 +16,9 @@
  "zero_feature_fraction": 0.183,
  "provenance": {
   "script": "eval_wdf.py",
-  "git_commit": "98d5d27",
+  "git_commit": "1fbc33d",
   "seed": 42,
-  "date": "2026-07-18",
+  "date": "2026-07-23",
   "train": "FF++ 53-D (train identities, real+4manip+G1)",
   "test": "WildDeepfake test (zero-shot, no tuning)",
   "wdf_csv_sha256": "3ccac31969fdc71b"

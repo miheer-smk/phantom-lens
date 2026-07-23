@@ -1,0 +1,14 @@
+{
+ "comparison": "PRISM_vs_Xception_CelebDF_from_persisted_predictions",
+ "n_matched": 6121,
+ "auc_xception": 0.8211,
+ "auc_prism": 0.6322,
+ "delta_xcep_minus_prism": 0.1889,
+ "z": 15.426,
+ "p_value": 0.0,
+ "locked_reference": {
+  "auc_xception": 0.8211,
+  "auc_prism": 0.6322,
+  "z": 15.426
+ }
+}

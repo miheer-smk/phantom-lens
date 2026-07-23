@@ -1,0 +1,28 @@
+{
+ "script": "exp_g9_predictions.py",
+ "git_commit": "1fbc33d",
+ "seed": 42,
+ "date": "2026-07-23",
+ "schema": [
+  "video_path",
+  "source_id",
+  "dataset",
+  "manipulation",
+  "compression",
+  "true_label",
+  "pred_prob",
+  "pred_label",
+  "split",
+  "model",
+  "seed"
+ ],
+ "n_rows": 9464,
+ "models": [
+  "PRISM_50D_LOMO",
+  "PRISM_50D_indist",
+  "PRISM_50D_zeroshot",
+  "PRISM_53D_indist",
+  "PRISM_53D_zeroshot"
+ ],
+ "note": "per-video predictions; DeLong recomputed from persisted probs"
+}
