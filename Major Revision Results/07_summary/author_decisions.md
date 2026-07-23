@@ -1,6 +1,10 @@
 # Author-Decision Items (flagged facts, NOT drafted prose)
 1. In-distribution 0.9939 (leaky) → honest per-manip (50-D mean 0.883 / 53-D 0.932). Retired 0.9991/0.9999.
 2. Cross-dataset 0.6989 → 0.632; framing "strong" → "moderate w/ real-class mismatch" (WildDeepfake corroborates).
+   **[G8 reconciliation locked]** manuscript 0.6989 (leaky, fake-rec 0.8745) ≠ old-repo 0.6867 (leaky,
+   fake-rec 0.9224) ≠ clean **0.632 [0.613,0.654]** (identity-disjoint, AUTHORITATIVE). The two old values
+   came from an unresolved, non-identity-disjoint pipeline and disagreed with each other. Full note:
+   `07_summary/celebdf_reconciliation.md`. Retire both old values; 0.632 is the single reported number.
 3. NT top-3 feature claim → "manipulation-specific, fold-stable" (rewrite item 08).
 4. Xception repositioning → interpretability + CPU-efficiency, NOT accuracy superiority. [TEXT HELD for co-author]
 5. Leakage disclosure (methods) — identity-disjoint re-run.
