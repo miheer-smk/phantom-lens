@@ -1,0 +1,177 @@
+{
+ "provenance": {
+  "script": "Major Revision Results/00_logs/exp_m4_missingness.py",
+  "git_commit": "e09ffa5",
+  "seed": 42,
+  "date": "2026-07-23",
+  "note": "video-level validity indicators; identity-disjoint for real-vs-fake; chance AUC=0.5"
+ },
+ "extraction_success": [
+  {
+   "dataset": "FFpp",
+   "set": "original",
+   "klass": "real",
+   "attempted": 1000,
+   "v50_ok": 960,
+   "v50_rate": 0.96,
+   "vroi_ok": 987,
+   "vroi_rate": 0.987,
+   "vrppg_ok": 986,
+   "vrppg_rate": 0.986,
+   "vresid_ok": 1000,
+   "vresid_rate": 1.0
+  },
+  {
+   "dataset": "FFpp",
+   "set": "deepfakes",
+   "klass": "fake",
+   "attempted": 1000,
+   "v50_ok": 956,
+   "v50_rate": 0.956,
+   "vroi_ok": 982,
+   "vroi_rate": 0.982,
+   "vrppg_ok": 981,
+   "vrppg_rate": 0.981,
+   "vresid_ok": 1000,
+   "vresid_rate": 1.0
+  },
+  {
+   "dataset": "FFpp",
+   "set": "face2face",
+   "klass": "fake",
+   "attempted": 1000,
+   "v50_ok": 960,
+   "v50_rate": 0.96,
+   "vroi_ok": 985,
+   "vroi_rate": 0.985,
+   "vrppg_ok": 982,
+   "vrppg_rate": 0.982,
+   "vresid_ok": 1000,
+   "vresid_rate": 1.0
+  },
+  {
+   "dataset": "FFpp",
+   "set": "faceswap",
+   "klass": "fake",
+   "attempted": 1000,
+   "v50_ok": 960,
+   "v50_rate": 0.96,
+   "vroi_ok": 984,
+   "vroi_rate": 0.984,
+   "vrppg_ok": 982,
+   "vrppg_rate": 0.982,
+   "vresid_ok": 1000,
+   "vresid_rate": 1.0
+  },
+  {
+   "dataset": "FFpp",
+   "set": "neuraltextures",
+   "klass": "fake",
+   "attempted": 1000,
+   "v50_ok": 961,
+   "v50_rate": 0.961,
+   "vroi_ok": 984,
+   "vroi_rate": 0.984,
+   "vrppg_ok": 981,
+   "vrppg_rate": 0.981,
+   "vresid_ok": 1000,
+   "vresid_rate": 1.0
+  },
+  {
+   "dataset": "CelebDF",
+   "set": "celebdf",
+   "klass": "real",
+   "attempted": 875,
+   "v50_ok": 798,
+   "v50_rate": 0.912,
+   "vroi_ok": null,
+   "vroi_rate": null,
+   "vrppg_ok": null,
+   "vrppg_rate": null,
+   "vresid_ok": null,
+   "vresid_rate": null
+  },
+  {
+   "dataset": "CelebDF",
+   "set": "celebdf",
+   "klass": "fake",
+   "attempted": 5612,
+   "v50_ok": 5323,
+   "v50_rate": 0.9485,
+   "vroi_ok": null,
+   "vroi_rate": null,
+   "vrppg_ok": null,
+   "vrppg_rate": null,
+   "vresid_ok": null,
+   "vresid_rate": null
+  }
+ ],
+ "per_feature_cell_missingness": {
+  "50D": {
+   "cell_missing": 0,
+   "cells": 244647,
+   "pct": 0.0
+  },
+  "ROI": {
+   "cell_missing": 0,
+   "cells": 44298,
+   "pct": 0.0
+  },
+  "rPPG": {
+   "cell_missing": 0,
+   "cells": 54032,
+   "pct": 0.0
+  },
+  "residual": {
+   "cell_missing": 5,
+   "cells": 80000,
+   "pct": 0.0063
+  }
+ },
+ "missingness_only_classifier": {
+  "real_vs_fake_FFpp": {
+   "features": [
+    "v50",
+    "vroi",
+    "vrppg"
+   ],
+   "n_train": 3600,
+   "n_test": 700,
+   "auc_lgbm": 0.5009,
+   "auc_logreg": 0.5009,
+   "auc_ci95": [
+    0.4835,
+    0.5197
+   ],
+   "chance": 0.5
+  },
+  "real_vs_fake_CelebDF": {
+   "features": [
+    "v50"
+   ],
+   "n_train": 4540,
+   "n_test": 1947,
+   "auc_lgbm": 0.5145,
+   "auc_ci95": [
+    0.4981,
+    0.5323
+   ],
+   "chance": 0.5,
+   "note": "CelebDF real 50-D extraction 0.912 vs fake 0.948 -> mild class-dependent selection bias"
+  },
+  "dataset_identity_FFpp_vs_CelebDF": {
+   "features": [
+    "v50"
+   ],
+   "n_train": 8040,
+   "n_test": 3447,
+   "auc_lgbm": 0.5118,
+   "auc_ci95": [
+    0.5044,
+    0.5189
+   ],
+   "chance": 0.5,
+   "caveat": "shared 50-D validity only (ROI/rPPG/residual not extracted for CelebDF)"
+  }
+ }
+}

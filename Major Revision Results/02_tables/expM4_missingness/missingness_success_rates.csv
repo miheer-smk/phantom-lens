@@ -1,0 +1,8 @@
+dataset,set,klass,attempted,v50_ok,v50_rate,vroi_ok,vroi_rate,vrppg_ok,vrppg_rate,vresid_ok,vresid_rate
+FFpp,original,real,1000,960,0.96,987.0,0.987,986.0,0.986,1000.0,1.0
+FFpp,deepfakes,fake,1000,956,0.956,982.0,0.982,981.0,0.981,1000.0,1.0
+FFpp,face2face,fake,1000,960,0.96,985.0,0.985,982.0,0.982,1000.0,1.0
+FFpp,faceswap,fake,1000,960,0.96,984.0,0.984,982.0,0.982,1000.0,1.0
+FFpp,neuraltextures,fake,1000,961,0.961,984.0,0.984,981.0,0.981,1000.0,1.0
+CelebDF,celebdf,real,875,798,0.912,,,,,,
+CelebDF,celebdf,fake,5612,5323,0.9485,,,,,,

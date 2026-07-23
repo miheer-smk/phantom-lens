@@ -18,6 +18,30 @@ provenance. Nothing enters the paper that is not in this file, regenerable from 
 - M2 (scaler-in-CV) and M3 (test-set model selection): audited clean — no change needed. `rigorous_search.py`
   confirmed exploratory (writes nothing to disk; feeds no locked number).
 
+## M4 — Missingness-as-signal audit (guide #8)
+Script `Major Revision Results/00_logs/exp_m4_missingness.py` → `results_clean/missingness_audit.json`,
+`missingness_success_rates.csv` (seed 42, commit `e09ffa5`). Rows are video-level; FF++ `residual_*` =
+full 1000-video attempted list per set. Validity indicators = per-video extraction-success flags.
+
+**Extraction success (extracted / attempted):** FF++ 50-D 0.956–0.961 (real 0.960), ROI 0.982–0.987,
+rPPG 0.981–0.986, residual 1.000 — **near-identical across real and all four fake sets.**
+Celeb-DF 50-D: **real 0.912 vs fake 0.948** (attempted 875 real / 5612 fake).
+Cell-level missingness within extracted rows: 50-D/ROI/rPPG **0.0%**, residual 0.0063% (5/80000).
+
+**Missingness-ONLY classifier AUC (chance = 0.50):**
+| Target | Features | AUC | 95% CI | Verdict |
+|---|---|---|---|---|
+| real-vs-fake (FF++, identity-disjoint) | valid_50d/roi/rppg | **0.5009** | [0.484, 0.520] | at chance — no confound |
+| real-vs-fake (within Celeb-DF) | valid_50d | **0.5145** | [0.498, 0.532] | CI includes 0.5 — n.s. |
+| dataset identity (FF++ vs Celeb-DF) | valid_50d | **0.5118** | [0.504, 0.519] | statistically >0.5 but effect negligible |
+
+**Conclusion:** Missingness does **not** explain the detector's real-vs-fake performance (AUC ≈ 0.50–0.51,
+CIs at/through chance). The honest headline numbers are **not** a missingness artifact. The only
+non-trivial observation is a **mild class-dependent extraction gap in Celeb-DF** (reals fail 50-D
+extraction ~3.7 pts more than fakes); the dataset-identity AUC is statistically above chance only
+because n≈11.5k, with a negligible magnitude (0.512). → author-decision item [M4] (selection-bias
+sentence in limitations, compounding the already-disclosed Celeb-DF real-recall domain shift).
+
 ## Provenance (baseline block)
 - **script:** `Major Revision Results/00_logs/baseline_clean.py`
 - **git commit:** `e8f5b7c` (baseline protocol) — rerun regenerates identical numbers

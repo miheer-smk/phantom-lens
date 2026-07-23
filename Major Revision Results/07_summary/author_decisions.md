@@ -12,3 +12,11 @@
 9. EXP-9 rPPG: (a) call rPPG a forensic temporal descriptor, NOT medical-grade pulse. (b) rPPG is a WEAK
    standalone cue (~chance); value is complementary only. (c) pure POS marginally beats the POS+CHROM dual
    and is more compression-robust — consider switching. Sensitivity to motion/compression CONFIRMED (R1).
+10. M4 missingness audit — REASSURING result to state positively: missingness alone does NOT predict
+    real-vs-fake (AUC 0.50 FF++ / 0.51 CelebDF, CIs at chance) → detector performance is not a missingness
+    artifact. BUT disclose one mild caveat: Celeb-DF real videos fail 50-D extraction more than fakes
+    (0.912 vs 0.948), a small class-dependent selection bias in the zero-shot test set that compounds the
+    already-reported Celeb-DF real-recall domain shift (item 2/6). Dataset-identity from missingness is
+    statistically >chance (AUC 0.512, n≈11.5k) but negligible in magnitude. Suggest one limitations
+    sentence. [author framing — do not overstate as "no effect"; state it as "negligible/at-chance for
+    label, mild real-class extraction gap disclosed"]
