@@ -18,6 +18,18 @@ provenance. Nothing enters the paper that is not in this file, regenerable from 
 - M2 (scaler-in-CV) and M3 (test-set model selection): audited clean — no change needed. `rigorous_search.py`
   confirmed exploratory (writes nothing to disk; feeds no locked number).
 
+## G1 — Hard-negative analysis, CLEAN identity-disjoint Deepfakes TEST (retires leaky exp5)
+Script `exp_g1_hardneg.py` → `results_clean/hardneg_deepfakes.json` + figure
+`03_figures/expG1_hard_negatives/`. Old `results/exp5` was leaky (trained AND tested on the same full
+`ffpp_fake.csv` → 13/957 = 1.36% FN). Clean re-run: identity-disjoint, 133 Deepfakes TEST fakes,
+FN = P(fake)<0.5. Two training recipes:
+| Recipe | test AUC (real vs DF) | False negatives | P(fake) median |
+|---|---|---|---|
+| **in-distribution** (real+DF train — the reported 0.9706 detector) | **0.9706** ✓ (matches locked) | **17/133 = 12.78%** | 0.9939 |
+| multi-manip (real+all4 train — old exp5 recipe) | 0.9127 | 6/133 = 4.51% | 0.9615 |
+The leaky 1.36% understated the FN rate ~9× (test videos were in training). Hardest case `480_389.mp4`
+P(fake)=0.0197. In-distribution AUC reproducing the locked 0.9706 confirms same recipe/split.
+
 ## M4 — Missingness-as-signal audit (guide #8)
 Script `Major Revision Results/00_logs/exp_m4_missingness.py` → `results_clean/missingness_audit.json`,
 `missingness_success_rates.csv` (seed 42, commit `e09ffa5`). Rows are video-level; FF++ `residual_*` =

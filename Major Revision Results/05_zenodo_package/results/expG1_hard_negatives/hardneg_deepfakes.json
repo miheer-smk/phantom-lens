@@ -1,0 +1,341 @@
+{
+ "provenance": {
+  "script": "Major Revision Results/00_logs/exp_g1_hardneg.py",
+  "git_commit": "bc409a3",
+  "seed": 42,
+  "date": "2026-07-23",
+  "protocol": "identity-disjoint Deepfakes TEST; M1 train-only imputer; LGBM locked; two training recipes"
+ },
+ "hard_negative_definition": "Deepfakes TEST fake with P(fake)<0.5 (predicted real)",
+ "in_distribution": {
+  "recipe": "in_distribution (real+Deepfakes TRAIN) \u2014 matches locked 0.9706 detector",
+  "n_train": 1383,
+  "n_deepfakes_test_fakes": 133,
+  "n_real_test": 134,
+  "test_auc_real_vs_deepfakes": 0.9706,
+  "n_false_negatives": 17,
+  "false_negative_rate": 0.1278,
+  "pfake_min": 0.0197,
+  "pfake_mean": 0.8678,
+  "pfake_p05": 0.1648,
+  "pfake_median": 0.9939,
+  "hardest_cases": [
+   {
+    "video": "480_389.mp4",
+    "p_fake": 0.0197,
+    "atypical_features": {
+     "t_texture_warp_residual": -1.44,
+     "t_motion_blur_coupling": -1.31,
+     "t_specular_symmetry": 1.3,
+     "t_blink_duration": -1.28
+    }
+   },
+   {
+    "video": "000_003.mp4",
+    "p_fake": 0.023,
+    "atypical_features": {
+     "t_boundary_grad_temporal": 4.81,
+     "t_specular_symmetry": 1.98,
+     "t_specular_stability": 1.87,
+     "t_coupling_consistency": -1.61
+    }
+   },
+   {
+    "video": "380_358.mp4",
+    "p_fake": 0.0493,
+    "atypical_features": {
+     "t_skin_bg_decorrelation": -1.92,
+     "t_landmark_velocity_autocorr": 1.9,
+     "t_texture_warp_residual": -1.49,
+     "t_skin_color_jitter": -1.47
+    }
+   },
+   {
+    "video": "102_114.mp4",
+    "p_fake": 0.0649,
+    "atypical_features": {
+     "t_face_ssim_min": -2.2,
+     "t_rppg_peak_prominence": -1.86,
+     "s_benford_dev": -1.52,
+     "t_dct_temporal_autocorr": 1.35
+    }
+   },
+   {
+    "video": "995_233.mp4",
+    "p_fake": 0.0737,
+    "atypical_features": {
+     "t_interpupillary_std": 10.0,
+     "t_rigid_dist_var": 7.98,
+     "t_boundary_grad_temporal": 4.3,
+     "t_dct_temporal_std": 2.87
+    }
+   },
+   {
+    "video": "917_924.mp4",
+    "p_fake": 0.1479,
+    "atypical_features": {
+     "s_prnu_face_periph": 2.1,
+     "t_rppg_snr": -1.77,
+     "s_noise_res_std": 1.43,
+     "t_noise_corr_std": -1.37
+    }
+   },
+   {
+    "video": "521_517.mp4",
+    "p_fake": 0.1517,
+    "atypical_features": {
+     "t_rigid_dist_var": 3.31,
+     "t_interpupillary_std": 3.01,
+     "t_face_ssim_mean": -2.46,
+     "t_coupling_consistency": -2.21
+    }
+   },
+   {
+    "video": "358_380.mp4",
+    "p_fake": 0.1736,
+    "atypical_features": {
+     "t_landmark_velocity_autocorr": 1.89,
+     "t_specular_symmetry": 1.59,
+     "t_skin_color_jitter": -1.55,
+     "t_texture_warp_residual": -1.47
+    }
+   },
+   {
+    "video": "701_579.mp4",
+    "p_fake": 0.1955,
+    "atypical_features": {
+     "t_coupling_consistency": 2.18,
+     "t_specular_symmetry": 1.79,
+     "t_motion_blur_coupling": -1.77,
+     "t_skin_bg_decorrelation": -1.7
+    }
+   },
+   {
+    "video": "924_917.mp4",
+    "p_fake": 0.2409,
+    "atypical_features": {
+     "t_skin_bg_decorrelation": 1.62,
+     "t_landmark_jitter": 1.54,
+     "t_rppg_interregion_corr": 1.54,
+     "t_landmark_velocity_autocorr": -1.54
+    }
+   },
+   {
+    "video": "169_227.mp4",
+    "p_fake": 0.2497,
+    "atypical_features": {
+     "t_texture_warp_residual": 4.03,
+     "t_dct_temporal_std": 3.45,
+     "t_rigid_dist_var": 3.17,
+     "t_blink_rate": 2.92
+    }
+   },
+   {
+    "video": "012_026.mp4",
+    "p_fake": 0.3535,
+    "atypical_features": {
+     "t_coupling_consistency": -1.42,
+     "t_landmark_jitter": 1.39,
+     "t_specular_symmetry": -1.39,
+     "t_landmark_velocity_autocorr": -1.27
+    }
+   },
+   {
+    "video": "970_973.mp4",
+    "p_fake": 0.3899,
+    "atypical_features": {
+     "t_specular_symmetry": 1.88,
+     "t_prnu_temporal_stability": 1.7,
+     "t_skin_bg_decorrelation": -1.61,
+     "s_noise_hf_ratio": -1.39
+    }
+   },
+   {
+    "video": "896_128.mp4",
+    "p_fake": 0.4207,
+    "atypical_features": {
+     "t_prnu_temporal_stability": 3.82,
+     "s_blur_mag": 3.29,
+     "t_noise_corr_std": 2.6,
+     "s_noise_res_std": 1.91
+    }
+   },
+   {
+    "video": "128_896.mp4",
+    "p_fake": 0.4238,
+    "atypical_features": {
+     "t_boundary_grad_temporal": 4.37,
+     "t_boundary_freq_leakage": 3.86,
+     "t_face_ssim_std": 3.02,
+     "t_face_ssim_min": -2.48
+    }
+   }
+  ]
+ },
+ "multi_manip": {
+  "recipe": "multi_manip (real+all4 TRAIN) \u2014 matches old exp5 recipe",
+  "n_train": 3461,
+  "n_deepfakes_test_fakes": 133,
+  "n_real_test": 134,
+  "test_auc_real_vs_deepfakes": 0.9127,
+  "n_false_negatives": 6,
+  "false_negative_rate": 0.0451,
+  "pfake_min": 0.2142,
+  "pfake_mean": 0.8915,
+  "pfake_p05": 0.5509,
+  "pfake_median": 0.9615,
+  "hardest_cases": [
+   {
+    "video": "003_000.mp4",
+    "p_fake": 0.2142,
+    "atypical_features": {
+     "t_interpupillary_std": 3.9,
+     "t_boundary_grad_temporal": 3.13,
+     "t_dct_temporal_std": 1.8,
+     "s_flow_mag": 1.7
+    }
+   },
+   {
+    "video": "012_026.mp4",
+    "p_fake": 0.354,
+    "atypical_features": {
+     "t_landmark_jitter": 1.62,
+     "t_coupling_consistency": -1.45,
+     "t_specular_symmetry": -1.38,
+     "s_noise_hf_ratio": -1.26
+    }
+   },
+   {
+    "video": "917_924.mp4",
+    "p_fake": 0.399,
+    "atypical_features": {
+     "t_rppg_snr": -1.81,
+     "s_prnu_face_periph": 1.66,
+     "s_noise_res_std": 1.49,
+     "t_noise_corr_std": -1.4
+    }
+   },
+   {
+    "video": "521_517.mp4",
+    "p_fake": 0.4249,
+    "atypical_features": {
+     "t_rigid_dist_var": 3.36,
+     "t_interpupillary_std": 3.05,
+     "t_face_ssim_mean": -2.8,
+     "t_coupling_consistency": -2.26
+    }
+   },
+   {
+    "video": "186_170.mp4",
+    "p_fake": 0.4349,
+    "atypical_features": {
+     "s_noise_hf_ratio": 2.45,
+     "t_specular_stability": 2.06,
+     "t_dct_temporal_autocorr": -1.68,
+     "t_blink_symmetry": 1.41
+    }
+   },
+   {
+    "video": "480_389.mp4",
+    "p_fake": 0.484,
+    "atypical_features": {
+     "t_texture_warp_residual": -1.69,
+     "t_blink_duration": -1.43,
+     "t_motion_blur_coupling": -1.39,
+     "t_specular_symmetry": 1.29
+    }
+   },
+   {
+    "video": "924_917.mp4",
+    "p_fake": 0.5453,
+    "atypical_features": {
+     "t_landmark_jitter": 1.79,
+     "s_noise_hf_ratio": -1.61,
+     "t_skin_bg_decorrelation": 1.59,
+     "t_dct_temporal_autocorr": -1.53
+    }
+   },
+   {
+    "video": "404_429.mp4",
+    "p_fake": 0.5546,
+    "atypical_features": {
+     "t_landmark_accel_var": 4.0,
+     "t_landmark_jitter": 3.17,
+     "s_block_artifact": 1.64,
+     "t_skin_bg_decorrelation": 1.5
+    }
+   },
+   {
+    "video": "995_233.mp4",
+    "p_fake": 0.5629,
+    "atypical_features": {
+     "t_interpupillary_std": 10.12,
+     "t_rigid_dist_var": 8.11,
+     "t_boundary_grad_temporal": 4.41,
+     "t_noise_temporal_corr": 2.92
+    }
+   },
+   {
+    "video": "000_003.mp4",
+    "p_fake": 0.5732,
+    "atypical_features": {
+     "t_boundary_grad_temporal": 4.93,
+     "t_specular_symmetry": 1.97,
+     "t_specular_stability": 1.75,
+     "t_coupling_consistency": -1.65
+    }
+   },
+   {
+    "video": "169_227.mp4",
+    "p_fake": 0.629,
+    "atypical_features": {
+     "t_texture_warp_residual": 4.73,
+     "t_dct_temporal_std": 3.4,
+     "t_rigid_dist_var": 3.22,
+     "t_blink_rate": 2.97
+    }
+   },
+   {
+    "video": "705_707.mp4",
+    "p_fake": 0.6525,
+    "atypical_features": {
+     "t_specular_stability": 2.64,
+     "t_noise_temporal_corr": 2.63,
+     "t_jaw_chin_rigidity": -2.48,
+     "t_noise_spectral_entropy": -2.39
+    }
+   },
+   {
+    "video": "896_128.mp4",
+    "p_fake": 0.6587,
+    "atypical_features": {
+     "t_prnu_temporal_stability": 3.93,
+     "s_blur_mag": 3.25,
+     "t_noise_corr_std": 2.67,
+     "s_noise_res_std": 1.99
+    }
+   },
+   {
+    "video": "932_384.mp4",
+    "p_fake": 0.6692,
+    "atypical_features": {
+     "t_texture_warp_residual": 4.85,
+     "t_skin_texture_corr": -4.72,
+     "t_face_ssim_mean": -3.47,
+     "t_dct_temporal_autocorr": -2.57
+    }
+   },
+   {
+    "video": "949_868.mp4",
+    "p_fake": 0.6706,
+    "atypical_features": {
+     "s_flow_mag": 1.63,
+     "s_block_artifact": 1.53,
+     "s_noise_hf_ratio": -1.39,
+     "t_landmark_jitter": 1.3
+    }
+   }
+  ]
+ },
+ "retires": "results/exp5 (leaky: trained+tested on same ffpp_fake.csv -> 13/957)"
+}
