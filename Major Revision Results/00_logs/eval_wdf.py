@@ -26,17 +26,20 @@ def with_g1(name):
 real=with_g1("real"); MANd={m:with_g1(m) for m in MAN}
 FC=sorted([c for c in real.columns if c[:2] in ("s_","t_")]); COLS=FC+G1
 wdf=pd.read_csv(f"{F}/wilddeepfake_test_53d.csv")
-def clean(df):
+from leakfree import impute_with
+def clean(df):  # M1 fix: TRAIN-partition medians only (FF++ frames carry 'partition')
     d=df.copy()
-    for c in COLS: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan); d[c]=d[c].fillna(d[c].median())
+    for c in COLS: d[c]=pd.to_numeric(d[c],errors="coerce").replace([np.inf,-np.inf],np.nan)
+    d[COLS]=d[COLS].fillna(d.loc[d.partition=="train",COLS].median())
     return d
 # train FF++ 53-D on TRAIN identities (real + all manips), zero-shot -> WDF
-tr=pd.concat([clean(real)[clean(real).partition=="train"]]+[clean(MANd[m])[clean(MANd[m]).partition=="train"] for m in MAN],ignore_index=True)
+realc=clean(real); MANc={m:clean(MANd[m]) for m in MAN}
+tr=pd.concat([realc[realc.partition=="train"]]+[MANc[m][MANc[m].partition=="train"] for m in MAN],ignore_index=True)
 Xtr=tr[COLS].values.astype(float); ytr=tr['label'].values.astype(int)
 sc=StandardScaler().fit(Xtr)
 clf=lgb.LGBMClassifier(n_estimators=200,max_depth=6,learning_rate=0.05,num_leaves=31,min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=-1)
 clf.fit(sc.transform(Xtr),ytr)
-w=clean(wdf); Xw=sc.transform(w[COLS].values.astype(float)); yw=w['label'].values.astype(int)
+w=impute_with(wdf,COLS,tr[COLS].median()); Xw=sc.transform(w[COLS].values.astype(float)); yw=w['label'].values.astype(int)  # M1 fix
 p=clf.predict_proba(Xw)[:,1]; pred=(p>=0.5).astype(int)
 # degeneracy: fraction of zero features per row (face-crop caveat)
 zero_frac=float((w[COLS].values==0).mean())
