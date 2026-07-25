@@ -1,0 +1,191 @@
+{
+ "provenance": {
+  "script": "exp_trackD_MQRT_eval.py",
+  "git_commit": "9d70f5f",
+  "seed": 42,
+  "date": "2026-07-25",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "thresholds": {
+   "indist": 0.005,
+   "cross": 0.03
+  },
+  "correction": "Holm across 10 family\u00d7axis tests"
+ },
+ "baseline_53D": {
+  "indist_pooled": 0.9413,
+  "celebdf_dev": 0.6312
+ },
+ "families": [
+  {
+   "family": "M",
+   "n_feats": 4,
+   "indist_auc": 0.9411,
+   "indist_delta": -0.0002,
+   "indist_ci": [
+    -0.0021,
+    0.0018
+   ],
+   "indist_p": 0.858,
+   "cross_auc": 0.6171,
+   "cross_delta": -0.0141,
+   "cross_ci": [
+    -0.024,
+    -0.0042
+   ],
+   "cross_p": 0.005,
+   "indist_p_holm": 1.0,
+   "cross_p_holm": 0.05
+  },
+  {
+   "family": "Q",
+   "n_feats": 8,
+   "indist_auc": 0.9425,
+   "indist_delta": 0.0012,
+   "indist_ci": [
+    -0.001,
+    0.0034
+   ],
+   "indist_p": 0.263,
+   "cross_auc": 0.6313,
+   "cross_delta": 0.0001,
+   "cross_ci": [
+    -0.0105,
+    0.0109
+   ],
+   "cross_p": 0.988,
+   "indist_p_holm": 1.0,
+   "cross_p_holm": 1.0
+  },
+  {
+   "family": "R",
+   "n_feats": 3,
+   "indist_auc": 0.9414,
+   "indist_delta": 0.0001,
+   "indist_ci": [
+    -0.002,
+    0.0024
+   ],
+   "indist_p": 0.936,
+   "cross_auc": 0.6284,
+   "cross_delta": -0.0028,
+   "cross_ci": [
+    -0.013,
+    0.0068
+   ],
+   "cross_p": 0.554,
+   "indist_p_holm": 1.0,
+   "cross_p_holm": 1.0
+  },
+  {
+   "family": "T",
+   "n_feats": 2,
+   "indist_auc": 0.9424,
+   "indist_delta": 0.0011,
+   "indist_ci": [
+    -0.0007,
+    0.003
+   ],
+   "indist_p": 0.234,
+   "cross_auc": 0.6208,
+   "cross_delta": -0.0104,
+   "cross_ci": [
+    -0.0194,
+    -0.0015
+   ],
+   "cross_p": 0.017,
+   "indist_p_holm": 1.0,
+   "cross_p_holm": 0.153
+  },
+  {
+   "family": "ALL",
+   "n_feats": 17,
+   "indist_auc": 0.9434,
+   "indist_delta": 0.0021,
+   "indist_ci": [
+    -0.0001,
+    0.0043
+   ],
+   "indist_p": 0.058,
+   "cross_auc": 0.6382,
+   "cross_delta": 0.007,
+   "cross_ci": [
+    -0.005,
+    0.0187
+   ],
+   "cross_p": 0.25,
+   "indist_p_holm": 0.464,
+   "cross_p_holm": 1.0
+  }
+ ],
+ "per_feature_cohens_d": {
+  "m_coh_at_f0": {
+   "val_d": -0.079,
+   "celebdf_dev_d": 0.031
+  },
+  "m_freq_agreement": {
+   "val_d": -0.082,
+   "celebdf_dev_d": -0.01
+  },
+  "m_max_inband_coh": {
+   "val_d": 0.064,
+   "celebdf_dev_d": -0.007
+  },
+  "m_phase_stability": {
+   "val_d": 0.098,
+   "celebdf_dev_d": -0.058
+  },
+  "q_mouth_eye_xcorr": {
+   "val_d": 0.196,
+   "celebdf_dev_d": 0.153
+  },
+  "q_mouth_eye_lag": {
+   "val_d": 0.045,
+   "celebdf_dev_d": -0.006
+  },
+  "q_cheek_mouth_xcorr": {
+   "val_d": 0.102,
+   "celebdf_dev_d": 0.137
+  },
+  "q_cheek_mouth_lag": {
+   "val_d": -0.045,
+   "celebdf_dev_d": -0.035
+  },
+  "q_brow_eye_xcorr": {
+   "val_d": 0.047,
+   "celebdf_dev_d": 0.175
+  },
+  "q_brow_eye_lag": {
+   "val_d": 0.0,
+   "celebdf_dev_d": 0.0
+  },
+  "q_upper_lower_xcorr": {
+   "val_d": 0.118,
+   "celebdf_dev_d": 0.191
+  },
+  "q_upper_lower_lag": {
+   "val_d": 0.0,
+   "celebdf_dev_d": -0.116
+  },
+  "r_close_open_ratio": {
+   "val_d": 0.104,
+   "celebdf_dev_d": -0.006
+  },
+  "r_peakvel_asym": {
+   "val_d": 0.036,
+   "celebdf_dev_d": 0.164
+  },
+  "r_ear_skew": {
+   "val_d": 0.157,
+   "celebdf_dev_d": 0.131
+  },
+  "t3_reproj_err": {
+   "val_d": -0.286,
+   "celebdf_dev_d": -0.148
+  },
+  "t3_rank4_residual": {
+   "val_d": -0.303,
+   "celebdf_dev_d": -0.259
+  }
+ }
+}

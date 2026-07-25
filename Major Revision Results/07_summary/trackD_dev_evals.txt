@@ -13,3 +13,9 @@
 10	DA	SubspaceAlign d30	auc 0.5605	Δ-0.0552
 11	DA	per-domain standardise	auc 0.6133	Δ-0.0024
 12	DA	per-domain quantile align	auc 0.6006	Δ-0.0151
+13	MQRT	M (cardiac coherence)	cross Δ-0.0141 (p_holm .050)
+14	MQRT	Q (muscle co-activation)	cross Δ+0.0001; in-dist Δ+0.0012 (F2F+0.0023 NT+0.0028, directionally right)
+15	MQRT	R (blink kinematics)	cross Δ-0.0028
+16	MQRT	T (rigid 3-D)	cross Δ-0.0104 (p_holm .153)
+17	MQRT	ALL M+Q+R+T combined	in-dist Δ+0.0021 (p_holm .464); cross Δ+0.0070 (p_holm 1.0)
+# TRACK D DEV PHASE CLOSED: 17 dev evals; no family meets +0.005 in-dist (Holm) or +0.03 cross. Frozen = 53-D. Sealed evals = 0.

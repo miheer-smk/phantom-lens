@@ -442,3 +442,20 @@ the domain gap is NOT a covariance/subspace shift they can align. Confirms J-b (
 Table 11 CORAL/IFD: the reproducible result is that these do NOT improve cross-dataset transfer; report the
 honest negative, or remove Table 11.** Combined with additive-feature failures (G1/H/J-ratios), the Celeb-DF
 gap resists BOTH feature-addition AND standard alignment.
+
+### Track D Batch-2 — M/Q/R/T (DEV only; sealed untouched). 53-D base: in-dist 0.9413, celebdf_dev 0.6312.
+Script `exp_trackD_MQRT_eval.py` → `results_clean/trackD_MQRT_dev.json`. Unified extractor `extract_trackD_MQRT.py`
+(60-frame denser sampling). Holm across 10 family×axis tests; thresholds in-dist +0.005 / cross +0.03.
+| Family | in-dist Δ (p_holm) | cross Δ (p_holm) | verdict |
+|---|---|---|---|
+| M cardiac coherence | −0.0002 (1.0) | −0.0141 (.050) | reject |
+| Q muscle co-activation | +0.0012 (1.0) | +0.0001 (1.0) | reject |
+| R blink kinematics | +0.0001 (1.0) | −0.0028 (1.0) | reject |
+| T rigid 3-D | +0.0011 (1.0) | −0.0104 (.153) | reject |
+| ALL combined | +0.0021 (.464) | +0.0070 (1.0) | reject |
+**All four fail.** Q per-manip: DF +0.0014, F2F +0.0023, FS +0.0008, NT +0.0028 — **directionally correct
+(F2F/NT largest, the region-animation manips) but ~40× too small** to matter; G1 already captures it (redundant).
+**TRACK D DEV PHASE CLOSED (STOP condition met):** across 8 pre-registered families + 5 DA methods (17 dev evals),
+**no family meets +0.005 in-dist (Holm) or +0.03 cross**. **Frozen model = 53-D (unchanged); sealed evaluations = 0.**
+Only region-localized in-distribution features ever helped (G1 +0.118); nothing transfers cross-dataset;
+standard UDA fails → strong confirmation the Celeb-DF gap is a robust domain shift, not feature poverty.
