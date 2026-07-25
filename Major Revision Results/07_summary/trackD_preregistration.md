@@ -80,6 +80,45 @@ Features: skewness & kurtosis of the noise residual (face region); cross-band wa
   the **background is genuinely real**, so scene-perspective cues are absent/misleading. Facial 3-D consistency is
   already covered by pillar **T7 (rigid geometry)**. → rejected a priori.
 
+## Batch 2 families (pre-registered 2026-07-25, BEFORE measurement) — all ratio/correlation/coherence (dimensionless by the H/G1 lesson)
+
+### Group J implementation note (cheap subset run first)
+J is split: **J-cheap** (no extraction, from existing 50-D) = (a) new dimensionless RATIOS among magnitude
+features; (b) train-fitted **quantile alignment** of the 53-D representation (tests distribution-shape-not-scale;
+for a tree this leaves in-distribution AUC unchanged and only re-maps cross-dataset). **J-extract** (deferred,
+needs a video pass) = face-vs-background ratios + within-video temporal contrast (mouth-ROI vs forehead/cheek).
+- **Prediction:** J-cheap cross-dataset **small-positive** (primary hope); in-distribution ~neutral. If J-cheap
+  is flat, the domain-shift-not-feature-poverty hypothesis is further supported (existing ratio features already collapse).
+
+### Group M — Cardiac cross-modal coherence  (target axis: in-dist; secondary cross-dataset)
+Magnitude-squared coherence between rPPG pulse and ballistocardiographic head motion (detrended vertical
+centroid displacement), both band-passed 0.7–4 Hz. Features: coherence at cardiac f₀, inter-modality
+frequency agreement, max in-band coherence, phase stability. All ∈[0,1] dimensionless.
+- **Rationale:** heartbeat drives BOTH signals → real faces frequency/phase-locked; a swap grafts generator
+  colour onto driving-video motion, breaking the lock. **Prediction:** in-dist **positive esp. FaceSwap/Deepfakes**;
+  cross-dataset **small-positive** (dimensionless → best transfer candidate of Batch 2). Needs extraction (rPPG + head-motion signals).
+
+### Group Q — Muscle co-activation  (target axis: in-dist)
+Cross-correlations + lags between landmark-group displacements: mouth↔eye (Duchenne), cheek↔mouth, brow↔eye,
+upper↔lower face. Dimensionless.
+- **Rationale:** anatomical coupling forced by muscle attachments; F2F/NT animate one region while neighbours
+  keep target motion. **Prediction:** in-dist **positive esp. Face2Face/NeuralTextures**; cross-dataset uncertain-small. Needs landmark-track extraction.
+
+### Group R — Blink kinematics  (target axis: in-dist)
+Closing/opening duration ratio, peak-velocity asymmetry, EAR-trajectory skewness. Dimensionless.
+- **Rationale:** real blinks ballistic-close/damped-open (τ_close/τ_open ≈ 0.4–0.6); generators render symmetric
+  interpolations. **Prediction:** in-dist **small-positive esp. Deepfakes/Face2Face**; cross-dataset small/noisy
+  (blinks rare & short → high variance). Needs EAR-trajectory extraction.
+
+### Group T — Rigid 3-D consistency  (target axis: in-dist)
+Tomasi–Kanade factorisation of rigid-landmark tracks: normalised reprojection error, rank-4 residual energy. Dimensionless-normalised.
+- **Rationale:** genuine 3-D rigid face → rank-4 factorisation; swaps/reenactment break it. **Prediction:** in-dist
+  **small-positive esp. FaceSwap/Deepfakes**; cross-dataset uncertain. **Partial redundancy** with existing pillar
+  T7 (`t_jaw_chin_rigidity`, `t_rigid_dist_var`) → expect the gain to be capped. Needs rigid-landmark-track extraction.
+
 ## Multiple-comparisons transparency
-Families pre-registered: **4** (H, I, J, K). Any feature tried but not listed above will be marked **post-hoc**
-in `trackD_report.md`. Number of sealed-set evaluations budget: **1**.
+Families pre-registered: **8** (H, I, J, K + M, Q, R, T). Group I **skipped** by author decision (2026-07-25).
+Batch-2 order actually run: **J (cheap) → M → Q → R → T**. Any feature tried but not listed above will be
+marked **post-hoc** in `trackD_report.md`. Number of sealed-set evaluations budget: **1**.
+Result so far: **Group H excluded** (in-dist +0.0013 < +0.005; cross-dataset −0.0137). G1 (Track C) also
+0 cross-dataset (0.6312 vs 0.632). Two absolute-magnitude families failing cross-transfer.

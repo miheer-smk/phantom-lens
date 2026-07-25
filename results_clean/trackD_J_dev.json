@@ -1,0 +1,138 @@
+{
+ "provenance": {
+  "script": "exp_trackD_J_eval.py",
+  "git_commit": "2a364c1",
+  "seed": 42,
+  "date": "2026-07-25",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "J_ratio_features": [
+   "j_noise_to_blur",
+   "j_flow_to_jitter",
+   "j_accel_to_jitter",
+   "j_prnu_to_noise",
+   "j_rppg_snr_to_prom",
+   "j_texture_to_noise",
+   "j_skinjit_to_flow",
+   "j_interpup_to_rigid",
+   "j_nosebridge_to_rigid",
+   "j_noisevmr_to_res",
+   "j_dctstd_to_texture",
+   "j_residentropy_to_specent"
+  ],
+  "note": "J-cheap; J-extract deferred"
+ },
+ "in_distribution": {
+  "per_manip": [
+   {
+    "manip": "deepfakes",
+    "auc_53": 0.9926,
+    "auc_53J": 0.9933,
+    "delta": 0.0007,
+    "ci": [
+     -0.0022,
+     0.004
+    ]
+   },
+   {
+    "manip": "face2face",
+    "auc_53": 0.8517,
+    "auc_53J": 0.8657,
+    "delta": 0.014,
+    "ci": [
+     -0.002,
+     0.0307
+    ]
+   },
+   {
+    "manip": "faceswap",
+    "auc_53": 0.9767,
+    "auc_53J": 0.9787,
+    "delta": 0.0021,
+    "ci": [
+     -0.003,
+     0.0072
+    ]
+   },
+   {
+    "manip": "neuraltextures",
+    "auc_53": 0.8805,
+    "auc_53J": 0.887,
+    "delta": 0.0066,
+    "ci": [
+     -0.0015,
+     0.0152
+    ]
+   }
+  ],
+  "mean_53": 0.9254,
+  "mean_53J": 0.9312,
+  "mean_delta": 0.0058
+ },
+ "cross_dataset_celebdf_dev": {
+  "n": 2421,
+  "auc_53": 0.6267,
+  "auc_53_plus_Jratios": 0.6289,
+  "delta_ratios": 0.0022,
+  "ci_ratios": [
+   -0.0082,
+   0.0128
+  ],
+  "auc_53_quantile_aligned": 0.6371,
+  "delta_quantile": 0.0104,
+  "ci_quantile": [
+   0.0016,
+   0.0195
+  ]
+ },
+ "per_feature_cohens_d": {
+  "j_noise_to_blur": {
+   "val_d": -0.307,
+   "celebdf_dev_d": -0.355
+  },
+  "j_flow_to_jitter": {
+   "val_d": -0.007,
+   "celebdf_dev_d": -0.052
+  },
+  "j_accel_to_jitter": {
+   "val_d": -0.165,
+   "celebdf_dev_d": -0.012
+  },
+  "j_prnu_to_noise": {
+   "val_d": -0.295,
+   "celebdf_dev_d": -0.383
+  },
+  "j_rppg_snr_to_prom": {
+   "val_d": 0.063,
+   "celebdf_dev_d": -0.043
+  },
+  "j_texture_to_noise": {
+   "val_d": 0.276,
+   "celebdf_dev_d": -0.124
+  },
+  "j_skinjit_to_flow": {
+   "val_d": 0.306,
+   "celebdf_dev_d": 0.018
+  },
+  "j_interpup_to_rigid": {
+   "val_d": 0.119,
+   "celebdf_dev_d": 0.002
+  },
+  "j_nosebridge_to_rigid": {
+   "val_d": -0.218,
+   "celebdf_dev_d": -0.254
+  },
+  "j_noisevmr_to_res": {
+   "val_d": 0.139,
+   "celebdf_dev_d": 0.034
+  },
+  "j_dctstd_to_texture": {
+   "val_d": -0.2,
+   "celebdf_dev_d": -0.041
+  },
+  "j_residentropy_to_specent": {
+   "val_d": -0.194,
+   "celebdf_dev_d": -0.093
+  }
+ }
+}

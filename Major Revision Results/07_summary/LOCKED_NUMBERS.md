@@ -414,3 +414,15 @@ celebdf_dev (`extract_roi_manifest.py`) to give 53-D cross-dataset coverage.
 - **Verdict: FAILS inclusion.** In-dist +0.0013 < +0.005 threshold; and it HURTS cross-dataset (−0.0137 > −0.005 degradation).
   Pre-registered prediction (in-dist gain, cross-dataset small/uncertain) **partially wrong**: in-dist gain negligible &
   concentrated in DF not NT/F2F; cross-dataset significantly negative. → **Group H NOT included in the frozen set.**
+
+### Track D Group J — Domain-invariant reformulations, CHEAP (DEV only; sealed untouched)
+Script `exp_trackD_J_eval.py` → `results_clean/trackD_J_dev.json`. No extraction. J-a = 12 additive
+dimensionless ratios among existing magnitude features; J-b = train-fitted quantile alignment of the 53-D rep.
+- **J-a ratios, in-distribution (FF++ val):** DF Δ+0.0007, F2F **Δ+0.0140**, FS Δ+0.0021, NT Δ+0.0066; **mean Δ +0.0058**
+  (driven by Face2Face; all per-manip CIs include 0).
+- **J-a ratios, cross-dataset (celebdf_dev):** 0.6267 → 0.6289, **Δ +0.0022 (n.s., CI[−0.008,0.013])** — fails the +0.005 cross-dataset target.
+- **J-b quantile alignment, cross-dataset:** 0.6267 → **0.6371, Δ +0.0104 (CI[0.0016,0.0195], significant)** — in-distribution unchanged
+  (monotonic for a tree). **First cross-dataset mover in Track D**, but it is a preprocessing TRANSFORM, not an additive
+  physics feature (outside the "additive-only" rule), small and fragile → flagged as a domain-alignment OPTION for authors, needs sealed confirmation.
+- **Verdict:** J-a (additive) does NOT meet the cross-dataset target (+0.0022 < +0.005) → not included as an additive family;
+  its in-dist +0.0058 (F2F) is noted. J-b (quantile alignment) is a separate representation finding, not folded into the frozen additive set.
