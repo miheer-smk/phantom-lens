@@ -426,3 +426,19 @@ dimensionless ratios among existing magnitude features; J-b = train-fitted quant
   physics feature (outside the "additive-only" rule), small and fragile → flagged as a domain-alignment OPTION for authors, needs sealed confirmation.
 - **Verdict:** J-a (additive) does NOT meet the cross-dataset target (+0.0022 < +0.005) → not included as an additive family;
   its in-dist +0.0058 (F2F) is noted. J-b (quantile alignment) is a separate representation finding, not folded into the frozen additive set.
+
+### Track D-B — Unsupervised domain adaptation (DEV only; resolves author_decisions #11)
+Script `exp_trackD_DA.py` → `results_clean/trackD_DA_dev.json`. 50-D, source=FF++ train, target=celebdf_dev
+(alignment fit on UNLABELED target features; labels only score AUC). Distinct from zero-shot full-CelebDF 0.632.
+| Method | celebdf_dev AUC | Δ vs zero-shot |
+|---|---|---|
+| zero-shot (baseline) | 0.6157 | — |
+| CORAL | 0.5761 | **−0.0396** |
+| Subspace alignment (d=10/20/30) | 0.529/0.526/0.561 | −0.087 / −0.090 / −0.055 |
+| per-domain standardisation | 0.6133 | −0.0024 |
+| per-domain quantile alignment | 0.6006 | −0.0151 |
+**ALL unsupervised DA methods FAIL** (none ≥ +0.03; most hurt). CORAL/subspace alignment actively degrade —
+the domain gap is NOT a covariance/subspace shift they can align. Confirms J-b (+0.0104) was noise. → **[#11]
+Table 11 CORAL/IFD: the reproducible result is that these do NOT improve cross-dataset transfer; report the
+honest negative, or remove Table 11.** Combined with additive-feature failures (G1/H/J-ratios), the Celeb-DF
+gap resists BOTH feature-addition AND standard alignment.

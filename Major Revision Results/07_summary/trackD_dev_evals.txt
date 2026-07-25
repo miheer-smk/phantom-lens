@@ -1,0 +1,15 @@
+# Track D — running count of celebdf_dev evaluations (multiplicity ledger)
+# Each line = one model scored on celebdf_dev (a decision point subject to Holm correction).
+1	Group H	53-D baseline (celebdf_dev, with G1 coverage)	auc 0.6312
+2	Group H	53-D + H (structure tensor)	auc 0.6175	Δ-0.0137
+3	Group J	53-D baseline (re-fit)	auc 0.6267
+4	Group J-a	53-D + ratios	auc 0.6289	Δ+0.0022
+5	Group J-b	53-D quantile-aligned	auc 0.6371	Δ+0.0104  [treated as noise under multiplicity]
+# --- threshold raised to +0.03 cross-dataset, Holm across all, from here ---
+6	DA	zero-shot 50-D (celebdf_dev)	auc 0.6157  [baseline]
+7	DA	CORAL	auc 0.5761	Δ-0.0396
+8	DA	SubspaceAlign d10	auc 0.5288	Δ-0.0869
+9	DA	SubspaceAlign d20	auc 0.5255	Δ-0.0902
+10	DA	SubspaceAlign d30	auc 0.5605	Δ-0.0552
+11	DA	per-domain standardise	auc 0.6133	Δ-0.0024
+12	DA	per-domain quantile align	auc 0.6006	Δ-0.0151

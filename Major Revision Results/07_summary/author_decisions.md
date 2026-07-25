@@ -16,12 +16,14 @@
 9. EXP-9 rPPG: (a) call rPPG a forensic temporal descriptor, NOT medical-grade pulse. (b) rPPG is a WEAK
    standalone cue (~chance); value is complementary only. (c) pure POS marginally beats the POS+CHROM dual
    and is more compression-robust — consider switching. Sensitivity to motion/compression CONFIRMED (R1).
-11. **Domain adaptation (response Table 11) — RUN-OR-REMOVE decision needed.** There is **no
-    reproducing script** in the repo for any domain-adaptation result, and no locked number exists for
-    it. The authors must either (a) implement + run a domain-adaptation experiment under §0 (identity-
-    disjoint, seed 42) so Table 11 has a reproducible value, or (b) remove Table 11 from the response.
-    Do NOT report an unreproducible domain-adaptation number. [author decision — assistant will run it
-    if a concrete method is specified]
+11. **Domain adaptation (response Table 11) — RESOLVED with a reproducing script; result is NEGATIVE.**
+    `exp_trackD_DA.py` now implements CORAL, subspace alignment, per-domain standardisation, and per-domain
+    quantile alignment (unsupervised; alignment fit on UNLABELED celebdf_dev target features, seed 42,
+    identity-disjoint). **Every method FAILS to improve cross-dataset transfer** (celebdf_dev, vs zero-shot
+    0.6157): CORAL −0.040, subspace align −0.055…−0.090, standardisation −0.002, quantile −0.015 — most
+    actively hurt. → **Do NOT claim CORAL/IFD improves cross-dataset.** Options: (a) report the honest
+    negative DA result (strengthens the "domain gap is fundamental" analysis), or (b) remove Table 11.
+    This is now reproducible; the earlier unreproducible Table 11 numbers must not be used. (`trackD_DA_dev.json`)
 10. M4 missingness audit — REASSURING result to state positively: missingness alone does NOT predict
     real-vs-fake (AUC 0.50 FF++ / 0.51 CelebDF, CIs at chance) → detector performance is not a missingness
     artifact. BUT disclose one mild caveat: Celeb-DF real videos fail 50-D extraction more than fakes

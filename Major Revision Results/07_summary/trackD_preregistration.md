@@ -24,6 +24,15 @@ If no family helps on dev, the frozen model remains 53-D (null result is a valid
 5. Sealed evaluation (Phase 4) runs **once** on the frozen set: FF++ test (per-manip + mean),
    celebdf_test, WildDeepfake, + DeLong vs the 53-D locked model. Report whatever the numbers are.
 
+### Multiplicity tightening (locked 2026-07-25, after ~4 celebdf_dev rounds)
+With dev SD ≈ ±0.008, the max of ~4 draws is biased up ~+0.010 — exactly J-b's effect size. Therefore:
+- **J-b (quantile-alignment +0.0104) is treated as UNCONFIRMED / likely noise** — not carried forward as a win.
+- **Holm correction across ALL Track D families/variants** when judging dev significance.
+- **Cross-dataset inclusion threshold raised +0.005 → +0.03** (only an effect this large survives multiplicity and can be
+  expected to replicate on sealed data). In-distribution threshold unchanged (+0.005) but also Holm-corrected.
+- **Feature-count cap LIFTED** — dimensionality is not a constraint (still additive-only; still identity-disjoint / dev-only).
+- **Running dev-evaluation count** is logged in `trackD_dev_evals.txt` and reported each round.
+
 ### Phase 4 comparison protocol (locked 2026-07-25)
 The sealed **celebdf_test half (n=2,273, 27 identities)** is a DIFFERENT set from the full Celeb-DF that
 produced the locked **0.632** — a direct extended-vs-0.632 comparison would be INVALID. Therefore, in the

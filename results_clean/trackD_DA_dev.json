@@ -1,0 +1,56 @@
+{
+ "provenance": {
+  "script": "exp_trackD_DA.py",
+  "git_commit": "a319a4e",
+  "seed": 42,
+  "date": "2026-07-25",
+  "setup": "unsupervised DA (align on UNLABELED target features); 50-D; source=FF++ train, target=celebdf_dev",
+  "distinct_from": "zero-shot full-CelebDF 0.632 (this is the dev half, n=2421)",
+  "inclusion_threshold_cross": 0.03
+ },
+ "n_target": 2421,
+ "methods": [
+  {
+   "method": "zero_shot",
+   "celebdf_dev_auc": 0.6157,
+   "delta_vs_zeroshot": 0.0,
+   "meets_0.03": false
+  },
+  {
+   "method": "CORAL",
+   "celebdf_dev_auc": 0.5761,
+   "delta_vs_zeroshot": -0.0396,
+   "meets_0.03": false
+  },
+  {
+   "method": "SubspaceAlign_d10",
+   "celebdf_dev_auc": 0.5288,
+   "delta_vs_zeroshot": -0.0869,
+   "meets_0.03": false
+  },
+  {
+   "method": "SubspaceAlign_d20",
+   "celebdf_dev_auc": 0.5255,
+   "delta_vs_zeroshot": -0.0902,
+   "meets_0.03": false
+  },
+  {
+   "method": "SubspaceAlign_d30",
+   "celebdf_dev_auc": 0.5605,
+   "delta_vs_zeroshot": -0.0552,
+   "meets_0.03": false
+  },
+  {
+   "method": "per_domain_standardise",
+   "celebdf_dev_auc": 0.6133,
+   "delta_vs_zeroshot": -0.0024,
+   "meets_0.03": false
+  },
+  {
+   "method": "quantile_align_perdomain",
+   "celebdf_dev_auc": 0.6006,
+   "delta_vs_zeroshot": -0.0151,
+   "meets_0.03": false
+  }
+ ]
+}
