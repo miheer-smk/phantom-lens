@@ -402,3 +402,15 @@ Baseline = locked 53-D (additive only; 50-D/53-D never modified). Pre-registrati
   identity-disjoint, 0 shared identities): **dev 2421 (426 real/1995 fake) · test_SEALED 2273 (372/1901)**,
   1427 spanning fakes dropped. FF++ test also sealed; dev uses FF++ train/val + celebdf_dev only.
 - **Sealed evaluations performed so far: 0** (budget 1; final count recorded at Phase 4).
+
+### Track D Group H — Gradient Structure Tensor (DEV only; sealed sets untouched)
+Script `exp_trackD_H_eval.py` → `results_clean/trackD_H_dev.json`. 10 features, extracted for FF++
+train+val + celebdf_dev (`extract_trackD_H.py`, max_frames 40, seed 42); G1/ROI also extracted for
+celebdf_dev (`extract_roi_manifest.py`) to give 53-D cross-dataset coverage.
+- **In-distribution (FF++ val), 53-D vs 53-D+H:** DF 0.9910→0.9929 (Δ+0.0020), F2F 0.8520→0.8520 (Δ0.0000),
+  FS 0.9755→0.9772 (Δ+0.0017), NT 0.8834→0.8849 (Δ+0.0015). **mean Δ +0.0013** (only DF CI excludes 0).
+- **Cross-dataset (celebdf_dev, n=2421):** 53-D 0.6312 → 53-D+H **0.6175, Δ −0.0137** (CI [−0.026, −0.001], significantly NEGATIVE).
+- **New 53-D-on-celebdf_dev baseline = 0.6312** (≈ 50-D 0.632; G1 adds ~nothing cross-dataset).
+- **Verdict: FAILS inclusion.** In-dist +0.0013 < +0.005 threshold; and it HURTS cross-dataset (−0.0137 > −0.005 degradation).
+  Pre-registered prediction (in-dist gain, cross-dataset small/uncertain) **partially wrong**: in-dist gain negligible &
+  concentrated in DF not NT/F2F; cross-dataset significantly negative. → **Group H NOT included in the frozen set.**

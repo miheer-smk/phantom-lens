@@ -1,0 +1,7 @@
+video_path,label
+/home/iiitn/Datasets/FaceForensics++/original_sequences/youtube/c23/videos/008.mp4,0
+/home/iiitn/Datasets/FaceForensics++/original_sequences/youtube/c23/videos/007.mp4,0
+/home/iiitn/Datasets/FaceForensics++/original_sequences/youtube/c23/videos/009.mp4,0
+/home/iiitn/Datasets/FaceForensics++/manipulated_sequences/Deepfakes/c23/videos/007_132.mp4,1
+/home/iiitn/Datasets/FaceForensics++/manipulated_sequences/Deepfakes/c23/videos/010_005.mp4,1
+/home/iiitn/Datasets/FaceForensics++/manipulated_sequences/Deepfakes/c23/videos/009_027.mp4,1
