@@ -393,3 +393,12 @@ top-10 (3/4 manips) — statistically justifies using 50 features (answers "why 
 significantly degrades AUC (3/4 manips). (3) Threshold calibration significantly HURTS (McNemar) — not a fix.
 (4) Xception significantly outperforms PRISM zero-shot (DeLong z=15.4, p<1e-16) — the interpretability/
 efficiency contribution, not accuracy, is confirmed as the honest framing.
+
+## Track D — additive physics features (Phase 1 setup; hypothesis-driven, sealed-set protocol)
+Baseline = locked 53-D (additive only; 50-D/53-D never modified). Pre-registration:
+`trackD_preregistration.md` (families H/I/J/K + vanishing-point rejection). Anti-overfitting gating:
+`src/sealed.py` (sealed sets raise on access unless explicitly unsealed; unseals logged).
+- **Celeb-DF dev/test split** (`splits/celebdf_dev_test.json`, `build_celebdf_devtest.py`, seed 42,
+  identity-disjoint, 0 shared identities): **dev 2421 (426 real/1995 fake) · test_SEALED 2273 (372/1901)**,
+  1427 spanning fakes dropped. FF++ test also sealed; dev uses FF++ train/val + celebdf_dev only.
+- **Sealed evaluations performed so far: 0** (budget 1; final count recorded at Phase 4).
