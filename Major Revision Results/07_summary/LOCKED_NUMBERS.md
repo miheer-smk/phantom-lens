@@ -459,3 +459,12 @@ Script `exp_trackD_MQRT_eval.py` → `results_clean/trackD_MQRT_dev.json`. Unifi
 **no family meets +0.005 in-dist (Holm) or +0.03 cross**. **Frozen model = 53-D (unchanged); sealed evaluations = 0.**
 Only region-localized in-distribution features ever helped (G1 +0.118); nothing transfers cross-dataset;
 standard UDA fails → strong confirmation the Celeb-DF gap is a robust domain shift, not feature poverty.
+
+### Track E1 — richer temporal aggregation (IN PROGRESS; first run had a keying bug)
+First E1 run produced a SPURIOUS +0.0566 in-dist gain from a basename-collision bug: FF++ manipulations
+share target_source basenames (e.g. 001_870.mp4 exists under Deepfakes/Face2Face/FaceSwap/NeuralTextures),
+and the per-frame extractor keyed by basename only → 827 basenames collapsed up to 4 videos into one
+aggregation group, contaminating fake features and inflating F2F/NT. Recovery-by-matching rejected
+(only 39% confident, 14% mis-nearest — the 4 manips are too similar to disambiguate). Extractor fixed to
+key by FULL video_path; FF++ re-extracting (celebdf_dev was collision-free, reused). **E1 result PENDING
+correct re-run — the +0.0566 is NOT a valid number.**
