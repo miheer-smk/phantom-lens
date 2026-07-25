@@ -29,7 +29,8 @@ def bn(p): return os.path.basename(str(p))
 
 def aggregate(perframe_csv):
     d=pd.read_csv(perframe_csv)
-    g=d.groupby("video")
+    key="video_path" if "video_path" in d.columns else "video"   # FF++ uses full path (basename collisions); celebdf basename
+    g=d.groupby(key)
     rows={}
     for feat in SPATIAL13:
         s=g[feat]
@@ -40,7 +41,7 @@ def aggregate(perframe_csv):
         rows[f"{feat}__iqr"]=q[.75]-q[.25]
         rows[f"{feat}__skew"]=s.apply(lambda x: float(skew(x)) if len(x)>2 else 0.0)
         rows[f"{feat}__kurt"]=s.apply(lambda x: float(kurtosis(x)) if len(x)>3 else 0.0)
-    out=pd.DataFrame(rows); out.insert(0,"video",out.index); out=out.reset_index(drop=True)
+    out=pd.DataFrame(rows); out.insert(0,"key",out.index); out=out.reset_index(drop=True)
     out["label"]=g["label"].first().values
     return out
 AGG=[f"{f}__{s}" for f in SPATIAL13 for s in STATS]   # 143
@@ -55,7 +56,8 @@ def ff_set(name):
     o=pd.read_csv(f"{F}/ffpp_{'original' if name=='real' else name}_c23.csv")
     r=pd.read_csv(f"{F}/roi_{'original' if name=='real' else name}_c23.csv")
     o["_b"]=o.video_path.map(bn); r["_b"]=r.video_path.map(bn)
-    m=o.merge(r[["_b"]+G1],on="_b",how="inner").merge(agg_ff.rename(columns={"video":"_b"}),on="_b",how="inner",suffixes=("","_agg"))
+    # FF++ agg is keyed by FULL video_path (basenames collide across manips) -> merge on video_path
+    m=o.merge(r[["_b"]+G1],on="_b",how="inner").merge(agg_ff.rename(columns={"key":"video_path"}),on="video_path",how="inner",suffixes=("","_agg"))
     return make_splits(m)
 FF={k:ff_set(k) for k in ["real"]+MAN}
 S13=[c for c in FF["real"].columns if c in SPATIAL13]; T37=sorted([c for c in FF["real"].columns if c.startswith("t_")])
@@ -67,7 +69,7 @@ def imp(df,cols):
 allc=sorted(set(C53+C_REPL+C_ADD)); FF={k:imp(v,allc) for k,v in FF.items()}
 cd=pd.read_csv(f"{F}/celebdf_features.csv"); cd["_b"]=cd.video_path.map(bn)
 g1=pd.read_csv(f"{TD}/G1_celebdf_dev.csv"); g1["_b"]=g1.video_path.map(bn)
-CD=cd.merge(g1[["_b"]+G1],on="_b",how="inner").merge(agg_cd.rename(columns={"video":"_b"}),on="_b",how="inner",suffixes=("","_agg"))
+CD=cd.merge(g1[["_b"]+G1],on="_b",how="inner").merge(agg_cd.rename(columns={"key":"_b"}),on="_b",how="inner",suffixes=("","_agg"))  # celebdf basename unique
 trall=pd.concat([FF["real"][FF["real"].partition=="train"]]+[FF[m][FF[m].partition=="train"] for m in MAN],ignore_index=True)
 med=trall[allc].median(); CDi=CD.copy()
 for c in allc: CDi[c]=pd.to_numeric(CDi[c],errors="coerce").replace([np.inf,-np.inf],np.nan).fillna(med[c])
