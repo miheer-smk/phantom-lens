@@ -24,6 +24,18 @@ If no family helps on dev, the frozen model remains 53-D (null result is a valid
 5. Sealed evaluation (Phase 4) runs **once** on the frozen set: FF++ test (per-manip + mean),
    celebdf_test, WildDeepfake, + DeLong vs the 53-D locked model. Report whatever the numbers are.
 
+### Phase 4 comparison protocol (locked 2026-07-25)
+The sealed **celebdf_test half (n=2,273, 27 identities)** is a DIFFERENT set from the full Celeb-DF that
+produced the locked **0.632** — a direct extended-vs-0.632 comparison would be INVALID. Therefore, in the
+single sealed evaluation, score **all three models on identical data**:
+- **locked 50-D**, **locked 53-D**, and the **frozen extended set (53+X)** — each evaluated on
+  **celebdf_test** and on **FF++ test** (same videos), so every ΔAUC / DeLong is on identical samples.
+- Record all three together in one table; DeLong is computed pairwise on the matched sealed videos.
+- Report explicitly: any extended-model **cross-dataset** number is on the **sealed half (n=2,273, 27 ids)**
+  with correspondingly **wider CIs**; the paper's locked **0.632 on full Celeb-DF (n=6,121) is unaffected**
+  and remains the reported cross-dataset number. The sealed-half 53-D value is the like-for-like baseline
+  for judging whether 53+X helps, NOT the headline 0.632.
+
 ## Candidate feature families (predicted effects)
 
 ### Group H — Gradient Structure Tensor  (priority; target axis = in-distribution)
