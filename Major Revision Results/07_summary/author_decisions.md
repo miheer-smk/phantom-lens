@@ -32,3 +32,12 @@
     statistically >chance (AUC 0.512, n≈11.5k) but negligible in magnitude. Suggest one limitations
     sentence. [author framing — do not overstate as "no effect"; state it as "negligible/at-chance for
     label, mild real-class extraction gap disclosed"]
+
+12. **E1 finding (contribution):** a distributional (order-statistic) representation of the per-frame physics
+    features transfers cross-dataset materially better than mean aggregation (Celeb-DF_dev 0.627->0.660, +0.033
+    Holm-sig) — the first cross-dataset gain in the program; refutes the "cross-dataset is dead" read. Frame as a
+    representation contribution (not new features). [author framing]
+13. **X1 finding (one sentence for the paper):** DOMAIN-STABLE != DISCRIMINATIVE. Selecting features whose
+    marginals match across FF++/Celeb-DF (low KS distance) HURTS both axes (top-20 stable -> cross 0.518 vs 0.663
+    for all features); the features carrying transferable signal are NOT the ones whose distributions match across
+    domains. Cautions against naive KS/MMD feature-stability selection for cross-domain forensics. [author framing]
