@@ -69,6 +69,28 @@ Compute the existing 37 temporal features PER facial region (mouth, L-eye, R-eye
 band) instead of whole-face-averaged → ~37×7 regional features. Same mechanism that gave G1 +0.118 (region-localised
 intermittency). **Prediction:** best remaining IN-DISTRIBUTION play (F2F/NT); cross uncertain. Needs a video pass.
 
+## Plan refinements (locked 2026-07-26, before E3 lands)
+1. **Model-selection metric → identity-grouped 5-fold CV within `celebdf_dev`** (not single-split). After ~30 dev
+   evals the single-split max is optimistically biased; the CV-averaged AUC tracks the sealed test much more
+   closely and shrinks the dev→test gap. All regime/component selection from here uses **`celebdf_dev_cv_mean`**.
+   (E3 eval updated accordingly; reports CV mean±std + single-split for reference.)
+2. **Pre-registered predicted test number (REQUIRED before unsealing).** Before the single sealed evaluation,
+   write a point estimate + interval for `celebdf_test` AUC into the freeze document, then report predicted vs
+   actual. Demonstrates the sealed eval was not gamed. Sealed test = **27 identities / ~2,273 videos → bootstrap
+   CI ≈ ±0.02–0.03**; expect actual test ≈ dev-CV − (0.02–0.04) optimism gap.
+3. **Report REAL recall and FAKE recall separately** on every cross-dataset eval — the core failure is
+   Celeb-DF **real recall 0.40 vs fake recall 0.87**; every lever so far improved fake discrimination, none widened
+   the real class. (E3 eval now reports both.)
+
+## X4 (QUEUED after E3) — Diverse real augmentation (targets the real-recall failure)
+**Hypothesis.** The real class is under-represented/over-fit to FF++ real distribution → Celeb-DF reals flagged fake
+(real recall 0.40). Add real videos from **unrelated corpora** to the real training class to widen it:
+WildDeepfake reals (already extracted; need `full_features` 196-D), + **VoxCeleb2 / CelebV-HQ reals if obtainable**.
+**Celeb-DF reals stay SEALED** (never in training). Compose with SBV: also generate self-blends FROM the diverse reals
+(so the fake class covers diverse-real blending too). **Prediction:** widens real recall on celebdf_dev (0.40→higher),
+raising cross-AUC via the real class; fake recall roughly maintained. Report real/fake recall separately.
+Prep: extract diverse-real `full_features` (196-D) + obtain VoxCeleb2/CelebV-HQ; run after E3 to avoid CPU contention.
+
 ## X1/X2 (run now — cheap, no extraction, on the E1-expanded 196-D set)
 - **X1 KS-stability selection:** rank features by KS distance between FF++-train and UNLABELED celebdf_dev marginals;
   train on top-k most domain-stable subsets k∈{20,30,50,80,120}. **Prediction:** cross-AUC peaks at an intermediate k

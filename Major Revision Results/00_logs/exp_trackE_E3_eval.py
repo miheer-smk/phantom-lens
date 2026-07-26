@@ -43,6 +43,20 @@ print(f"loaded: FF++ {len(ff)} (real {int((ff.src=='real').sum())}), celebdf_dev
 real_tr=ff[(ff.src=="real")&(ff.partition=="train")]; real_va=ff[(ff.src=="real")&(ff.partition=="val")]
 man_tr={m:ff[(ff.src==m)&(ff.partition=="train")] for m in MAN}; man_va={m:ff[(ff.src==m)&(ff.partition=="val")] for m in MAN}
 yc=cd.label.values.astype(int)
+# identity-grouped k-fold CV within celebdf_dev = the model-SELECTION metric (single-split max is
+# optimistically biased after ~30 evals; CV-averaged tracks the sealed test far more closely).
+cd_ids=cd.video_path.map(lambda p: (re.findall(r"id(\d+)",str(p)) or [os.path.basename(str(p))])[0]).values
+from sklearn.model_selection import GroupKFold
+def cv_auc(p,k=5):
+    aucs=[]
+    for _,idx in GroupKFold(k).split(p,yc,cd_ids):
+        if len(np.unique(yc[idx]))>1: aucs.append(roc_auc_score(yc[idx],p[idx]))
+    return round(float(np.mean(aucs)),4),round(float(np.std(aucs)),4)
+def recalls(p,thr=0.5):
+    pred=(p>=thr).astype(int)
+    rr=float((pred[yc==0]==0).mean()) if (yc==0).any() else 0.0   # REAL recall (our weakest class)
+    fr=float((pred[yc==1]==1).mean()) if (yc==1).any() else 0.0   # fake recall
+    return round(rr,3),round(fr,3)
 def fit(train_df):
     sc=StandardScaler().fit(train_df[FEATS].values); m=LGBM().fit(sc.transform(train_df[FEATS].values),train_df.label.values.astype(int))
     return sc,m
@@ -72,16 +86,19 @@ res={"provenance":dict(script="exp_trackE_E3_eval.py",git_commit=commit(),seed=S
 sc0,m0=fit(regimes["R0_real_vs_ffpp"]); pc0=score(sc0,m0,cd); r0_in=indist(sc0,m0); r0_cr=roc_auc_score(yc,pc0)
 for name,tr in regimes.items():
     sc,m=fit(tr); ind=indist(sc,m); pc=score(sc,m,cd); cr=roc_auc_score(yc,pc)
+    cvm,cvs=cv_auc(pc); rr,fr=recalls(pc)
     lo,hi,p=boot(yc,pc,pc0) if name!="R0_real_vs_ffpp" else (0.0,0.0,1.0)
-    res["regimes"][name]=dict(n_train=int(len(tr)),indist_auc=round(ind,4),celebdf_dev_auc=round(cr,4),
-        cross_delta_vs_R0=round(cr-r0_cr,4),cross_ci_vs_R0=[lo,hi],cross_p_vs_R0=round(p,4))
-best=max(res["regimes"],key=lambda k: res["regimes"][k]["celebdf_dev_auc"])
-res["winning_regime_by_celebdf_dev"]=best
+    res["regimes"][name]=dict(n_train=int(len(tr)),indist_auc=round(ind,4),
+        celebdf_dev_auc_singlesplit=round(cr,4),celebdf_dev_cv_mean=cvm,celebdf_dev_cv_std=cvs,
+        real_recall=rr,fake_recall=fr,cross_delta_vs_R0=round(cr-r0_cr,4),cross_ci_vs_R0=[lo,hi],cross_p_vs_R0=round(p,4))
+best=max(res["regimes"],key=lambda k: res["regimes"][k]["celebdf_dev_cv_mean"])   # SELECT by CV mean, not single split
+res["winning_regime_by_celebdf_dev_cv"]=best
 json.dump(res,open(f"{OUT}/trackE_E3_dev.json","w"),indent=1)
-print("="*74);print("TRACK E3 — SBV training regimes (DEV; feature set 196-D consistent)");print("="*74)
-print(f"{'regime':20s} {'in-dist':>8s} {'celebdf_dev':>12s} {'Δcross vs R0':>13s}")
+print("="*82);print("TRACK E3 — SBV training regimes (DEV; 196-D consistent). Selection = identity-grouped 5-fold CV.");print("="*82)
+print(f"{'regime':20s} {'in-dist':>8s} {'cv_cross':>10s} {'±std':>6s} {'single':>8s} {'realRec':>8s} {'fakeRec':>8s}")
 for name,r in res["regimes"].items():
-    print(f"  {name:20s} {r['indist_auc']:8.4f} {r['celebdf_dev_auc']:12.4f} {r['cross_delta_vs_R0']:+13.4f} (p{r['cross_p_vs_R0']})")
-print(f"\nwinning regime (celebdf_dev): {best} -> {res['regimes'][best]['celebdf_dev_auc']}")
+    print(f"  {name:20s} {r['indist_auc']:8.4f} {r['celebdf_dev_cv_mean']:10.4f} {r['celebdf_dev_cv_std']:6.3f} {r['celebdf_dev_auc_singlesplit']:8.4f} {r['real_recall']:8.3f} {r['fake_recall']:8.3f}")
+print(f"\nwinning regime (celebdf_dev CV mean): {best} -> {res['regimes'][best]['celebdf_dev_cv_mean']}")
+print(f"REAL-recall focus: R0={res['regimes']['R0_real_vs_ffpp']['real_recall']} -> best {best}={res['regimes'][best]['real_recall']} (target: widen real class from 0.40)")
 print("NOTE: all celebdf_dev numbers are DEV, not sealed (sealed budget 1, unspent).")
 print(f"saved {OUT}/trackE_E3_dev.json (commit {commit()})")
