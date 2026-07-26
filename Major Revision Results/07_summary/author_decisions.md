@@ -41,3 +41,14 @@
     marginals match across FF++/Celeb-DF (low KS distance) HURTS both axes (top-20 stable -> cross 0.518 vs 0.663
     for all features); the features carrying transferable signal are NOT the ones whose distributions match across
     domains. Cautions against naive KS/MMD feature-stability selection for cross-domain forensics. [author framing]
+
+14. **E3 finding (contribution):** SBI's self-blending augmentation — which reaches ~0.93 on Celeb-DF with a
+    deep CNN — is **CNN-specific and does NOT transfer to handcrafted physics descriptors**. Training real-vs-
+    self-blended (R1) collapses on Celeb-DF (dev CV 0.46; the detector calls all Celeb-DF real), and the hybrid
+    (R2) underperforms the standard regime (R0 0.697). Handcrafted features trained on synthetic blends do not
+    recognise Celeb-DF's real-deepfake blends. Novel negative: the SBI effect requires a learned (CNN) blend
+    representation. [author framing]
+15. **Real-class framing correction (for accuracy):** the Celeb-DF weakness is a RANKING problem — reals are
+    scored too fake-like — NOT a thresholding artifact. Real recall 0.225 @ θ=0.5 is threshold-dependent and does
+    NOT bound AUC (EXP-4: AUC is threshold-invariant). Report it as "Celeb-DF reals ranked too high"; X4 targets
+    the ranking (AUC), not the threshold. [author framing]
