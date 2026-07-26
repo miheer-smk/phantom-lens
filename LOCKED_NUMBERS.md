@@ -489,3 +489,11 @@ for the frozen extended set / sealed evaluation** (author-decision — first rea
 k=196 0.663 — domain-stable≠discriminative; keep all features). X2 drop-rPPG: in-dist +0.0019, cross +0.0055
 (directionally right, rPPG mildly hurts Celeb-DF, but below +0.03 bar → not an independent qualifier). Neither
 qualifies; E1 remains frozen base. Most domain-stable feats = low-tail order stats (min/p10 of flow/compression).
+
+### Track E3 — SBV pre-flight gate: PASS (blend visible to physics descriptors)
+`extract_trackE_SBV.py --preflight 50` → `trackE_SBV_preflight.json`. Cohen's d real-vs-SBV, n=50, jitter 1.0.
+Boundary/T8: t_texture_warp_residual +3.45, t_boundary_freq_leakage +2.09, t_boundary_color_disc +1.82,
+t_boundary_grad_temporal +0.94, t_face_ssim_mean −0.83. **max boundary |d| = 3.45 > 0.5 → PASS**, full extraction justified.
+Notable: the TOP overall discriminators are E1 ORDER STATISTICS (s_noise_hf_ratio__std 4.3, s_prnu_energy__skew 4.0,
+s_noise_res_std__skew 3.1) — the distributional representation that won E1 cross-dataset also best registers the SBV blend
+(E1 and E3 pull the same lever). → full SBV extraction launched (R0/R1/R2, jitter 0.5 & 1.0).

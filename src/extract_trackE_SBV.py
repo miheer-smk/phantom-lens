@@ -74,20 +74,44 @@ def full_features(frames_bgr, fps, sbvgen=None):
     if len(pf)<5: return None
     pf=np.array(pf); out={f:float(pf[:,j].mean()) for j,f in enumerate(SPATIAL13)}
     out.update(_ordstats(pf))
-    # temporal t1..t14 exactly as the pipeline
-    t=[P.extract_temporal_noise_stability(gray,fmask),P.extract_rppg(rgb,lms,fps),P.extract_temporal_prnu(gray,fmask,bmask),
-       P.extract_face_structural_stability(gray,lms),P.extract_codec_temporal_residual(gray,fmask),P.extract_landmark_trajectory(lms,fps),
-       P.extract_rigid_geometry(lms),P.extract_boundary_coherence(gray,frames_bgr,lms),P.extract_skin_texture(gray,lms),
-       P.extract_color_transfer(frames_bgr,lms,fmask),P.extract_specular_temporal(gray,lms),P.extract_blink_dynamics(lms,fps),
-       P.extract_motion_blur_coupling(gray,fmask),P.extract_dct_stability(gray,lms)]
-    tv=np.nan_to_num(np.concatenate([np.atleast_1d(x) for x in t]),nan=0.0)
-    out.update(dict(zip(TEMP,tv)))
+    # temporal t1..t14 exactly as the pipeline, each call made ROBUST (any extractor NaN/crash -> zeros)
+    calls=[(lambda: P.extract_temporal_noise_stability(gray,fmask),3),(lambda: P.extract_rppg(rgb,lms,fps),4),
+           (lambda: P.extract_temporal_prnu(gray,fmask,bmask),2),(lambda: P.extract_face_structural_stability(gray,lms),3),
+           (lambda: P.extract_codec_temporal_residual(gray,fmask),2),(lambda: P.extract_landmark_trajectory(lms,fps),3),
+           (lambda: P.extract_rigid_geometry(lms),4),(lambda: P.extract_boundary_coherence(gray,frames_bgr,lms),3),
+           (lambda: P.extract_skin_texture(gray,lms),2),(lambda: P.extract_color_transfer(frames_bgr,lms,fmask),2),
+           (lambda: P.extract_specular_temporal(gray,lms),2),(lambda: P.extract_blink_dynamics(lms,fps),3),
+           (lambda: P.extract_motion_blur_coupling(gray,fmask),2),(lambda: P.extract_dct_stability(gray,lms),2)]
+    parts=[]
+    for fn,L in calls:
+        try:
+            r=np.nan_to_num(np.atleast_1d(np.asarray(fn(),dtype=float)),nan=0.0,posinf=0.0,neginf=0.0)
+            if len(r)!=L: r=np.zeros(L)
+        except Exception: r=np.zeros(L)
+        parts.append(r)
+    out.update(dict(zip(TEMP,np.concatenate(parts))))
     out.update(_g1(gray,lms,valid))
     return {k:(0.0 if (out.get(k) is None or not np.isfinite(out.get(k,0))) else float(out[k])) for k in FEATS}
 
 def cohend(a,b):
     a=np.asarray(a); b=np.asarray(b); sp=np.sqrt(((len(a)-1)*a.var()+(len(b)-1)*b.var())/max(len(a)+len(b)-2,1))
     return float((b.mean()-a.mean())/(sp+1e-9))
+
+def _preflight_one(args):
+    vp,seed,tj,mf=args
+    try: frames,fps=P.load_video_frames(vp,max_frames=mf)
+    except Exception: return None
+    if len(frames)<20: return None
+    fr=full_features(frames,fps,sbvgen=None)
+    fs=full_features(frames,fps,sbvgen=SBVGenerator(seed=seed,temporal_jitter=tj))
+    return (fr,fs) if (fr and fs) else None
+
+def _sbv_one(args):
+    vp,seed,tj,mf=args
+    try: frames,fps=P.load_video_frames(vp,max_frames=mf)
+    except Exception: return None
+    if len(frames)<20: return None
+    return full_features(frames,fps,sbvgen=SBVGenerator(seed=seed+hash(str(vp))%1000,temporal_jitter=tj))
 
 if __name__=="__main__":
     ap=argparse.ArgumentParser()
@@ -96,19 +120,19 @@ if __name__=="__main__":
     a=ap.parse_args()
     import pandas as pd
     if a.preflight:
+        from concurrent.futures import ProcessPoolExecutor, as_completed
         man=pd.read_csv("features/trackD/manifest_ffpp_trainval.csv")
         reals=man[man.label==0].sample(a.preflight,random_state=a.seed)
         R={f:[] for f in FEATS}; S={f:[] for f in FEATS}; n=0
-        for r in reals.itertuples():
-            try: frames,fps=P.load_video_frames(r.video_path,max_frames=a.max_frames)
-            except Exception: continue
-            if len(frames)<20: continue
-            fr=full_features(frames,fps,sbvgen=None)
-            fs=full_features(frames,fps,sbvgen=SBVGenerator(seed=a.seed,temporal_jitter=a.temporal_jitter))
-            if fr and fs:
-                for f in FEATS: R[f].append(fr[f]); S[f].append(fs[f])
-                n+=1
-                if n%10==0: print(f"  preflight {n}/{a.preflight}",flush=True)
+        tasks=[(r.video_path,a.seed,a.temporal_jitter,a.max_frames) for r in reals.itertuples()]
+        with ProcessPoolExecutor(max_workers=16) as ex:
+            for fut in as_completed([ex.submit(_preflight_one,t) for t in tasks]):
+                res=fut.result()
+                if res:
+                    fr,fs=res
+                    for f in FEATS: R[f].append(fr[f]); S[f].append(fs[f])
+                    n+=1
+                    if n%10==0: print(f"  preflight {n}/{a.preflight}",flush=True)
         ds={f:round(cohend(R[f],S[f]),3) for f in FEATS}
         import json; json.dump({"n":n,"temporal_jitter":a.temporal_jitter,"cohens_d":ds,
             "boundary_features":{f:ds[f] for f in BOUNDARY}}, open("results_clean/trackE_SBV_preflight.json","w"),indent=1)
@@ -119,14 +143,17 @@ if __name__=="__main__":
         print("top-10 |d| overall:", [(f,ds[f]) for f in top])
         mx=max(abs(ds[f]) for f in BOUNDARY)
         print(f"\nGATE: max|d| on boundary feats = {mx:.3f} -> {'PASS (justify full extraction)' if mx>0.5 else 'FAIL (tune blend before full run)'}")
-    else:  # full extraction of SBV features for a manifest (real videos -> SBV, label=1)
+    else:  # full extraction of SBV features for a manifest (real videos -> SBV, label=1), parallel
+        from concurrent.futures import ProcessPoolExecutor, as_completed
         man=pd.read_csv(a.manifest); man=man[man.label==0]
+        tasks=[(r.video_path,a.seed,a.temporal_jitter,a.max_frames) for r in man.itertuples()]
         out=open(a.output,"w",newline=""); w=csv.DictWriter(out,fieldnames=["video_path","label"]+FEATS); w.writeheader(); ok=fail=0
-        for r in man.itertuples():
-            try: frames,fps=P.load_video_frames(r.video_path,max_frames=a.max_frames)
-            except Exception: fail+=1; continue
-            fs=full_features(frames,fps,sbvgen=SBVGenerator(seed=a.seed+hash(r.video_path)%1000,temporal_jitter=a.temporal_jitter)) if len(frames)>=20 else None
-            if fs: row={"video_path":str(r.video_path)+f"__sbv_j{a.temporal_jitter}","label":1}; row.update(fs); w.writerow(row); out.flush(); ok+=1
-            else: fail+=1
-            if (ok+fail)%100==0: print(f"  {ok+fail} (ok={ok})",flush=True)
+        print(f"SBV full: {len(tasks)} real videos -> SBV @ jitter {a.temporal_jitter} -> {a.output}",flush=True)
+        with ProcessPoolExecutor(max_workers=16) as ex:
+            futs={ex.submit(_sbv_one,t):t for t in tasks}
+            for fut in as_completed(futs):
+                res=fut.result(); vp=futs[fut][0]
+                if res: row={"video_path":str(vp)+f"__sbv_j{a.temporal_jitter}","label":1}; row.update(res); w.writerow(row); out.flush(); ok+=1
+                else: fail+=1
+                if (ok+fail)%100==0: print(f"  {ok+fail}/{len(tasks)} (ok={ok})",flush=True)
         out.close(); print(f"Done. ok={ok} fail={fail} -> {a.output}",flush=True)
