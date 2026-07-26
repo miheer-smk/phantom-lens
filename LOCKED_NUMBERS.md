@@ -519,3 +519,10 @@ is the real gain. **Real recall 0.225 confirms the real-class bottleneck → X4 
   ranking gain (AUC unchanged). FaceSwap-only transfers worst (0.509≈chance); NT/DF best (0.678/0.667).
 - E2 windowed MIL (`trackE_E2_dev.json`, 30-frame windows/stride 15): best aggregator max = **0.6818**, **−0.0149 vs R0**.
   Window order-stats noisier than full 60-frame; MIL doesn't recover. Both reject. **R0 (0.6967 dev CV) stays best.**
+
+### Track E — classifier/regularization sweep: RandomForest transfers best (DEV; sealed=0)
+`exp_trackE_clfsweep.py` → `trackE_clfsweep_dev.json`. 196-D R0 rep, select by celebdf_dev CV.
+**RandomForest(d8) = 0.7018 ±0.050 (BEST, first >0.70 dev CV)** vs LightGBM_d6 0.6967 (+0.0051, within CV std).
+Confirms pre-revision RF>LGBM cross + mechanism (GBDT absolute-threshold splits overfit source domain; RF bagging
+transfers). LGBM strong-reg 0.6977 (reg helps marginally). Very-smooth models FAIL: LogReg 0.595, RBF-SVM 0.549
+(collapsed, all-fake) — underfit the nonlinear 196-D. → switch frozen classifier to RandomForest; improvement modest.
