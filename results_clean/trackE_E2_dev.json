@@ -1,0 +1,36 @@
+{
+ "provenance": {
+  "script": "exp_trackE_E2.py",
+  "git_commit": "db46091",
+  "seed": 42,
+  "date": "2026-07-26",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "window": 30,
+  "stride": 15
+ },
+ "aggregators": {
+  "mean": {
+   "celebdf_dev_cv_mean": 0.6807,
+   "celebdf_dev_cv_std": 0.029
+  },
+  "max": {
+   "celebdf_dev_cv_mean": 0.6818,
+   "celebdf_dev_cv_std": 0.0277
+  },
+  "top3": {
+   "celebdf_dev_cv_mean": 0.6807,
+   "celebdf_dev_cv_std": 0.029
+  },
+  "p90": {
+   "celebdf_dev_cv_mean": 0.6814,
+   "celebdf_dev_cv_std": 0.0281
+  },
+  "frac": {
+   "celebdf_dev_cv_mean": 0.6015,
+   "celebdf_dev_cv_std": 0.0262
+  }
+ },
+ "best_aggregator": "max",
+ "vs_R0_0.6967": -0.0149
+}

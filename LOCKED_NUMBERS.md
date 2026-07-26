@@ -512,3 +512,10 @@ CNN-specific; it does NOT reproduce with handcrafted physics descriptors (novel 
 **Silver lining:** R0 on the CONSISTENT full-196-D E1-expanded features = **0.6967 dev CV** — highest yet,
 approaching 0.70 (vs E1 mixed-extraction 0.660); the consistent 60-frame extraction + order-stat representation
 is the real gain. **Real recall 0.225 confirms the real-class bottleneck → X4 (diverse reals) is the right lever.**
+
+### Track E — per-manip ensemble & E2 windowed MIL: both FAIL to beat R0 (DEV; sealed=0)
+- Per-manip ensemble (`trackE_ensemble_dev.json`): avg of real-vs-{DF,F2F,FS,NT} = celebdf_dev CV **0.6975** (Δ+0.0008
+  vs R0 0.6967 — no AUC gain). real-recall 0.225→0.742 is a CALIBRATION shift (averaging softens fake-bias), NOT a
+  ranking gain (AUC unchanged). FaceSwap-only transfers worst (0.509≈chance); NT/DF best (0.678/0.667).
+- E2 windowed MIL (`trackE_E2_dev.json`, 30-frame windows/stride 15): best aggregator max = **0.6818**, **−0.0149 vs R0**.
+  Window order-stats noisier than full 60-frame; MIL doesn't recover. Both reject. **R0 (0.6967 dev CV) stays best.**

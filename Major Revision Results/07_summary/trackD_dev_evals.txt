@@ -25,3 +25,5 @@
 21-26	X1	KS-stable top-k (20/30/50/80/120/196) cross: 0.518/0.516/0.570/0.628/0.658/0.663 — selection HURTS, keep all
 27	X2	drop rPPG: in-dist +0.0019 | cross +0.0055 (below +0.03 bar; directionally right)
 28-30	E3	R0 cv_cross 0.6967±.031 (realRec .225/fakeRec .948) | R1 SBV-only 0.4638 COLLAPSED (realRec .979) | R2 hybrid 0.6719 — SBV FAILS, R0 wins
+31	Ensemble	per-manip avg: celebdf_dev CV 0.6975 (Δ+0.0008 vs R0 — no AUC gain; realRec .225->.742 is calibration only)
+32-36	E2	windowed MIL aggregators: mean .681/max .682/top3 .681/p90 .681/frac .602 — best -0.0149 vs R0
