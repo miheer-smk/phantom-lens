@@ -483,3 +483,9 @@ Order statistics recover intermittent-frame signal the mean discards, and it tra
 CAVEATS: dev-only (needs the single sealed confirmation, budget 1, still unused); still modest (0.66, not the
 0.70 target); broader-multiplicity Holm across all ~20 D+E families should be applied before freezing. → **CANDIDATE
 for the frozen extended set / sealed evaluation** (author-decision — first real cross-dataset mover).
+
+### Track E X1/X2 (on E1-expanded 196-D; DEV only). full: in-dist 0.9526, cross 0.6599.
+`exp_trackE_X1X2.py` → `trackE_X1X2_dev.json`. X1 KS-stability selection FAILS (top-k hurts: k=20 cross 0.518 …
+k=196 0.663 — domain-stable≠discriminative; keep all features). X2 drop-rPPG: in-dist +0.0019, cross +0.0055
+(directionally right, rPPG mildly hurts Celeb-DF, but below +0.03 bar → not an independent qualifier). Neither
+qualifies; E1 remains frozen base. Most domain-stable feats = low-tail order stats (min/p10 of flow/compression).

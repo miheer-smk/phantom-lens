@@ -42,3 +42,36 @@ LoG pyramid (4–5 scales) over face ROI: per-scale energy, entropy, kurtosis, f
 
 Order: E1 → E2 → E3 → E4. One at a time: implement → measure (val + celebdf_dev) → report → wait for go.
 Multiplicity: dev-eval ledger continues from Track D (17 so far); Holm across the combined Track D+E set.
+
+## FREEZE CRITERIA (locked 2026-07-26, BEFORE X1/X2/E3/E4/Y1 measured — no best-of-N drift)
+The frozen model is built by a FIXED inclusion rule, applied ONCE, not by picking the max of many runs:
+1. **Base (already qualified): 53-D + E1 order-statistics** (E1_additive) — cleared both bars on dev
+   (in-dist +0.0092 Holm-sig, cross +0.0326 Holm-sig). This is the confirmed base representation.
+2. **A further component** (E3 SBV regime, E4 LoG-frequency, X1 KS-stable subset, X2 rPPG-drop, Y1 regional)
+   is INCLUDED iff, added to the current-best dev model, it improves its **target axis** by ≥ threshold
+   (in-dist +0.005 / **cross +0.03**) with **Holm significance across the FULL Track D+E dev ledger**, AND
+   does not degrade the other axis > −0.005. Components are evaluated additively on top of the base.
+3. **Frozen set = 53-D + E1 + {every component that independently qualifies by rule 2}.** No cherry-picking:
+   include-if-qualifies, fixed thresholds, Holm over all ~20+ dev evals. If nothing else qualifies, frozen = 53-D + E1.
+4. For E3 (a training-distribution change, not a feature): the winning **regime** (R0/R1/R2 or SBV+hybrid) is chosen
+   on **celebdf_dev cross-AUC only**, decided before the sealed run; whichever regime maximises celebdf_dev is frozen.
+5. **Sealed evaluation: exactly 1**, on the frozen set, scoring locked 50-D + 53-D + frozen-set together on
+   celebdf_test AND FF++ test (identical data; DeLong). celebdf_dev/FFval never used after freeze.
+
+## Contribution to log (author-decision item)
+**E1 finding refutes the "cross-dataset is dead" read:** a distributional (order-statistic) representation of the
+per-frame physics features transfers cross-dataset materially better than mean aggregation (celebdf_dev 0.627→0.660,
++0.033 Holm-sig) — the first cross-dataset gain in the program. Frame it as a contribution in its own right
+(representation, not new features, closes part of the domain gap). [author framing — flagged, not drafted]
+
+## Y1 (QUEUED, not yet run) — Regional temporal decomposition
+Compute the existing 37 temporal features PER facial region (mouth, L-eye, R-eye, nose, cheeks, forehead, boundary
+band) instead of whole-face-averaged → ~37×7 regional features. Same mechanism that gave G1 +0.118 (region-localised
+intermittency). **Prediction:** best remaining IN-DISTRIBUTION play (F2F/NT); cross uncertain. Needs a video pass.
+
+## X1/X2 (run now — cheap, no extraction, on the E1-expanded 196-D set)
+- **X1 KS-stability selection:** rank features by KS distance between FF++-train and UNLABELED celebdf_dev marginals;
+  train on top-k most domain-stable subsets k∈{20,30,50,80,120}. **Prediction:** cross-AUC peaks at an intermediate k
+  (dropping unstable features helps transfer); in-dist may dip at small k.
+- **X2 rPPG-drop ablation:** drop the rPPG temporal features entirely. **Prediction:** small cross-dataset GAIN
+  (leave-one-pillar showed rPPG ≈ −0.014 on Celeb-DF), in-dist ~neutral.
