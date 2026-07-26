@@ -113,9 +113,18 @@ def _sbv_one(args):
     if len(frames)<20: return None
     return full_features(frames,fps,sbvgen=SBVGenerator(seed=seed+hash(str(vp))%1000,temporal_jitter=tj))
 
+def _plain_one(args):
+    """Extract 196-D full_features with NO blending (consistent with SBV extraction) for real/manip/celebdf."""
+    vp,lab,mf=args
+    try: frames,fps=P.load_video_frames(vp,max_frames=mf)
+    except Exception: return None
+    if len(frames)<20: return None
+    f=full_features(frames,fps,sbvgen=None)
+    return (str(vp),int(lab),f) if f else None
+
 if __name__=="__main__":
     ap=argparse.ArgumentParser()
-    ap.add_argument("--preflight",type=int,default=0); ap.add_argument("--manifest"); ap.add_argument("--output")
+    ap.add_argument("--preflight",type=int,default=0); ap.add_argument("--plain",action="store_true"); ap.add_argument("--manifest"); ap.add_argument("--output")
     ap.add_argument("--temporal_jitter",type=float,default=1.0); ap.add_argument("--max_frames",type=int,default=60); ap.add_argument("--seed",type=int,default=42)
     a=ap.parse_args()
     import pandas as pd
@@ -143,6 +152,19 @@ if __name__=="__main__":
         print("top-10 |d| overall:", [(f,ds[f]) for f in top])
         mx=max(abs(ds[f]) for f in BOUNDARY)
         print(f"\nGATE: max|d| on boundary feats = {mx:.3f} -> {'PASS (justify full extraction)' if mx>0.5 else 'FAIL (tune blend before full run)'}")
+    elif a.plain:  # plain 196-D full_features for a manifest (no SBV; keep labels), parallel
+        from concurrent.futures import ProcessPoolExecutor, as_completed
+        man=pd.read_csv(a.manifest)
+        tasks=[(r.video_path,int(r.label),a.max_frames) for r in man.itertuples()]
+        out=open(a.output,"w",newline=""); w=csv.DictWriter(out,fieldnames=["video_path","label"]+FEATS); w.writeheader(); ok=fail=0
+        print(f"plain full_features: {len(tasks)} videos -> {a.output}",flush=True)
+        with ProcessPoolExecutor(max_workers=16) as ex:
+            for fut in as_completed([ex.submit(_plain_one,t) for t in tasks]):
+                res=fut.result()
+                if res: vp,lab,f=res; row={"video_path":vp,"label":lab}; row.update(f); w.writerow(row); out.flush(); ok+=1
+                else: fail+=1
+                if (ok+fail)%200==0: print(f"  {ok+fail}/{len(tasks)} (ok={ok})",flush=True)
+        out.close(); print(f"Done. ok={ok} fail={fail} -> {a.output}",flush=True)
     else:  # full extraction of SBV features for a manifest (real videos -> SBV, label=1), parallel
         from concurrent.futures import ProcessPoolExecutor, as_completed
         man=pd.read_csv(a.manifest); man=man[man.label==0]
