@@ -468,3 +468,18 @@ aggregation group, contaminating fake features and inflating F2F/NT. Recovery-by
 (only 39% confident, 14% mis-nearest — the 4 manips are too similar to disambiguate). Extractor fixed to
 key by FULL video_path; FF++ re-extracting (celebdf_dev was collision-free, reused). **E1 result PENDING
 correct re-run — the +0.0566 is NOT a valid number.**
+
+### Track E1 — CORRECTED result (clean full-path keys; supersedes the invalid +0.0566)
+Script `exp_trackE_E1_eval.py` → `results_clean/trackE_E1_dev.json`. 143 spatial order-statistics from
+per-frame values (`extract_trackE_perframe.py`, full video_path key, 60 frames). 53-D base: in-dist 0.9434,
+celebdf_dev 0.6273. Dev only; sealed = 0.
+| Model | in-dist Δ (p_holm) | cross Δ (p_holm) | per-manip DF/F2F/FS/NT |
+|---|---|---|---|
+| E1_replace (143 + 37t + 3 G1) | +0.0103 (.003) | +0.0259 (.004) | +.002/+.025/+.010/+.013 |
+| E1_additive (53-D + 143) | +0.0092 (.003) | **+0.0326 (.000)** | +.001/+.020/+.010/+.015 |
+**E1_additive is the FIRST Track D+E family to clear BOTH bars** (+0.005 in-dist Holm AND +0.03 cross Holm):
+celebdf_dev 0.627→0.660, in-dist gain concentrated in F2F/NT (intermittent-artifact manips, as predicted).
+Order statistics recover intermittent-frame signal the mean discards, and it transfers cross-dataset.
+CAVEATS: dev-only (needs the single sealed confirmation, budget 1, still unused); still modest (0.66, not the
+0.70 target); broader-multiplicity Holm across all ~20 D+E families should be applied before freezing. → **CANDIDATE
+for the frozen extended set / sealed evaluation** (author-decision — first real cross-dataset mover).
