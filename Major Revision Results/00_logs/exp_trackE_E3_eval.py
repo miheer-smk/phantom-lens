@@ -20,9 +20,10 @@ def commit():
     except: return "nogit"
 def LGBM(): return lgb.LGBMClassifier(n_estimators=300,max_depth=6,learning_rate=0.05,num_leaves=31,
     min_child_samples=20,class_weight="balanced",random_state=SEED,verbose=-1,n_jobs=1,deterministic=True,force_row_wise=True)
-def method(p):
-    for m in MAN:
-        if f"/{m.capitalize()}/" in p or f"/{m}/" in p: return m
+DIRMAP={"deepfakes":"Deepfakes","face2face":"Face2Face","faceswap":"FaceSwap","neuraltextures":"NeuralTextures"}
+def method(p):  # FF++ dir names are mixed-case (Face2Face etc.) -> explicit map, NOT .capitalize()
+    for m,d in DIRMAP.items():
+        if f"/{d}/" in p: return m
     if "original_sequences" in p or "/youtube/" in p: return "real"
     return "celebdf" if "Celeb-DF" in p else "?"
 
