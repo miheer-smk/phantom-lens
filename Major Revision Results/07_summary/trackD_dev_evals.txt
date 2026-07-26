@@ -24,3 +24,4 @@
 20	E1_additive	53-D + 143 order-stats	in-dist Δ+0.0092 (p_holm .003) | cross Δ+0.0326 (p_holm .000)  *** clears +0.03 cross ***
 21-26	X1	KS-stable top-k (20/30/50/80/120/196) cross: 0.518/0.516/0.570/0.628/0.658/0.663 — selection HURTS, keep all
 27	X2	drop rPPG: in-dist +0.0019 | cross +0.0055 (below +0.03 bar; directionally right)
+28-30	E3	R0 cv_cross 0.6967±.031 (realRec .225/fakeRec .948) | R1 SBV-only 0.4638 COLLAPSED (realRec .979) | R2 hybrid 0.6719 — SBV FAILS, R0 wins

@@ -497,3 +497,18 @@ t_boundary_grad_temporal +0.94, t_face_ssim_mean −0.83. **max boundary |d| = 3
 Notable: the TOP overall discriminators are E1 ORDER STATISTICS (s_noise_hf_ratio__std 4.3, s_prnu_energy__skew 4.0,
 s_noise_res_std__skew 3.1) — the distributional representation that won E1 cross-dataset also best registers the SBV blend
 (E1 and E3 pull the same lever). → full SBV extraction launched (R0/R1/R2, jitter 0.5 & 1.0).
+
+### Track E3 — SBV training regimes: FAILED (SBI does not transfer to handcrafted features). DEV; sealed=0.
+`exp_trackE_E3_eval.py` → `trackE_E3_dev.json`. 196-D E1-expanded via CONSISTENT full_features (60fr).
+Selection = identity-grouped 5-fold CV within celebdf_dev.
+| Regime | in-dist | celebdf_dev CV | real-rec | fake-rec |
+|---|---|---|---|---|
+| R0 real-vs-FFpp (current) | 0.865 | **0.6967 ±.031** | 0.225 | 0.948 |
+| R1 real-vs-SBV only | 0.530 | **0.4638** (COLLAPSED — predicts all real) | 0.979 | 0.013 |
+| R2 hybrid | 0.858 | 0.6719 | 0.242 | 0.915 |
+**SBV FAILS:** R1 collapses (handcrafted features trained on synthetic self-blends do NOT recognise Celeb-DF's
+real-deepfake blends → all Celeb-DF called real), R2 hurts vs R0. The SBI training-distribution effect is
+CNN-specific; it does NOT reproduce with handcrafted physics descriptors (novel negative for the paper).
+**Silver lining:** R0 on the CONSISTENT full-196-D E1-expanded features = **0.6967 dev CV** — highest yet,
+approaching 0.70 (vs E1 mixed-extraction 0.660); the consistent 60-frame extraction + order-stat representation
+is the real gain. **Real recall 0.225 confirms the real-class bottleneck → X4 (diverse reals) is the right lever.**
