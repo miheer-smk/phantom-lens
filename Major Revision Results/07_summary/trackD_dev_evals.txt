@@ -30,3 +30,6 @@
 37-45	ClfSweep	celebdf_dev CV: RF_d8 0.7018(BEST) | LGBM_strongreg .698 | LGBM_d6 .697 | d2 .696 d3 .686 d4 .690 | LogReg .595 | RBF-SVM .549 | ens .684 -> RandomForest wins, first >0.70 dev CV
 46	E4	LoG frequency stacked (RF): 196-D 0.7018 -> +E4 0.7073 (Δcross +0.0055, in-dist -0.005) — below +0.03 bar, REJECTED per rule
 47-49	SelfTrain	transductive self-training top-10/20/30%: 0.671/0.654/0.645 — ALL HURT (Δ-0.031/-0.048/-0.057); confident errors reinforced
+50	X4	diverse-real aug (DFD 226 reals->real class), 196-D RF: base 0.7018 -> +113 0.6908 -> +226 0.6814 (Δcross -0.020, realRec .232->.284 +0.052, in-dist -0.016) — FAILS +0.03 bar, dose-response negative, refutes "widen real class" hypothesis
+51	E5/TD	temp-diff/rel-flicker 78 feats (RF): base 0.7018 -> +TD 0.7001 (Δ-0.0017, in-dist -0.006); TD-only 0.5809 — FAILS, redundant with order-stats [2026-07-27]
+52	Ens2	strong-member ensemble: ExtraTrees 0.7036 | RF+ET+LGBM prob 0.7092 / rank 0.7125 (+0.0107 vs RF) — genuine variance reduction, new running-best dev candidate [2026-07-27]

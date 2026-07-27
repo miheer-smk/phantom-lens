@@ -539,3 +539,47 @@ train folds, eval held-out). R0 0.7018 → top-10% **0.6707** (−0.031), top-20
 Self-training AMPLIFIES the real-class bias: the base model confidently mis-labels Celeb-DF reals as fake, so the
 most-confident pseudo-labels reinforce the error. Boundary adaptation fails for the same reason feature alignment did.
 Reported as transductive DA, distinct from inductive zero-shot. → adds to the DA-fails evidence (Track D-B + this).
+
+### Track E — X4 diverse-real augmentation (DFD/Google reals -> real class): FAILS cross-AUC; clean finding. DEV; sealed=0.
+`exp_trackE_X4_eval.py` -> `trackE_X4_dev.json`. Add unrelated-corpus reals (DFD 28 actors, 226 usable of 363;
+137 failed = 38%, full-scene 1080p clips) to the TRAINING real class. 196-D R0 (60-frame), RandomForest,
+identity-grouped 5-fold celebdf_dev CV. Celeb-DF reals stay SEALED.
+- base(0 DFD):  in-dist 0.8179 | cross CV **0.7018** ±0.050 | realRec 0.232 | fakeRec 0.942
+- half(+113):   in-dist 0.8119 | cross CV 0.6908 (-0.011) | realRec **0.291** | fakeRec 0.906
+- all(+226):    in-dist 0.8018 | cross CV **0.6814** (-0.020) | realRec 0.284 | fakeRec 0.894
+**Finding:** diverse reals raise REAL RECALL (+0.052, threshold/calibration) but do NOT raise cross-AUC — they
+slightly DEGRADE ranking (dose-response monotonic: more DFD -> lower AUC), and cost in-dist (-0.016). This
+REFUTES the pre-registered "widen real class -> higher cross-AUC" hypothesis and CONFIRMS the author framing
+(author_decisions.md): the Celeb-DF real-recall deficit was a THRESHOLD artifact, not a ranking one; adding
+diverse reals moves the operating point without improving discrimination. X4 does NOT qualify (bar +0.03; goes
+the wrong way). Frozen candidate unchanged = 196-D + RandomForest = **0.7018 dev CV**. Caveat: 38% DFD extraction
+failure (face-cropped DFD would clean the input) but the negative direction is consistent across both doses.
+
+### Track E — E5/TD temporal-difference / relative-flicker representation: FAILS. DEV; sealed=0. Zero extraction.
+`exp_trackE_tempdiff.py` -> `trackE_tempdiff_dev.json`. 13 spatial channels x 6 diff-stats (meanabs/std/p90abs/
+max/relflick[dimensionless]/signchg) = 78 TD features from persisted per-frame series. RF, identity-grouped celebdf_dev CV.
+- 196-D base:  in-dist 0.8179 | cross **0.7018** ±0.050 | realRec 0.232 fakeRec 0.942
+- 196+78 TD:   in-dist 0.8117 | cross 0.7001 (**Δ-0.0017**) | realRec 0.239 fakeRec 0.957
+- TD-only 78:  in-dist 0.7152 | cross 0.5809 | realRec 0.099 fakeRec 0.957
+**Finding:** REFUTES the pre-registered "offset-invariant differences transfer" hypothesis. TD adds nothing
+(-0.0017 cross, -0.006 in-dist); TD-only weak (0.58). Mechanism: the order-statistics already in the 196-D
+(std/IQR/p90) capture the transferable temporal-variability signal -> frame-difference stats are redundant with
+them. Does NOT qualify (bar +0.03). Frozen candidate unchanged = 196-D + RF = **0.7018 dev CV**.
+
+### Track E — strong-member ensemble + ExtraTrees: MODEST GAIN. DEV; sealed=0. Zero extraction.
+`exp_trackE_ens2.py` -> `trackE_ens2_dev.json`. 196-D R0, identity-grouped celebdf_dev CV. Retest of ensembling
+with ONLY strong members (the clfsweep naive avg with weak LogReg/SVM had failed at 0.684).
+- RF_d8 0.7018 | ExtraTrees **0.7036** | LGBM_d6 0.6967
+- RF+ET prob 0.7050 / rank 0.7055 | RF+ET+LGBM prob 0.7092 / **rank 0.7125**
+**Finding:** strong-member RANK-averaged ensemble (RF+ExtraTrees+LGBM_d6) = **0.7125 dev CV, +0.0107 vs RF**.
+Genuine variance reduction (every ensemble > every member; monotonic in members). ExtraTrees alone also beats RF
+(+0.0018). recall-at-0.5 on rank scores is meaningless (uncalibrated); AUC is threshold-invariant. Running-best
+dev candidate: 196-D + RF+ET+LGBM rank ensemble = 0.7125. MULTIPLICITY NOTE below.
+
+**MULTIPLICITY NOTE (2026-07-27, after 52 dev evals):** the dev-eval ledger now has 52 entries. Every additional
+selection on celebdf_dev inflates the dev->test optimism gap. The pre-registration estimated a 0.02-0.04 gap at
+~30 evals; at 52 evals the realistic gap is likely 0.03-0.05. The ensemble's +0.0107 is principled (variance
+reduction, monotonic) but part of any small dev gain at this stage may not survive to sealed test. DISCIPLINE:
+after the two remaining substantive levers land (100-frame full pass; DFD-fakes-in-training if pursued), FREEZE —
+apply the fixed inclusion rule, pre-register a predicted test point + interval, and spend the ONE sealed eval.
+Continued dev micro-optimization past that point has rising overfitting risk and falling real value.

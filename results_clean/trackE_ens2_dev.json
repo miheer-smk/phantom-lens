@@ -1,0 +1,61 @@
+{
+ "provenance": {
+  "script": "exp_trackE_ens2.py",
+  "git_commit": "8670192",
+  "seed": 42,
+  "date": "2026-07-27",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "rep": "196-D R0",
+  "n_jobs": 4
+ },
+ "members": {
+  "RF_d8": {
+   "celebdf_dev_cv_mean": 0.7018,
+   "celebdf_dev_cv_std": 0.0504,
+   "real_recall": 0.232,
+   "fake_recall": 0.942
+  },
+  "ExtraTrees": {
+   "celebdf_dev_cv_mean": 0.7036,
+   "celebdf_dev_cv_std": 0.0522,
+   "real_recall": 0.209,
+   "fake_recall": 0.969
+  },
+  "LGBM_d6": {
+   "celebdf_dev_cv_mean": 0.6967,
+   "celebdf_dev_cv_std": 0.0313,
+   "real_recall": 0.225,
+   "fake_recall": 0.948
+  }
+ },
+ "ensembles": {
+  "RF+ET_prob": {
+   "celebdf_dev_cv_mean": 0.705,
+   "celebdf_dev_cv_std": 0.0514,
+   "real_recall": 0.221,
+   "fake_recall": 0.956
+  },
+  "RF+ET_rank": {
+   "celebdf_dev_cv_mean": 0.7055,
+   "celebdf_dev_cv_std": 0.0518,
+   "real_recall": 0.0,
+   "fake_recall": 1.0
+  },
+  "RF+ET+LGBM_prob": {
+   "celebdf_dev_cv_mean": 0.7092,
+   "celebdf_dev_cv_std": 0.0419,
+   "real_recall": 0.207,
+   "fake_recall": 0.96
+  },
+  "RF+ET+LGBM_rank": {
+   "celebdf_dev_cv_mean": 0.7125,
+   "celebdf_dev_cv_std": 0.0456,
+   "real_recall": 0.0,
+   "fake_recall": 1.0
+  }
+ },
+ "best": "RF+ET+LGBM_rank",
+ "best_cv": 0.7125,
+ "delta_vs_RF_0.7018": 0.0107
+}

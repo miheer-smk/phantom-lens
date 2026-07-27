@@ -97,3 +97,13 @@ Prep: extract diverse-real `full_features` (196-D) + obtain VoxCeleb2/CelebV-HQ;
   (dropping unstable features helps transfer); in-dist may dip at small k.
 - **X2 rPPG-drop ablation:** drop the rPPG temporal features entirely. **Prediction:** small cross-dataset GAIN
   (leave-one-pillar showed rPPG ≈ −0.014 on Celeb-DF), in-dist ~neutral.
+
+## E5 (TD) — Temporal-difference / relative-flicker representation (pre-registered 2026-07-27, before measuring)
+**Hypothesis.** All prior levers used ABSOLUTE feature magnitudes → shift across domains (why DA failed).
+Frame-to-frame differences d_t=x_t-x_{t-1} cancel per-video/per-domain DC offset; relative flicker
+mean|d|/median|x| is dimensionless (same transfer property as E1 order-stats + E4 face/bg ratio). Also targets
+the Celeb-DF fake artifact (temporal flicker) directly. 13 spatial channels x 6 stats = 78 TD features, ZERO
+extraction (reuses persisted per-frame series). Eval 196-D vs 196+78 vs TD-only, RF, identity-grouped celebdf_dev CV.
+**Pre-registered prediction.** Cross-dataset POSITIVE (offset-invariant + dimensionless flicker transfers);
+in-dist positive concentrated in Face2Face/NeuralTextures (intermittent re-render flicker), DF/FS smaller.
+Qualifies iff cross ΔAUC ≥ +0.03 (Holm) or in-dist ≥ +0.005 without degrading the other axis > -0.005.

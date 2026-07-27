@@ -1,0 +1,36 @@
+{
+ "provenance": {
+  "script": "exp_trackE_tempdiff.py",
+  "git_commit": "8670192",
+  "seed": 42,
+  "date": "2026-07-27",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "classifier": "RandomForest_d8",
+  "n_TD": 78,
+  "extraction": "none (reused per-frame)"
+ },
+ "base_196D": {
+  "indist_auc": 0.8179,
+  "celebdf_dev_cv_mean": 0.7018,
+  "celebdf_dev_cv_std": 0.0504,
+  "real_recall": 0.232,
+  "fake_recall": 0.942
+ },
+ "plus_TD_274D": {
+  "indist_auc": 0.8117,
+  "celebdf_dev_cv_mean": 0.7001,
+  "celebdf_dev_cv_std": 0.0463,
+  "real_recall": 0.239,
+  "fake_recall": 0.957
+ },
+ "TD_only_78D": {
+  "indist_auc": 0.7152,
+  "celebdf_dev_cv_mean": 0.5809,
+  "celebdf_dev_cv_std": 0.0381,
+  "real_recall": 0.099,
+  "fake_recall": 0.957
+ },
+ "delta_cross": -0.0017,
+ "delta_indist": -0.0062
+}
