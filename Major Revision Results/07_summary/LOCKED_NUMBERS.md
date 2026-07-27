@@ -532,3 +532,10 @@ transfers). LGBM strong-reg 0.6977 (reg helps marginally). Very-smooth models FA
 ratio × 4 sigmas) stacked on 196-D, RandomForest. 196-D 0.7018 → +E4 **0.7073** (Δcross +0.0055; in-dist −0.005).
 Below the +0.03 cross bar AND in-dist negative → does NOT qualify. Frozen candidate stays **196-D + RandomForest
 = 0.7018 dev CV**. Feature/model levers plateauing at ~0.70–0.71; X4 (real-recall) is the remaining lever.
+
+### Track E — pseudo-label self-training (transductive UDA): FAILS. DEV; sealed=0.
+`exp_trackE_selftrain.py` → `trackE_selftrain_dev.json`. RandomForest, honest identity-grouped CV (pseudo-label
+train folds, eval held-out). R0 0.7018 → top-10% **0.6707** (−0.031), top-20% 0.6538 (−0.048), top-30% 0.6450 (−0.057).
+Self-training AMPLIFIES the real-class bias: the base model confidently mis-labels Celeb-DF reals as fake, so the
+most-confident pseudo-labels reinforce the error. Boundary adaptation fails for the same reason feature alignment did.
+Reported as transductive DA, distinct from inductive zero-shot. → adds to the DA-fails evidence (Track D-B + this).

@@ -1,0 +1,35 @@
+{
+ "provenance": {
+  "script": "exp_trackE_selftrain.py",
+  "git_commit": "715813b",
+  "seed": 42,
+  "date": "2026-07-27",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "type": "unsupervised transductive DA (self-training)",
+  "classifier": "RandomForest_d8"
+ },
+ "R0_no_selftrain_cv": [
+  0.7018,
+  0.0504
+ ],
+ "sweep": {
+  "top10pct": {
+   "celebdf_dev_cv_mean": 0.6707,
+   "celebdf_dev_cv_std": 0.0604,
+   "delta_vs_R0": -0.0311
+  },
+  "top20pct": {
+   "celebdf_dev_cv_mean": 0.6538,
+   "celebdf_dev_cv_std": 0.0615,
+   "delta_vs_R0": -0.048
+  },
+  "top30pct": {
+   "celebdf_dev_cv_mean": 0.645,
+   "celebdf_dev_cv_std": 0.0608,
+   "delta_vs_R0": -0.0568
+  }
+ },
+ "best": "top10pct",
+ "best_delta_vs_R0": -0.0311
+}

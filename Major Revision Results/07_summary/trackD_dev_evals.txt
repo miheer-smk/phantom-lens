@@ -29,3 +29,4 @@
 32-36	E2	windowed MIL aggregators: mean .681/max .682/top3 .681/p90 .681/frac .602 — best -0.0149 vs R0
 37-45	ClfSweep	celebdf_dev CV: RF_d8 0.7018(BEST) | LGBM_strongreg .698 | LGBM_d6 .697 | d2 .696 d3 .686 d4 .690 | LogReg .595 | RBF-SVM .549 | ens .684 -> RandomForest wins, first >0.70 dev CV
 46	E4	LoG frequency stacked (RF): 196-D 0.7018 -> +E4 0.7073 (Δcross +0.0055, in-dist -0.005) — below +0.03 bar, REJECTED per rule
+47-49	SelfTrain	transductive self-training top-10/20/30%: 0.671/0.654/0.645 — ALL HURT (Δ-0.031/-0.048/-0.057); confident errors reinforced
