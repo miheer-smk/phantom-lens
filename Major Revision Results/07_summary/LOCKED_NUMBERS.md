@@ -526,3 +526,9 @@ is the real gain. **Real recall 0.225 confirms the real-class bottleneck → X4 
 Confirms pre-revision RF>LGBM cross + mechanism (GBDT absolute-threshold splits overfit source domain; RF bagging
 transfers). LGBM strong-reg 0.6977 (reg helps marginally). Very-smooth models FAIL: LogReg 0.595, RBF-SVM 0.549
 (collapsed, all-fake) — underfit the nonlinear 196-D. → switch frozen classifier to RandomForest; improvement modest.
+
+### Track E4 — LoG frequency: +0.0055 cross (sub-threshold, REJECTED). DEV; sealed=0.
+`exp_trackE_E4_eval.py` → `trackE_E4_dev.json`. 18 multi-scale LoG features (energy/entropy/kurtosis/face-bg
+ratio × 4 sigmas) stacked on 196-D, RandomForest. 196-D 0.7018 → +E4 **0.7073** (Δcross +0.0055; in-dist −0.005).
+Below the +0.03 cross bar AND in-dist negative → does NOT qualify. Frozen candidate stays **196-D + RandomForest
+= 0.7018 dev CV**. Feature/model levers plateauing at ~0.70–0.71; X4 (real-recall) is the remaining lever.
