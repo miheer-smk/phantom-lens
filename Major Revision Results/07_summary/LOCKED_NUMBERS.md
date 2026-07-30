@@ -583,3 +583,42 @@ reduction, monotonic) but part of any small dev gain at this stage may not survi
 after the two remaining substantive levers land (100-frame full pass; DFD-fakes-in-training if pursued), FREEZE —
 apply the fixed inclusion rule, pre-register a predicted test point + interval, and spend the ONE sealed eval.
 Continued dev micro-optimization past that point has rising overfitting risk and falling real value.
+
+### Track E — denser sampling (100 frames) FULL PASS: FAILS at scale. DEV; sealed=0.
+`exp_trackE_frameval.py` on full 100-frame re-extraction (`plain_everyone_100.csv`, all 6547 videos, ~17h).
+celebdf_dev CV = **0.6988** ±0.055 (realRec 0.216 fakeRec 0.947) vs 60-frame R0 **0.7018** -> **Δ -0.003**.
+The +0.052 subset signal did NOT replicate at full scale: more frames helped only when the training set was
+scarce (300 videos); on the full 3461-video training set the marginal benefit vanished (slightly negative).
+Denser sampling REJECTED as a lever. Confirms the small-sample caveat flagged before committing the full pass.
+
+### Track E — X4-FAKES diverse fake augmentation (DFD fakes -> fake class): FAILS. DEV; sealed=0.
+`exp_trackE_X4fakes_eval.py` -> `trackE_X4fakes_dev.json`. Add DFD high-quality fakes (191 usable of 300; 109
+failed = 36% full-scene) to the FAKE class. 196-D R0, RF, identity-grouped celebdf_dev CV.
+- base 0.7018 (realRec 0.232) -> +95 0.7005 (realRec 0.202) -> +191 **0.6920** (realRec 0.190). Δcross -0.0098, in-dist -0.003.
+**Finding:** adding diverse fakes made the model MORE fake-biased (real recall DROPPED 0.232->0.190), cross-AUC down.
+Combined with X4-reals (-0.020): diverse-data augmentation FAILS on BOTH classes. Reals lift recall but hurt AUC;
+fakes hurt both. The domain gap resists data augmentation on either side. Does NOT qualify. Frozen candidate unchanged.
+
+### Track E — random-subspace (feature-bagging) ensemble: MARGINAL. DEV; sealed=0. Zero extraction.
+`exp_trackE_subspace.py` -> `trackE_subspace_dev.json`. M members on random 50% feature subsets, rank-averaged.
+- RF M15 0.7019 / M30 **0.7031** | ExtraTrees M15 0.7014 / M30 0.7021.
+**Finding:** feature bagging gives +0.0013 over single RF but is WORSE than the model-diversity rank ensemble
+(0.7125, -0.0094). Feature bagging alone doesn't beat member diversity. Running-best dev unchanged = **0.7125**.
+
+### Track E — JOINT SELECTION (celebdf_dev CV + WildDeepfake AUC): winner's-curse CONFIRMED. DEV; sealed=0.
+`exp_trackE_joint.py` -> `trackE_joint_dev.json`. Second independent target: WildDeepfake 196-D (168 videos,
+88 real/80 fake; `extract_wdf_196d.py`). FF++-trained, inductive.
+| candidate | celebdf_dev CV | WildDeepfake AUC | mean |
+|---|---|---|---|
+| RF_d8 | 0.7018 | 0.5751 | 0.6384 |
+| ExtraTrees | 0.7036 | **0.5834** | 0.6435 |
+| LGBM_d6 | 0.6967 | 0.5476 | 0.6221 |
+| RF+ET_rank | 0.7055 | 0.5794 | 0.6424 |
+| RF+ET+LGBM_rank | **0.7125** | 0.5746 | 0.6436 |
+**Findings:** (1) WildDeepfake AUC ~0.55-0.58 for ALL candidates — physics features barely transfer to a
+genuinely different (in-the-wild) domain. (2) The celebdf_dev ranking does NOT match the WildDeepfake ranking:
+the rank ensemble is BEST on celebdf_dev (0.7125) but MID-PACK on WildDeepfake (0.5746), while ExtraTrees is
+BEST on WildDeepfake (0.5834) and 2nd on celebdf_dev. => the ensemble's +0.0107 celebdf_dev edge is NOT
+corroborated by the independent target = winner's-curse inflation empirically confirmed. Joint-mean best
+(ensemble 0.6436) ties ExtraTrees (0.6435). Freeze implication: predicted celebdf_test should be CONSERVATIVE;
+ExtraTrees is the most domain-robust single model. WildDeepfake is small (168 videos) -> wide CI (~±0.05).

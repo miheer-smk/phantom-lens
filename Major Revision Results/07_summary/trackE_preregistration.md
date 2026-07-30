@@ -107,3 +107,15 @@ extraction (reuses persisted per-frame series). Eval 196-D vs 196+78 vs TD-only,
 **Pre-registered prediction.** Cross-dataset POSITIVE (offset-invariant + dimensionless flicker transfers);
 in-dist positive concentrated in Face2Face/NeuralTextures (intermittent re-render flicker), DF/FS smaller.
 Qualifies iff cross ΔAUC ≥ +0.03 (Holm) or in-dist ≥ +0.005 without degrading the other axis > -0.005.
+
+## FREEZE PRE-REGISTRATION — predicted sealed test (written 2026-07-30, BEFORE TTA lands, BEFORE unseal)
+Written before the final lever (TTA) resolves and before any sealed access — pre-registering ahead of the last
+dev result is methodologically stronger than after.
+- **Frozen rep:** 196-D E1-expanded (13 spatial means + 37 temporal + 3 G1 + 143 spatial order-statistics).
+- **Frozen model:** RF + ExtraTrees + LGBM_d6, RANK-averaged (a priori variance-reduction choice; see trackE_FREEZE.md).
+- **PREDICTED Celeb-DF-v2 sealed TEST AUC: point 0.68, 80% interval [0.65, 0.71].**
+- **Predicted FF++ test AUC:** ~0.90–0.94 (in-distribution, unchanged regime).
+- Basis: celebdf_dev CV 0.7125 (ensemble) / 0.7036 (ExtraTrees), minus argmax-selection bias over 56 dev evals
+  (≈ −0.01..−0.02) and dev-vs-sealed split variance (≈ ±0.02–0.03; sealed = 27 identities / 2273 videos).
+- Decision rule fixed in advance: report predicted vs actual and whether actual ∈ [0.65, 0.71]; do NOT re-open
+  dev iteration regardless of the sealed outcome. Sealed budget spent by this eval = 1 (of 1).

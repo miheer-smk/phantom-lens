@@ -1,0 +1,42 @@
+{
+ "provenance": {
+  "script": "exp_trackE_subspace.py",
+  "git_commit": "ee3d6cc",
+  "seed": 42,
+  "date": "2026-07-30",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "rep": "196-D R0",
+  "n_jobs": 3
+ },
+ "configs": {
+  "RF_M15_50pct": {
+   "celebdf_dev_cv_mean": 0.7019,
+   "celebdf_dev_cv_std": 0.054,
+   "real_recall": 0.0,
+   "fake_recall": 1.0
+  },
+  "RF_M30_50pct": {
+   "celebdf_dev_cv_mean": 0.7031,
+   "celebdf_dev_cv_std": 0.0529,
+   "real_recall": 0.0,
+   "fake_recall": 1.0
+  },
+  "ExtraTrees_M15_50pct": {
+   "celebdf_dev_cv_mean": 0.7014,
+   "celebdf_dev_cv_std": 0.0538,
+   "real_recall": 0.0,
+   "fake_recall": 1.0
+  },
+  "ExtraTrees_M30_50pct": {
+   "celebdf_dev_cv_mean": 0.7021,
+   "celebdf_dev_cv_std": 0.0536,
+   "real_recall": 0.0,
+   "fake_recall": 1.0
+  }
+ },
+ "best": "RF_M30_50pct",
+ "best_cv": 0.7031,
+ "delta_vs_RF_0.7018": 0.0013,
+ "delta_vs_ens_0.7125": -0.0094
+}

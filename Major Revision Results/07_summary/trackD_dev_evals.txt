@@ -33,3 +33,7 @@
 50	X4	diverse-real aug (DFD 226 reals->real class), 196-D RF: base 0.7018 -> +113 0.6908 -> +226 0.6814 (Δcross -0.020, realRec .232->.284 +0.052, in-dist -0.016) — FAILS +0.03 bar, dose-response negative, refutes "widen real class" hypothesis
 51	E5/TD	temp-diff/rel-flicker 78 feats (RF): base 0.7018 -> +TD 0.7001 (Δ-0.0017, in-dist -0.006); TD-only 0.5809 — FAILS, redundant with order-stats [2026-07-27]
 52	Ens2	strong-member ensemble: ExtraTrees 0.7036 | RF+ET+LGBM prob 0.7092 / rank 0.7125 (+0.0107 vs RF) — genuine variance reduction, new running-best dev candidate [2026-07-27]
+53	Denser100	100-frame FULL pass: celebdf_dev CV 0.6988 vs 60-frame 0.7018 (Δ-0.003) — subset +0.052 did NOT replicate at scale, REJECTED [2026-07-27]
+54	X4fakes	DFD fakes->fake class: base 0.7018 -> +191 0.6920 (Δ-0.0098, realRec 0.232->0.190) — FAILS; diverse-data aug fails on BOTH classes [2026-07-30]
+55	Subspace	random-subspace feature-bagging: RF_M30 0.7031 (+0.0013 vs RF, -0.0094 vs ensemble 0.7125) — marginal, MEMBER diversity > feature bagging [2026-07-30]
+56	Joint	celebdf_dev CV vs WildDeepfake AUC: WDF ~0.57 ALL candidates; celebdf ranking != WDF ranking (ensemble 0.7125 celebdf/0.5746 wdf vs ExtraTrees 0.7036/0.5834) — winner's-curse CONFIRMED [2026-07-30]
