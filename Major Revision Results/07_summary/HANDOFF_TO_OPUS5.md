@@ -88,3 +88,8 @@ WildDeepfake tells us the ensemble edge is fragile, so I weight toward the robus
 - Whether to keep the paper physics-only (freeze at ~0.71 dev / ~0.67 test, lead with the negative-results
   contribution) or open a hybrid track (higher test AUC, changed framing).
 - What predicted-test point + interval to pre-register (my proposal: 0.675, [0.65, 0.70]).
+
+## UPDATE (TTA landed, 2026-07-30): last lever FAILS
+TTA (mean prob over original + N augmented) is monotonically negative: RF 0.7018->0.6985, ensemble
+0.7125->0.7088. All levers now resolved. Freeze stands: 196-D E1-expanded + RF+ET+LGBM rank ensemble, dev CV
+0.7125. Predicted sealed test 0.68 [0.65,0.71]. Ready for the single sealed evaluation.

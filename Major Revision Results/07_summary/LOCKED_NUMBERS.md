@@ -622,3 +622,11 @@ BEST on WildDeepfake (0.5834) and 2nd on celebdf_dev. => the ensemble's +0.0107 
 corroborated by the independent target = winner's-curse inflation empirically confirmed. Joint-mean best
 (ensemble 0.6436) ties ExtraTrees (0.6435). Freeze implication: predicted celebdf_test should be CONSERVATIVE;
 ExtraTrees is the most domain-robust single model. WildDeepfake is small (168 videos) -> wide CI (~±0.05).
+
+### Track E — Test-Time Augmentation (TTA): FAILS. DEV; sealed=0.
+`extract_trackE_TTA.py` (7263/7263 ok) + `exp_trackE_TTA_eval.py` -> `trackE_TTA_dev.json`. Mean predicted prob
+over {original + N augmented (JPEG/scale/brightness/blur)} per celebdf_dev video.
+- RF:       base 0.7018 -> TTA2 0.7006 -> TTA3 0.6985 (monotonic -0.003)
+- ensemble: base 0.7125 -> TTA2 0.7113 -> TTA3 **0.7088** (monotonic -0.0037)
+**Finding:** TTA dilutes rather than denoises — augmentation perturbs celebdf features in non-ranking-helpful
+ways. LAST lever; does NOT change the freeze. Frozen candidate stays 196-D + RF+ET+LGBM rank ensemble = 0.7125.

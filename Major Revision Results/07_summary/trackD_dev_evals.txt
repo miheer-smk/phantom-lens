@@ -37,3 +37,4 @@
 54	X4fakes	DFD fakes->fake class: base 0.7018 -> +191 0.6920 (Δ-0.0098, realRec 0.232->0.190) — FAILS; diverse-data aug fails on BOTH classes [2026-07-30]
 55	Subspace	random-subspace feature-bagging: RF_M30 0.7031 (+0.0013 vs RF, -0.0094 vs ensemble 0.7125) — marginal, MEMBER diversity > feature bagging [2026-07-30]
 56	Joint	celebdf_dev CV vs WildDeepfake AUC: WDF ~0.57 ALL candidates; celebdf ranking != WDF ranking (ensemble 0.7125 celebdf/0.5746 wdf vs ExtraTrees 0.7036/0.5834) — winner's-curse CONFIRMED [2026-07-30]
+57	TTA	test-time aug: RF base 0.7018->TTA3 0.6985 | ensemble 0.7125->TTA3 0.7088 — monotonic DOWN, FAILS; last lever, freeze unchanged [2026-07-30]

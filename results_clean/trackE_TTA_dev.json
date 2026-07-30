@@ -1,0 +1,41 @@
+{
+ "provenance": {
+  "script": "exp_trackE_TTA_eval.py",
+  "git_commit": "84854b2",
+  "seed": 42,
+  "date": "2026-07-30",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "tta": "features/trackE/tta_celebdf_dev.csv"
+ },
+ "results": {
+  "RF": {
+   "base": [
+    0.7018,
+    0.0504
+   ],
+   "TTA2": [
+    0.7006,
+    0.0516
+   ],
+   "TTA3": [
+    0.6985,
+    0.051
+   ]
+  },
+  "ensemble": {
+   "base": [
+    0.7125,
+    0.0456
+   ],
+   "TTA2": [
+    0.7113,
+    0.0462
+   ],
+   "TTA3": [
+    0.7088,
+    0.0459
+   ]
+  }
+ }
+}
