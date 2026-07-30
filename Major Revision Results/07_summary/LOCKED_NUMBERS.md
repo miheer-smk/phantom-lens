@@ -641,3 +641,17 @@ RF+ExtraTrees+LGBM_d6 rank ensemble, FF++-train only, seed 42.
 - CLEARS 0.70 at the point estimate (CI lower bound 0.687). 57 dev evals disclosed.
 - PROVENANCE: unseal logged twice (first crashed in FF++ branch before emitting anything; deterministic re-capture).
   See SEALED_PROVENANCE.md — one honest evaluation of a pre-committed frozen model.
+
+## POST-FREEZE DESCRIPTIVE MEASUREMENTS (celebdf_test; no selection after unseal)
+Declared explicitly descriptive: the model was frozen and the sealed test unsealed BEFORE these; NO model
+selection, tuning, or changes occurred after unsealing. Classifier held constant (frozen rank ensemble) across
+reps so only the representation differs. `exp_trackE_postfreeze_compare.py` -> `POSTFREEZE_compare.json`.
+| rep (frozen ensemble) | celebdf_test AUC | 95% CI | real rec | fake rec |
+|---|---|---|---|---|
+| locked 50-D | 0.6573 | [0.630, 0.685] | 0.183 | 0.952 |
+| locked 53-D | 0.6830 | [0.656, 0.718] | 0.274 | 0.895 |
+| **frozen 196-D** | **0.7133** | [0.687, 0.746] | 0.183 | 0.961 |
+- **Paired DeLong (shared celebdf_test):** 196-D vs 50-D Δ+0.0561 z=4.79 **p=1.7e-06**; 196-D vs 53-D Δ+0.0303
+  z=5.98 **p=2.2e-09**. The E1 order-statistics representation gain is statistically significant on the SEALED
+  test and replicates the dev finding (+0.033 dev cross -> +0.030 test over 53-D). AUC is the ranking metric;
+  real recall low (0.18 @0.5) confirms the persistent "reals ranked fake-like" trait (threshold, not ranking).

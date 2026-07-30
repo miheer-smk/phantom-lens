@@ -1,0 +1,59 @@
+{
+ "provenance": {
+  "script": "exp_trackE_postfreeze_compare.py",
+  "git_commit": "d35064a",
+  "seed": 42,
+  "date": "2026-07-30",
+  "kind": "POST-FREEZE DESCRIPTIVE (no selection after unseal; classifier held constant across reps)",
+  "classifier": "RF+ExtraTrees+LGBM_d6 rank ensemble",
+  "test": "celebdf_test (2273)"
+ },
+ "reps": {
+  "50-D": {
+   "auc": 0.6573,
+   "ci95": [
+    0.6305,
+    0.6855
+   ],
+   "real_recall": 0.183,
+   "fake_recall": 0.952,
+   "n_features": 50
+  },
+  "53-D": {
+   "auc": 0.683,
+   "ci95": [
+    0.6561,
+    0.7181
+   ],
+   "real_recall": 0.274,
+   "fake_recall": 0.895,
+   "n_features": 53
+  },
+  "196-D": {
+   "auc": 0.7133,
+   "ci95": [
+    0.687,
+    0.7461
+   ],
+   "real_recall": 0.183,
+   "fake_recall": 0.961,
+   "n_features": 196
+  }
+ },
+ "delong": {
+  "196D_vs_50-D": {
+   "auc_196": 0.7133,
+   "auc_base": 0.6573,
+   "delta": 0.0561,
+   "z": 4.789,
+   "p_value": 1.68e-06
+  },
+  "196D_vs_53-D": {
+   "auc_196": 0.7133,
+   "auc_base": 0.683,
+   "delta": 0.0303,
+   "z": 5.985,
+   "p_value": 2.17e-09
+  }
+ }
+}
