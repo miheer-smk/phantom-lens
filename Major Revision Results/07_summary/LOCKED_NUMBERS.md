@@ -655,3 +655,18 @@ reps so only the representation differs. `exp_trackE_postfreeze_compare.py` -> `
   z=5.98 **p=2.2e-09**. The E1 order-statistics representation gain is statistically significant on the SEALED
   test and replicates the dev finding (+0.033 dev cross -> +0.030 test over 53-D). AUC is the ranking metric;
   real recall low (0.18 @0.5) confirms the persistent "reals ranked fake-like" trait (threshold, not ranking).
+
+## POST-FREEZE DESCRIPTIVE — FF++ test (in-distribution) on frozen 196-D ensemble
+`exp_trackE_ffpptest_eval.py` -> `POSTFREEZE_ffpptest.json`. Frozen RF+ET+LGBM rank ensemble, FF++-train only,
+scored on FF++ official test (685 of 700 videos extracted; 137 real/548 fake).
+- **FF++ TEST AUC = 0.842, 95% CI [0.810, 0.872]** | real recall 0.562 | fake recall 0.927.
+- INTERPRETATION: this frozen model is CROSS-DATASET-optimized (196-D E1-expanded rep chosen for Celeb-DF
+  transfer); its in-dist (~0.82 val -> 0.842 test) is BELOW the paper's dedicated in-dist model (~0.93 on
+  major-revision). It trades in-dist for cross-dataset (celebdf_test 0.7133). Report both models distinctly;
+  do not conflate the 0.842 here with the paper's 0.93 in-dist number.
+
+## FINAL SUMMARY (best-revision, frozen model)
+- Frozen: 196-D E1-expanded + RF+ExtraTrees+LGBM rank ensemble, FF++-train only, seed 42.
+- **Celeb-DF-v2 sealed TEST AUC = 0.7133 [0.687, 0.746]** (cross-dataset headline; +0.030 over 53-D, DeLong p=2.2e-9).
+- FF++ test AUC 0.842 [0.810, 0.872] (this model's in-dist).
+- 57 dev evals; 1 sealed eval (crash-recapture, see SEALED_PROVENANCE.md). Predicted 0.68 -> actual 0.7133.
