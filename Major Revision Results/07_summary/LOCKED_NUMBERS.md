@@ -630,3 +630,14 @@ over {original + N augmented (JPEG/scale/brightness/blur)} per celebdf_dev video
 - ensemble: base 0.7125 -> TTA2 0.7113 -> TTA3 **0.7088** (monotonic -0.0037)
 **Finding:** TTA dilutes rather than denoises — augmentation perturbs celebdf features in non-ranking-helpful
 ways. LAST lever; does NOT change the freeze. Frozen candidate stays 196-D + RF+ET+LGBM rank ensemble = 0.7125.
+
+## ★ SEALED RESULT (Phase-4, budget spent) — Celeb-DF-v2 TEST AUC = 0.7133
+`exp_trackE_SEALED_eval.py --unseal` -> `results_clean/SEALED_final.json`. Frozen 196-D E1-expanded +
+RF+ExtraTrees+LGBM_d6 rank ensemble, FF++-train only, seed 42.
+- **Celeb-DF-v2 sealed TEST AUC = 0.7133, 95% CI [0.687, 0.746]** (n=2273, 372 real / 1901 fake).
+- Single-model ref on test: ExtraTrees 0.7143 | RF 0.7059 | LGBM 0.691 (choice not outcome-determining).
+- Pre-registered prediction 0.68 [0.65,0.71] -> actual 0.7133 (above interval; under-predicted).
+- dev CV 0.7125 -> test 0.7133: essentially NO optimism gap; identity-grouped CV well-calibrated.
+- CLEARS 0.70 at the point estimate (CI lower bound 0.687). 57 dev evals disclosed.
+- PROVENANCE: unseal logged twice (first crashed in FF++ branch before emitting anything; deterministic re-capture).
+  See SEALED_PROVENANCE.md — one honest evaluation of a pre-committed frozen model.

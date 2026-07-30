@@ -1,0 +1,44 @@
+{
+ "provenance": {
+  "script": "exp_trackE_SEALED_eval.py",
+  "git_commit": "c1a77bb",
+  "seed": 42,
+  "date": "2026-07-30",
+  "frozen_model": "RF+ExtraTrees+LGBM_d6 rank ensemble",
+  "frozen_rep": "196-D E1-expanded",
+  "sealed": true,
+  "dev_eval_count": 57,
+  "note": "FF++ test not scored here (in-dist features not extracted in this run); celebdf_test is the sealed cross-dataset result"
+ },
+ "predicted": {
+  "point": 0.68,
+  "interval": [
+   0.65,
+   0.71
+  ]
+ },
+ "celebdf_test": {
+  "auc": 0.7133,
+  "ci95": [
+   0.687,
+   0.7461
+  ],
+  "n": 2273,
+  "reals": 372,
+  "fakes": 1901,
+  "single_model_ref": {
+   "RF": 0.7059,
+   "ET": 0.7143,
+   "LGBM": 0.691
+  }
+ },
+ "ffpp_test": {
+  "auc": null,
+  "n": 0
+ },
+ "predicted_vs_actual": {
+  "point": 0.68,
+  "actual": 0.7133,
+  "within_interval": false
+ }
+}
