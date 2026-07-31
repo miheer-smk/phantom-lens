@@ -1,0 +1,43 @@
+{
+ "provenance": {
+  "script": "exp_trackE_X4fakes_eval.py",
+  "git_commit": "ee3d6cc",
+  "seed": 42,
+  "date": "2026-07-30",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "classifier": "RandomForest_d8",
+  "rep": "196-D R0 (60-frame)",
+  "dfd_fakes": "features/trackE/plain_dfd_fakes.csv",
+  "n_available": 191
+ },
+ "base_no_dfd": {
+  "n_fakes_added": 0,
+  "n_fake_train": 2768,
+  "indist_auc": 0.8179,
+  "celebdf_dev_cv_mean": 0.7018,
+  "celebdf_dev_cv_std": 0.0504,
+  "real_recall": 0.232,
+  "fake_recall": 0.942
+ },
+ "plus_half": {
+  "n_fakes_added": 95,
+  "n_fake_train": 2863,
+  "indist_auc": 0.8145,
+  "celebdf_dev_cv_mean": 0.7005,
+  "celebdf_dev_cv_std": 0.0493,
+  "real_recall": 0.202,
+  "fake_recall": 0.955
+ },
+ "plus_all": {
+  "n_fakes_added": 191,
+  "n_fake_train": 2959,
+  "indist_auc": 0.8148,
+  "celebdf_dev_cv_mean": 0.692,
+  "celebdf_dev_cv_std": 0.0499,
+  "real_recall": 0.19,
+  "fake_recall": 0.952
+ },
+ "delta_cross_full": -0.0098,
+ "delta_indist_full": -0.0031
+}

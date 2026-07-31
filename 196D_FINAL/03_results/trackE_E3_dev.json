@@ -1,0 +1,60 @@
+{
+ "provenance": {
+  "script": "exp_trackE_E3_eval.py",
+  "git_commit": "f7440ff",
+  "seed": 42,
+  "date": "2026-07-26",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "feature_set": "196-D E1-expanded full_features (consistent)",
+  "n_SBV": 1652
+ },
+ "regimes": {
+  "R0_real_vs_ffpp": {
+   "n_train": 3461,
+   "indist_auc": 0.8651,
+   "celebdf_dev_auc_singlesplit": 0.6923,
+   "celebdf_dev_cv_mean": 0.6967,
+   "celebdf_dev_cv_std": 0.0313,
+   "real_recall": 0.225,
+   "fake_recall": 0.948,
+   "cross_delta_vs_R0": 0.0,
+   "cross_ci_vs_R0": [
+    0.0,
+    0.0
+   ],
+   "cross_p_vs_R0": 1.0
+  },
+  "R1_real_vs_SBV": {
+   "n_train": 2345,
+   "indist_auc": 0.5303,
+   "celebdf_dev_auc_singlesplit": 0.4603,
+   "celebdf_dev_cv_mean": 0.4638,
+   "celebdf_dev_cv_std": 0.0462,
+   "real_recall": 0.979,
+   "fake_recall": 0.013,
+   "cross_delta_vs_R0": -0.232,
+   "cross_ci_vs_R0": [
+    -0.2755,
+    -0.1916
+   ],
+   "cross_p_vs_R0": 0.0001
+  },
+  "R2_hybrid": {
+   "n_train": 5113,
+   "indist_auc": 0.8575,
+   "celebdf_dev_auc_singlesplit": 0.6662,
+   "celebdf_dev_cv_mean": 0.6719,
+   "celebdf_dev_cv_std": 0.0428,
+   "real_recall": 0.242,
+   "fake_recall": 0.915,
+   "cross_delta_vs_R0": -0.0261,
+   "cross_ci_vs_R0": [
+    -0.0404,
+    -0.0121
+   ],
+   "cross_p_vs_R0": 0.0001
+  }
+ },
+ "winning_regime_by_celebdf_dev_cv": "R0_real_vs_ffpp"
+}

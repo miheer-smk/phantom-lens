@@ -1,0 +1,79 @@
+{
+ "provenance": {
+  "script": "exp_trackE_E1_eval.py",
+  "git_commit": "2b06d6d",
+  "seed": 42,
+  "date": "2026-07-26",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "n_stat_features": 143,
+  "thresholds": {
+   "indist": 0.005,
+   "cross": 0.03
+  }
+ },
+ "baseline_53D": {
+  "indist_pooled": 0.9434,
+  "celebdf_dev": 0.6273
+ },
+ "variants": [
+  {
+   "model": "E1_replace",
+   "indist_auc": 0.9537,
+   "indist_delta": 0.0103,
+   "indist_ci": [
+    0.0047,
+    0.0167
+   ],
+   "cross_auc": 0.6531,
+   "cross_delta": 0.0259,
+   "cross_ci": [
+    0.0092,
+    0.0441
+   ],
+   "per_manip_auc": {
+    "deepfakes": 0.9948,
+    "face2face": 0.8815,
+    "faceswap": 0.9874,
+    "neuraltextures": 0.8954
+   },
+   "per_manip_delta": {
+    "deepfakes": 0.002,
+    "face2face": 0.0253,
+    "faceswap": 0.01,
+    "neuraltextures": 0.0132
+   },
+   "indist_p_holm": 0.003,
+   "cross_p_holm": 0.004
+  },
+  {
+   "model": "E1_additive",
+   "indist_auc": 0.9526,
+   "indist_delta": 0.0092,
+   "indist_ci": [
+    0.0036,
+    0.0153
+   ],
+   "cross_auc": 0.6599,
+   "cross_delta": 0.0326,
+   "cross_ci": [
+    0.0159,
+    0.0504
+   ],
+   "per_manip_auc": {
+    "deepfakes": 0.9938,
+    "face2face": 0.8757,
+    "faceswap": 0.987,
+    "neuraltextures": 0.8968
+   },
+   "per_manip_delta": {
+    "deepfakes": 0.001,
+    "face2face": 0.0195,
+    "faceswap": 0.0096,
+    "neuraltextures": 0.0146
+   },
+   "indist_p_holm": 0.003,
+   "cross_p_holm": 0.0004
+  }
+ ]
+}

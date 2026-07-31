@@ -1,0 +1,28 @@
+{
+ "provenance": {
+  "script": "exp_trackE_denser_compare.py",
+  "git_commit": "8670192",
+  "seed": 42,
+  "date": "2026-07-27",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "subset": 600
+ },
+ "frames_60": {
+  "celebdf_cv": [
+   0.6086,
+   0.0763
+  ],
+  "n_cd": 300,
+  "n_train": 300
+ },
+ "frames_100": {
+  "celebdf_cv": [
+   0.6603,
+   0.0536
+  ],
+  "n_cd": 300,
+  "n_train": 300
+ },
+ "delta_100_minus_60": 0.0517
+}

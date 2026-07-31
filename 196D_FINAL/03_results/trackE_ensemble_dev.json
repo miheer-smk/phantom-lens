@@ -1,0 +1,29 @@
+{
+ "provenance": {
+  "script": "exp_trackE_ensemble.py",
+  "git_commit": "db46091",
+  "seed": 42,
+  "date": "2026-07-26",
+  "axis_dev_only": true,
+  "sealed_touched": false
+ },
+ "R0_real_vs_all": {
+  "celebdf_dev_cv": [
+   0.6967,
+   0.0313
+  ]
+ },
+ "per_manip_celebdf_dev_cv": {
+  "deepfakes": 0.6672,
+  "face2face": 0.633,
+  "faceswap": 0.509,
+  "neuraltextures": 0.6782
+ },
+ "ensemble_avg": {
+  "celebdf_dev_cv_mean": 0.6975,
+  "celebdf_dev_cv_std": 0.0272,
+  "real_recall": 0.742,
+  "fake_recall": 0.49,
+  "delta_vs_R0": 0.0008
+ }
+}

@@ -1,0 +1,114 @@
+{
+ "provenance": {
+  "script": "exp_trackD_H_eval.py",
+  "git_commit": "45ad98c",
+  "seed": 42,
+  "date": "2026-07-25",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "n_H_features": 10
+ },
+ "in_distribution": {
+  "per_manip": [
+   {
+    "manip": "deepfakes",
+    "auc_53": 0.991,
+    "auc_53H": 0.9929,
+    "delta": 0.002,
+    "ci": [
+     0.0003,
+     0.0039
+    ],
+    "n_val": 665
+   },
+   {
+    "manip": "face2face",
+    "auc_53": 0.852,
+    "auc_53H": 0.852,
+    "delta": 0.0,
+    "ci": [
+     -0.0098,
+     0.0106
+    ],
+    "n_val": 665
+   },
+   {
+    "manip": "faceswap",
+    "auc_53": 0.9755,
+    "auc_53H": 0.9772,
+    "delta": 0.0017,
+    "ci": [
+     -0.001,
+     0.0045
+    ],
+    "n_val": 665
+   },
+   {
+    "manip": "neuraltextures",
+    "auc_53": 0.8834,
+    "auc_53H": 0.8849,
+    "delta": 0.0015,
+    "ci": [
+     -0.0074,
+     0.0107
+    ],
+    "n_val": 665
+   }
+  ],
+  "mean_53": 0.9255,
+  "mean_53H": 0.9268,
+  "mean_delta": 0.0013
+ },
+ "cross_dataset_celebdf_dev": {
+  "n": 2421,
+  "auc_53": 0.6312,
+  "auc_53H": 0.6175,
+  "delta": -0.0137,
+  "ci": [
+   -0.0262,
+   -0.0013
+  ]
+ },
+ "per_feature_cohens_d": {
+  "h_anisotropy": {
+   "val_d": -0.144,
+   "celebdf_dev_d": 0.172
+  },
+  "h_coherence": {
+   "val_d": 0.137,
+   "celebdf_dev_d": -0.171
+  },
+  "h_tensor_trace": {
+   "val_d": -0.282,
+   "celebdf_dev_d": -0.382
+  },
+  "h_eig_ratio_log": {
+   "val_d": -0.146,
+   "celebdf_dev_d": 0.169
+  },
+  "h_orientation_entropy": {
+   "val_d": 0.197,
+   "celebdf_dev_d": -0.279
+  },
+  "h_face_bg_aniso_ratio": {
+   "val_d": -0.074,
+   "celebdf_dev_d": 0.082
+  },
+  "h_anisotropy_tstd": {
+   "val_d": -0.257,
+   "celebdf_dev_d": 0.139
+  },
+  "h_anisotropy_lag1": {
+   "val_d": 0.146,
+   "celebdf_dev_d": 0.322
+  },
+  "h_orient_entropy_tstd": {
+   "val_d": -0.492,
+   "celebdf_dev_d": 0.085
+  },
+  "h_orient_entropy_lag1": {
+   "val_d": 0.22,
+   "celebdf_dev_d": 0.14
+  }
+ }
+}

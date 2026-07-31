@@ -1,0 +1,40 @@
+# Track D — running count of celebdf_dev evaluations (multiplicity ledger)
+# Each line = one model scored on celebdf_dev (a decision point subject to Holm correction).
+1	Group H	53-D baseline (celebdf_dev, with G1 coverage)	auc 0.6312
+2	Group H	53-D + H (structure tensor)	auc 0.6175	Δ-0.0137
+3	Group J	53-D baseline (re-fit)	auc 0.6267
+4	Group J-a	53-D + ratios	auc 0.6289	Δ+0.0022
+5	Group J-b	53-D quantile-aligned	auc 0.6371	Δ+0.0104  [treated as noise under multiplicity]
+# --- threshold raised to +0.03 cross-dataset, Holm across all, from here ---
+6	DA	zero-shot 50-D (celebdf_dev)	auc 0.6157  [baseline]
+7	DA	CORAL	auc 0.5761	Δ-0.0396
+8	DA	SubspaceAlign d10	auc 0.5288	Δ-0.0869
+9	DA	SubspaceAlign d20	auc 0.5255	Δ-0.0902
+10	DA	SubspaceAlign d30	auc 0.5605	Δ-0.0552
+11	DA	per-domain standardise	auc 0.6133	Δ-0.0024
+12	DA	per-domain quantile align	auc 0.6006	Δ-0.0151
+13	MQRT	M (cardiac coherence)	cross Δ-0.0141 (p_holm .050)
+14	MQRT	Q (muscle co-activation)	cross Δ+0.0001; in-dist Δ+0.0012 (F2F+0.0023 NT+0.0028, directionally right)
+15	MQRT	R (blink kinematics)	cross Δ-0.0028
+16	MQRT	T (rigid 3-D)	cross Δ-0.0104 (p_holm .153)
+17	MQRT	ALL M+Q+R+T combined	in-dist Δ+0.0021 (p_holm .464); cross Δ+0.0070 (p_holm 1.0)
+# TRACK D DEV PHASE CLOSED: 17 dev evals; no family meets +0.005 in-dist (Holm) or +0.03 cross. Frozen = 53-D. Sealed evals = 0.
+18	E1	53-D base (celebdf_dev)	auc 0.6273
+19	E1_replace	143 spatial order-stats (replace)	in-dist Δ+0.0103 (p_holm .003) | cross Δ+0.0259 (p_holm .004)
+20	E1_additive	53-D + 143 order-stats	in-dist Δ+0.0092 (p_holm .003) | cross Δ+0.0326 (p_holm .000)  *** clears +0.03 cross ***
+21-26	X1	KS-stable top-k (20/30/50/80/120/196) cross: 0.518/0.516/0.570/0.628/0.658/0.663 — selection HURTS, keep all
+27	X2	drop rPPG: in-dist +0.0019 | cross +0.0055 (below +0.03 bar; directionally right)
+28-30	E3	R0 cv_cross 0.6967±.031 (realRec .225/fakeRec .948) | R1 SBV-only 0.4638 COLLAPSED (realRec .979) | R2 hybrid 0.6719 — SBV FAILS, R0 wins
+31	Ensemble	per-manip avg: celebdf_dev CV 0.6975 (Δ+0.0008 vs R0 — no AUC gain; realRec .225->.742 is calibration only)
+32-36	E2	windowed MIL aggregators: mean .681/max .682/top3 .681/p90 .681/frac .602 — best -0.0149 vs R0
+37-45	ClfSweep	celebdf_dev CV: RF_d8 0.7018(BEST) | LGBM_strongreg .698 | LGBM_d6 .697 | d2 .696 d3 .686 d4 .690 | LogReg .595 | RBF-SVM .549 | ens .684 -> RandomForest wins, first >0.70 dev CV
+46	E4	LoG frequency stacked (RF): 196-D 0.7018 -> +E4 0.7073 (Δcross +0.0055, in-dist -0.005) — below +0.03 bar, REJECTED per rule
+47-49	SelfTrain	transductive self-training top-10/20/30%: 0.671/0.654/0.645 — ALL HURT (Δ-0.031/-0.048/-0.057); confident errors reinforced
+50	X4	diverse-real aug (DFD 226 reals->real class), 196-D RF: base 0.7018 -> +113 0.6908 -> +226 0.6814 (Δcross -0.020, realRec .232->.284 +0.052, in-dist -0.016) — FAILS +0.03 bar, dose-response negative, refutes "widen real class" hypothesis
+51	E5/TD	temp-diff/rel-flicker 78 feats (RF): base 0.7018 -> +TD 0.7001 (Δ-0.0017, in-dist -0.006); TD-only 0.5809 — FAILS, redundant with order-stats [2026-07-27]
+52	Ens2	strong-member ensemble: ExtraTrees 0.7036 | RF+ET+LGBM prob 0.7092 / rank 0.7125 (+0.0107 vs RF) — genuine variance reduction, new running-best dev candidate [2026-07-27]
+53	Denser100	100-frame FULL pass: celebdf_dev CV 0.6988 vs 60-frame 0.7018 (Δ-0.003) — subset +0.052 did NOT replicate at scale, REJECTED [2026-07-27]
+54	X4fakes	DFD fakes->fake class: base 0.7018 -> +191 0.6920 (Δ-0.0098, realRec 0.232->0.190) — FAILS; diverse-data aug fails on BOTH classes [2026-07-30]
+55	Subspace	random-subspace feature-bagging: RF_M30 0.7031 (+0.0013 vs RF, -0.0094 vs ensemble 0.7125) — marginal, MEMBER diversity > feature bagging [2026-07-30]
+56	Joint	celebdf_dev CV vs WildDeepfake AUC: WDF ~0.57 ALL candidates; celebdf ranking != WDF ranking (ensemble 0.7125 celebdf/0.5746 wdf vs ExtraTrees 0.7036/0.5834) — winner's-curse CONFIRMED [2026-07-30]
+57	TTA	test-time aug: RF base 0.7018->TTA3 0.6985 | ensemble 0.7125->TTA3 0.7088 — monotonic DOWN, FAILS; last lever, freeze unchanged [2026-07-30]

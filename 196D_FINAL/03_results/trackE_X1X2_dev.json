@@ -1,0 +1,79 @@
+{
+ "provenance": {
+  "script": "exp_trackE_X1X2.py",
+  "git_commit": "a42dc00",
+  "seed": 42,
+  "date": "2026-07-26",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "base": "E1-expanded 196-D",
+  "full_indist": 0.9526,
+  "full_cross": 0.6599
+ },
+ "X1_ks_stable": [
+  {
+   "k": 20,
+   "indist_auc": 0.6845,
+   "cross_auc": 0.5176
+  },
+  {
+   "k": 30,
+   "indist_auc": 0.7998,
+   "cross_auc": 0.5162
+  },
+  {
+   "k": 50,
+   "indist_auc": 0.8663,
+   "cross_auc": 0.5702
+  },
+  {
+   "k": 80,
+   "indist_auc": 0.9071,
+   "cross_auc": 0.6284
+  },
+  {
+   "k": 120,
+   "indist_auc": 0.9389,
+   "cross_auc": 0.6581
+  },
+  {
+   "k": 196,
+   "indist_auc": 0.9538,
+   "cross_auc": 0.663
+  }
+ ],
+ "X1_most_stable_features": [
+  "s_flow_dir_consist__min",
+  "s_flow_mag__min",
+  "s_dbl_compress__min",
+  "s_dbl_compress__p10",
+  "s_dbl_compress__p25",
+  "s_prnu_energy__kurt",
+  "s_face_bg_diff__skew",
+  "s_noise_vmr__max",
+  "s_flow_dir_consist__iqr",
+  "s_flow_mag__mean",
+  "t_rppg_interregion_corr",
+  "s_noise_vmr__p90",
+  "s_face_bg_diff__kurt",
+  "s_flow_mag__p75",
+  "s_noise_vmr__p75"
+ ],
+ "X1_least_stable": [
+  "s_dbl_compress",
+  "s_dbl_compress__mean",
+  "s_dbl_compress__std",
+  "s_dbl_compress__max",
+  "s_dbl_compress__kurt",
+  "s_benford_dev__iqr",
+  "t_noise_spectral_entropy",
+  "s_benford_dev__p90",
+  "s_benford_dev__max",
+  "s_benford_dev__std"
+ ],
+ "X2_drop_rppg": {
+  "indist_auc": 0.9545,
+  "cross_auc": 0.6654,
+  "n_dropped": 4
+ }
+}

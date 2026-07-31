@@ -1,0 +1,9 @@
+{
+ "csv": "features/trackE/plain_everyone_100.csv",
+ "celebdf_dev_cv": [
+  0.6988,
+  0.0548
+ ],
+ "real_recall": 0.216,
+ "fake_recall": 0.947
+}

@@ -1,0 +1,28 @@
+{
+ "provenance": {
+  "script": "exp_trackE_E4_eval.py",
+  "git_commit": "030f3b6",
+  "seed": 42,
+  "date": "2026-07-27",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "classifier": "RandomForest_d8",
+  "n_E4": 18
+ },
+ "base_196D": {
+  "indist_auc": 0.8179,
+  "celebdf_dev_cv_mean": 0.7018,
+  "celebdf_dev_cv_std": 0.0504,
+  "real_recall": 0.232,
+  "fake_recall": 0.942
+ },
+ "plus_E4_214D": {
+  "indist_auc": 0.8129,
+  "celebdf_dev_cv_mean": 0.7073,
+  "celebdf_dev_cv_std": 0.0485,
+  "real_recall": 0.214,
+  "fake_recall": 0.963
+ },
+ "delta_indist": -0.005,
+ "delta_cross": 0.0055
+}

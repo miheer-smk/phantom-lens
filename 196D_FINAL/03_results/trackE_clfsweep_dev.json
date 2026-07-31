@@ -1,0 +1,78 @@
+{
+ "provenance": {
+  "script": "exp_trackE_clfsweep.py",
+  "git_commit": "b0b9b12",
+  "seed": 42,
+  "date": "2026-07-26",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "rep": "196-D R0"
+ },
+ "models": {
+  "LGBM_d2": {
+   "indist_auc": 0.845,
+   "celebdf_dev_cv_mean": 0.6963,
+   "celebdf_dev_cv_std": 0.0283,
+   "real_recall": 0.42,
+   "fake_recall": 0.816
+  },
+  "LGBM_d3": {
+   "indist_auc": 0.8501,
+   "celebdf_dev_cv_mean": 0.6863,
+   "celebdf_dev_cv_std": 0.0215,
+   "real_recall": 0.338,
+   "fake_recall": 0.869
+  },
+  "LGBM_d4": {
+   "indist_auc": 0.8542,
+   "celebdf_dev_cv_mean": 0.6901,
+   "celebdf_dev_cv_std": 0.0315,
+   "real_recall": 0.293,
+   "fake_recall": 0.91
+  },
+  "LGBM_d6": {
+   "indist_auc": 0.8651,
+   "celebdf_dev_cv_mean": 0.6967,
+   "celebdf_dev_cv_std": 0.0313,
+   "real_recall": 0.225,
+   "fake_recall": 0.948
+  },
+  "LGBM_strongreg": {
+   "indist_auc": 0.8518,
+   "celebdf_dev_cv_mean": 0.6977,
+   "celebdf_dev_cv_std": 0.0248,
+   "real_recall": 0.383,
+   "fake_recall": 0.858
+  },
+  "RandomForest_d8": {
+   "indist_auc": 0.8179,
+   "celebdf_dev_cv_mean": 0.7018,
+   "celebdf_dev_cv_std": 0.0504,
+   "real_recall": 0.232,
+   "fake_recall": 0.942
+  },
+  "LogReg_L2": {
+   "indist_auc": 0.818,
+   "celebdf_dev_cv_mean": 0.5954,
+   "celebdf_dev_cv_std": 0.018,
+   "real_recall": 0.472,
+   "fake_recall": 0.693
+  },
+  "RBF_SVM": {
+   "indist_auc": 0.8313,
+   "celebdf_dev_cv_mean": 0.5491,
+   "celebdf_dev_cv_std": 0.0266,
+   "real_recall": 0.0,
+   "fake_recall": 1.0
+  },
+  "ensemble_LR_RF_LGBM": {
+   "indist_auc": 0.8565,
+   "celebdf_dev_cv_mean": 0.6842,
+   "celebdf_dev_cv_std": 0.0147,
+   "real_recall": 0.308,
+   "fake_recall": 0.899
+  }
+ },
+ "best_by_celebdf_dev_cv": "RandomForest_d8",
+ "vs_LGBM_d6_R0_0.6967": 0.0051
+}

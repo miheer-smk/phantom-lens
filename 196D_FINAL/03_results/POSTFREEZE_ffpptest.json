@@ -1,0 +1,23 @@
+{
+ "provenance": {
+  "script": "exp_trackE_ffpptest_eval.py",
+  "git_commit": "122f956",
+  "seed": 42,
+  "date": "2026-07-30",
+  "kind": "POST-FREEZE DESCRIPTIVE in-distribution",
+  "classifier": "RF+ExtraTrees+LGBM rank ensemble",
+  "rep": "196-D"
+ },
+ "ffpp_test": {
+  "auc": 0.842,
+  "ci95": [
+   0.8104,
+   0.8722
+  ],
+  "n": 685,
+  "reals": 137,
+  "fakes": 548,
+  "real_recall": 0.562,
+  "fake_recall": 0.927
+ }
+}
