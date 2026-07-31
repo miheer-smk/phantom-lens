@@ -1,0 +1,20 @@
+{
+  "_note": "DRAFT — upload-ready staging. Authors to complete creators/ORCIDs and the related paper DOI, then mint. Do not publish as-is.",
+  "title": "Phantom Lens (PRISM): 196-D order-statistic representation and sealed cross-dataset evaluation for physics-grounded deepfake detection",
+  "upload_type": "software",
+  "description": "Code and derived-feature deposit reproducing the physics-grounded deepfake-detection results (branch outstanding-results). Frozen model: 196-D order-statistic physics representation + RandomForest/ExtraTrees/LightGBM rank ensemble, trained on FaceForensics++ only. Sealed, identity-disjoint, pre-registered Celeb-DF-v2 test AUC 0.713 [0.687, 0.746]. Includes extraction/evaluation scripts, identity-disjoint splits, model-critical feature CSVs, per-video predictions, result JSONs, and pinned environment. Underlying video datasets are not redistributed; see DATASET_ACCESS.md.",
+  "version": "196D-1.0",
+  "language": "eng",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": ["deepfake detection", "cross-dataset generalization", "physics-based forensics", "Celeb-DF", "FaceForensics++", "reproducibility"],
+  "creators": [
+    {"name": "Kulkarni, Miheer Satish", "affiliation": "IIIT Nagpur", "orcid": "AUTHORS_TO_COMPLETE"},
+    {"name": "Pikle, Nileshchandra K.", "affiliation": "IIIT Nagpur", "orcid": "AUTHORS_TO_COMPLETE"}
+  ],
+  "related_identifiers": [
+    {"relation": "isSupplementTo", "identifier": "PAPER_DOI_TO_COMPLETE", "scheme": "doi"},
+    {"relation": "isDerivedFrom", "identifier": "https://github.com/miheer-smk/phantom-lens/tree/outstanding-results", "scheme": "url"}
+  ],
+  "notes": "Seed 42. Sealed evaluation budget 1, spent once (see results/SEALED_final.json and the freeze/provenance docs on the outstanding-results branch). The Celeb-DF-v2 sealed half is a custom identity-disjoint split, not the official Celeb-DF test protocol."
+}

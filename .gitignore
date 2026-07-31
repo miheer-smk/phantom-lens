@@ -49,3 +49,4 @@ archive/*
 nohup.out
 data_xception/
 features/trackE/perframe_*.csv
+zenodo_196D/features/*.csv

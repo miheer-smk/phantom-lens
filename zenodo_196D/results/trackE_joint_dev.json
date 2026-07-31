@@ -1,0 +1,43 @@
+{
+ "provenance": {
+  "script": "exp_trackE_joint.py",
+  "git_commit": "ee3d6cc",
+  "seed": 42,
+  "date": "2026-07-30",
+  "axis_dev_only": true,
+  "sealed_touched": false,
+  "targets": [
+   "celebdf_dev_cv",
+   "wilddeepfake_auc"
+  ],
+  "n_wdf": 168
+ },
+ "candidates": {
+  "RF_d8": {
+   "celebdf_dev_cv": 0.7018,
+   "wilddeepfake_auc": 0.5751,
+   "mean": 0.6384
+  },
+  "ExtraTrees": {
+   "celebdf_dev_cv": 0.7036,
+   "wilddeepfake_auc": 0.5834,
+   "mean": 0.6435
+  },
+  "LGBM_d6": {
+   "celebdf_dev_cv": 0.6967,
+   "wilddeepfake_auc": 0.5476,
+   "mean": 0.6221
+  },
+  "RF+ET_rank": {
+   "celebdf_dev_cv": 0.7055,
+   "wilddeepfake_auc": 0.5794,
+   "mean": 0.6424
+  },
+  "RF+ET+LGBM_rank": {
+   "celebdf_dev_cv": 0.7125,
+   "wilddeepfake_auc": 0.5746,
+   "mean": 0.6436
+  }
+ },
+ "best_by_joint_mean": "RF+ET+LGBM_rank"
+}
