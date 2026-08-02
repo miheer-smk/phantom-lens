@@ -43,7 +43,37 @@ prediction vs actual]
 obtained 0.842 in-distribution and 0.713 cross-dataset. [AUTHORS: interpretation of the in-distribution /
 cross-dataset trade-off]
 
-## 6. Negative results
+## 6. Paired significance tests (McNemar, Wilcoxon)
+Two paired tests compared classifiers on identical videos (post-freeze descriptive; no tuning or model changes).
+The Xception baseline was re-scored by inference from its frozen weights on the saved 299×299 face crops to obtain
+per-video probabilities keyed by video identity. McNemar's test (continuity-corrected; all discordant counts
+b+c ≥ 25, so the exact-binomial branch was not triggered) was applied at θ=0.50 and at each model's F1-optimal
+threshold derived on the FaceForensics++ validation partition only (196-D 0.443; 53-D 0.384; 50-D 0.363;
+Xception 0.47). For each comparison, b = videos the 196-D PRISM model classifies correctly and the baseline
+incorrectly; c = the reverse.
+
+**Table T-M1** reports the outcomes. On the FF++ test (n=684 shared videos), Xception was significantly more
+accurate than the 196-D PRISM model (b=13, c=91, χ²=57.0, p=4.3×10⁻¹⁴ at θ=0.50; accuracy 0.969 vs 0.855). On the
+Celeb-DF sealed test (n=2,273 shared videos), the McNemar accuracy comparison favoured the 196-D PRISM model
+(b=587, c=312, χ²=83.5, p<10⁻¹⁸; accuracy 0.834 vs 0.713). This Celeb-DF test set is 83.6% fake; at θ=0.50 the
+196-D model's real-class recall is 0.183 and Xception's is 0.836. [AUTHORS: reconciliation of the McNemar accuracy
+result with the ranking (AUC) result on Celeb-DF given the class imbalance — Xception's cross-dataset AUC (0.825)
+exceeds the 196-D model's (0.713).]
+
+Among PRISM representations on the Celeb-DF sealed test, the 196-D model was significantly more accurate than the
+53-D model at θ=0.50 (b=133, c=42, χ²=46.3, p=1.0×10⁻¹¹; borderline at the F1-optimal threshold, p=0.061) and did
+not differ significantly from the 50-D model (p=0.25 at θ=0.50; p=0.75 at the F1-optimal threshold). The
+corresponding ranking (AUC) differences are significant by paired DeLong (§4: 196-D vs 53-D p=2.2×10⁻⁹, 196-D vs
+50-D p=1.7×10⁻⁶).
+
+Wilcoxon signed-rank compared the 196-D PRISM and Xception per-fold AUC across 5 identity-grouped cross-validation
+folds of the Celeb-DF sealed test (**Table T-M2**): Xception's AUC exceeded the 196-D model's in all five folds
+(means 0.825 vs 0.717), statistic 0, p=0.0625. With five folds the minimum achievable two-sided p is 0.0625, so
+this test cannot reach p<0.05 regardless of the effect size; it is reported for completeness and does not establish
+significance. [AUTHORS: the AUC difference is separately significant by paired DeLong on the full test set,
+z=15.4, p<10⁻¹⁶.]
+
+## 7. Negative results
 Beyond the representation change, the programme evaluated the levers in **Table T4** on the dev half (57 dev
 evaluations, multiplicity-controlled by Holm correction; inclusion bars +0.005 in-distribution and +0.03
 cross-dataset). Feature-addition families (gradient structure tensor; dimensionless ratios; cardiac coherence;
@@ -58,12 +88,12 @@ multiple-instance aggregation) returned between −0.015 and +0.001. A second in
 (WildDeepfake, 168 videos) yielded AUC 0.55–0.58 for every candidate. [AUTHORS: framing of the negative-results
 contribution and its mechanism]
 
-## 7. Protocol transparency
+## 8. Protocol transparency
 **Table T5.** 57 dev evaluations preceded the sealed test; the sealed budget was one, spent once. The pre-registered
 prediction (0.68 [0.65, 0.71]) and the actual sealed result (0.7133) are reported together. Split construction,
 seed, and imputation are as in §1.
 
-## 8. Limitations (factual)
+## 9. Limitations (factual)
 - The 95% CI lower bound for the sealed 196-D cross-dataset AUC is 0.687; the interval therefore includes values
   below 0.70. The result is reported as 0.713 [0.687, 0.746].
 - The sealed half is a custom identity split, not Celeb-DF-v2's official test protocol; these numbers are not
@@ -78,5 +108,9 @@ seed, and imputation are as in §1.
   on the pre-committed frozen model (see `SEALED_PROVENANCE.md`).
 - Real-class recall on Celeb-DF remains low (0.183 at θ = 0.5); AUC is threshold-free, and thresholding does not
   address the ranking (EXP-4).
+- Thresholded-accuracy comparisons on Celeb-DF (McNemar, §6) are dominated by the 83.6% fake prevalence: a
+  fake-biased classifier attains accuracy ≈ prevalence, so the accuracy-based direction can oppose the AUC-based
+  direction (as it does for PRISM vs Xception on Celeb-DF). Ranking (AUC/DeLong) is the metric used for the
+  cross-dataset claims. [AUTHORS: how the McNemar accuracy result is reconciled with the AUC result in the text]
 - [AUTHORS: relationship to the paper's existing 53-D in-distribution results and how the two configurations are
   presented]
