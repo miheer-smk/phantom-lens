@@ -1,0 +1,206 @@
+{
+ "provenance": {
+  "script": "exp_mcnemar_wilcoxon.py",
+  "git_commit": "d1d5d75",
+  "seed": 42,
+  "date": "2026-08-02",
+  "kind": "POST-FREEZE DESCRIPTIVE (no tuning/model changes; Xception re-scored by inference from xception_best.pt)",
+  "n_celebdf_joined": 2273,
+  "n_ffpp_joined": 684,
+  "thresholds": {
+   "196D": {
+    "theta": 0.5,
+    "f1opt_ffval": 0.443
+   },
+   "53D": {
+    "theta": 0.5,
+    "f1opt_ffval": 0.384
+   },
+   "50D": {
+    "theta": 0.5,
+    "f1opt_ffval": 0.363
+   },
+   "Xception": {
+    "theta": 0.5,
+    "f1opt_ffval": 0.47
+   }
+  }
+ },
+ "mcnemar": {
+  "196D_vs_Xception__CelebDFtest__theta": {
+   "a": 1308,
+   "b": 587,
+   "c": 312,
+   "d": 66,
+   "n_discordant": 899,
+   "test": "mcnemar_cc",
+   "chi2": 83.5106,
+   "p_value": 0.0,
+   "direction": "PRISM better",
+   "n": 2273,
+   "prism": "PRISM_196D",
+   "baseline": "Xception",
+   "t_prism": 0.5,
+   "t_baseline": 0.5,
+   "prism_acc": 0.8337,
+   "baseline_acc": 0.7127
+  },
+  "196D_vs_Xception__FFpptest__theta": {
+   "a": 572,
+   "b": 13,
+   "c": 91,
+   "d": 8,
+   "n_discordant": 104,
+   "test": "mcnemar_cc",
+   "chi2": 57.0096,
+   "p_value": 4.340972026284362e-14,
+   "direction": "baseline better",
+   "n": 684,
+   "prism": "PRISM_196D",
+   "baseline": "Xception",
+   "t_prism": 0.5,
+   "t_baseline": 0.5,
+   "prism_acc": 0.8553,
+   "baseline_acc": 0.9693
+  },
+  "196D_vs_50D__CelebDFtest__theta": {
+   "a": 1789,
+   "b": 106,
+   "c": 89,
+   "d": 289,
+   "n_discordant": 195,
+   "test": "mcnemar_cc",
+   "chi2": 1.3128,
+   "p_value": 0.2518846204641617,
+   "direction": "PRISM better",
+   "n": 2273,
+   "prism": "PRISM_196D",
+   "baseline": "PRISM_50D",
+   "t_prism": 0.5,
+   "t_baseline": 0.5,
+   "prism_acc": 0.8337,
+   "baseline_acc": 0.8262
+  },
+  "196D_vs_53D__CelebDFtest__theta": {
+   "a": 1762,
+   "b": 133,
+   "c": 42,
+   "d": 336,
+   "n_discordant": 175,
+   "test": "mcnemar_cc",
+   "chi2": 46.2857,
+   "p_value": 1.0220602142396729e-11,
+   "direction": "PRISM better",
+   "n": 2273,
+   "prism": "PRISM_196D",
+   "baseline": "PRISM_53D",
+   "t_prism": 0.5,
+   "t_baseline": 0.5,
+   "prism_acc": 0.8337,
+   "baseline_acc": 0.7937
+  },
+  "196D_vs_Xception__CelebDFtest__f1opt_ffval": {
+   "a": 1375,
+   "b": 536,
+   "c": 292,
+   "d": 70,
+   "n_discordant": 828,
+   "test": "mcnemar_cc",
+   "chi2": 71.3152,
+   "p_value": 0.0,
+   "direction": "PRISM better",
+   "n": 2273,
+   "prism": "PRISM_196D",
+   "baseline": "Xception",
+   "t_prism": 0.443,
+   "t_baseline": 0.47,
+   "prism_acc": 0.8407,
+   "baseline_acc": 0.7334
+  },
+  "196D_vs_Xception__FFpptest__f1opt_ffval": {
+   "a": 570,
+   "b": 14,
+   "c": 94,
+   "d": 6,
+   "n_discordant": 108,
+   "test": "mcnemar_cc",
+   "chi2": 57.787,
+   "p_value": 2.919886554764162e-14,
+   "direction": "baseline better",
+   "n": 684,
+   "prism": "PRISM_196D",
+   "baseline": "Xception",
+   "t_prism": 0.443,
+   "t_baseline": 0.47,
+   "prism_acc": 0.8538,
+   "baseline_acc": 0.9708
+  },
+  "196D_vs_50D__CelebDFtest__f1opt_ffval": {
+   "a": 1866,
+   "b": 45,
+   "c": 41,
+   "d": 321,
+   "n_discordant": 86,
+   "test": "mcnemar_cc",
+   "chi2": 0.1047,
+   "p_value": 0.7463178799324552,
+   "direction": "PRISM better",
+   "n": 2273,
+   "prism": "PRISM_196D",
+   "baseline": "PRISM_50D",
+   "t_prism": 0.443,
+   "t_baseline": 0.363,
+   "prism_acc": 0.8407,
+   "baseline_acc": 0.839
+  },
+  "196D_vs_53D__CelebDFtest__f1opt_ffval": {
+   "a": 1866,
+   "b": 45,
+   "c": 28,
+   "d": 334,
+   "n_discordant": 73,
+   "test": "mcnemar_cc",
+   "chi2": 3.5068,
+   "p_value": 0.061115577534702314,
+   "direction": "PRISM better",
+   "n": 2273,
+   "prism": "PRISM_196D",
+   "baseline": "PRISM_53D",
+   "t_prism": 0.443,
+   "t_baseline": 0.384,
+   "prism_acc": 0.8407,
+   "baseline_acc": 0.8333
+  }
+ },
+ "wilcoxon": {
+  "test": "wilcoxon_signed_rank",
+  "target": "CelebDF sealed test, identity-grouped CV",
+  "n_folds": 5,
+  "prism196_fold_auc": [
+   0.7423,
+   0.7465,
+   0.7252,
+   0.6833,
+   0.6873
+  ],
+  "xception_fold_auc": [
+   0.8101,
+   0.7566,
+   0.8338,
+   0.8665,
+   0.8587
+  ],
+  "mean_prism196": 0.7169,
+  "mean_xception": 0.8251,
+  "statistic": 0.0,
+  "p_value": 0.0625,
+  "min_achievable_p_note": "With 5 folds the minimum two-sided Wilcoxon p is 0.0625; it CANNOT reach p<0.05, so this test cannot establish significance regardless of the effect."
+ },
+ "CRITICAL_INTERPRETATION_for_authors": {
+  "issue": "McNemar tests thresholded ACCURACY, not ranking (AUC). Celeb-DF sealed test is 83.6% fake, so predict-all-fake accuracy = 0.836.",
+  "celebdf_prism_vs_xception": "PRISM @theta=0.5 has real-recall 0.183 (predicts fake for ~82% of reals) -> accuracy 0.834 ~= fake prevalence. Xception has real-recall 0.836 (genuinely detects reals) but pays an accuracy penalty on the imbalanced set -> accuracy 0.713. Thus McNemar shows PRISM higher-accuracy on Celeb-DF, but this is a CLASS-IMBALANCE / THRESHOLD ARTIFACT, NOT better detection. By AUC (ranking): Xception 0.825 vs PRISM 0.717 (Wilcoxon folds; locked DeLong z=15.4, p<1e-16) -> Xception ranks substantially better cross-dataset. DO NOT present the Celeb-DF McNemar as PRISM winning.",
+  "ffpp_prism_vs_xception": "Xception significantly better (McNemar p<1e-13 AND AUC 0.990 vs 0.842) -> unambiguous, report plainly.",
+  "196_vs_50_53": "The genuine 196-D representation gain is a RANKING (AUC) effect: DeLong 196-vs-53 p=2.2e-9, 196-vs-50 p=1.7e-6 (already reported). On McNemar ACCURACY it shows 196>53 significant (theta p=1e-11) but 196-vs-50 NOT significant (p=0.25/0.75), because at fixed thresholds on the 84%-fake set both are near predict-all-fake. Report the AUC/DeLong result as the representation evidence; McNemar accuracy is threshold-dependent.",
+  "AUTHORS": "[AUTHORS: reconcile the accuracy(McNemar) vs ranking(AUC/DeLong) divergence in framing; the paper reports AUC, on which Xception leads cross-dataset and 196-D leads over 50/53-D.]"
+ }
+}
