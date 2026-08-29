@@ -1,0 +1,36 @@
+{
+ "generated_utc": "2026-08-28T18:39:50Z",
+ "seed": 42,
+ "protocol": "threshold maximises macro-F1 on the FF++ VALIDATION partition; applied unchanged to Celeb-DF v2; train-partition medians and standardiser; zero target-domain leakage",
+ "calibrated_threshold": 0.51,
+ "n_val": 665,
+ "n_celebdf": 6121,
+ "celebdf_auc": 0.6322,
+ "baseline": {
+  "threshold": 0.5,
+  "macro_f1": 0.5565,
+  "balanced_accuracy": 0.5893
+ },
+ "calibrated": {
+  "threshold": 0.51,
+  "macro_f1": 0.5551,
+  "balanced_accuracy": 0.5917
+ },
+ "mcnemar": {
+  "contingency": [
+   [
+    4422,
+    54
+   ],
+   [
+    12,
+    1633
+   ]
+  ],
+  "b_only_baseline_correct": 54,
+  "c_only_calibrated_correct": 12,
+  "statistic": 25.4697,
+  "p_value": 4.493860940242397e-07,
+  "correction": "Edwards continuity, chi-square approximation"
+ }
+}

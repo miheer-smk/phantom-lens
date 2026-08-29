@@ -1,0 +1,74 @@
+{
+ "generated_utc": "2026-08-28T09:56:34Z",
+ "convention": "delta_auc = c23 - c40; POSITIVE means c40 degrades",
+ "rows": [
+  {
+   "manipulation": "deepfakes",
+   "c23_auc": 0.9706,
+   "c23_ci": [
+    0.9548,
+    0.9842
+   ],
+   "c40_auc": 0.9398,
+   "c40_ci": [
+    0.9126,
+    0.9634
+   ],
+   "delta_auc": 0.0308,
+   "cross_c23train_c40test_auc": 0.9262,
+   "c23_mcc": 0.7988,
+   "c40_mcc": 0.6667
+  },
+  {
+   "manipulation": "face2face",
+   "c23_auc": 0.8096,
+   "c23_ci": [
+    0.769,
+    0.8496
+   ],
+   "c40_auc": 0.7675,
+   "c40_ci": [
+    0.725,
+    0.8114
+   ],
+   "delta_auc": 0.0421,
+   "cross_c23train_c40test_auc": 0.6678,
+   "c23_mcc": 0.5075,
+   "c40_mcc": 0.394
+  },
+  {
+   "manipulation": "faceswap",
+   "c23_auc": 0.9631,
+   "c23_ci": [
+    0.9425,
+    0.9795
+   ],
+   "c40_auc": 0.8588,
+   "c40_ci": [
+    0.8101,
+    0.9024
+   ],
+   "delta_auc": 0.1043,
+   "cross_c23train_c40test_auc": 0.7056,
+   "c23_mcc": 0.7892,
+   "c40_mcc": 0.5441
+  },
+  {
+   "manipulation": "neuraltextures",
+   "c23_auc": 0.7867,
+   "c23_ci": [
+    0.7464,
+    0.8282
+   ],
+   "c40_auc": 0.7386,
+   "c40_ci": [
+    0.696,
+    0.7843
+   ],
+   "delta_auc": 0.0481,
+   "cross_c23train_c40test_auc": 0.6944,
+   "c23_mcc": 0.3982,
+   "c40_mcc": 0.3485
+  }
+ ]
+}

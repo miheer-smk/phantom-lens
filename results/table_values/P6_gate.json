@@ -1,0 +1,93 @@
+{
+ "phase": "P6_GATE",
+ "generated_utc": "2026-08-28T08:06:29Z",
+ "note": "NO AUC COMPUTED IN THIS SCRIPT. Treatment decided on substrate + missingness evidence only.",
+ "methods": {
+  "inswap": {
+   "n": 518,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "missing_cell_pct": 0.919,
+   "failed_preconditions": [],
+   "treatment": "STANDARD (AUC + grouped CI, contributes to macro)"
+  },
+  "facedancer": {
+   "n": 748,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 0.9933
+   },
+   "fully_in_domain_rate": 0.9933,
+   "mean_n_undefined": 0.16,
+   "mean_n_unreliable": 0.0,
+   "missing_cell_pct": 1.866,
+   "failed_preconditions": [],
+   "treatment": "STANDARD (AUC + grouped CI, contributes to macro)"
+  },
+  "wav2lip": {
+   "n": 778,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "missing_cell_pct": 0.55,
+   "failed_preconditions": [],
+   "treatment": "STANDARD (AUC + grouped CI, contributes to macro)"
+  },
+  "sadtalker": {
+   "n": 785,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "missing_cell_pct": 2.51,
+   "failed_preconditions": [],
+   "treatment": "STANDARD (AUC + grouped CI, contributes to macro)"
+  },
+  "hyperreenact": {
+   "n": 781,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "missing_cell_pct": 2.899,
+   "failed_preconditions": [],
+   "treatment": "STANDARD (AUC + grouped CI, contributes to macro)"
+  }
+ },
+ "heygen": {
+  "treatment": "NOT EVALUABLE - no AUC computed or reported",
+  "reason": "fake class ships as mp4, real class as PNG frame directories; substrate boundary coincides exactly with the class boundary (measured pass rate 0.500). Pre-registered 2026-08-27 before any HeyGen feature was extracted."
+ },
+ "macro_average_scope": [
+  "inswap",
+  "facedancer",
+  "wav2lip",
+  "sadtalker",
+  "hyperreenact"
+ ]
+}

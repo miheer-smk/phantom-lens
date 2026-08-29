@@ -1,0 +1,148 @@
+{
+ "generated_utc": "2026-08-28T09:57:53Z",
+ "n_rows": 100,
+ "real_vs_fake": {
+  "CelebDF": {
+   "real": 0.5325,
+   "fake": 0.5535,
+   "ratio": 0.9622
+  }
+ },
+ "top_shifts": [
+  {
+   "target": "CelebDF",
+   "klass": "fake",
+   "descriptor": "s_benford_dev",
+   "group": "P6_compression",
+   "smd": 2.5037786724360185,
+   "w1": 2.077518007307183,
+   "ks": 0.7960993228132438
+  },
+  {
+   "target": "CelebDF",
+   "klass": "real",
+   "descriptor": "s_benford_dev",
+   "group": "P6_compression",
+   "smd": 2.4181922753059024,
+   "w1": 2.041637033889878,
+   "ks": 0.7824953007518797
+  },
+  {
+   "target": "CelebDF",
+   "klass": "fake",
+   "descriptor": "t_noise_spectral_entropy",
+   "group": "T1_temporal_noise",
+   "smd": -2.141516267376108,
+   "w1": 1.7774927953478084,
+   "ks": 0.8496112312210067
+  },
+  {
+   "target": "CelebDF",
+   "klass": "fake",
+   "descriptor": "t_rppg_peak_prominence",
+   "group": "T2_rppg",
+   "smd": 1.7729463766444387,
+   "w1": 2.1446641641588133,
+   "ks": 0.64896167324974
+  },
+  {
+   "target": "CelebDF",
+   "klass": "real",
+   "descriptor": "t_rppg_peak_prominence",
+   "group": "T2_rppg",
+   "smd": 1.71535063998632,
+   "w1": 2.1661374941685,
+   "ks": 0.6496788847117795
+  },
+  {
+   "target": "CelebDF",
+   "klass": "real",
+   "descriptor": "t_noise_spectral_entropy",
+   "group": "T1_temporal_noise",
+   "smd": -1.41592398944843,
+   "w1": 1.3274306595442034,
+   "ks": 0.8483239348370928
+  },
+  {
+   "target": "CelebDF",
+   "klass": "fake",
+   "descriptor": "t_landmark_jitter",
+   "group": "T6_landmark_traj",
+   "smd": 1.1849924209776725,
+   "w1": 1.5395097826092794,
+   "ks": 0.5347763069680892
+  },
+  {
+   "target": "CelebDF",
+   "klass": "fake",
+   "descriptor": "t_rigid_dist_var",
+   "group": "T7_rigid_geometry",
+   "smd": 1.1821757420006072,
+   "w1": 1.5788637838491504,
+   "ks": 0.5262235260253801
+  },
+  {
+   "target": "CelebDF",
+   "klass": "real",
+   "descriptor": "s_dbl_compress",
+   "group": "P6_compression",
+   "smd": 1.1452795652862724,
+   "w1": 13.480646203493116,
+   "ks": 0.8323386591478696
+  },
+  {
+   "target": "CelebDF",
+   "klass": "real",
+   "descriptor": "t_rppg_snr",
+   "group": "T2_rppg",
+   "smd": 1.1293716730020273,
+   "w1": 1.419469011320715,
+   "ks": 0.4629855889724311
+  },
+  {
+   "target": "CelebDF",
+   "klass": "fake",
+   "descriptor": "s_dbl_compress",
+   "group": "P6_compression",
+   "smd": 1.126062628498975,
+   "w1": 14.849168299769534,
+   "ks": 0.8228594876772339
+  },
+  {
+   "target": "CelebDF",
+   "klass": "fake",
+   "descriptor": "t_interpupillary_std",
+   "group": "T7_rigid_geometry",
+   "smd": 1.101674978076082,
+   "w1": 1.505485353112944,
+   "ks": 0.5009249008695552
+  },
+  {
+   "target": "CelebDF",
+   "klass": "fake",
+   "descriptor": "t_skin_bg_decorrelation",
+   "group": "T10_color_transfer",
+   "smd": 1.093479021920306,
+   "w1": 1.04398822199711,
+   "ks": 0.4291695731237678
+  },
+  {
+   "target": "CelebDF",
+   "klass": "fake",
+   "descriptor": "t_rppg_snr",
+   "group": "T2_rppg",
+   "smd": 1.0917808602213444,
+   "w1": 1.3287264602823037,
+   "ks": 0.42604428409989625
+  },
+  {
+   "target": "CelebDF",
+   "klass": "real",
+   "descriptor": "t_landmark_jitter",
+   "group": "T6_landmark_traj",
+   "smd": 1.084490671538738,
+   "w1": 1.3415629615384077,
+   "ks": 0.5097587719298246
+  }
+ ]
+}

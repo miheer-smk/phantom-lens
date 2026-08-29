@@ -1,0 +1,43 @@
+{
+ "defect": "DEFECT-008",
+ "feature": "t_noise_spectral_entropy",
+ "observed_max_delta": 0.1069,
+ "ffpp_pooled_sd": 0.4617,
+ "variation_in_sd": 0.232,
+ "leave_one_out": [
+  {
+   "target": "table7_deepfakes",
+   "auc_with": 0.9706,
+   "auc_without": 0.9724,
+   "delta": 0.0018,
+   "importance_rank": 39
+  },
+  {
+   "target": "table7_face2face",
+   "auc_with": 0.8096,
+   "auc_without": 0.8133,
+   "delta": 0.0037,
+   "importance_rank": 33
+  },
+  {
+   "target": "table7_faceswap",
+   "auc_with": 0.9631,
+   "auc_without": 0.9642,
+   "delta": 0.0011,
+   "importance_rank": 42
+  },
+  {
+   "target": "table7_neuraltextures",
+   "auc_with": 0.7867,
+   "auc_without": 0.7872,
+   "delta": 0.0004,
+   "importance_rank": 24
+  },
+  {
+   "target": "table13_celebdf",
+   "auc_with": 0.6322,
+   "auc_without": 0.6332,
+   "delta": 0.001
+  }
+ ]
+}

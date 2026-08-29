@@ -1,0 +1,142 @@
+{
+ "phase": "P1.7c",
+ "generated_utc": "2026-08-27T17:55:00Z",
+ "preconditions": [
+  "background_context_present",
+  "original_codec_intact",
+  "native_frame_rate_known",
+  "sequence_length_sufficient"
+ ],
+ "datasets": [
+  {
+   "n_videos": 6529,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 0.9998
+   },
+   "fully_in_domain_rate": 0.9998,
+   "mean_n_undefined": 0.01,
+   "mean_n_unreliable": 0.0,
+   "dataset": "Celeb-DF v2"
+  },
+  {
+   "n_videos": 788,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 0.9924
+   },
+   "fully_in_domain_rate": 0.9924,
+   "mean_n_undefined": 0.2,
+   "mean_n_unreliable": 0.0,
+   "dataset": "DF40 facedancer"
+  },
+  {
+   "n_videos": 100,
+   "pass_rate": {
+    "background_context_present": 0.5,
+    "original_codec_intact": 0.5,
+    "native_frame_rate_known": 0.5,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 0.5,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 9.0,
+   "dataset": "DF40 heygen"
+  },
+  {
+   "n_videos": 781,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "dataset": "DF40 hyperreenact"
+  },
+  {
+   "n_videos": 542,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "dataset": "DF40 inswap"
+  },
+  {
+   "n_videos": 802,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "dataset": "DF40 sadtalker"
+  },
+  {
+   "n_videos": 808,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 0.9988
+   },
+   "fully_in_domain_rate": 0.9988,
+   "mean_n_undefined": 0.05,
+   "mean_n_unreliable": 0.0,
+   "dataset": "DF40 wav2lip"
+  },
+  {
+   "n_videos": 5000,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "dataset": "FF++ c23"
+  },
+  {
+   "n_videos": 5000,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "dataset": "FF++ c40"
+  },
+  {
+   "n_videos": 174,
+   "pass_rate": {
+    "background_context_present": 0.0,
+    "original_codec_intact": 0.0,
+    "native_frame_rate_known": 0.0,
+    "sequence_length_sufficient": 0.2069
+   },
+   "fully_in_domain_rate": 0.0,
+   "mean_n_undefined": 7.34,
+   "mean_n_unreliable": 14.83,
+   "dataset": "WildDeepfake"
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+{
+ "xception": {
+  "status": "FAIL",
+  "error": "AttributeError: 'NoneType' object has no attribute 'seek'. You can only torch.load from a file that is seekable. Please pre-load the data into a buffer like io.BytesIO and try to load from it instead."
+ },
+ "lsda": {
+  "status": "OK",
+  "params_M": 172.1,
+  "resolution": 256,
+  "frames": 1,
+  "input_shape": [
+   2,
+   3,
+   256,
+   256
+  ],
+  "forward_ms": 704.4,
+  "prob_shape": [
+   2
+  ],
+  "output_keys": [
+   "cls",
+   "prob",
+   "feat"
+  ]
+ },
+ "facexray": {
+  "status": "FAIL",
+  "error": "FileNotFoundError: [Errno 2] No such file or directory: './training/pretrained/hrnetv2_w48_imagenet_pretrained.pth'",
+  "frames": 1
+ },
+ "ftcn": {
+  "status": "OK",
+  "params_M": 86.2,
+  "resolution": 224,
+  "frames": 16,
+  "input_shape": [
+   2,
+   16,
+   3,
+   224,
+   224
+  ],
+  "forward_ms": 239.2,
+  "prob_shape": [
+   2
+  ],
+  "output_keys": [
+   "cls",
+   "prob",
+   "feat"
+  ]
+ },
+ "videomae": {
+  "status": "OK",
+  "params_M": 86.2,
+  "resolution": 224,
+  "input_shape": [
+   2,
+   16,
+   3,
+   224,
+   224
+  ],
+  "forward_ms": 347.8,
+  "output_keys": [
+   "cls",
+   "prob",
+   "feat"
+  ],
+  "prob_shape": [
+   2
+  ]
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "phase": "P1.5",
+ "defect": "DEFECT-007",
+ "resolution": "(a) Table 4 is a 51-D variant, mislabelled as PRISM-50",
+ "n_prism_descriptors": 50,
+ "n_duplicates": 0,
+ "prnu_resid_removed": [
+  "s_prnu_energy",
+  "s_prnu_face_periph",
+  "t_prnu_temporal_stability",
+  "t_prnu_face_vs_bg"
+ ],
+ "n_base": 46,
+ "n_residual_added": 5,
+ "total": 51,
+ "candidates_ruled_out": {
+  "b_double_counting": "ruled out: 50 unique, residual names disjoint",
+  "c_45_base_plus_5": "ruled out: exactly 4 PRNU descriptors exist and all 4 are removed -> base is 46"
+ },
+ "semantic_mapping": {
+  "s_prnu_energy": {
+   "counterpart": "median_face_energy",
+   "pearson_r": 0.9983,
+   "spearman": 0.9989
+  },
+  "s_prnu_face_periph": {
+   "counterpart": "median_face_bg_ratio",
+   "pearson_r": 0.9347,
+   "spearman": 0.9865
+  },
+  "t_prnu_temporal_stability": {
+   "counterpart": "median_temporal_consistency",
+   "pearson_r": 0.7641,
+   "spearman": 0.7749
+  },
+  "t_prnu_face_vs_bg": {
+   "counterpart": "median_face_bg_corr",
+   "pearson_r": 0.0052,
+   "spearman": -0.0075
+  }
+ },
+ "unmapped_new_descriptors": {
+  "median_bg_energy": "no PRISM-50 counterpart; best |r| 0.858 vs s_block_artifact",
+  "median_face_bg_corr": "r=0.0052 vs t_prnu_face_vs_bg - unrelated despite the name"
+ },
+ "algebraic_redundancy": {
+  "identity": "median_face_bg_ratio == median_face_energy / median_bg_energy",
+  "max_abs_diff": 1.7763568394002505e-15,
+  "exact": true,
+  "independent_dof": 50,
+  "columns": 51
+ },
+ "table4_row_dimensionality": {
+  "median": 51,
+  "gaussian": 51,
+  "wavelet": 51,
+  "current_50D_ref": 50
+ }
+}

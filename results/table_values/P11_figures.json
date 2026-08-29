@@ -1,0 +1,23 @@
+{
+ "phase": "P11",
+ "generated_utc": "2026-08-28T08:58:30Z",
+ "figures": [
+  "fig_classifier_comparison",
+  "fig_df40_per_method",
+  "fig_domain_shift_heatmap",
+  "fig_shap_faithfulness",
+  "fig_attrition_retention"
+ ],
+ "format": [
+  "pdf",
+  "svg"
+ ],
+ "palette": "Okabe-Ito colourblind-safe",
+ "min_font_pt": 8,
+ "widths_mm": {
+  "single_column": 89,
+  "double_column": 183
+ },
+ "source_csv_dir": "results/figure_source_data",
+ "provenance": "regenerated from results/*.json and *.csv only; no screenshots or manual redrawing"
+}

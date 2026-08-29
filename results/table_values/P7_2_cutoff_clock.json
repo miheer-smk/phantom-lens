@@ -1,0 +1,27 @@
+{
+ "phase": "7.2",
+ "rule": "If LSDA TRAINING has not started within 6 hours, stop and report. LAA-Net is then cut unconditionally and LSDA feasibility is reassessed.",
+ "clock_started_utc": "2026-08-27T19:44:39Z",
+ "deadline_utc": "2026-08-28T01:44:39Z",
+ "state_at_clock_start": "preprocessing 2.5 of 5 FF++ subsets complete; training NOT started",
+ "no_overnight_unmonitored": true,
+ "training_started_utc": "2026-08-27T21:28:21Z",
+ "cutoff_met": true,
+ "cutoff_note": "6h no-training cutoff SATISFIED: training began 2026-08-27T21:28:21Z, well inside the 2026-08-28T01:44:39Z deadline. LAA-Net is NOT cut on this ground.",
+ "training_box_24h_expires_utc": "2026-08-28T21:28:21Z",
+ "throughput": {
+  "iters_per_epoch": 180,
+  "sec_per_iter": 3.7,
+  "min_per_epoch": 11.1,
+  "nEpochs": 50,
+  "projected_hours": 9.25,
+  "fits_in_24h_box": true
+ },
+ "blockers_resolved": [
+  "preprocess.py aborted on empty original_sequences/actors -> restricted to the five FF++ subsets we hold",
+  "rearrange.py required official split JSONs -> injected PRISM's own 720/140/140 split; verified identical (1000 identities, 0 mismatches)",
+  "rearrange.py aborted on absent DFD/FaceShifter subsets -> made subset deletion tolerant",
+  "lsda_dataset.py hardcodes ./datasets/FaceForensics++ -> symlinked to our mirror",
+  "abstract_dataset.py load_rgb/load_mask/load_landmark prepend './{rgb_dir}\\\\' (a WINDOWS separator) to any non-'.'-prefixed path, mangling POSIX absolute paths -> now skipped for absolute paths (3 sites)"
+ ]
+}

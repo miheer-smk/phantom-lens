@@ -1,0 +1,37 @@
+{
+  "claim_id": "C6_mean_ffpp_auc",
+  "status": "MEASURED",
+  "value": {
+    "LightGBM": 0.8825,
+    "RF": 0.8761,
+    "LR": 0.8573
+  },
+  "per_manipulation": {
+    "LightGBM": {
+      "deepfakes": 0.9706,
+      "face2face": 0.8096,
+      "faceswap": 0.9631,
+      "neuraltextures": 0.7867
+    },
+    "RF": {
+      "deepfakes": 0.9677,
+      "face2face": 0.8177,
+      "faceswap": 0.9633,
+      "neuraltextures": 0.7556
+    },
+    "LR": {
+      "deepfakes": 0.9517,
+      "face2face": 0.7791,
+      "faceswap": 0.9362,
+      "neuraltextures": 0.7622
+    }
+  },
+  "n_manipulations": 4,
+  "definition": "unweighted mean of the four in-distribution FF++ video-level AUCs, train-only fit (DEFECT-001 Option B)",
+  "source_file": "results/P4_classifier_comparison.json",
+  "source_sha256": "c132a81add6d6991f8da0dcd1afaf80ec240e8569ee1c0cb56dc821c32f19862",
+  "seed": 42,
+  "git_commit": "3b57ad362af48b5ecb43cbc73eb6cc762079bd02",
+  "generated_utc": "2026-08-28T18:37:09Z",
+  "caveat": "Ordering of the mean is NOT a significance claim: of the five paired DeLong comparisons (four FF++ manipulations plus Celeb-DF), 3 are practically equivalent under the pre-declared +/-0.02 margin, 2 are underpowered, and 0 reach significance."
+}

@@ -1,0 +1,165 @@
+{
+ "generated_utc": "2026-08-28T09:59:10Z",
+ "gate": {
+  "facedancer": {
+   "n_videos": 748,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "evaluable": true
+  },
+  "hyperreenact": {
+   "n_videos": 781,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "evaluable": true
+  },
+  "inswap": {
+   "n_videos": 518,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "evaluable": true
+  },
+  "sadtalker": {
+   "n_videos": 785,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "evaluable": true
+  },
+  "wav2lip": {
+   "n_videos": 778,
+   "pass_rate": {
+    "background_context_present": 1.0,
+    "original_codec_intact": 1.0,
+    "native_frame_rate_known": 1.0,
+    "sequence_length_sufficient": 1.0
+   },
+   "fully_in_domain_rate": 1.0,
+   "mean_n_undefined": 0.0,
+   "mean_n_unreliable": 0.0,
+   "evaluable": true
+  }
+ },
+ "methods": {
+  "facedancer": {
+   "auc": 0.6738,
+   "macro_f1": 0.5942,
+   "mcc": 0.2672,
+   "real_recall": 0.4195,
+   "fake_recall": 0.8289,
+   "n": 1680,
+   "n_real": 932,
+   "n_fake": 748,
+   "grouped_ci": [
+    0.6504,
+    0.6965
+   ],
+   "ci_skipped_resamples": 0,
+   "n_groups": 1547
+  },
+  "hyperreenact": {
+   "auc": 0.8649,
+   "macro_f1": 0.6596,
+   "mcc": 0.4708,
+   "real_recall": 0.4195,
+   "fake_recall": 0.9821,
+   "n": 1713,
+   "n_real": 932,
+   "n_fake": 781,
+   "grouped_ci": [
+    0.8469,
+    0.8814
+   ],
+   "ci_skipped_resamples": 0,
+   "n_groups": 1579
+  },
+  "inswap": {
+   "auc": 0.7519,
+   "macro_f1": 0.5946,
+   "mcc": 0.3476,
+   "real_recall": 0.4195,
+   "fake_recall": 0.9131,
+   "n": 1450,
+   "n_real": 932,
+   "n_fake": 518,
+   "grouped_ci": [
+    0.729,
+    0.7759
+   ],
+   "ci_skipped_resamples": 0,
+   "n_groups": 1338
+  },
+  "sadtalker": {
+   "auc": 0.9709,
+   "macro_f1": 0.6674,
+   "mcc": 0.4984,
+   "real_recall": 0.4195,
+   "fake_recall": 1.0,
+   "n": 1717,
+   "n_real": 932,
+   "n_fake": 785,
+   "grouped_ci": [
+    0.9636,
+    0.9775
+   ],
+   "ci_skipped_resamples": 0,
+   "n_groups": 1585
+  },
+  "wav2lip": {
+   "auc": 0.5969,
+   "macro_f1": 0.5501,
+   "mcc": 0.1407,
+   "real_recall": 0.4195,
+   "fake_recall": 0.7159,
+   "n": 1710,
+   "n_real": 932,
+   "n_fake": 778,
+   "grouped_ci": [
+    0.5719,
+    0.6207
+   ],
+   "ci_skipped_resamples": 0,
+   "n_groups": 1576
+  }
+ },
+ "protocol": "frozen FF++-trained model; zero DF40 training/imputation/thresholds",
+ "macro_average": {
+  "scope": [
+   "facedancer",
+   "hyperreenact",
+   "inswap",
+   "sadtalker",
+   "wav2lip"
+  ],
+  "unweighted_mean_auc": 0.7717,
+  "sd": 0.1491,
+  "note": "per-method values must be reported alongside; the macro conceals the spread"
+ }
+}

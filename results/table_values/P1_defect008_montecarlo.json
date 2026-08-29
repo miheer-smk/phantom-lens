@@ -1,0 +1,73 @@
+{
+ "defect": "DEFECT-008",
+ "feature": "t_noise_spectral_entropy",
+ "n_draws": 500,
+ "seed": 42,
+ "perturbation": "per-video N(0, sd) with sd resampled from the 20 empirical per-video SDs",
+ "empirical_sd": {
+  "n": 20,
+  "mean": 0.06092433611578146,
+  "min": 0.038694760172258806,
+  "max": 0.09351624430202116,
+  "homoscedastic": true,
+  "corr_mean_sd": 0.34616527608721687
+ },
+ "results": {
+  "table7_deepfakes": {
+   "published": 0.9706,
+   "mc_mean": 0.9718462574346313,
+   "mc_sd": 0.0010303053647555103,
+   "p2_5": 0.9697831332061497,
+   "p97_5": 0.9739381102008753,
+   "mc_min": 0.9680731679946134,
+   "mc_max": 0.9747503086073392,
+   "published_percentile_in_mc": 11.600000000000001,
+   "published_within_95": true
+  },
+  "table7_face2face": {
+   "published": 0.8096,
+   "mc_mean": 0.8133802628647806,
+   "mc_sd": 0.004881454182435774,
+   "p2_5": 0.8037661505903319,
+   "p97_5": 0.8232902650924482,
+   "mc_min": 0.7956671864557808,
+   "mc_max": 0.8275785252840275,
+   "published_percentile_in_mc": 22.2,
+   "published_within_95": true
+  },
+  "table7_faceswap": {
+   "published": 0.9631,
+   "mc_mean": 0.9632644555002764,
+   "mc_sd": 0.0014543864996349712,
+   "p2_5": 0.9603620784964069,
+   "p97_5": 0.9660876174682145,
+   "mc_min": 0.9583195135433941,
+   "mc_max": 0.9671088999447207,
+   "published_percentile_in_mc": 45.800000000000004,
+   "published_within_95": true
+  },
+  "table7_neuraltextures": {
+   "published": 0.7867,
+   "mc_mean": 0.7874698728579326,
+   "mc_sd": 0.004390725489878708,
+   "p2_5": 0.7781094527363184,
+   "p97_5": 0.7957987838584853,
+   "mc_min": 0.7716970702045328,
+   "mc_max": 0.8018794914317302,
+   "published_percentile_in_mc": 40.8,
+   "published_within_95": true
+  },
+  "table13_celebdf": {
+   "published": 0.6322,
+   "mc_mean": 0.6322479418535066,
+   "mc_sd": 0.0054268408821204,
+   "p2_5": 0.6211157002029779,
+   "p97_5": 0.6428256026596644,
+   "mc_min": 0.6155935583840306,
+   "mc_max": 0.645429561128069,
+   "published_percentile_in_mc": 50.4,
+   "published_within_95": true
+  }
+ },
+ "elapsed_min": 1.3
+}

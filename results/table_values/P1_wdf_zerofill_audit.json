@@ -1,0 +1,26 @@
+{
+ "phase": "P1.C2",
+ "generated_utc": "2026-08-27T14:16:00Z",
+ "zero_fill": {
+  "overall_pct": 19.44,
+  "real_pct": 21.89,
+  "fake_pct": 17.48,
+  "cells_zero": 1205,
+  "cells_total": 6200
+ },
+ "missingness_as_signal": {
+  "auc_zero_pattern_LR_in_sample": 0.6498,
+  "auc_zero_count_single_feature": 0.3715,
+  "published_table15_auc": 0.5212,
+  "mean_zero_count_real": 10.95,
+  "mean_zero_count_fake": 8.74,
+  "n_informative_zero_columns": 37,
+  "auc_zero_pattern_LR_5fold_cv": 0.5635,
+  "_caveat": "in-sample LR on 37 indicators with n=124 is heavily overfit; the 5-fold CV value and the unfitted single zero-count feature are the honest estimates"
+ },
+ "out_of_distribution": {
+  "median_abs_z_vs_ffpp": 1.37,
+  "pct_cells_absz_gt_3": 23.9,
+  "pct_cells_absz_gt_10": 6.1
+ }
+}

@@ -1,0 +1,261 @@
+{
+ "phase": "P1.3",
+ "generated_utc": "2026-08-27T14:35:22Z",
+ "lightgbm_config": {
+  "n_estimators": 200,
+  "max_depth": 6,
+  "learning_rate": 0.05,
+  "num_leaves": 31,
+  "min_child_samples": 20,
+  "class_weight": "balanced",
+  "random_state": 42,
+  "verbose": -1,
+  "n_jobs": 2
+ },
+ "seed": 42,
+ "targets": {
+  "table7_identity_disjoint": [
+   0.9706,
+   0.8096,
+   0.9631,
+   0.7867
+  ],
+  "tables_10_16_17_full50": [
+   0.9752,
+   0.8255,
+   0.9689,
+   0.8039
+  ],
+  "table4_median_residual": [
+   0.9771,
+   0.8174,
+   0.9637,
+   0.796
+  ]
+ },
+ "arms": {
+  "H0_baseline_clean_recipe": {
+   "description": "train only, M1 train-only impute, 50-D population",
+   "config": {
+    "train_parts": [
+     "train"
+    ],
+    "impute": "train_only",
+    "population": "v50"
+   },
+   "aucs": {
+    "deepfakes": 0.9706,
+    "face2face": 0.8096,
+    "faceswap": 0.9631,
+    "neuraltextures": 0.7867
+   },
+   "per_manip": [
+    {
+     "manip": "deepfakes",
+     "auc": 0.9706,
+     "n_train": 1383,
+     "n_test": 267
+    },
+    {
+     "manip": "face2face",
+     "auc": 0.8096,
+     "n_train": 1386,
+     "n_test": 268
+    },
+    {
+     "manip": "faceswap",
+     "auc": 0.9631,
+     "n_train": 1385,
+     "n_test": 269
+    },
+    {
+     "manip": "neuraltextures",
+     "auc": 0.7867,
+     "n_train": 1386,
+     "n_test": 269
+    }
+   ]
+  },
+  "H1_train_plus_val": {
+   "description": "exp8_analyze.py recipe: TRAIN+VAL, all else identical",
+   "config": {
+    "train_parts": [
+     "train",
+     "val"
+    ],
+    "impute": "train_only",
+    "population": "v50"
+   },
+   "aucs": {
+    "deepfakes": 0.9752,
+    "face2face": 0.8255,
+    "faceswap": 0.9689,
+    "neuraltextures": 0.8039
+   },
+   "per_manip": [
+    {
+     "manip": "deepfakes",
+     "auc": 0.9752,
+     "n_train": 1649,
+     "n_test": 267
+    },
+    {
+     "manip": "face2face",
+     "auc": 0.8255,
+     "n_train": 1652,
+     "n_test": 268
+    },
+    {
+     "manip": "faceswap",
+     "auc": 0.9689,
+     "n_train": 1651,
+     "n_test": 269
+    },
+    {
+     "manip": "neuraltextures",
+     "auc": 0.8039,
+     "n_train": 1652,
+     "n_test": 269
+    }
+   ]
+  },
+  "H2_whole_frame_impute": {
+   "description": "train only, but whole-frame median imputation (pre-M1)",
+   "config": {
+    "train_parts": [
+     "train"
+    ],
+    "impute": "whole_frame",
+    "population": "v50"
+   },
+   "aucs": {
+    "deepfakes": 0.9706,
+    "face2face": 0.8096,
+    "faceswap": 0.9631,
+    "neuraltextures": 0.7867
+   },
+   "per_manip": [
+    {
+     "manip": "deepfakes",
+     "auc": 0.9706,
+     "n_train": 1383,
+     "n_test": 267
+    },
+    {
+     "manip": "face2face",
+     "auc": 0.8096,
+     "n_train": 1386,
+     "n_test": 268
+    },
+    {
+     "manip": "faceswap",
+     "auc": 0.9631,
+     "n_train": 1385,
+     "n_test": 269
+    },
+    {
+     "manip": "neuraltextures",
+     "auc": 0.7867,
+     "n_train": 1386,
+     "n_test": 269
+    }
+   ]
+  },
+  "H3_inner_join_residual_population": {
+   "description": "train only, population = 50D INNER JOIN residual CSV",
+   "config": {
+    "train_parts": [
+     "train"
+    ],
+    "impute": "train_only",
+    "population": "inner_join_residual"
+   },
+   "aucs": {
+    "deepfakes": 0.9706,
+    "face2face": 0.8096,
+    "faceswap": 0.9631,
+    "neuraltextures": 0.7867
+   },
+   "per_manip": [
+    {
+     "manip": "deepfakes",
+     "auc": 0.9706,
+     "n_train": 1383,
+     "n_test": 267
+    },
+    {
+     "manip": "face2face",
+     "auc": 0.8096,
+     "n_train": 1386,
+     "n_test": 268
+    },
+    {
+     "manip": "faceswap",
+     "auc": 0.9631,
+     "n_train": 1385,
+     "n_test": 269
+    },
+    {
+     "manip": "neuraltextures",
+     "auc": 0.7867,
+     "n_train": 1386,
+     "n_test": 269
+    }
+   ]
+  },
+  "H4_train_plus_val_AND_inner_join": {
+   "description": "exp8 recipe in full: train+val AND inner-join population",
+   "config": {
+    "train_parts": [
+     "train",
+     "val"
+    ],
+    "impute": "train_only",
+    "population": "inner_join_residual"
+   },
+   "aucs": {
+    "deepfakes": 0.9752,
+    "face2face": 0.8255,
+    "faceswap": 0.9689,
+    "neuraltextures": 0.8039
+   },
+   "per_manip": [
+    {
+     "manip": "deepfakes",
+     "auc": 0.9752,
+     "n_train": 1649,
+     "n_test": 267
+    },
+    {
+     "manip": "face2face",
+     "auc": 0.8255,
+     "n_train": 1652,
+     "n_test": 268
+    },
+    {
+     "manip": "faceswap",
+     "auc": 0.9689,
+     "n_train": 1651,
+     "n_test": 269
+    },
+    {
+     "manip": "neuraltextures",
+     "auc": 0.8039,
+     "n_train": 1652,
+     "n_test": 269
+    }
+   ]
+  }
+ },
+ "exact_matches": {
+  "table7_identity_disjoint": [
+   "H0_baseline_clean_recipe",
+   "H2_whole_frame_impute",
+   "H3_inner_join_residual_population"
+  ],
+  "tables_10_16_17_full50": [
+   "H1_train_plus_val",
+   "H4_train_plus_val_AND_inner_join"
+  ]
+ }
+}

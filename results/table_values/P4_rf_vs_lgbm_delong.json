@@ -1,0 +1,61 @@
+{
+ "test": "paired DeLong, RF vs LightGBM, identical test sets",
+ "rows": [
+  {
+   "target": "deepfakes",
+   "auc_rf": 0.9677,
+   "auc_lgbm": 0.9706,
+   "delta": -0.0029,
+   "z": -0.5777,
+   "p": 0.5634644930514234,
+   "significant": false,
+   "p_holm": 1.0,
+   "significant_holm": false
+  },
+  {
+   "target": "face2face",
+   "auc_rf": 0.8177,
+   "auc_lgbm": 0.8096,
+   "delta": 0.0081,
+   "z": 0.5721,
+   "p": 0.567254434960647,
+   "significant": false,
+   "p_holm": 1.0,
+   "significant_holm": false
+  },
+  {
+   "target": "faceswap",
+   "auc_rf": 0.9633,
+   "auc_lgbm": 0.9631,
+   "delta": 0.0002,
+   "z": 0.0404,
+   "p": 0.9678036019411078,
+   "significant": false,
+   "p_holm": 1.0,
+   "significant_holm": false
+  },
+  {
+   "target": "neuraltextures",
+   "auc_rf": 0.7556,
+   "auc_lgbm": 0.7867,
+   "delta": -0.0311,
+   "z": -1.8723,
+   "p": 0.061171691802600625,
+   "significant": false,
+   "p_holm": 0.3058584590130031,
+   "significant_holm": false
+  },
+  {
+   "target": "celebdf_zeroshot",
+   "auc_rf": 0.6365,
+   "auc_lgbm": 0.6322,
+   "delta": 0.0043,
+   "z": 0.6943,
+   "p": 0.48749936988452025,
+   "significant": false,
+   "p_holm": 1.0,
+   "significant_holm": false
+  }
+ ],
+ "n_significant_holm": 0
+}

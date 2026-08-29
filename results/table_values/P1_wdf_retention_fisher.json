@@ -1,0 +1,58 @@
+{
+ "phase": "P1.C1",
+ "generated_utc": "2026-08-27T14:14:17Z",
+ "dataset": "WildDeepfake test",
+ "input_population": {
+  "real_sequences": 93,
+  "fake_sequences": 81,
+  "real_frames": 3370,
+  "fake_frames": 3398,
+  "source": "data/wilddeepfake/test/{real,fake}/*.png grouped by filename prefix"
+ },
+ "retained_population": {
+  "real": 55,
+  "fake": 69,
+  "total": 124,
+  "source": "legacy/phantomlens/features/wilddeepfake_test_53d.csv (the Table 15 matrix)"
+ },
+ "excluded": {
+  "real": 38,
+  "fake": 12
+ },
+ "retention_rate": {
+  "real": 0.5914,
+  "fake": 0.8519
+ },
+ "fisher_exact": {
+  "contingency_[[real_ret,real_exc],[fake_ret,fake_exc]]": [
+   [
+    55,
+    38
+   ],
+   [
+    69,
+    12
+   ]
+  ],
+  "odds_ratio": 0.2517,
+  "p_value": 0.00018857717397990917,
+  "alternative": "two-sided",
+  "significant_at_0.05": true
+ },
+ "frames_per_sequence": {
+  "real": {
+   "min": 2,
+   "median": 30.0,
+   "max": 90,
+   "n_below_30": 12,
+   "n_below_60": 77
+  },
+  "fake": {
+   "min": 6,
+   "median": 30.0,
+   "max": 146,
+   "n_below_30": 10,
+   "n_below_60": 61
+  }
+ }
+}

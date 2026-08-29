@@ -1,0 +1,45 @@
+{
+ "phase": "P5",
+ "generated_utc": "2026-08-28T07:55:35Z",
+ "population": "all 174 WildDeepfake sequences attempted (published Table 15 used 124)",
+ "extractor": "seeded (DEFECT-008 fix)",
+ "attrition": {
+  "feature_computation_failure": {
+   "fake": 11,
+   "real": 36
+  },
+  "insufficient_valid_frames": {
+   "fake": 1,
+   "real": 2
+  },
+  "retained": {
+   "fake": 69,
+   "real": 55
+  }
+ },
+ "prism50": {
+  "auc": 0.4862,
+  "average_precision": 0.5552,
+  "macro_f1": 0.4194,
+  "real_recall": 0.0727,
+  "fake_recall": 0.9565,
+  "mcc": 0.063,
+  "n": 124,
+  "n_real": 55,
+  "n_fake": 69,
+  "confidence_interval": "NOT REPORTED - see DEFECT-006"
+ },
+ "controls": {
+  "zero_pattern_auc_5foldcv": 0.496,
+  "zero_count_auc": 0.4199,
+  "zero_count_auc_inverted": 0.5801,
+  "n_informative_columns": 30,
+  "mean_unavailable_real": 19.89,
+  "mean_unavailable_fake": 18.41
+ },
+ "best_control_auc": 0.5801,
+ "control_exceeds_prism": true,
+ "complete_cases": 0,
+ "mean_descriptor_availability_pct": 61.9,
+ "interpretability": "AUC is NOT interpretable as a generalization measurement; see DEFECT-006 and results/P1_operating_domain.md. No confidence interval is reported."
+}

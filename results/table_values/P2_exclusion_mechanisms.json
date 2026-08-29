@@ -1,0 +1,79 @@
+{
+ "phase": "P2_item3",
+ "generated_utc": "2026-08-28T07:11:42Z",
+ "n_instrumented": 635,
+ "per_dataset": {
+  "CelebDF": 353,
+  "FFpp": 240,
+  "WildDeepfake": 42
+ },
+ "gate_passed_on_rerun": {
+  "True": 635
+ },
+ "failing_block_counts": {
+  "t5_codec_residual": 540,
+  "NONE_reraised_clean": 95
+ },
+ "exception_types": {
+  "ValueError": 540,
+  "(none)": 95
+ },
+ "failing_block_by_dataset": {
+  "CelebDF": {
+   "NONE_reraised_clean": 95,
+   "t5_codec_residual": 258
+  },
+  "FFpp": {
+   "NONE_reraised_clean": 0,
+   "t5_codec_residual": 240
+  },
+  "WildDeepfake": {
+   "NONE_reraised_clean": 0,
+   "t5_codec_residual": 42
+  }
+ },
+ "failing_block_by_class": {
+  "fake": {
+   "NONE_reraised_clean": 79,
+   "t5_codec_residual": 397
+  },
+  "real": {
+   "NONE_reraised_clean": 16,
+   "t5_codec_residual": 143
+  }
+ },
+ "mechanism_family_by_dataset": {
+  "CelebDF": {
+   "other": 95,
+   "substrate_dependent (DEFECT-003 family)": 258
+  },
+  "FFpp": {
+   "other": 0,
+   "substrate_dependent (DEFECT-003 family)": 240
+  },
+  "WildDeepfake": {
+   "other": 0,
+   "substrate_dependent (DEFECT-003 family)": 42
+  }
+ },
+ "wilddeepfake": {
+  "crosstab": {
+   "fake": {
+    "t5_codec_residual": 11
+   },
+   "real": {
+    "t5_codec_residual": 31
+   }
+  },
+  "per_block_fisher": [
+   {
+    "block": "t5_codec_residual",
+    "real": 31,
+    "fake": 11,
+    "odds_ratio": NaN,
+    "p": 1.0
+   }
+  ]
+ },
+ "note": "Instrumentation only. Production retention behaviour unchanged; features discarded."
+}

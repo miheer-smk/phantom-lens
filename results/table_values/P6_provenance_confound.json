@@ -1,0 +1,81 @@
+{
+ "test": "provenance confound - drop codec- and fps-dependent descriptors",
+ "dropped": [
+  "s_benford_dev",
+  "s_block_artifact",
+  "s_dbl_compress",
+  "t_blink_duration",
+  "t_blink_rate",
+  "t_residual_entropy",
+  "t_residual_flow_corr",
+  "t_rppg_harmonic_ratio",
+  "t_rppg_interregion_corr",
+  "t_rppg_peak_prominence",
+  "t_rppg_snr"
+ ],
+ "n_features_kept": 39,
+ "per_method": {
+  "inswap": {
+   "ff": {
+    "auc50": 0.7619,
+    "auc39": 0.7319,
+    "drop": 0.0299
+   },
+   "cdf": {
+    "auc50": 0.7551,
+    "auc39": 0.749,
+    "drop": 0.0061
+   }
+  },
+  "facedancer": {
+   "ff": {
+    "auc50": 0.7057,
+    "auc39": 0.7068,
+    "drop": -0.0012
+   },
+   "cdf": {
+    "auc50": 0.6703,
+    "auc39": 0.611,
+    "drop": 0.0594
+   }
+  },
+  "wav2lip": {
+   "ff": {
+    "auc50": 0.5458,
+    "auc39": 0.5427,
+    "drop": 0.0032
+   },
+   "cdf": {
+    "auc50": 0.6107,
+    "auc39": 0.6033,
+    "drop": 0.0074
+   }
+  },
+  "sadtalker": {
+   "ff": {
+    "auc50": 0.9658,
+    "auc39": 0.9734,
+    "drop": -0.0076
+   },
+   "cdf": {
+    "auc50": 0.9731,
+    "auc39": 0.9849,
+    "drop": -0.0117
+   }
+  },
+  "hyperreenact": {
+   "ff": {
+    "auc50": 0.9043,
+    "auc39": 0.884,
+    "drop": 0.0203
+   },
+   "cdf": {
+    "auc50": 0.8575,
+    "auc39": 0.8557,
+    "drop": 0.0018
+   }
+  }
+ },
+ "macro_50d": 0.775,
+ "macro_39d": 0.7643
+}

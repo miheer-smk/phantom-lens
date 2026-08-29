@@ -1,0 +1,288 @@
+{
+ "phase": "P4",
+ "generated_utc": "2026-08-28T07:36:55Z",
+ "seed": 42,
+ "protocol": "train-only fit (DEFECT-001 Option B); LR/RF hyperparameters selected on the VALIDATION partition only; LightGBM frozen at the published config with no search",
+ "in_distribution": {
+  "deepfakes": {
+   "LR": {
+    "auc": 0.9517,
+    "grouped_ci": [
+     0.9263,
+     0.9754
+    ],
+    "macro_f1": 0.9026,
+    "mcc": 0.8056,
+    "n": 267,
+    "n_real": 134,
+    "n_fake": 133,
+    "ci_skipped": 0,
+    "selected": {
+     "C": 0.1,
+     "val_auc": 0.9901
+    }
+   },
+   "RF": {
+    "auc": 0.9677,
+    "grouped_ci": [
+     0.9508,
+     0.982
+    ],
+    "macro_f1": 0.9024,
+    "mcc": 0.8085,
+    "n": 267,
+    "n_real": 134,
+    "n_fake": 133,
+    "ci_skipped": 0,
+    "selected": {
+     "n_estimators": 200,
+     "max_depth": null,
+     "min_samples_leaf": 2,
+     "val_auc": 0.9905
+    }
+   },
+   "LightGBM": {
+    "auc": 0.9706,
+    "grouped_ci": [
+     0.9548,
+     0.9842
+    ],
+    "macro_f1": 0.8988,
+    "mcc": 0.7988,
+    "n": 267,
+    "n_real": 134,
+    "n_fake": 133,
+    "ci_skipped": 0,
+    "selected": {
+     "frozen_published_config": true,
+     "search_performed": false
+    }
+   }
+  },
+  "face2face": {
+   "LR": {
+    "auc": 0.7791,
+    "grouped_ci": [
+     0.7417,
+     0.8185
+    ],
+    "macro_f1": 0.6827,
+    "mcc": 0.3659,
+    "n": 268,
+    "n_real": 134,
+    "n_fake": 134,
+    "ci_skipped": 0,
+    "selected": {
+     "C": 10,
+     "val_auc": 0.7879
+    }
+   },
+   "RF": {
+    "auc": 0.8177,
+    "grouped_ci": [
+     0.7804,
+     0.8569
+    ],
+    "macro_f1": 0.7388,
+    "mcc": 0.4777,
+    "n": 268,
+    "n_real": 134,
+    "n_fake": 134,
+    "ci_skipped": 0,
+    "selected": {
+     "n_estimators": 200,
+     "max_depth": 20,
+     "min_samples_leaf": 1,
+     "val_auc": 0.8229
+    }
+   },
+   "LightGBM": {
+    "auc": 0.8096,
+    "grouped_ci": [
+     0.769,
+     0.8496
+    ],
+    "macro_f1": 0.7537,
+    "mcc": 0.5075,
+    "n": 268,
+    "n_real": 134,
+    "n_fake": 134,
+    "ci_skipped": 0,
+    "selected": {
+     "frozen_published_config": true,
+     "search_performed": false
+    }
+   }
+  },
+  "faceswap": {
+   "LR": {
+    "auc": 0.9362,
+    "grouped_ci": [
+     0.9045,
+     0.9627
+    ],
+    "macro_f1": 0.8922,
+    "mcc": 0.7846,
+    "n": 269,
+    "n_real": 134,
+    "n_fake": 135,
+    "ci_skipped": 0,
+    "selected": {
+     "C": 1,
+     "val_auc": 0.9564
+    }
+   },
+   "RF": {
+    "auc": 0.9633,
+    "grouped_ci": [
+     0.9416,
+     0.9798
+    ],
+    "macro_f1": 0.8843,
+    "mcc": 0.7743,
+    "n": 269,
+    "n_real": 134,
+    "n_fake": 135,
+    "ci_skipped": 0,
+    "selected": {
+     "n_estimators": 200,
+     "max_depth": 20,
+     "min_samples_leaf": 2,
+     "val_auc": 0.9596
+    }
+   },
+   "LightGBM": {
+    "auc": 0.9631,
+    "grouped_ci": [
+     0.9425,
+     0.9795
+    ],
+    "macro_f1": 0.8918,
+    "mcc": 0.7892,
+    "n": 269,
+    "n_real": 134,
+    "n_fake": 135,
+    "ci_skipped": 0,
+    "selected": {
+     "frozen_published_config": true,
+     "search_performed": false
+    }
+   }
+  },
+  "neuraltextures": {
+   "LR": {
+    "auc": 0.7622,
+    "grouped_ci": [
+     0.7273,
+     0.803
+    ],
+    "macro_f1": 0.7083,
+    "mcc": 0.4245,
+    "n": 269,
+    "n_real": 134,
+    "n_fake": 135,
+    "ci_skipped": 0,
+    "selected": {
+     "C": 10,
+     "val_auc": 0.774
+    }
+   },
+   "RF": {
+    "auc": 0.7556,
+    "grouped_ci": [
+     0.7217,
+     0.7954
+    ],
+    "macro_f1": 0.6952,
+    "mcc": 0.3903,
+    "n": 269,
+    "n_real": 134,
+    "n_fake": 135,
+    "ci_skipped": 0,
+    "selected": {
+     "n_estimators": 200,
+     "max_depth": null,
+     "min_samples_leaf": 5,
+     "val_auc": 0.7746
+    }
+   },
+   "LightGBM": {
+    "auc": 0.7867,
+    "grouped_ci": [
+     0.7464,
+     0.8282
+    ],
+    "macro_f1": 0.6986,
+    "mcc": 0.3982,
+    "n": 269,
+    "n_real": 134,
+    "n_fake": 135,
+    "ci_skipped": 0,
+    "selected": {
+     "frozen_published_config": true,
+     "search_performed": false
+    }
+   }
+  }
+ },
+ "zero_shot_celebdf": {
+  "LR": {
+   "auc": 0.587,
+   "grouped_ci": [
+    0.5592,
+    0.6155
+   ],
+   "macro_f1": 0.2945,
+   "mcc": 0.0625,
+   "n": 6121,
+   "n_real": 798,
+   "n_fake": 5323,
+   "ci_skipped": 0,
+   "selected": {
+    "C": 10,
+    "val_auc": 0.8105
+   }
+  },
+  "RF": {
+   "auc": 0.6365,
+   "grouped_ci": [
+    0.6081,
+    0.6585
+   ],
+   "macro_f1": 0.4676,
+   "mcc": 0.0229,
+   "n": 6121,
+   "n_real": 798,
+   "n_fake": 5323,
+   "ci_skipped": 0,
+   "selected": {
+    "n_estimators": 500,
+    "max_depth": null,
+    "min_samples_leaf": 1,
+    "val_auc": 0.81
+   }
+  },
+  "LightGBM": {
+   "auc": 0.6322,
+   "grouped_ci": [
+    0.608,
+    0.6538
+   ],
+   "macro_f1": 0.5565,
+   "mcc": 0.1404,
+   "n": 6121,
+   "n_real": 798,
+   "n_fake": 5323,
+   "ci_skipped": 0,
+   "selected": {
+    "frozen_published_config": true,
+    "search_performed": false
+   }
+  }
+ },
+ "wins": {
+  "LR": 0,
+  "RF": 3,
+  "LightGBM": 2
+ }
+}

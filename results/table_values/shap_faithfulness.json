@@ -1,0 +1,65 @@
+{
+ "generated_utc": "2026-08-28T09:54:52Z",
+ "n_random": 100,
+ "seed": 42,
+ "primary": {
+  "deepfakes": {
+   "n": 267,
+   "median_dC_top5": 0.28836,
+   "median_dC_random": 0.01043,
+   "ratio": 27.65,
+   "wilcoxon_p": 1.3607137866953232e-34,
+   "rank_biserial": 0.7828
+  },
+  "face2face": {
+   "n": 268,
+   "median_dC_top5": 0.21515,
+   "median_dC_random": 0.02684,
+   "ratio": 8.01,
+   "wilcoxon_p": 4.224477940841552e-25,
+   "rank_biserial": 0.5149
+  },
+  "faceswap": {
+   "n": 269,
+   "median_dC_top5": 0.34232,
+   "median_dC_random": 0.01746,
+   "ratio": 19.6,
+   "wilcoxon_p": 1.131045045668657e-33,
+   "rank_biserial": 0.6952
+  },
+  "neuraltextures": {
+   "n": 269,
+   "median_dC_top5": 0.26539,
+   "median_dC_random": 0.02988,
+   "ratio": 8.88,
+   "wilcoxon_p": 6.005115345185926e-39,
+   "rank_biserial": 0.7398
+  }
+ },
+ "secondary": {
+  "deepfakes": {
+   "spearman_rho": 0.2637,
+   "p_value": 0.2613554831713284,
+   "n_groups": 20,
+   "convention": "delta_auc = full - loGo, so POSITIVE rho means SHAP is CONCORDANT with ablation utility"
+  },
+  "face2face": {
+   "spearman_rho": 0.7549,
+   "p_value": 0.00011960282700609452,
+   "n_groups": 20,
+   "convention": "delta_auc = full - loGo, so POSITIVE rho means SHAP is CONCORDANT with ablation utility"
+  },
+  "faceswap": {
+   "spearman_rho": 0.5088,
+   "p_value": 0.02194983870880665,
+   "n_groups": 20,
+   "convention": "delta_auc = full - loGo, so POSITIVE rho means SHAP is CONCORDANT with ablation utility"
+  },
+  "neuraltextures": {
+   "spearman_rho": 0.3152,
+   "p_value": 0.17590822984439528,
+   "n_groups": 20,
+   "convention": "delta_auc = full - loGo, so POSITIVE rho means SHAP is CONCORDANT with ablation utility"
+  }
+ }
+}

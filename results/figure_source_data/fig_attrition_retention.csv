@@ -1,0 +1,23 @@
+group,klass,input_videos,successfully_processed,retention
+WildDeepfake,real,93,55,0.5913978494623656
+Celeb-DF v2 YouTube-real,real,300,253,0.8433333333333334
+WildDeepfake,fake,81,69,0.8518518518518519
+DF40 heygen,fake,50,43,0.86
+Celeb-DF v2 Celeb-real,real,590,545,0.923728813559322
+Celeb-DF v2 Celeb-synthesis,fake,5639,5323,0.9439616953360525
+FF++ deepfakes c40,fake,1000,950,0.95
+FF++ original c40,real,1000,953,0.953
+FF++ face2face c40,fake,1000,955,0.955
+FF++ deepfakes c23,fake,1000,956,0.956
+FF++ faceswap c40,fake,1000,958,0.958
+FF++ neuraltextures c40,fake,1000,959,0.959
+FF++ face2face c23,fake,1000,960,0.96
+FF++ faceswap c23,fake,1000,960,0.96
+FF++ original c23,real,1000,960,0.96
+FF++ neuraltextures c23,fake,1000,961,0.961
+DF40 sadtalker,fake,802,787,0.9812967581047382
+DF40 wav2lip,fake,808,800,0.9900990099009901
+DF40 facedancer,fake,788,782,0.9923857868020305
+DF40 inswap,fake,542,538,0.992619926199262
+DF40 hyperreenact,fake,781,781,1.0
+DF40 heygen,real,50,50,1.0

@@ -1,0 +1,82 @@
+{
+ "generated_utc": "2026-08-28T13:18:35Z",
+ "equivalence_margin": 0.02,
+ "classification_rule": "RF/LightGBM superior if DeLong p<0.05; practically equivalent if the 95% CI of the difference lies entirely within +/-0.02; otherwise underpowered",
+ "rows": [
+  {
+   "target": "deepfakes",
+   "auc_rf": 0.9677,
+   "auc_lgbm": 0.9706,
+   "diff": -0.0029,
+   "diff_ci95": [
+    -0.0126,
+    0.0068
+   ],
+   "se": 0.00495,
+   "z": -0.578,
+   "p_delong": 0.5634644930514234,
+   "verdict": "practically equivalent",
+   "n": 267
+  },
+  {
+   "target": "face2face",
+   "auc_rf": 0.8177,
+   "auc_lgbm": 0.8096,
+   "diff": 0.0081,
+   "diff_ci95": [
+    -0.0196,
+    0.0357
+   ],
+   "se": 0.01412,
+   "z": 0.572,
+   "p_delong": 0.567254434960647,
+   "verdict": "underpowered",
+   "n": 268
+  },
+  {
+   "target": "faceswap",
+   "auc_rf": 0.9633,
+   "auc_lgbm": 0.9631,
+   "diff": 0.0002,
+   "diff_ci95": [
+    -0.0105,
+    0.011
+   ],
+   "se": 0.00548,
+   "z": 0.04,
+   "p_delong": 0.9678036019411078,
+   "verdict": "practically equivalent",
+   "n": 269
+  },
+  {
+   "target": "neuraltextures",
+   "auc_rf": 0.7556,
+   "auc_lgbm": 0.7867,
+   "diff": -0.0311,
+   "diff_ci95": [
+    -0.0637,
+    0.0015
+   ],
+   "se": 0.01662,
+   "z": -1.872,
+   "p_delong": 0.061171691802600625,
+   "verdict": "underpowered",
+   "n": 269
+  },
+  {
+   "target": "celebdf_zeroshot",
+   "auc_rf": 0.6365,
+   "auc_lgbm": 0.6322,
+   "diff": 0.0043,
+   "diff_ci95": [
+    -0.0079,
+    0.0165
+   ],
+   "se": 0.00621,
+   "z": 0.694,
+   "p_delong": 0.48749936988452025,
+   "verdict": "practically equivalent",
+   "n": 6121
+  }
+ ]
+}

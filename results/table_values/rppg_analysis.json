@@ -1,0 +1,76 @@
+{
+ "generated_utc": "2026-08-28T09:58:10Z",
+ "note": "rPPG descriptors only; no other PRISM feature",
+ "per_manipulation": {
+  "deepfakes": {
+   "current(POS+CHROM)": {
+    "auc": 0.5908,
+    "n": 274
+   },
+   "POS": {
+    "auc": 0.5544,
+    "n": 274
+   },
+   "CHROM": {
+    "auc": 0.5822,
+    "n": 274
+   }
+  },
+  "face2face": {
+   "current(POS+CHROM)": {
+    "auc": 0.6876,
+    "n": 274
+   },
+   "POS": {
+    "auc": 0.6659,
+    "n": 274
+   },
+   "CHROM": {
+    "auc": 0.7055,
+    "n": 274
+   }
+  },
+  "faceswap": {
+   "current(POS+CHROM)": {
+    "auc": 0.5183,
+    "n": 274
+   },
+   "POS": {
+    "auc": 0.5231,
+    "n": 274
+   },
+   "CHROM": {
+    "auc": 0.5332,
+    "n": 274
+   }
+  },
+  "neuraltextures": {
+   "current(POS+CHROM)": {
+    "auc": 0.5371,
+    "n": 274
+   },
+   "POS": {
+    "auc": 0.5896,
+    "n": 274
+   },
+   "CHROM": {
+    "auc": 0.4954,
+    "n": 274
+   }
+  }
+ },
+ "zero_shot": {
+  "current(POS+CHROM)": {
+   "auc": 0.4924,
+   "n": 6490
+  },
+  "POS": {
+   "auc": 0.4902,
+   "n": 6490
+  },
+  "CHROM": {
+   "auc": 0.5065,
+   "n": 6490
+  }
+ }
+}

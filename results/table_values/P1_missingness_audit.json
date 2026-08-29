@@ -1,0 +1,3725 @@
+{
+ "phase": "P1.4",
+ "generated_utc": "2026-08-27T16:57:39Z",
+ "seed": 42,
+ "definition": "m_j=1 iff descriptor j gate unmet, NaN, or exactly 0.0 (the extractor's only failure signal: np.nan_to_num(...,nan=0.0))",
+ "gate_map": {
+  "spatial_13": "ungated",
+  "rppg_4": "MIN_FRAMES_RPPG=60",
+  "temporal_33": "MIN_FRAMES_TEMPORAL=30"
+ },
+ "datasets": {
+  "FFpp_c23_deepfakes": {
+   "n_test": 267,
+   "n_test_real": 134,
+   "n_test_fake": 133,
+   "control_auc_same_protocol_LGBM": 0.5983335203680843,
+   "control_auc_within_5foldCV_LR": 0.5620861856132868,
+   "n_informative_cols": 3,
+   "control_auc_zero_count": 0.5959207720794523,
+   "zero_count_direction": "more missing in FAKE",
+   "missing_cell_pct_overall": 1.026,
+   "missing_cell_pct_real": 0.642,
+   "missing_cell_pct_fake": 1.414,
+   "prism_auc_reference": 0.9706,
+   "best_control_auc": 0.5983,
+   "control_over_prism_ratio": 0.616,
+   "flagged_control_ge_prism": false
+  },
+  "FFpp_c23_face2face": {
+   "n_test": 268,
+   "n_test_real": 134,
+   "n_test_fake": 134,
+   "control_auc_same_protocol_LGBM": 0.5074626865671642,
+   "control_auc_within_5foldCV_LR": 0.4225607039429716,
+   "n_informative_cols": 3,
+   "control_auc_zero_count": 0.504371797727779,
+   "zero_count_direction": "more missing in FAKE",
+   "missing_cell_pct_overall": 0.664,
+   "missing_cell_pct_real": 0.642,
+   "missing_cell_pct_fake": 0.687,
+   "prism_auc_reference": 0.8096,
+   "best_control_auc": 0.5075,
+   "control_over_prism_ratio": 0.627,
+   "flagged_control_ge_prism": false
+  },
+  "FFpp_c23_faceswap": {
+   "n_test": 269,
+   "n_test_real": 134,
+   "n_test_fake": 135,
+   "control_auc_same_protocol_LGBM": 0.5179380873410724,
+   "control_auc_within_5foldCV_LR": 0.44156992813709234,
+   "n_informative_cols": 3,
+   "control_auc_zero_count": 0.5149253731343284,
+   "zero_count_direction": "more missing in FAKE",
+   "missing_cell_pct_overall": 0.706,
+   "missing_cell_pct_real": 0.642,
+   "missing_cell_pct_fake": 0.77,
+   "prism_auc_reference": 0.9631,
+   "best_control_auc": 0.5179,
+   "control_over_prism_ratio": 0.538,
+   "flagged_control_ge_prism": false
+  },
+  "FFpp_c23_neuraltextures": {
+   "n_test": 269,
+   "n_test_real": 134,
+   "n_test_fake": 135,
+   "control_auc_same_protocol_LGBM": 0.5153952459922609,
+   "control_auc_within_5foldCV_LR": 0.49400221116639026,
+   "n_informative_cols": 3,
+   "control_auc_zero_count": 0.48134328358208955,
+   "zero_count_direction": "more missing in REAL",
+   "missing_cell_pct_overall": 0.572,
+   "missing_cell_pct_real": 0.642,
+   "missing_cell_pct_fake": 0.504,
+   "prism_auc_reference": 0.7867,
+   "best_control_auc": 0.5187,
+   "control_over_prism_ratio": 0.659,
+   "flagged_control_ge_prism": false
+  },
+  "FFpp_c40_deepfakes": {
+   "n_test": 264,
+   "n_test_real": 133,
+   "n_test_fake": 131,
+   "control_auc_same_protocol_LGBM": 0.5513401825173622,
+   "control_auc_within_5foldCV_LR": 0.5235895081214487,
+   "n_informative_cols": 4,
+   "control_auc_zero_count": 0.5522011134706997,
+   "zero_count_direction": "more missing in FAKE",
+   "missing_cell_pct_overall": 1.136,
+   "missing_cell_pct_real": 0.932,
+   "missing_cell_pct_fake": 1.344,
+   "prism_auc_reference": null,
+   "best_control_auc": 0.5522,
+   "control_over_prism_ratio": null,
+   "flagged_control_ge_prism": false
+  },
+  "FFpp_c40_face2face": {
+   "n_test": 267,
+   "n_test_real": 133,
+   "n_test_fake": 134,
+   "control_auc_same_protocol_LGBM": 0.5176467287622041,
+   "control_auc_within_5foldCV_LR": 0.4835877005947705,
+   "n_informative_cols": 4,
+   "control_auc_zero_count": 0.5151498148355964,
+   "zero_count_direction": "more missing in FAKE",
+   "missing_cell_pct_overall": 0.996,
+   "missing_cell_pct_real": 0.932,
+   "missing_cell_pct_fake": 1.06,
+   "prism_auc_reference": null,
+   "best_control_auc": 0.5176,
+   "control_over_prism_ratio": null,
+   "flagged_control_ge_prism": false
+  },
+  "FFpp_c40_faceswap": {
+   "n_test": 267,
+   "n_test_real": 133,
+   "n_test_fake": 134,
+   "control_auc_same_protocol_LGBM": 0.5364717764560656,
+   "control_auc_within_5foldCV_LR": 0.49015262035686236,
+   "n_informative_cols": 4,
+   "control_auc_zero_count": 0.534087083380092,
+   "zero_count_direction": "more missing in FAKE",
+   "missing_cell_pct_overall": 1.071,
+   "missing_cell_pct_real": 0.932,
+   "missing_cell_pct_fake": 1.209,
+   "prism_auc_reference": null,
+   "best_control_auc": 0.5365,
+   "control_over_prism_ratio": null,
+   "flagged_control_ge_prism": false
+  },
+  "FFpp_c40_neuraltextures": {
+   "n_test": 267,
+   "n_test_real": 133,
+   "n_test_fake": 134,
+   "control_auc_same_protocol_LGBM": 0.5045729996633375,
+   "control_auc_within_5foldCV_LR": 0.46111547525530255,
+   "n_informative_cols": 4,
+   "control_auc_zero_count": 0.5039838401975087,
+   "zero_count_direction": "more missing in FAKE",
+   "missing_cell_pct_overall": 0.936,
+   "missing_cell_pct_real": 0.932,
+   "missing_cell_pct_fake": 0.94,
+   "prism_auc_reference": null,
+   "best_control_auc": 0.5046,
+   "control_over_prism_ratio": null,
+   "flagged_control_ge_prism": false
+  },
+  "CelebDF_v2_zeroshot": {
+   "prism_auc_published": 0.6322,
+   "prism_auc_recomputed": 0.6322,
+   "n": 6121,
+   "n_real": 798,
+   "n_fake": 5323,
+   "control_auc_same_protocol_LGBM": 0.4724,
+   "control_auc_within_5foldCV_LR": 0.5185,
+   "n_informative_cols": 3,
+   "control_auc_zero_count": 0.4707,
+   "zero_count_direction": "more missing in REAL",
+   "missing_cell_pct_overall": 0.642,
+   "missing_cell_pct_real": 0.845,
+   "missing_cell_pct_fake": 0.612,
+   "residualisation": {
+    "complete_case_n": 5137,
+    "complete_case_n_real": 629,
+    "complete_case_n_fake": 4508,
+    "auc_complete_cases": 0.638214627801767,
+    "n_distinct_patterns": 4,
+    "strata_ge20_both_classes": [
+     {
+      "n": 5137,
+      "n_real": 629,
+      "auc": 0.638214627801767
+     },
+     {
+      "n": 977,
+      "n_real": 164,
+      "auc": 0.6298862988629886
+     }
+    ],
+    "pooled_within_pattern_auc": 0.6369,
+    "pooled_within_pattern_n": 6114
+   },
+   "flagged_control_ge_prism": false,
+   "prism_auc_reference": 0.6322,
+   "best_control_auc": 0.5293,
+   "control_over_prism_ratio": 0.837
+  },
+  "WildDeepfake_zeroshot": {
+   "prism53_auc_published": 0.5212,
+   "prism50_auc_recomputed": 0.4862,
+   "n": 124,
+   "n_real": 55,
+   "n_fake": 69,
+   "control_auc_same_protocol_LGBM": 0.408,
+   "control_auc_within_5foldCV_LR": 0.5689,
+   "n_informative_cols": 37,
+   "control_auc_zero_count": 0.4108,
+   "zero_count_direction": "more missing in REAL",
+   "missing_cell_pct_overall": 21.403,
+   "missing_cell_pct_real": 21.891,
+   "missing_cell_pct_fake": 21.014,
+   "residualisation": {
+    "complete_case_n": 9,
+    "auc_complete_cases": 0.65,
+    "n_distinct_patterns": 11
+   },
+   "flagged_control_ge_prism": true,
+   "prism_auc_reference": 0.5212,
+   "best_control_auc": 0.5892,
+   "control_over_prism_ratio": 1.13
+  },
+  "DF40_all_methods": {
+   "status": "UNAVAILABLE",
+   "reason": "DF40 50-D features do not exist yet; extraction is Phase 6. The audit is re-run there before any DF40 AUC is reported (pre-registered in results/P6_preregistration.md)."
+  }
+ },
+ "per_descriptor": [
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1567,
+   "miss_rate_fake": 0.3534
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1567,
+   "miss_rate_fake": 0.3534
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_deepfakes",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1567,
+   "miss_rate_fake": 0.1716
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1567,
+   "miss_rate_fake": 0.1716
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_face2face",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1567,
+   "miss_rate_fake": 0.1926
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1567,
+   "miss_rate_fake": 0.1926
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_faceswap",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1567,
+   "miss_rate_fake": 0.1259
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1567,
+   "miss_rate_fake": 0.1259
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c23_neuraltextures",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2256,
+   "miss_rate_fake": 0.3282
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2256,
+   "miss_rate_fake": 0.3282
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0153
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_deepfakes",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2256,
+   "miss_rate_fake": 0.2612
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2256,
+   "miss_rate_fake": 0.2612
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0075
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_face2face",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2256,
+   "miss_rate_fake": 0.2985
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2256,
+   "miss_rate_fake": 0.2985
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0075
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_faceswap",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2256,
+   "miss_rate_fake": 0.2164
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2256,
+   "miss_rate_fake": 0.2164
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.0075,
+   "miss_rate_fake": 0.0373
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "FFpp_c40_neuraltextures",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.208,
+   "miss_rate_fake": 0.1527
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.208,
+   "miss_rate_fake": 0.1527
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0063,
+   "miss_rate_fake": 0.0004
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "CelebDF_v2",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_benford_dev",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_block_artifact",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_blur_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_dbl_compress",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_face_bg_diff",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_flow_dir_consist",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_flow_mag",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_noise_hf_ratio",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_noise_res_std",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_noise_vmr",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_prnu_energy",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_prnu_face_periph",
+   "family": "background_dependent",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "s_shadow_score",
+   "family": "spatial_other",
+   "miss_rate_real": 0.0,
+   "miss_rate_fake": 0.0
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_blink_duration",
+   "family": "temporal_other",
+   "miss_rate_real": 0.7636,
+   "miss_rate_fake": 0.5797
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_blink_rate",
+   "family": "temporal_other",
+   "miss_rate_real": 0.9091,
+   "miss_rate_fake": 0.8261
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_blink_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_boundary_color_disc",
+   "family": "background_dependent",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_boundary_freq_leakage",
+   "family": "background_dependent",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_boundary_grad_temporal",
+   "family": "background_dependent",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_coupling_consistency",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_dct_temporal_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_dct_temporal_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_face_ssim_mean",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_face_ssim_min",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_face_ssim_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_interpupillary_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2364,
+   "miss_rate_fake": 0.2029
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_jaw_chin_rigidity",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2364,
+   "miss_rate_fake": 0.2029
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_landmark_accel_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2364,
+   "miss_rate_fake": 0.2029
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_landmark_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2364,
+   "miss_rate_fake": 0.2029
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_landmark_velocity_autocorr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2364,
+   "miss_rate_fake": 0.2029
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_motion_blur_coupling",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_noise_corr_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_noise_spectral_entropy",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2182,
+   "miss_rate_fake": 0.1884
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_noise_temporal_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_nose_bridge_std",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2364,
+   "miss_rate_fake": 0.2029
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_prnu_face_vs_bg",
+   "family": "background_dependent",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_prnu_temporal_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_residual_entropy",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_residual_flow_corr",
+   "family": "codec_dependent",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_rigid_dist_var",
+   "family": "temporal_other",
+   "miss_rate_real": 0.2364,
+   "miss_rate_fake": 0.2029
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_rppg_harmonic_ratio",
+   "family": "rppg",
+   "miss_rate_real": 0.9091,
+   "miss_rate_fake": 0.9275
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_rppg_interregion_corr",
+   "family": "rppg",
+   "miss_rate_real": 0.9091,
+   "miss_rate_fake": 0.8551
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_rppg_peak_prominence",
+   "family": "rppg",
+   "miss_rate_real": 0.9091,
+   "miss_rate_fake": 0.8551
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_rppg_snr",
+   "family": "rppg",
+   "miss_rate_real": 0.9091,
+   "miss_rate_fake": 0.8551
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_skin_bg_decorrelation",
+   "family": "background_dependent",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_skin_color_jitter",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_skin_texture_corr",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_specular_stability",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_specular_symmetry",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  },
+  {
+   "dataset": "WildDeepfake",
+   "descriptor": "t_texture_warp_residual",
+   "family": "temporal_other",
+   "miss_rate_real": 0.1636,
+   "miss_rate_fake": 0.1739
+  }
+ ],
+ "summary_1_4d": {
+  "flagged_datasets": [
+   "WildDeepfake_zeroshot"
+  ],
+  "celebdf_blocking_condition_triggered": false
+ }
+}

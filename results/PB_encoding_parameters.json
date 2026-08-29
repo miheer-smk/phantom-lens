@@ -1,0 +1,175 @@
+{
+ "generated_utc": "2026-08-28T13:15:56Z",
+ "method": "OpenCV container probe; ffprobe unavailable on this host so chroma subsampling and GOP are NOT recoverable and are reported as such",
+ "n_sampled_per_source": 30,
+ "sources": {
+  "REAL FF++ c23 pristine": {
+   "n_sampled": 30,
+   "fourcc": [
+    "h264"
+   ],
+   "fps": [
+    24.0,
+    25.0,
+    30.0
+   ],
+   "n_resolutions": 8,
+   "kbps": {
+    "median": 514.5,
+    "p10": 312.8,
+    "p90": 1040.4
+   },
+   "bits_per_pixel": {
+    "median": 0.0466,
+    "p10": 0.0264,
+    "p90": 0.0823
+   }
+  },
+  "REAL Celeb-DF authentic": {
+   "n_sampled": 30,
+   "fourcc": [
+    "FMP4"
+   ],
+   "fps": [
+    30.0
+   ],
+   "n_resolutions": 12,
+   "kbps": {
+    "median": 1146.8,
+    "p10": 898.0,
+    "p90": 1687.2
+   },
+   "bits_per_pixel": {
+    "median": 0.0812,
+    "p10": 0.0675,
+    "p90": 0.1198
+   }
+  },
+  "FAKE DF40 inswap/ff": {
+   "n_sampled": 30,
+   "fourcc": [
+    "h264"
+   ],
+   "fps": [
+    24.0,
+    25.0,
+    30.0
+   ],
+   "n_resolutions": 6,
+   "kbps": {
+    "median": 863.7,
+    "p10": 522.4,
+    "p90": 3301.5
+   },
+   "bits_per_pixel": {
+    "median": 0.0688,
+    "p10": 0.0527,
+    "p90": 0.0961
+   }
+  },
+  "FAKE DF40 inswap/cdf": {
+   "n_sampled": 30,
+   "fourcc": [
+    "h264"
+   ],
+   "fps": [
+    30.0
+   ],
+   "n_resolutions": 8,
+   "kbps": {
+    "median": 1007.5,
+    "p10": 842.1,
+    "p90": 1595.7
+   },
+   "bits_per_pixel": {
+    "median": 0.0733,
+    "p10": 0.0595,
+    "p90": 0.1122
+   }
+  },
+  "FAKE DF40 sadtalker/ff": {
+   "n_sampled": 30,
+   "fourcc": [
+    "FMP4"
+   ],
+   "fps": [
+    25.0
+   ],
+   "n_resolutions": 7,
+   "kbps": {
+    "median": 829.5,
+    "p10": 498.8,
+    "p90": 1591.8
+   },
+   "bits_per_pixel": {
+    "median": 0.0726,
+    "p10": 0.0443,
+    "p90": 0.1135
+   }
+  },
+  "FAKE DF40 wav2lip/ff": {
+   "n_sampled": 30,
+   "fourcc": [
+    "h264"
+   ],
+   "fps": [
+    24.0,
+    25.0,
+    30.0
+   ],
+   "n_resolutions": 7,
+   "kbps": {
+    "median": 2790.9,
+    "p10": 1862.9,
+    "p90": 9529.0
+   },
+   "bits_per_pixel": {
+    "median": 0.2581,
+    "p10": 0.1931,
+    "p90": 0.3504
+   }
+  },
+  "FAKE DF40 facedancer/cdf": {
+   "n_sampled": 30,
+   "fourcc": [
+    "FMP4"
+   ],
+   "fps": [
+    30.0
+   ],
+   "n_resolutions": 1,
+   "kbps": {
+    "median": 446.0,
+    "p10": 416.3,
+    "p90": 543.3
+   },
+   "bits_per_pixel": {
+    "median": 0.0567,
+    "p10": 0.0529,
+    "p90": 0.0691
+   }
+  },
+  "FAKE FF++ Deepfakes c23": {
+   "n_sampled": 30,
+   "fourcc": [
+    "h264"
+   ],
+   "fps": [
+    24.0,
+    25.0,
+    30.0
+   ],
+   "n_resolutions": 8,
+   "kbps": {
+    "median": 515.6,
+    "p10": 314.7,
+    "p90": 1044.5
+   },
+   "bits_per_pixel": {
+    "median": 0.0456,
+    "p10": 0.026,
+    "p90": 0.0814
+   }
+  }
+ }
+}

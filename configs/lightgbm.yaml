@@ -1,0 +1,38 @@
+# PRISM-50 frozen LightGBM classifier configuration.
+#
+# SOURCE OF TRUTH for every phase. Do not edit to chase a number.
+# Generated from manifest/published_values.json -> protocol.lightgbm.
+#
+# Provenance: these are the parameters actually set by the authoritative producing
+# scripts (legacy/phantomlens/Major Revision Results/00_logs/baseline_clean.py:41 and
+# exp5_runtime.py:70,76). The manuscript Sec.2 text omits max_depth and random_state
+# -- see DEFECT-005. Reproducing from the manuscript text alone yields different trees.
+
+classifier: lightgbm.LGBMClassifier
+
+params:
+  n_estimators: 200
+  learning_rate: 0.05
+  num_leaves: 31
+  min_child_samples: 20
+  max_depth: 6            # DEFECT-005: omitted from manuscript Sec.2, materially binding
+  class_weight: balanced
+  random_state: 42        # DEFECT-005: omitted from manuscript Sec.2
+  verbose: -1
+  n_jobs: -1              # NOTE: Table 18 profiling used n_jobs=1 (timing isolation)
+
+# Non-parameter protocol elements that are equally load-bearing
+pipeline:
+  feature_order: alphabetical    # fc = sorted([c for c in cols if c[:2] in ("s_","t_")])
+                                 # CSV column order is NOT the model's feature order.
+  n_features: 50
+  scaler: sklearn.preprocessing.StandardScaler
+  scaler_fit_on: train_partition_only
+  imputation: train_partition_median_only     # M1 leak-free imputer, src/leakfree.py
+  zero_shot_imputation: pooled_ffpp_train_median   # target domain never contributes
+
+evidence_max_depth_is_binding:
+  measured: 2026-08-27, Table 18 all-50 profiling model, identical data, one parameter varied
+  max_depth_6:    {total_leaves: 5579, serialised_kb: 613.5}
+  max_depth_unset: {total_leaves: 6200, serialised_kb: 678.2}
+  published_table18_all50_kb: 611.2   # reproduces bit-exactly only with max_depth: 6

@@ -1,0 +1,77 @@
+{
+ "generated_utc": "2026-08-28T22:26:56Z",
+ "model": "LSDA (CVPR 2024), DeepfakeBench",
+ "weights": "<LOGS>/training/lsda_2026-08-28-06-55-12/test/avg/ckpt_best.pth",
+ "aggregation": "p_V = (1/m) sum_t p_t - IDENTICAL to Xception and LAA-Net",
+ "per_manipulation": {
+  "deepfakes": {
+   "auc": 0.9947,
+   "grouped_ci": [
+    0.9896,
+    0.9984
+   ],
+   "macro_f1": 0.9173,
+   "mcc": 0.8472,
+   "n": 280,
+   "n_real": 140,
+   "n_fake": 140,
+   "n_groups": 140
+  },
+  "face2face": {
+   "auc": 0.9906,
+   "grouped_ci": [
+    0.9828,
+    0.9964
+   ],
+   "macro_f1": 0.9102,
+   "mcc": 0.8308,
+   "n": 280,
+   "n_real": 140,
+   "n_fake": 140,
+   "n_groups": 140
+  },
+  "faceswap": {
+   "auc": 0.991,
+   "grouped_ci": [
+    0.9838,
+    0.9968
+   ],
+   "macro_f1": 0.9102,
+   "mcc": 0.8308,
+   "n": 280,
+   "n_real": 140,
+   "n_fake": 140,
+   "n_groups": 140
+  },
+  "neuraltextures": {
+   "auc": 0.9666,
+   "grouped_ci": [
+    0.9473,
+    0.9832
+   ],
+   "macro_f1": 0.8925,
+   "mcc": 0.7909,
+   "n": 280,
+   "n_real": 140,
+   "n_fake": 140,
+   "n_groups": 140
+  }
+ },
+ "celebdf_zeroshot": {
+  "n_items_without_frames": 2,
+  "n_duplicate_listings_removed": 12756,
+  "population": "full Celeb-DF v2 release, deduplicated by video id (DEV-008): NOT the official 518-video test list, so NOT comparable with published benchmarks",
+  "auc": 0.863,
+  "grouped_ci": [
+   0.8375,
+   0.8829
+  ],
+  "macro_f1": 0.7085,
+  "mcc": 0.4272,
+  "n": 6527,
+  "n_real": 888,
+  "n_fake": 5639,
+  "n_groups": 60
+ },
+ "weights_note": "path relativised for release; the run directory name is retained so the checkpoint remains identifiable"
+}

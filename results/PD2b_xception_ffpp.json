@@ -1,0 +1,75 @@
+{
+  "generated_utc": "2026-08-29T06:59:30Z",
+  "seed": 42,
+  "protocol": "Xception re-scored crops with ImageNet normalisation (the constants the checkpoint was trained with); video aggregation p_V = (1/m) sum_t p_t; identity-disjoint FF++ test partition",
+  "source_file": "results/xception_per_video_scores.csv",
+  "source_sha256": "614d8c7c46f18d99",
+  "git_commit": "ff69192",
+  "per_manipulation": {
+    "deepfakes": {
+      "auc": 0.9939,
+      "grouped_ci": [
+        0.9813,
+        1.0
+      ],
+      "published": 0.9939,
+      "delta": 0.0,
+      "macro_f1": 0.9781,
+      "mcc": 0.9563,
+      "n": 274,
+      "n_real": 137,
+      "n_fake": 137,
+      "n_groups": 137,
+      "reproduces": true
+    },
+    "face2face": {
+      "auc": 0.9943,
+      "grouped_ci": [
+        0.9846,
+        0.9997
+      ],
+      "published": 0.9943,
+      "delta": -0.0,
+      "macro_f1": 0.9707,
+      "mcc": 0.9414,
+      "n": 273,
+      "n_real": 137,
+      "n_fake": 136,
+      "n_groups": 137,
+      "reproduces": true
+    },
+    "faceswap": {
+      "auc": 0.9937,
+      "grouped_ci": [
+        0.9808,
+        1.0
+      ],
+      "published": 0.9937,
+      "delta": -0.0,
+      "macro_f1": 0.9781,
+      "mcc": 0.9563,
+      "n": 274,
+      "n_real": 137,
+      "n_fake": 137,
+      "n_groups": 137,
+      "reproduces": true
+    },
+    "neuraltextures": {
+      "auc": 0.9772,
+      "grouped_ci": [
+        0.9566,
+        0.9934
+      ],
+      "published": 0.9772,
+      "delta": 0.0,
+      "macro_f1": 0.9525,
+      "mcc": 0.9057,
+      "n": 274,
+      "n_real": 137,
+      "n_fake": 137,
+      "n_groups": 137,
+      "reproduces": true
+    }
+  },
+  "n_reproducing": 4
+}

@@ -1,0 +1,299 @@
+{
+ "phase": "P3",
+ "generated_utc": "2026-08-28T07:15:25Z",
+ "n_bootstrap": 2000,
+ "seed": 42,
+ "method": "cluster bootstrap over source identities; duplicated groups REPLICATE their rows",
+ "rows": [
+  {
+   "row": "Table7 deepfakes",
+   "n": 267,
+   "n_groups": 137,
+   "point_auc": 0.970598,
+   "iid_ci": [
+    0.9539,
+    0.9845
+   ],
+   "iid_width": 0.0306,
+   "grouped_ci": [
+    0.9532,
+    0.9851
+   ],
+   "grouped_width": 0.0318,
+   "width_ratio_grouped_over_iid": 1.039,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "FF++ source video id",
+   "published_ci": [
+    0.9539,
+    0.9845
+   ],
+   "point_matches_published": null
+  },
+  {
+   "row": "Table7 face2face",
+   "n": 268,
+   "n_groups": 137,
+   "point_auc": 0.80959,
+   "iid_ci": [
+    0.7576,
+    0.858
+   ],
+   "iid_width": 0.1004,
+   "grouped_ci": [
+    0.7598,
+    0.8571
+   ],
+   "grouped_width": 0.0972,
+   "width_ratio_grouped_over_iid": 0.968,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "FF++ source video id",
+   "published_ci": [
+    0.7576,
+    0.858
+   ],
+   "point_matches_published": null
+  },
+  {
+   "row": "Table7 faceswap",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.963129,
+   "iid_ci": [
+    0.9416,
+    0.9799
+   ],
+   "iid_width": 0.0384,
+   "grouped_ci": [
+    0.9418,
+    0.9807
+   ],
+   "grouped_width": 0.0389,
+   "width_ratio_grouped_over_iid": 1.015,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "FF++ source video id",
+   "published_ci": [
+    0.9416,
+    0.9799
+   ],
+   "point_matches_published": null
+  },
+  {
+   "row": "Table7 neuraltextures",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.786733,
+   "iid_ci": [
+    0.7306,
+    0.8372
+   ],
+   "iid_width": 0.1067,
+   "grouped_ci": [
+    0.7353,
+    0.8357
+   ],
+   "grouped_width": 0.1004,
+   "width_ratio_grouped_over_iid": 0.942,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "FF++ source video id",
+   "published_ci": [
+    0.7306,
+    0.8372
+   ],
+   "point_matches_published": null
+  },
+  {
+   "row": "Table8 LOMO deepfakes",
+   "n": 267,
+   "n_groups": 137,
+   "point_auc": 0.703905,
+   "iid_ci": [
+    0.644,
+    0.7653
+   ],
+   "iid_width": 0.1213,
+   "grouped_ci": [
+    0.6494,
+    0.7573
+   ],
+   "grouped_width": 0.1078,
+   "width_ratio_grouped_over_iid": 0.889,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "FF++ source video id",
+   "published_ci": null
+  },
+  {
+   "row": "Table8 LOMO face2face",
+   "n": 268,
+   "n_groups": 137,
+   "point_auc": 0.690354,
+   "iid_ci": [
+    0.6243,
+    0.7545
+   ],
+   "iid_width": 0.1302,
+   "grouped_ci": [
+    0.6438,
+    0.742
+   ],
+   "grouped_width": 0.0982,
+   "width_ratio_grouped_over_iid": 0.754,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "FF++ source video id",
+   "published_ci": null
+  },
+  {
+   "row": "Table8 LOMO faceswap",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.597789,
+   "iid_ci": [
+    0.531,
+    0.6659
+   ],
+   "iid_width": 0.1349,
+   "grouped_ci": [
+    0.5352,
+    0.6642
+   ],
+   "grouped_width": 0.129,
+   "width_ratio_grouped_over_iid": 0.957,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "FF++ source video id",
+   "published_ci": null
+  },
+  {
+   "row": "Table8 LOMO neuraltextures",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.522112,
+   "iid_ci": [
+    0.4554,
+    0.5919
+   ],
+   "iid_width": 0.1365,
+   "grouped_ci": [
+    0.4657,
+    0.5803
+   ],
+   "grouped_width": 0.1145,
+   "width_ratio_grouped_over_iid": 0.839,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "FF++ source video id",
+   "published_ci": null
+  },
+  {
+   "row": "Table13 CelebDF (grouped on idN)",
+   "n": 6121,
+   "n_groups": 60,
+   "point_auc": 0.632194,
+   "iid_ci": [
+    0.6125,
+    0.6537
+   ],
+   "iid_width": 0.0412,
+   "grouped_ci": [
+    0.608,
+    0.6538
+   ],
+   "grouped_width": 0.0458,
+   "width_ratio_grouped_over_iid": 1.113,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "celeb_identity",
+   "grouping_note": "Celeb-DF subject id idN; YouTube-real has no subject id and forms one coarse group - this is the coarsest defensible grouping, reported alongside the i.i.d. interval",
+   "published_ci": [
+    0.6125,
+    0.6537
+   ],
+   "point_matches_published": null
+  },
+  {
+   "row": "Table15 WildDeepfake PRISM-53",
+   "n": 124,
+   "n_groups": 2,
+   "point_auc": 0.521212,
+   "iid_ci": [
+    0.4139,
+    0.6297
+   ],
+   "iid_width": 0.2158,
+   "grouped_ci": [
+    0.1091,
+    0.5212
+   ],
+   "grouped_width": 0.4121,
+   "width_ratio_grouped_over_iid": 1.91,
+   "skipped_resamples_grouped": 498,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "sequence id; NOTE per DEFECT-006 the manuscript reports NO CI for WildDeepfake - this row exists only to show what the grouping would give",
+   "published_ci": [
+    0.4139,
+    0.6297
+   ],
+   "point_matches_published": null
+  },
+  {
+   "row": "Table19 Xception FF++",
+   "n": 684,
+   "n_groups": 137,
+   "point_auc": 0.989772,
+   "iid_ci": [
+    0.9827,
+    0.9955
+   ],
+   "iid_width": 0.0128,
+   "grouped_ci": [
+    0.981,
+    0.9966
+   ],
+   "grouped_width": 0.0156,
+   "width_ratio_grouped_over_iid": 1.22,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "FF++ source video id",
+   "published_ci": null
+  },
+  {
+   "row": "Table19 Xception CelebDF",
+   "n": 6487,
+   "n_groups": 350,
+   "point_auc": 0.820721,
+   "iid_ci": [
+    0.8058,
+    0.8342
+   ],
+   "iid_width": 0.0284,
+   "grouped_ci": [
+    0.7886,
+    0.8473
+   ],
+   "grouped_width": 0.0587,
+   "width_ratio_grouped_over_iid": 2.069,
+   "skipped_resamples_grouped": 0,
+   "skipped_resamples_iid": 0,
+   "grouping": "source_id",
+   "grouping_note": "anonymised sequential id - see DEFECT-002; grouping is degenerate (1 row/group)",
+   "published_ci": null
+  }
+ ],
+ "n_wider": 6,
+ "n_narrower": 6
+}

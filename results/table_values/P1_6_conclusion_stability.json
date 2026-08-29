@@ -1,0 +1,117 @@
+{
+ "phase": "P1.6_stability",
+ "generated_utc": "2026-08-27T17:59:07Z",
+ "n_checks": 51,
+ "n_reversals": 9,
+ "reversals": [
+  {
+   "kind": "delong_significance",
+   "item": "full50_vs_top10[face2face]",
+   "old": "z=3.105 p_holm=0.0114 sig",
+   "new": "z=1.358 p_holm=0.523 n.s."
+  },
+  {
+   "kind": "delong_significance",
+   "item": "full50_vs_top10[faceswap]",
+   "old": "z=3.257 p_holm=0.0079 sig",
+   "new": "z=1.673 p_holm=0.377 n.s."
+  },
+  {
+   "kind": "delong_significance",
+   "item": "full50_vs_top10[neuraltextures]",
+   "old": "z=2.626 p_holm=0.0259 sig",
+   "new": "z=1.064 p_holm=0.523 n.s."
+  },
+  {
+   "kind": "delong_significance",
+   "item": "c23_vs_c40[neuraltextures]",
+   "old": "z=2.990 p_holm=0.014 sig",
+   "new": "z=2.013 p_holm=0.265 n.s."
+  },
+  {
+   "kind": "rppg_ordering",
+   "item": "by overall AUC",
+   "old": "['POS', 'current(POS+CHROM)', 'CHROM']",
+   "new": "['POS', 'CHROM', 'current(POS+CHROM)']"
+  },
+  {
+   "kind": "rppg_strata_sign",
+   "item": "current(POS+CHROM) c23-c40",
+   "old": "+0.0012",
+   "new": "-0.0267"
+  },
+  {
+   "kind": "rppg_strata_sign",
+   "item": "current(POS+CHROM) low_illum-high_illum",
+   "old": "-0.0134",
+   "new": "+0.0057"
+  },
+  {
+   "kind": "rppg_above_chance",
+   "item": "CHROM",
+   "old": "0.4663 (<=0.5)",
+   "new": "0.5021 (>0.5)"
+  },
+  {
+   "kind": "ablation_sign",
+   "item": "redundancy dedup48 vs full50 [neuraltextures]",
+   "old": "-0.0084",
+   "new": "+0.0099"
+  }
+ ],
+ "n_stable": 42,
+ "delong_reversal_detail": [
+  {
+   "comparison": "full50_vs_top10[face2face]",
+   "auc_full_old": 0.8255,
+   "auc_sub_old": 0.7594,
+   "auc_diff_old": 0.0662,
+   "auc_full_new": 0.8096,
+   "auc_sub_new": 0.7844,
+   "auc_diff_new": 0.0252,
+   "z_old": 3.105,
+   "z_new": 1.358,
+   "p_holm_old": 0.0114,
+   "p_holm_new": 0.523
+  },
+  {
+   "comparison": "full50_vs_top10[faceswap]",
+   "auc_full_old": 0.9689,
+   "auc_sub_old": 0.9275,
+   "auc_diff_old": 0.0415,
+   "auc_full_new": 0.9631,
+   "auc_sub_new": 0.9493,
+   "auc_diff_new": 0.0139,
+   "z_old": 3.257,
+   "z_new": 1.673,
+   "p_holm_old": 0.0079,
+   "p_holm_new": 0.3773
+  },
+  {
+   "comparison": "full50_vs_top10[neuraltextures]",
+   "auc_full_old": 0.8039,
+   "auc_sub_old": 0.7446,
+   "auc_diff_old": 0.0593,
+   "auc_full_new": 0.7867,
+   "auc_sub_new": 0.758,
+   "auc_diff_new": 0.0287,
+   "z_old": 2.626,
+   "z_new": 1.064,
+   "p_holm_old": 0.0259,
+   "p_holm_new": 0.523
+  },
+  {
+   "comparison": "c23_vs_c40[neuraltextures]",
+   "auc_full_old": 0.8035,
+   "auc_sub_old": 0.7343,
+   "auc_diff_old": 0.0692,
+   "auc_full_new": 0.7866,
+   "auc_sub_new": 0.7386,
+   "auc_diff_new": 0.048,
+   "z_old": 2.99,
+   "z_new": 2.013,
+   "p_holm_old": 0.014,
+   "p_holm_new": 0.2645
+  }
+ ]
+}

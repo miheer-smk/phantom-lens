@@ -1,0 +1,224 @@
+{
+ "generated_utc": "2026-08-28T09:47:00Z",
+ "n_boot": 300,
+ "seed": 42,
+ "method": "cluster bootstrap over source identities; duplicated groups REPLICATE rows",
+ "rows": [
+  {
+   "model": "PRISM_50D_LOMO",
+   "manipulation": "deepfakes",
+   "n": 267,
+   "n_groups": 137,
+   "point_auc": 0.703905,
+   "iid_ci": [
+    0.6385,
+    0.7595
+   ],
+   "grouped_ci": [
+    0.6498,
+    0.7535
+   ],
+   "width_ratio": 0.857,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_50D_LOMO",
+   "manipulation": "face2face",
+   "n": 268,
+   "n_groups": 137,
+   "point_auc": 0.690354,
+   "iid_ci": [
+    0.624,
+    0.7541
+   ],
+   "grouped_ci": [
+    0.6438,
+    0.7352
+   ],
+   "width_ratio": 0.703,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_50D_LOMO",
+   "manipulation": "faceswap",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.597789,
+   "iid_ci": [
+    0.5237,
+    0.6565
+   ],
+   "grouped_ci": [
+    0.5395,
+    0.6635
+   ],
+   "width_ratio": 0.933,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_50D_LOMO",
+   "manipulation": "neuraltextures",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.522112,
+   "iid_ci": [
+    0.4427,
+    0.5782
+   ],
+   "grouped_ci": [
+    0.4617,
+    0.5755
+   ],
+   "width_ratio": 0.84,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_50D_indist",
+   "manipulation": "deepfakes",
+   "n": 267,
+   "n_groups": 137,
+   "point_auc": 0.970598,
+   "iid_ci": [
+    0.9528,
+    0.9845
+   ],
+   "grouped_ci": [
+    0.9524,
+    0.985
+   ],
+   "width_ratio": 1.029,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_50D_indist",
+   "manipulation": "face2face",
+   "n": 268,
+   "n_groups": 137,
+   "point_auc": 0.80959,
+   "iid_ci": [
+    0.7548,
+    0.8546
+   ],
+   "grouped_ci": [
+    0.7592,
+    0.8552
+   ],
+   "width_ratio": 0.961,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_50D_indist",
+   "manipulation": "faceswap",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.963129,
+   "iid_ci": [
+    0.9436,
+    0.9803
+   ],
+   "grouped_ci": [
+    0.9427,
+    0.979
+   ],
+   "width_ratio": 0.988,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_50D_indist",
+   "manipulation": "neuraltextures",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.786733,
+   "iid_ci": [
+    0.7329,
+    0.8335
+   ],
+   "grouped_ci": [
+    0.7359,
+    0.8376
+   ],
+   "width_ratio": 1.011,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_53D_indist",
+   "manipulation": "deepfakes",
+   "n": 267,
+   "n_groups": 137,
+   "point_auc": 0.977556,
+   "iid_ci": [
+    0.9633,
+    0.9895
+   ],
+   "grouped_ci": [
+    0.9616,
+    0.9901
+   ],
+   "width_ratio": 1.089,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_53D_indist",
+   "manipulation": "face2face",
+   "n": 268,
+   "n_groups": 137,
+   "point_auc": 0.874638,
+   "iid_ci": [
+    0.8309,
+    0.9098
+   ],
+   "grouped_ci": [
+    0.8331,
+    0.9074
+   ],
+   "width_ratio": 0.942,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_53D_indist",
+   "manipulation": "faceswap",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.969099,
+   "iid_ci": [
+    0.9481,
+    0.9838
+   ],
+   "grouped_ci": [
+    0.9494,
+    0.9831
+   ],
+   "width_ratio": 0.942,
+   "skipped": 0,
+   "degenerate_grouping": false
+  },
+  {
+   "model": "PRISM_53D_indist",
+   "manipulation": "neuraltextures",
+   "n": 269,
+   "n_groups": 137,
+   "point_auc": 0.904865,
+   "iid_ci": [
+    0.8687,
+    0.9394
+   ],
+   "grouped_ci": [
+    0.8664,
+    0.9364
+   ],
+   "width_ratio": 0.99,
+   "skipped": 0,
+   "degenerate_grouping": false
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+name: prism50
+channels: [conda-forge]
+dependencies:
+  - python=3.12.3
+  - pip
+  - pip:
+      - -r requirements.txt
+# For the optional deep-learning baselines, additionally:
+#   pip install -r requirements-gpu.txt --extra-index-url https://download.pytorch.org/whl/cu128

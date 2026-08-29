@@ -1,0 +1,39 @@
+{
+ "phase": "P0.4c",
+ "recipe": "exp5_runtime.py verbatim: train+val, whole-frame median impute, n_jobs=1",
+ "generated_utc": "2026-08-27T13:59:40Z",
+ "configs": [
+  {
+   "config": "top-3",
+   "published_kb": 501.9,
+   "observed_kb": 501.9,
+   "abs_delta_kb": 0.0,
+   "verdict": "PASS_EXACT",
+   "inference_ms_per_video": 0.13
+  },
+  {
+   "config": "top-10",
+   "published_kb": 585.0,
+   "observed_kb": 585.0,
+   "abs_delta_kb": 0.0,
+   "verdict": "PASS_EXACT",
+   "inference_ms_per_video": 0.133
+  },
+  {
+   "config": "top-20",
+   "published_kb": 590.1,
+   "observed_kb": 590.1,
+   "abs_delta_kb": 0.0,
+   "verdict": "PASS_EXACT",
+   "inference_ms_per_video": 0.137
+  },
+  {
+   "config": "all-50",
+   "published_kb": 611.2,
+   "observed_kb": 611.2,
+   "abs_delta_kb": 0.0,
+   "verdict": "PASS_EXACT",
+   "inference_ms_per_video": 0.149
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "phase": "P1.6_assert_unaffected",
+ "generated_utc": "2026-08-27T18:01:00Z",
+ "tolerance": 5e-05,
+ "checks": [
+  {
+   "check": "Table 7 deepfakes",
+   "expected": 0.9706,
+   "observed": 0.970598,
+   "abs_delta": 2e-06,
+   "unchanged": true
+  },
+  {
+   "check": "Table 7 face2face",
+   "expected": 0.8096,
+   "observed": 0.80959,
+   "abs_delta": 1e-05,
+   "unchanged": true
+  },
+  {
+   "check": "Table 7 faceswap",
+   "expected": 0.9631,
+   "observed": 0.963129,
+   "abs_delta": 2.9e-05,
+   "unchanged": true
+  },
+  {
+   "check": "Table 7 neuraltextures",
+   "expected": 0.7867,
+   "observed": 0.786733,
+   "abs_delta": 3.3e-05,
+   "unchanged": true
+  },
+  {
+   "check": "Table 8 LOMO deepfakes",
+   "expected": 0.7039,
+   "observed": 0.703905,
+   "abs_delta": 5e-06,
+   "unchanged": true
+  },
+  {
+   "check": "Table 8 LOMO face2face",
+   "expected": 0.6904,
+   "observed": 0.690354,
+   "abs_delta": 4.6e-05,
+   "unchanged": true
+  },
+  {
+   "check": "Table 8 LOMO faceswap",
+   "expected": 0.5978,
+   "observed": 0.597789,
+   "abs_delta": 1.1e-05,
+   "unchanged": true
+  },
+  {
+   "check": "Table 8 LOMO neuraltextures",
+   "expected": 0.5221,
+   "observed": 0.522112,
+   "abs_delta": 1.2e-05,
+   "unchanged": true
+  },
+  {
+   "check": "Table 13 CelebDF zero-shot",
+   "expected": 0.6322,
+   "observed": 0.632194,
+   "abs_delta": 6e-06,
+   "unchanged": true
+  },
+  {
+   "check": "Table 19 Xception CelebDF full",
+   "expected": 0.8207,
+   "observed": 0.820721,
+   "abs_delta": 2.1e-05,
+   "unchanged": true
+  }
+ ],
+ "n_moved": 0,
+ "moved": [],
+ "all_unaffected": true
+}

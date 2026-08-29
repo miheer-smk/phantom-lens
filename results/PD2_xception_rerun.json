@@ -1,0 +1,24 @@
+{
+ "generated_utc": "2026-08-29T07:11:52Z",
+ "aggregation": "p_V = (1/m) sum_t p_t over the sampled frames (common with PRISM)",
+ "join_key": "real video name - DEFECT-002 closed",
+ "device": "cuda",
+ "xception_celebdf_full": {
+  "auc": 0.8207,
+  "n": 6487,
+  "published": 0.8207
+ },
+ "shared_intersection": {
+  "n": 6121,
+  "n_expected": 6121,
+  "auc_xception": 0.8211,
+  "auc_prism": 0.6322,
+  "delong_z": 15.426,
+  "p_value": 0.0,
+  "published_auc_xception": 0.8211,
+  "published_auc_prism": 0.6322,
+  "published_z": 15.426,
+  "xception_matches": true,
+  "z_matches": true
+ }
+}

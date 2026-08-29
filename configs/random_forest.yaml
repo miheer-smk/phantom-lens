@@ -1,0 +1,14 @@
+# Phase 4 (R1-C6) comparison arm. Hyperparameters selected on the VALIDATION partition only.
+classifier: sklearn.ensemble.RandomForestClassifier
+fixed:
+  class_weight: balanced
+  random_state: 42
+search:
+  n_estimators: [200, 500]
+  max_depth: [null, 10, 20]
+  min_samples_leaf: [1, 2, 5]
+selection: validation partition only, by AUC
+refit_on: train partition only
+note: >-
+  18 configurations searched, versus 4 for logistic regression and 0 for LightGBM, which is
+  frozen at its published configuration. The budgets are deliberately unequal AGAINST LightGBM.

@@ -1,0 +1,11 @@
+# Phase 4 (R1-C6) comparison arm. Hyperparameters selected on the VALIDATION partition only.
+classifier: sklearn.linear_model.LogisticRegression
+fixed:
+  class_weight: balanced
+  solver: lbfgs
+  max_iter: 5000
+  random_state: 42
+search:
+  C: [0.01, 0.1, 1, 10]
+selection: validation partition only, by AUC
+refit_on: train partition only

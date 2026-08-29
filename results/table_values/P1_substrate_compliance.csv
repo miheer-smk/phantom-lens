@@ -1,0 +1,11 @@
+dataset,n,background_context_present,original_codec_intact,native_frame_rate_known,sequence_length_sufficient,fully_in_domain,mean_undefined,mean_unreliable
+Celeb-DF v2,6529,1.0,1.0,1.0,0.9998,0.9998,0.01,0.0
+DF40 facedancer,788,1.0,1.0,1.0,0.9924,0.9924,0.2,0.0
+DF40 heygen,100,0.5,0.5,0.5,1.0,0.5,0.0,9.0
+DF40 hyperreenact,781,1.0,1.0,1.0,1.0,1.0,0.0,0.0
+DF40 inswap,542,1.0,1.0,1.0,1.0,1.0,0.0,0.0
+DF40 sadtalker,802,1.0,1.0,1.0,1.0,1.0,0.0,0.0
+DF40 wav2lip,808,1.0,1.0,1.0,0.9988,0.9988,0.05,0.0
+FF++ c23,5000,1.0,1.0,1.0,1.0,1.0,0.0,0.0
+FF++ c40,5000,1.0,1.0,1.0,1.0,1.0,0.0,0.0
+WildDeepfake,174,0.0,0.0,0.0,0.2069,0.0,7.34,14.83

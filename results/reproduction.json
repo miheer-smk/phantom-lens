@@ -1,0 +1,72 @@
+{
+ "generated_utc": "2026-08-28T09:13:55Z",
+ "tolerance": 5e-05,
+ "config": {
+  "n_estimators": 200,
+  "learning_rate": 0.05,
+  "num_leaves": 31,
+  "min_child_samples": 20,
+  "max_depth": 6,
+  "class_weight": "balanced",
+  "random_state": 42,
+  "verbose": -1,
+  "n_jobs": -1
+ },
+ "checks": [
+  {
+   "check": "Table 7 deepfakes",
+   "observed": 0.970598,
+   "published": 0.9706,
+   "reproduces": true
+  },
+  {
+   "check": "Table 7 face2face",
+   "observed": 0.80959,
+   "published": 0.8096,
+   "reproduces": true
+  },
+  {
+   "check": "Table 7 faceswap",
+   "observed": 0.963129,
+   "published": 0.9631,
+   "reproduces": true
+  },
+  {
+   "check": "Table 7 neuraltextures",
+   "observed": 0.786733,
+   "published": 0.7867,
+   "reproduces": true
+  },
+  {
+   "check": "Table 8 LOMO deepfakes",
+   "observed": 0.703905,
+   "published": 0.7039,
+   "reproduces": true
+  },
+  {
+   "check": "Table 8 LOMO face2face",
+   "observed": 0.690354,
+   "published": 0.6904,
+   "reproduces": true
+  },
+  {
+   "check": "Table 8 LOMO faceswap",
+   "observed": 0.597789,
+   "published": 0.5978,
+   "reproduces": true
+  },
+  {
+   "check": "Table 8 LOMO neuraltextures",
+   "observed": 0.522112,
+   "published": 0.5221,
+   "reproduces": true
+  },
+  {
+   "check": "Table 13 CelebDF zero-shot",
+   "observed": 0.632194,
+   "published": 0.6322,
+   "reproduces": true
+  }
+ ],
+ "all_reproduce": true
+}
