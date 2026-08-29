@@ -1,0 +1,266 @@
+{
+ "generated_utc": "2026-08-28T13:15:15Z",
+ "df40_by_real_class": [
+  {
+   "method": "inswap",
+   "df40_subset": "ff",
+   "real_class": "FF++ c23 test",
+   "auc": 0.7619,
+   "grouped_ci": [
+    0.7213,
+    0.8066
+   ],
+   "n_real": 134,
+   "n_fake": 112
+  },
+  {
+   "method": "inswap",
+   "df40_subset": "ff",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.6979,
+   "grouped_ci": [
+    0.6411,
+    0.7526
+   ],
+   "n_real": 798,
+   "n_fake": 112
+  },
+  {
+   "method": "inswap",
+   "df40_subset": "cdf",
+   "real_class": "FF++ c23 test",
+   "auc": 0.819,
+   "grouped_ci": [
+    0.7727,
+    0.8635
+   ],
+   "n_real": 134,
+   "n_fake": 406
+  },
+  {
+   "method": "inswap",
+   "df40_subset": "cdf",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.7551,
+   "grouped_ci": [
+    0.7226,
+    0.7919
+   ],
+   "n_real": 798,
+   "n_fake": 406
+  },
+  {
+   "method": "facedancer",
+   "df40_subset": "ff",
+   "real_class": "FF++ c23 test",
+   "auc": 0.7057,
+   "grouped_ci": [
+    0.6678,
+    0.745
+   ],
+   "n_real": 134,
+   "n_fake": 134
+  },
+  {
+   "method": "facedancer",
+   "df40_subset": "ff",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.6258,
+   "grouped_ci": [
+    0.5676,
+    0.6814
+   ],
+   "n_real": 798,
+   "n_fake": 134
+  },
+  {
+   "method": "facedancer",
+   "df40_subset": "cdf",
+   "real_class": "FF++ c23 test",
+   "auc": 0.7496,
+   "grouped_ci": [
+    0.6995,
+    0.7977
+   ],
+   "n_real": 134,
+   "n_fake": 614
+  },
+  {
+   "method": "facedancer",
+   "df40_subset": "cdf",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.6703,
+   "grouped_ci": [
+    0.6368,
+    0.707
+   ],
+   "n_real": 798,
+   "n_fake": 614
+  },
+  {
+   "method": "wav2lip",
+   "df40_subset": "ff",
+   "real_class": "FF++ c23 test",
+   "auc": 0.5458,
+   "grouped_ci": [
+    0.5057,
+    0.5866
+   ],
+   "n_real": 134,
+   "n_fake": 134
+  },
+  {
+   "method": "wav2lip",
+   "df40_subset": "ff",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.4577,
+   "grouped_ci": [
+    0.3953,
+    0.5163
+   ],
+   "n_real": 798,
+   "n_fake": 134
+  },
+  {
+   "method": "wav2lip",
+   "df40_subset": "cdf",
+   "real_class": "FF++ c23 test",
+   "auc": 0.6973,
+   "grouped_ci": [
+    0.646,
+    0.7497
+   ],
+   "n_real": 134,
+   "n_fake": 644
+  },
+  {
+   "method": "wav2lip",
+   "df40_subset": "cdf",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.6107,
+   "grouped_ci": [
+    0.5717,
+    0.6458
+   ],
+   "n_real": 798,
+   "n_fake": 644
+  },
+  {
+   "method": "sadtalker",
+   "df40_subset": "ff",
+   "real_class": "FF++ c23 test",
+   "auc": 0.9658,
+   "grouped_ci": [
+    0.9459,
+    0.9827
+   ],
+   "n_real": 134,
+   "n_fake": 132
+  },
+  {
+   "method": "sadtalker",
+   "df40_subset": "ff",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.9524,
+   "grouped_ci": [
+    0.9368,
+    0.969
+   ],
+   "n_real": 798,
+   "n_fake": 132
+  },
+  {
+   "method": "sadtalker",
+   "df40_subset": "cdf",
+   "real_class": "FF++ c23 test",
+   "auc": 0.9812,
+   "grouped_ci": [
+    0.9675,
+    0.993
+   ],
+   "n_real": 134,
+   "n_fake": 653
+  },
+  {
+   "method": "sadtalker",
+   "df40_subset": "cdf",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.9731,
+   "grouped_ci": [
+    0.9665,
+    0.9835
+   ],
+   "n_real": 798,
+   "n_fake": 653
+  },
+  {
+   "method": "hyperreenact",
+   "df40_subset": "ff",
+   "real_class": "FF++ c23 test",
+   "auc": 0.9043,
+   "grouped_ci": [
+    0.8671,
+    0.9404
+   ],
+   "n_real": 134,
+   "n_fake": 140
+  },
+  {
+   "method": "hyperreenact",
+   "df40_subset": "ff",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.868,
+   "grouped_ci": [
+    0.839,
+    0.9011
+   ],
+   "n_real": 798,
+   "n_fake": 140
+  },
+  {
+   "method": "hyperreenact",
+   "df40_subset": "cdf",
+   "real_class": "FF++ c23 test",
+   "auc": 0.8961,
+   "grouped_ci": [
+    0.8577,
+    0.9308
+   ],
+   "n_real": 134,
+   "n_fake": 641
+  },
+  {
+   "method": "hyperreenact",
+   "df40_subset": "cdf",
+   "real_class": "Celeb-DF v2",
+   "auc": 0.8575,
+   "grouped_ci": [
+    0.8368,
+    0.8879
+   ],
+   "n_real": 798,
+   "n_fake": 641
+  }
+ ],
+ "mean_delta_ff_minus_cdf": 0.0558,
+ "phase10_family_shift": {
+  "acquisition-sensitive": 0.6432,
+  "manipulation-sensitive": 0.4749,
+  "other": 0.4095
+ },
+ "acquisition_families": [
+  "PRNU residual",
+  "codec/compression",
+  "noise statistics",
+  "skin texture",
+  "structural/frequency"
+ ],
+ "manipulation_families": [
+  "blink dynamics",
+  "boundary/background",
+  "landmark geometry",
+  "motion/flow",
+  "rPPG physiological",
+  "specular"
+ ]
+}

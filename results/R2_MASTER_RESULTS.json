@@ -1,7 +1,7 @@
 {
  "_meta": {
-  "generated_utc": "2026-08-29T12:31:15Z",
-  "git_commit": "115cc9e",
+  "generated_utc": "2026-08-29T13:04:00Z",
+  "git_commit": "21d6bea",
   "config_hash": "934ecb587a135601",
   "seed": 42,
   "lightgbm_config": {
@@ -24,8 +24,8 @@
    "source_file": "results/P1_6_assert_unaffected.json",
    "source_sha256": "9374af069ccc879d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 267,
    "ci_95_grouped": [
@@ -40,8 +40,8 @@
    "source_file": "results/P1_6_assert_unaffected.json",
    "source_sha256": "9374af069ccc879d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 268,
    "ci_95_grouped": [
@@ -56,8 +56,8 @@
    "source_file": "results/P1_6_assert_unaffected.json",
    "source_sha256": "9374af069ccc879d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 269,
    "ci_95_grouped": [
@@ -72,8 +72,8 @@
    "source_file": "results/P1_6_assert_unaffected.json",
    "source_sha256": "9374af069ccc879d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 269,
    "ci_95_grouped": [
@@ -90,8 +90,8 @@
    "source_file": "results/P1_6_assert_unaffected.json",
    "source_sha256": "9374af069ccc879d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 267,
    "ci_95_grouped": [
@@ -105,8 +105,8 @@
    "source_file": "results/P1_6_assert_unaffected.json",
    "source_sha256": "9374af069ccc879d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 268,
    "ci_95_grouped": [
@@ -120,8 +120,8 @@
    "source_file": "results/P1_6_assert_unaffected.json",
    "source_sha256": "9374af069ccc879d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 269,
    "ci_95_grouped": [
@@ -135,8 +135,8 @@
    "source_file": "results/P1_6_assert_unaffected.json",
    "source_sha256": "9374af069ccc879d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 269,
    "ci_95_grouped": [
@@ -152,8 +152,8 @@
    "source_file": "results/P1_6_assert_unaffected.json",
    "source_sha256": "9374af069ccc879d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 6121,
    "ci_95_grouped": [
@@ -167,8 +167,8 @@
    "source_file": "results/P1_missingness_audit.json",
    "source_sha256": "92ea76c52beccec3",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 5137,
    "note": "robustness: AUC RISES on the 84% of videos with no missing cell, so the result is not a missingness artifact"
@@ -179,8 +179,8 @@
    "source_file": "results/P1_missingness_audit.json",
    "source_sha256": "92ea76c52beccec3",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "best control; ratio 0.837 vs PRISM - the confound does not explain the result"
   }
@@ -192,8 +192,8 @@
    "source_file": "results/P1_celebdf_reconciliation.md",
    "source_sha256": "bf33fa28b25713bc",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "CORRECTED from 806, which was a retired pipeline's OUTPUT count"
   },
@@ -203,8 +203,8 @@
    "source_file": "results/P1_celebdf_reconciliation.md",
    "source_sha256": "bf33fa28b25713bc",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42
   },
   "authentic_excluded": {
@@ -213,8 +213,8 @@
    "source_file": "results/P1_celebdf_reconciliation.md",
    "source_sha256": "bf33fa28b25713bc",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "CORRECTED from 8"
   },
@@ -224,8 +224,8 @@
    "source_file": "results/P1_celebdf_reconciliation.md",
    "source_sha256": "bf33fa28b25713bc",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "CORRECTED from 5323"
   },
@@ -235,8 +235,8 @@
    "source_file": "results/P1_celebdf_reconciliation.md",
    "source_sha256": "bf33fa28b25713bc",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42
   },
   "manipulated_excluded": {
@@ -245,8 +245,8 @@
    "source_file": "results/P1_celebdf_reconciliation.md",
    "source_sha256": "bf33fa28b25713bc",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "CORRECTED from 0"
   },
@@ -256,8 +256,8 @@
    "source_file": "results/P1_celebdf_reconciliation.md",
    "source_sha256": "bf33fa28b25713bc",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "CORRECTED from 8"
   },
@@ -267,8 +267,8 @@
    "source_file": "results/P1_celebdf_reconciliation.md",
    "source_sha256": "bf33fa28b25713bc",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "evaluation covers the FULL release, not the 518-video test split"
   },
@@ -278,8 +278,8 @@
    "source_file": "results/P1_celebdf_reconciliation.md",
    "source_sha256": "bf33fa28b25713bc",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "253 of 300 retained"
   }
@@ -293,8 +293,8 @@
    "source_file": "results/P1_defect001_change_table.csv",
    "source_sha256": "c8965a4cc24aadda",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "attach VERBATIM to the response letter - Tables 5 and 18 contain previously reported values"
   },
@@ -304,8 +304,8 @@
    "source_file": "results/P1_6_conclusion_stability.json",
    "source_sha256": "b5a5a4e97036114a",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "9 of 51 checks. The consequential ones: four DeLong SIG->NS flips, so full-50 is NO LONGER significantly better than a top-10 subset on face2face/faceswap/neuraltextures"
   }
@@ -323,8 +323,8 @@
    "source_file": "results/P2_attrition.json",
    "source_sha256": "055f1b0401e96987",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42
   },
   "DF40": {
@@ -339,8 +339,8 @@
    "source_file": "results/P2_attrition.json",
    "source_sha256": "055f1b0401e96987",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42
   },
   "FFpp": {
@@ -355,8 +355,8 @@
    "source_file": "results/P2_attrition.json",
    "source_sha256": "055f1b0401e96987",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42
   },
   "WildDeepfake": {
@@ -371,8 +371,8 @@
    "source_file": "results/P2_attrition.json",
    "source_sha256": "055f1b0401e96987",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42
   },
   "named_mechanism": {
@@ -386,8 +386,8 @@
    "source_file": "results/P2_exclusion_mechanisms.json",
    "source_sha256": "a926cac3b098881d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "85% of all computation-failure exclusions trace to ONE descriptor, observed not inferred"
   }
@@ -401,8 +401,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 267,
      "ci_95_grouped": [
@@ -416,8 +416,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 267,
      "ci_95_grouped": [
@@ -431,8 +431,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 267,
      "ci_95_grouped": [
@@ -448,8 +448,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 268,
      "ci_95_grouped": [
@@ -463,8 +463,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 268,
      "ci_95_grouped": [
@@ -478,8 +478,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 268,
      "ci_95_grouped": [
@@ -495,8 +495,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 269,
      "ci_95_grouped": [
@@ -510,8 +510,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 269,
      "ci_95_grouped": [
@@ -525,8 +525,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 269,
      "ci_95_grouped": [
@@ -542,8 +542,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 269,
      "ci_95_grouped": [
@@ -557,8 +557,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 269,
      "ci_95_grouped": [
@@ -572,8 +572,8 @@
      "source_file": "results/P4_classifier_comparison.json",
      "source_sha256": "c132a81add6d6991",
      "config_hash": "934ecb587a135601",
-     "commit": "115cc9e",
-     "generated_utc": "2026-08-29T12:31:15Z",
+     "commit": "21d6bea",
+     "generated_utc": "2026-08-29T13:04:00Z",
      "seed": 42,
      "n": 269,
      "ci_95_grouped": [
@@ -590,8 +590,8 @@
     "source_file": "results/P4_classifier_comparison.json",
     "source_sha256": "c132a81add6d6991",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 6121,
     "ci_95_grouped": [
@@ -605,8 +605,8 @@
     "source_file": "results/P4_classifier_comparison.json",
     "source_sha256": "c132a81add6d6991",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 6121,
     "ci_95_grouped": [
@@ -620,8 +620,8 @@
     "source_file": "results/P4_classifier_comparison.json",
     "source_sha256": "c132a81add6d6991",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 6121,
     "ci_95_grouped": [
@@ -637,8 +637,8 @@
     "source_file": "results/P4_classifier_comparison.json",
     "source_sha256": "c132a81add6d6991",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 4,
     "note": "unweighted mean of the four in-distribution FF++ video-level AUCs. ORDERING IS NOT A TEST RESULT: of the five paired DeLong comparisons, 3 are practically equivalent under the pre-declared +/-0.02 margin, 2 are underpowered, 0 are significant"
@@ -649,8 +649,8 @@
     "source_file": "results/P4_classifier_comparison.json",
     "source_sha256": "c132a81add6d6991",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 4,
     "note": "unweighted mean of the four in-distribution FF++ video-level AUCs. ORDERING IS NOT A TEST RESULT: of the five paired DeLong comparisons, 3 are practically equivalent under the pre-declared +/-0.02 margin, 2 are underpowered, 0 are significant"
@@ -661,8 +661,8 @@
     "source_file": "results/P4_classifier_comparison.json",
     "source_sha256": "c132a81add6d6991",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 4,
     "note": "unweighted mean of the four in-distribution FF++ video-level AUCs. ORDERING IS NOT A TEST RESULT: of the five paired DeLong comparisons, 3 are practically equivalent under the pre-declared +/-0.02 margin, 2 are underpowered, 0 are significant"
@@ -674,8 +674,8 @@
    "source_file": "results/P4_rf_vs_lgbm_delong.json",
    "source_sha256": "5a39928ffe8bc988",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "RF nominally wins 3/5 but NO paired DeLong difference is significant (all p_holm >= 0.306); RF searched 18 configs, LightGBM 0; LightGBM wins macro-F1 and MCC on the headline zero-shot"
   }
@@ -687,8 +687,8 @@
    "source_file": "results/P5_wilddeepfake.json",
    "source_sha256": "57fbf0fa9fd1cdd5",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 124,
    "note": "BELOW CHANCE. Reported as a non-evaluability finding, NOT a generalization measurement"
@@ -698,8 +698,8 @@
    "status": "UNAVAILABLE",
    "reason": "deliberately not reported: controls exceed the measurement, ZERO of 124 sequences yield a complete valid descriptor vector, and the available grouping is degenerate (2 clusters). A CI would imply a precision the measurement does not have.",
    "source_file": "results/P5_wilddeepfake.json",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z"
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z"
   },
   "controls": {
    "value": {
@@ -714,8 +714,8 @@
    "source_file": "results/P5_wilddeepfake.json",
    "source_sha256": "57fbf0fa9fd1cdd5",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42
   },
   "descriptor_availability_pct": {
@@ -724,8 +724,8 @@
    "source_file": "results/P5_wdf_descriptor_availability.csv",
    "source_sha256": "3a870d9e7463e6a2",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "12 of 50 descriptors NEVER validly computed; 0 of 124 sequences complete"
   },
@@ -735,8 +735,8 @@
    "source_file": "results/P0_reproduction_gate.json",
    "source_sha256": "5f9d88ae58404368",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 124,
    "note": "moves to supplementary with identical caveats and controls"
@@ -750,8 +750,8 @@
     "source_file": "results/P6_df40_eval.json",
     "source_sha256": "a18ac1edb5442d20",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 1450,
     "ci_95_grouped": [
@@ -765,8 +765,8 @@
     "source_file": "results/P6_df40_eval.json",
     "source_sha256": "a18ac1edb5442d20",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 1680,
     "ci_95_grouped": [
@@ -780,8 +780,8 @@
     "source_file": "results/P6_df40_eval.json",
     "source_sha256": "a18ac1edb5442d20",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 1710,
     "ci_95_grouped": [
@@ -795,8 +795,8 @@
     "source_file": "results/P6_df40_eval.json",
     "source_sha256": "a18ac1edb5442d20",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 1717,
     "ci_95_grouped": [
@@ -810,8 +810,8 @@
     "source_file": "results/P6_df40_eval.json",
     "source_sha256": "a18ac1edb5442d20",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "n": 1713,
     "ci_95_grouped": [
@@ -826,8 +826,8 @@
    "source_file": "results/P6_df40_eval.json",
    "source_sha256": "a18ac1edb5442d20",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "five video-native methods; sd 0.1491, range 0.5969-0.9709. MUST NOT be quoted alone - Wav2Lip at 0.597 is near chance and is the most operationally relevant attack"
   },
@@ -836,8 +836,8 @@
    "status": "UNAVAILABLE",
    "reason": "NOT EVALUABLE - fake class ships as mp4, real as PNG directories, so the substrate boundary coincides exactly with the class boundary (measured pass rate 0.500). Pre-registered before extraction.",
    "source_file": "results/P6_preregistration.md",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z"
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z"
   },
   "provenance_confound": {
    "value": 0.0108,
@@ -845,8 +845,8 @@
    "source_file": "results/P6_provenance_confound.json",
    "source_sha256": "893f030a5a0d400b",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "macro drop when the 11 codec- and fps-dependent descriptors are removed: the result is NOT an encoding artifact"
   }
@@ -859,8 +859,8 @@
     "source_file": "results/P8_rppg_standalone.json",
     "source_sha256": "d521cd7cc3a482c1",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "note": "reproduces exactly"
    },
@@ -870,8 +870,8 @@
     "source_file": "results/P8_rppg_standalone.json",
     "source_sha256": "d521cd7cc3a482c1",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "note": "reproduces exactly"
    },
@@ -881,8 +881,8 @@
     "source_file": "results/P8_rppg_standalone.json",
     "source_sha256": "d521cd7cc3a482c1",
     "config_hash": "934ecb587a135601",
-    "commit": "115cc9e",
-    "generated_utc": "2026-08-29T12:31:15Z",
+    "commit": "21d6bea",
+    "generated_utc": "2026-08-29T13:04:00Z",
     "seed": 42,
     "note": "reproduces exactly"
    }
@@ -1070,8 +1070,8 @@
    "source_file": "results/P8_rppg_standalone.json",
    "source_sha256": "d521cd7cc3a482c1",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "NEW: rPPG is NOT uniformly at chance - Face2Face reaches 0.7055, FaceSwap 0.5183"
   },
@@ -1085,11 +1085,103 @@
    "source_file": "results/P8_rppg_standalone.json",
    "source_sha256": "d521cd7cc3a482c1",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 6490,
    "note": "all at chance; population 6490 is LARGER than Table 13's 6121 and is not row-matched"
+  },
+  "grouped_ci_per_manipulation": {
+   "value": {
+    "deepfakes": {
+     "current(POS+CHROM)": [
+      0.5225,
+      0.6535
+     ],
+     "POS": [
+      0.4935,
+      0.6206
+     ],
+     "CHROM": [
+      0.5155,
+      0.6424
+     ]
+    },
+    "face2face": {
+     "current(POS+CHROM)": [
+      0.629,
+      0.7418
+     ],
+     "POS": [
+      0.6076,
+      0.7217
+     ],
+     "CHROM": [
+      0.652,
+      0.7579
+     ]
+    },
+    "faceswap": {
+     "current(POS+CHROM)": [
+      0.4452,
+      0.5882
+     ],
+     "POS": [
+      0.4519,
+      0.5915
+     ],
+     "CHROM": [
+      0.4632,
+      0.6
+     ]
+    },
+    "neuraltextures": {
+     "current(POS+CHROM)": [
+      0.4732,
+      0.6035
+     ],
+     "POS": [
+      0.5283,
+      0.651
+     ],
+     "CHROM": [
+      0.4269,
+      0.5632
+     ]
+    }
+   },
+   "status": "MEASURED",
+   "source_file": "results/P18_rppg_grouped_ci.json",
+   "source_sha256": "7ed592627d2aacbb",
+   "config_hash": "934ecb587a135601",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
+   "seed": 42,
+   "note": "identity-grouped cluster bootstrap, 2000 resamples, seed 42. Predictions reproduce P8 exactly (all 15 AUCs identical); only the interval is new."
+  },
+  "grouped_ci_celebdf": {
+   "value": {
+    "current(POS+CHROM)": [
+     0.4768,
+     0.5115
+    ],
+    "POS": [
+     0.4734,
+     0.5086
+    ],
+    "CHROM": [
+     0.4889,
+     0.535
+    ]
+   },
+   "status": "MEASURED",
+   "source_file": "results/P18_rppg_grouped_ci.json",
+   "source_sha256": "7ed592627d2aacbb",
+   "config_hash": "934ecb587a135601",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
+   "seed": 42,
+   "note": "60 identity groups; zero-shot, FF++ train median imputation only"
   }
  },
  "shap_faithfulness_r1c8": {
@@ -1104,8 +1196,8 @@
    "source_file": "results/P9_shap_faithfulness.json",
    "source_sha256": "96a463784bef8941",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 267
   },
@@ -1120,8 +1212,8 @@
    "source_file": "results/P9_shap_faithfulness.json",
    "source_sha256": "96a463784bef8941",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 268
   },
@@ -1136,8 +1228,8 @@
    "source_file": "results/P9_shap_faithfulness.json",
    "source_sha256": "96a463784bef8941",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 269
   },
@@ -1152,8 +1244,8 @@
    "source_file": "results/P9_shap_faithfulness.json",
    "source_sha256": "96a463784bef8941",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 269
   },
@@ -1168,8 +1260,8 @@
    "source_file": "results/P9_shap_faithfulness.json",
    "source_sha256": "96a463784bef8941",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "positive on all four, significant on two; POSITIVE rho = SHAP concordant with ablation utility"
   }
@@ -1190,8 +1282,8 @@
    "source_file": "results/P10_domain_shift.json",
    "source_sha256": "ca81cee3ee77764f",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "CORRECTION: the Celeb-DF shift is class-SYMMETRIC (fake 0.553 vs real 0.533). Wording attributing the Table 11 rPPG gain to a REAL-class mismatch is unsupported"
   },
@@ -1201,8 +1293,8 @@
    "source_file": "results/P10_domain_shift.csv",
    "source_sha256": "35f086bfeb359c23",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "NEW: worst-travelling family on Celeb-DF (0.868/0.893), ahead of rPPG; s_benford_dev +2.4 SD"
   }
@@ -1214,8 +1306,8 @@
    "source_file": "results/P1_6_trainonly/table18_modelsize.json",
    "source_sha256": "7410ed2dbc9ab59e",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "unchanged - independent of the fit partition, not re-measured"
   },
@@ -1225,8 +1317,8 @@
    "source_file": "results/P1_6_trainonly/table18_modelsize.json",
    "source_sha256": "7410ed2dbc9ab59e",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "unchanged"
   },
@@ -1236,8 +1328,8 @@
    "source_file": "results/P1_6_trainonly/table18_modelsize.json",
    "source_sha256": "7410ed2dbc9ab59e",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "unchanged"
   },
@@ -1247,8 +1339,8 @@
    "source_file": "results/P1_6_trainonly/table18_modelsize.json",
    "source_sha256": "7410ed2dbc9ab59e",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "CHANGED from 611.2 by the Option B rerun (train-only fit)"
   },
@@ -1258,8 +1350,8 @@
    "source_file": "results/P1_6_trainonly/table18_modelsize.json",
    "source_sha256": "7410ed2dbc9ab59e",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "CHANGED from 0.199"
   }
@@ -1271,8 +1363,8 @@
    "source_file": "results/P0_reproduction_gate.json",
    "source_sha256": "5f9d88ae58404368",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 6487
   },
@@ -1282,8 +1374,8 @@
    "source_file": "results/PD2_xception_rerun.json",
    "source_sha256": "060cd5a8422ea999",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 6121,
    "note": "D2 re-run. Published 0.8211. Paired DeLong z=15.426 against a published z of 15.426; z_matches=True. PRISM on the same intersection 0.6322."
@@ -1294,8 +1386,8 @@
    "source_file": "results/PD2_xception_rerun.json",
    "source_sha256": "060cd5a8422ea999",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 6121,
    "note": "published 15.426; re-derived value matches within 0.05: True"
@@ -1311,8 +1403,8 @@
    "source_file": "results/PD2b_xception_ffpp.json",
    "source_sha256": "6ab4eccefb8389dd",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 4,
    "note": "Xception under the unified aggregation p_V = (1/m) sum_t p_t requested in R1-C2, identity-disjoint FF++ test partition. All four reproduce the published values at delta = 0 (4/4 within 0.005)."
@@ -1331,8 +1423,8 @@
    "source_file": "results/PD1_lsda_eval.json",
    "source_sha256": "23c2292ec68ced70",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "LSDA (CVPR 2024) trained on the identical identity-disjoint FF++ split; video aggregation p_V = (1/m) sum_t p_t, identical to every other frame-level baseline. DEV-008: the Celeb-DF figure is over the FULL release, NOT the official 518-video test list, so it is NOT comparable with published Celeb-DF benchmarks."
   },
@@ -1341,16 +1433,16 @@
    "status": "UNAVAILABLE",
    "reason": "NOT in DeepfakeBench (verified: 35 detectors, no laanet); requires the official repository, aarch64 build unverified. Second in the agreed cut order for optional baselines.",
    "source_file": "DEV-006",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z"
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z"
   },
   "videomae": {
    "value": "UNAVAILABLE",
    "status": "UNAVAILABLE",
    "reason": "optional; forward pass verified but not trained. First in the agreed cut order for optional baselines.",
    "source_file": "results/P7_1_dfb_probe.json",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z"
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z"
   }
  },
  "acquisition_vs_manipulation_r1c3": {
@@ -1401,8 +1493,8 @@
    "source_file": "results/PA_decomposition.json",
    "source_sha256": "9f036c8fc95a33e7",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "the two mixed cells are DIAGNOSTIC ONLY and are not detection performance"
   },
@@ -1419,8 +1511,8 @@
    "source_file": "results/PA_decomposition.json",
    "source_sha256": "9f036c8fc95a33e7",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "manipulation 56.6%, acquisition 27.2%, interaction 16.1%. ADDITIVITY DOES NOT HOLD CLEANLY - 16% is genuinely joint and unassignable"
   },
@@ -1430,8 +1522,8 @@
    "source_file": "results/PA_df40_decomposition.json",
    "source_sha256": "73e36fe438fbebbb",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "+0.0558 AUC from matching the real class to the training acquisition domain; real and consistent in sign across all five methods, but does NOT explain the DF40-Celeb-DF gap (DF40 still leads by 0.115 with acquisition held fixed)"
   },
@@ -1445,8 +1537,8 @@
    "source_file": "results/PA_df40_decomposition.json",
    "source_sha256": "73e36fe438fbebbb",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "acquisition-sensitive families shift 35% more, yet manipulation dominates the AUC gap - resolved by the class-SYMMETRIC nature of the acquisition shift"
   }
@@ -1627,8 +1719,8 @@
    "source_file": "results/PB_encoding_parameters.json",
    "source_sha256": "0763427b2897b797",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "DF40 fakes ARE systematically re-encoded: bits/px ratios 0.70x-5.54x vs their reals, and two subsets differ in CODEC. The confound is real and is stated."
   },
@@ -1638,8 +1730,8 @@
    "source_file": "results/PB_encoding_parameters.json",
    "source_sha256": "0763427b2897b797",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "Spearman(|log bitrate ratio|, AUC) = -0.100, p=0.87, WRONG SIGN for the confound hypothesis. Low power at n=5; absence is NOT claimed."
   },
@@ -1649,8 +1741,8 @@
    "source_file": "results/PB_encoding_parameters.json",
    "source_sha256": "0763427b2897b797",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "FF++ pristine 0.0466 vs Deepfakes 0.0456 bits/px - matched to 2%, so Tables 7/8 stand"
   },
@@ -1660,8 +1752,8 @@
    "source_file": "results/PI1_encoding_chroma_gop.json",
    "source_sha256": "0c763a861414ec04",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "was UNAVAILABLE (no ffprobe); recovered with a static ffmpeg build. See encoding_characterisation_I1 - the recovered fields proved MORE informative than the parameters already measured."
   }
@@ -1681,8 +1773,8 @@
    "source_file": "results/PC_classifier_delong_table.json",
    "source_sha256": "6cf375921db311eb",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 267
   },
@@ -1700,8 +1792,8 @@
    "source_file": "results/PC_classifier_delong_table.json",
    "source_sha256": "6cf375921db311eb",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 268
   },
@@ -1719,8 +1811,8 @@
    "source_file": "results/PC_classifier_delong_table.json",
    "source_sha256": "6cf375921db311eb",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 269
   },
@@ -1738,8 +1830,8 @@
    "source_file": "results/PC_classifier_delong_table.json",
    "source_sha256": "6cf375921db311eb",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 269
   },
@@ -1757,8 +1849,8 @@
    "source_file": "results/PC_classifier_delong_table.json",
    "source_sha256": "6cf375921db311eb",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "n": 6121
   },
@@ -1768,8 +1860,8 @@
    "source_file": "results/PC_classifier_delong_table.json",
    "source_sha256": "6cf375921db311eb",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "equivalence margin +/-0.02 declared before classification; LightGBM retained because it was PRE-SPECIFIED and received 0 hyperparameter configurations against RF's 18. NOT claimed: that LightGBM is superior. The representation, not the classifier, carries the performance."
   }
@@ -1781,8 +1873,8 @@
    "source_file": "results/PF_source_matched.json",
    "source_sha256": "485d07cbab99c055",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "PRIMARY DF40 figure. Each subset ranked only against reals from its own source corpus, AUC computed WITHIN each source then combined. Isolates manipulation."
   },
@@ -1792,8 +1884,8 @@
    "source_file": "results/PF_source_matched.json",
    "source_sha256": "485d07cbab99c055",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "sensitivity analysis: real class was 86% Celeb-DF; mixes source and manipulation"
   },
@@ -1803,8 +1895,8 @@
    "source_file": "results/PF_source_matched.json",
    "source_sha256": "485d07cbab99c055",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "sensitivity analysis: matched for cdf, mismatched for ff"
   },
@@ -1814,8 +1906,8 @@
    "source_file": "results/PF_source_matched.json",
    "source_sha256": "485d07cbab99c055",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "+0.0024, NOT material; no per-method ordering changes. Small because every method is cdf-dominated (79-83%), so the pooled real class was already near source-matched"
   }
@@ -1827,8 +1919,8 @@
    "source_file": "results/PG_dataset_identity_leakage.json",
    "source_sha256": "b53457b6b1c7e391",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42
   },
   "identity_auc_fakes": {
@@ -1837,8 +1929,8 @@
    "source_file": "results/PG_dataset_identity_leakage.json",
    "source_sha256": "b53457b6b1c7e391",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "0.6749, ABOVE the 0.60 threshold - the A2 decomposition IS confounded"
   },
@@ -1848,8 +1940,8 @@
    "source_file": "results/PG_dataset_identity_leakage.json",
    "source_sha256": "b53457b6b1c7e391",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "both diagnostic cells are DEFLATED, so BOTH attribution terms are OVERSTATED, and the manipulation term more than the acquisition term. The 2.08:1 ratio is an UPPER BOUND. The 56.6/27.2/16.1 percentages do NOT survive as quantities; the qualitative ordering manipulation > acquisition probably does. Diagonal cells (Tables 7, 13) unaffected."
   },
@@ -1862,8 +1954,8 @@
    "source_file": "results/PG_dataset_identity_leakage.json",
    "source_sha256": "b53457b6b1c7e391",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "Celeb-DF reals +0.083, fakes -0.114 - the score distribution compresses, which is itself a clean explanation of the 0.8236 -> 0.6322 drop"
   }
@@ -1881,8 +1973,8 @@
    "source_file": "results/PH_common_population.json",
    "source_sha256": "6c3e08d8b23dc951",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "PRISM-limited throughout. Every Section 6.8 row is reported on this population and all paired DeLong tests run on it. Full-population numbers reported alongside, never substituted."
   },
@@ -1892,8 +1984,8 @@
    "source_file": "results/PH_common_population.json",
    "source_sha256": "6c3e08d8b23dc951",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "these were never directly comparable; D2 regenerates the shared-6121 value"
   }
@@ -1933,8 +2025,8 @@
    "source_file": "results/PI1_encoding_chroma_gop.json",
    "source_sha256": "0c763a861414ec04",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "FF++ c23 is yuv444p for BOTH classes; ALL DF40 output is yuv420p. For the ff subsets this is a CATEGORICAL class-aligned difference that the bitrate analysis could not test. Item B's conclusion is narrowed accordingly: a substantial ff-subset contribution CANNOT be excluded."
   },
@@ -1954,8 +2046,8 @@
    "source_file": "results/PI1_encoding_chroma_gop.json",
    "source_sha256": "0c763a861414ec04",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "both FF++ classes GOP 195.2, both Celeb-DF classes 11.7 - internally matched, so Tables 7/8/13 are unaffected"
   }
@@ -2023,8 +2115,8 @@
    "source_file": "results/P1_defect008_montecarlo.json",
    "source_sha256": "88174ae09565a420",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "500-draw Monte Carlo. Every published value lies inside its 95% interval (percentiles 11.6-50.4). Leave-one-out is NOT a bound and is not quoted as one."
   },
@@ -2034,8 +2126,8 @@
    "source_file": "results/P2_exclusion_mechanisms.json",
    "source_sha256": "a926cac3b098881d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "one NaN descriptor discards the whole video; 85% of all exclusions"
   },
@@ -2045,8 +2137,8 @@
    "source_file": "results/P2_exclusion_mechanisms.json",
    "source_sha256": "a926cac3b098881d",
    "config_hash": "934ecb587a135601",
-   "commit": "115cc9e",
-   "generated_utc": "2026-08-29T12:31:15Z",
+   "commit": "21d6bea",
+   "generated_utc": "2026-08-29T13:04:00Z",
    "seed": 42,
    "note": "Celeb-DF n reproducible to ~+-1.5% (6121 -> ~6216). Effect on 0.6322 NOT measured; no claim made."
   }

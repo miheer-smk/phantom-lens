@@ -1,0 +1,160 @@
+{
+ "generated_utc": "2026-08-28T14:36:47Z",
+ "tool": "ffmpeg (imageio-ffmpeg static aarch64 build); ffprobe unavailable so GOP is derived as total_frames / I_frame_count",
+ "n_sampled": 6,
+ "sources": {
+  "REAL FF++ c23 pristine": {
+   "n": 6,
+   "codec": [
+    "h264"
+   ],
+   "profile": [
+    "High 4:4:4 Predictive"
+   ],
+   "pix_fmt": [
+    "yuv444p"
+   ],
+   "gop_median": 195.2,
+   "gop_range": [
+    151.5,
+    231.0
+   ]
+  },
+  "FAKE FF++ Deepfakes c23": {
+   "n": 6,
+   "codec": [
+    "h264"
+   ],
+   "profile": [
+    "High 4:4:4 Predictive"
+   ],
+   "pix_fmt": [
+    "yuv444p"
+   ],
+   "gop_median": 195.2,
+   "gop_range": [
+    151.5,
+    231.0
+   ]
+  },
+  "REAL Celeb-DF authentic": {
+   "n": 6,
+   "codec": [
+    "mpeg4"
+   ],
+   "profile": [
+    "Simple Profile"
+   ],
+   "pix_fmt": [
+    "yuv420p"
+   ],
+   "gop_median": 11.7,
+   "gop_range": [
+    11.6,
+    11.8
+   ]
+  },
+  "FAKE Celeb-DF synthesis": {
+   "n": 6,
+   "codec": [
+    "mpeg4"
+   ],
+   "profile": [
+    "Simple Profile"
+   ],
+   "pix_fmt": [
+    "yuv420p"
+   ],
+   "gop_median": 11.7,
+   "gop_range": [
+    11.6,
+    11.8
+   ]
+  },
+  "FAKE DF40 inswap/ff": {
+   "n": 6,
+   "codec": [
+    "h264"
+   ],
+   "profile": [
+    "High"
+   ],
+   "pix_fmt": [
+    "yuv420p"
+   ],
+   "gop_median": 168.0,
+   "gop_range": [
+    151.5,
+    211.5
+   ]
+  },
+  "FAKE DF40 sadtalker/ff": {
+   "n": 6,
+   "codec": [
+    "mpeg4"
+   ],
+   "profile": [
+    "Simple Profile"
+   ],
+   "pix_fmt": [
+    "yuv420p"
+   ],
+   "gop_median": 11.6,
+   "gop_range": [
+    11.5,
+    11.9
+   ]
+  },
+  "FAKE DF40 wav2lip/ff": {
+   "n": 6,
+   "codec": [
+    "h264"
+   ],
+   "profile": [
+    "High"
+   ],
+   "pix_fmt": [
+    "yuv420p"
+   ],
+   "gop_median": 144.0,
+   "gop_range": [
+    130.0,
+    183.0
+   ]
+  },
+  "FAKE DF40 inswap/cdf": {
+   "n": 6,
+   "codec": [
+    "h264"
+   ],
+   "profile": [
+    "High"
+   ],
+   "pix_fmt": [
+    "yuv420p"
+   ],
+   "gop_median": 234.5,
+   "gop_range": [
+    151.5,
+    239.5
+   ]
+  },
+  "FAKE DF40 facedancer/cdf": {
+   "n": 6,
+   "codec": [
+    "mpeg4"
+   ],
+   "profile": [
+    "Simple Profile"
+   ],
+   "pix_fmt": [
+    "yuv420p"
+   ],
+   "gop_median": 11.9,
+   "gop_range": [
+    11.7,
+    12.0
+   ]
+  }
+ }
+}

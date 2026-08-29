@@ -1,0 +1,68 @@
+{
+ "generated_utc": "2026-08-28T13:14:13Z",
+ "seed": 42,
+ "frozen_model": true,
+ "refitting": false,
+ "cells": [
+  {
+   "real": "FF++ c23 test",
+   "fake": "FF++ c23 test (all 4)",
+   "n_real": 134,
+   "n_fake": 537,
+   "auc": 0.8236,
+   "grouped_ci": [
+    0.7936,
+    0.856
+   ],
+   "ci_skipped": 0,
+   "diagnostic_only": false
+  },
+  {
+   "real": "FF++ c23 test",
+   "fake": "Celeb-DF v2",
+   "n_real": 134,
+   "n_fake": 5323,
+   "auc": 0.7152,
+   "grouped_ci": [
+    0.6564,
+    0.7663
+   ],
+   "ci_skipped": 0,
+   "diagnostic_only": true
+  },
+  {
+   "real": "Celeb-DF v2",
+   "fake": "FF++ c23 test (all 4)",
+   "n_real": 798,
+   "n_fake": 537,
+   "auc": 0.7715,
+   "grouped_ci": [
+    0.7372,
+    0.8072
+   ],
+   "ci_skipped": 0,
+   "diagnostic_only": true
+  },
+  {
+   "real": "Celeb-DF v2",
+   "fake": "Celeb-DF v2",
+   "n_real": 798,
+   "n_fake": 5323,
+   "auc": 0.6322,
+   "grouped_ci": [
+    0.608,
+    0.6538
+   ],
+   "ci_skipped": 0,
+   "diagnostic_only": false
+  }
+ ],
+ "attribution": {
+  "total_gap": 0.1914,
+  "manipulation_shift": 0.1084,
+  "acquisition_shift": 0.0521,
+  "interaction_residual": 0.0309,
+  "additivity_assumed": true,
+  "caveat": "the two mixed cells are DIAGNOSTIC ONLY and are not detection performance"
+ }
+}

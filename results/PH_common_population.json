@@ -1,0 +1,118 @@
+{
+ "generated_utc": "2026-08-28T15:07:29Z",
+ "targets": {
+  "deepfakes": {
+   "n_prism": 267,
+   "n_xception": 274,
+   "n_lsda": 280,
+   "n_intersection": 267,
+   "methods_available": 3,
+   "note": "all three"
+  },
+  "face2face": {
+   "n_prism": 268,
+   "n_xception": 273,
+   "n_lsda": 280,
+   "n_intersection": 268,
+   "methods_available": 3,
+   "note": "all three"
+  },
+  "faceswap": {
+   "n_prism": 269,
+   "n_xception": 274,
+   "n_lsda": 280,
+   "n_intersection": 269,
+   "methods_available": 3,
+   "note": "all three"
+  },
+  "neuraltextures": {
+   "n_prism": 269,
+   "n_xception": 274,
+   "n_lsda": 280,
+   "n_intersection": 269,
+   "methods_available": 3,
+   "note": "all three"
+  },
+  "celebdf": {
+   "n_prism": 6121,
+   "n_xception": 6487,
+   "n_lsda": 6529,
+   "n_intersection": 6121,
+   "methods_available": 3,
+   "note": "all three"
+  }
+ },
+ "full_vs_intersection": [
+  {
+   "target": "deepfakes",
+   "method": "Xception",
+   "n_full": 274,
+   "n_intersection": 267,
+   "dropped": 7
+  },
+  {
+   "target": "deepfakes",
+   "method": "LSDA",
+   "n_full": 280,
+   "n_intersection": 267,
+   "dropped": 13
+  },
+  {
+   "target": "face2face",
+   "method": "Xception",
+   "n_full": 273,
+   "n_intersection": 268,
+   "dropped": 5
+  },
+  {
+   "target": "face2face",
+   "method": "LSDA",
+   "n_full": 280,
+   "n_intersection": 268,
+   "dropped": 12
+  },
+  {
+   "target": "faceswap",
+   "method": "Xception",
+   "n_full": 274,
+   "n_intersection": 269,
+   "dropped": 5
+  },
+  {
+   "target": "faceswap",
+   "method": "LSDA",
+   "n_full": 280,
+   "n_intersection": 269,
+   "dropped": 11
+  },
+  {
+   "target": "neuraltextures",
+   "method": "Xception",
+   "n_full": 274,
+   "n_intersection": 269,
+   "dropped": 5
+  },
+  {
+   "target": "neuraltextures",
+   "method": "LSDA",
+   "n_full": 280,
+   "n_intersection": 269,
+   "dropped": 11
+  },
+  {
+   "target": "celebdf",
+   "method": "Xception",
+   "n_full": 6487,
+   "n_intersection": 6121,
+   "dropped": 366
+  },
+  {
+   "target": "celebdf",
+   "method": "LSDA",
+   "n_full": 6529,
+   "n_intersection": 6121,
+   "dropped": 408
+  }
+ ],
+ "rule": "every row of the Section 6.8 comparison table is reported on the intersection; where a method's own full-population number differs it is reported alongside, never substituted. All paired DeLong tests run on the intersection."
+}

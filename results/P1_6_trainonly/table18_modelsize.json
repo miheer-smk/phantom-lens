@@ -1,0 +1,67 @@
+{
+ "phase": "P1.6",
+ "table": 18,
+ "published": {
+  "top-3": 501.9,
+  "top-10": 585.0,
+  "top-20": 590.1,
+  "all-50": 611.2
+ },
+ "published_inference_ms": {
+  "all-50": 0.199
+ },
+ "results": {
+  "published_train_val": {
+   "n_train": 4126,
+   "configs": {
+    "top-3": {
+     "n_features": 3,
+     "model_size_kb": 501.9,
+     "inference_ms_per_video": 0.132
+    },
+    "top-10": {
+     "n_features": 10,
+     "model_size_kb": 585.0,
+     "inference_ms_per_video": 0.135
+    },
+    "top-20": {
+     "n_features": 20,
+     "model_size_kb": 590.1,
+     "inference_ms_per_video": 0.139
+    },
+    "all-50": {
+     "n_features": 50,
+     "model_size_kb": 611.2,
+     "inference_ms_per_video": 0.151
+    }
+   }
+  },
+  "canonical_train_only": {
+   "n_train": 3461,
+   "configs": {
+    "top-3": {
+     "n_features": 3,
+     "model_size_kb": 504.5,
+     "inference_ms_per_video": 0.132
+    },
+    "top-10": {
+     "n_features": 10,
+     "model_size_kb": 538.7,
+     "inference_ms_per_video": 0.135
+    },
+    "top-20": {
+     "n_features": 20,
+     "model_size_kb": 542.7,
+     "inference_ms_per_video": 0.14
+    },
+    "all-50": {
+     "n_features": 50,
+     "model_size_kb": 600.7,
+     "inference_ms_per_video": 0.151
+    }
+   }
+  }
+ },
+ "generated_utc": "2026-08-27T17:57:24Z",
+ "note": "extraction timings (48.586 s/video, RTF 3.196, 3462.3 MB peak) are independent of the fit partition and are NOT re-measured; they stand unchanged."
+}

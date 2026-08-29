@@ -79,6 +79,12 @@ tests/       test_determinism.py
   contribute to any statistic.
 - **Primary results are fit on the training partition only** (720 identities).
 
+> **Manifest conformance.** `splits/evaluation_manifest.csv` carries every column specified in
+> review, with three documented exceptions: the per-stage frame counts `spatial_valid_frames`,
+> `temporal_valid_frames` and `rppg_valid_frames` were never logged, because validity is recorded
+> at video granularity. See [`docs/MANIFEST_SPEC.md`](docs/MANIFEST_SPEC.md) for the full
+> column-by-column status and why those three are not recoverable without re-extraction.
+
 ## Data licensing — what this archive does and does not contain
 
 **This archive contains derived measurements only.** It redistributes **no video, no frames, no

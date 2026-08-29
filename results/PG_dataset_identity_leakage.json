@@ -1,0 +1,29 @@
+{
+ "generated_utc": "2026-08-28T14:37:38Z",
+ "method": "AUC of 'is this Celeb-DF' using the PRISM fake-probability, within a single class",
+ "threshold": 0.6,
+ "g1_real_vs_real": {
+  "comparison": "FF++ real vs Celeb-DF real",
+  "auc": 0.5936,
+  "auc_symmetric": 0.5936,
+  "n_a": 134,
+  "n_b": 798,
+  "mean_score_a": 0.4881,
+  "mean_score_b": 0.5709
+ },
+ "g2_fake_vs_fake": {
+  "comparison": "FF++ fake vs Celeb-DF fake",
+  "auc": 0.3251,
+  "auc_symmetric": 0.6749,
+  "n_a": 537,
+  "n_b": 5323,
+  "mean_score_a": 0.797,
+  "mean_score_b": 0.6833
+ },
+ "max_identity_auc": 0.6749,
+ "confounded": true,
+ "bias_note": "Celeb-DF reals score +0.083 higher and Celeb-DF fakes -0.114 lower than their FF++ counterparts: the score distribution COMPRESSES on Celeb-DF. Both diagnostic cells are therefore DEFLATED, so BOTH attribution terms are OVERSTATED. Because the fake-side shift (0.114) exceeds the real-side shift (0.083), the manipulation term is overstated more than the acquisition term, and the true manipulation:acquisition ratio is LESS extreme than the measured 2.08:1. The qualitative ordering (manipulation > acquisition) is likely preserved but the magnitudes are not trustworthy.",
+ "conclusion": "the A2 decomposition IS confounded by dataset identity",
+ "corrected_direction": "both terms OVERSTATED; manipulation overstated more",
+ "ratio_measured": 2.08
+}

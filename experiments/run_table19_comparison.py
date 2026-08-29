@@ -112,6 +112,28 @@ def main():
             chk(f"LSDA {t}", roc_auc_score(sub.label.values, sub.p.values), None,
                 y=sub.label.values, s=sub.p.values, groups=gl)
 
+    # ---- POS / CHROM standalone physiological baselines (R1-C2 Step 5, Table 6.8 rows) ----
+    rp = P / "rppg_per_video_scores.csv"
+    if rp.exists():
+        print("\nSection 6.8 - standalone physiological baselines (POS / CHROM)")
+        rs = pd.read_csv(rp)
+        import re as _re
+        for meth in ("POS", "CHROM", "current(POS+CHROM)"):
+            for tgt in ("deepfakes", "face2face", "faceswap", "neuraltextures", "celebdf"):
+                sub = rs[(rs.method == meth) & (rs.target == tgt)]
+                if not len(sub):
+                    continue
+                if tgt == "celebdf":
+                    grp = sub.video.astype(str).map(
+                        lambda v: (_re.match(r"(id\d+)", v).group(1)
+                                   if _re.match(r"(id\d+)", v) else "youtube_real")).values
+                else:
+                    grp = sub.video.astype(str).map(lambda v: v.split("_")[0]).values
+                chk(f"{meth} {tgt}", roc_auc_score(sub.label.values, sub.p.values), None,
+                    y=sub.label.values, s=sub.p.values, groups=grp)
+    else:
+        print("\n  POS/CHROM rows skipped - rppg_per_video_scores.csv not present")
+
     n_bad = sum(1 for c in checks if not c["reproduces"])
     o = out_path(a, "table19_comparison.json")
     json.dump(dict(generated_utc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
