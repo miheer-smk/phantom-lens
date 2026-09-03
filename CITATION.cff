@@ -11,7 +11,7 @@ authors:
   - given-names: Miheer Satish
     family-names: Kulkarni
     affiliation: "Indian Institute of Information Technology, Nagpur, India"
-repository-code: "https://github.com/REPLACE-ME/prism"
+repository-code: "https://github.com/miheer-smk/phantom-lens"
 license: MIT
 version: 1.0.0-prism-srep-revision2
 date-released: "2026-09-01"
