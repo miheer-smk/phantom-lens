@@ -1,37 +1,81 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite both the software and the paper."
-title: "PRISM: A Physics-Reality Integrated Signal Multistream Framework for Explainable Deepfake Detection Using Handcrafted Forensic Features"
+
+message: >-
+  If you use this software, please cite both this archived software release
+  and the associated PRISM manuscript.
+
+title: >-
+  PRISM: A Physics-Reality Integrated Signal Multistream Framework
+  for Explainable Deepfake Detection Using Handcrafted Forensic Features
+
 abstract: >-
-  Reference implementation, frozen evaluation protocol and per-video results for PRISM-50,
-  a 50-descriptor handcrafted forensic representation for video deepfake detection.
-  Includes the identity-disjoint FaceForensics++ split, the frozen LightGBM configuration,
-  the substrate operating-domain checker, and the per-video scores behind every reported table.
+  Reference implementation, frozen evaluation protocol, feature matrices,
+  evaluation scripts and per-video results for PRISM-50, a 50-descriptor
+  handcrafted forensic representation for video deepfake detection.
+  The release includes the identity-disjoint FaceForensics++ split,
+  frozen LightGBM configuration, preprocessing and operating-domain checks,
+  and supporting material for reproducing the reported experimental results.
+
 type: software
+
 authors:
-  - given-names: Miheer Satish
-    family-names: Kulkarni
-    affiliation: "Indian Institute of Information Technology, Nagpur, India"
+  - given-names: "Miheer Satish"
+    family-names: "Kulkarni"
+    affiliation: >-
+      Department of Computer Science and Engineering,
+      Indian Institute of Information Technology, Nagpur, India
+
 repository-code: "https://github.com/miheer-smk/phantom-lens"
+
 license: MIT
-version: 1.0.0-prism-srep-revision2
+
+version: "1.0.0-prism-srep-revision2"
+
 date-released: "2026-09-01"
+
 keywords:
   - deepfake detection
-  - handcrafted features
-  - explainability
+  - video forensics
+  - handcrafted forensic features
+  - explainable artificial intelligence
   - cross-dataset generalisation
+  - FaceForensics++
+  - Celeb-DF v2
+  - DF40
+  - PRISM
   - reproducibility
-identifiers:
-  - type: doi
-    value: "[INSERT ZENODO DOI]"   # replace with the DOI Zenodo issues on release
-    description: "Archived software record for this release"
 
 preferred-citation:
   type: article
-  title: "PRISM: A Physics-Reality Integrated Signal Multistream Framework for Explainable Deepfake Detection Using Handcrafted Forensic Features"
+  title: >-
+    PRISM: A Physics-Reality Integrated Signal Multistream Framework
+    for Explainable Deepfake Detection Using Handcrafted Forensic Features
+
   authors:
-    - given-names: Miheer Satish
-      family-names: Kulkarni
-      affiliation: "Indian Institute of Information Technology, Nagpur, India"
-  journal: "Scientific Reports"
+    - given-names: "Firdous Sadaf Mohammad"
+      family-names: "Ismail"
+      affiliation: >-
+        Department of Computer Science and Engineering,
+        Indian Institute of Information Technology, Nagpur, India;
+        Symbiosis Institute of Technology, Nagpur Campus,
+        Symbiosis International (Deemed University), Pune, India
+
+    - given-names: "Miheer Satish"
+      family-names: "Kulkarni"
+      affiliation: >-
+        Department of Computer Science and Engineering,
+        Indian Institute of Information Technology, Nagpur, India
+
+    - given-names: "Nileshchandra"
+      family-names: "Pikle"
+      affiliation: >-
+        Department of Computer Science and Engineering,
+        Indian Institute of Information Technology, Nagpur, India
+
+    - given-names: "Snehal Bankatrao"
+      family-names: "Shinde"
+      affiliation: >-
+        Department of Computer Science and Engineering,
+        Indian Institute of Information Technology, Nagpur, India
+
   year: 2026
