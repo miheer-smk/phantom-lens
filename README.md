@@ -112,12 +112,12 @@ only**. It does not and cannot extend to the datasets.
 
 This release is archived on Zenodo with a permanent DOI:
 
-> **DOI: [INSERT ZENODO DOI]**
+> **DOI: 10.5281/zenodo.22285227**
 
 Cite the software record alongside the paper:
 
 > [Author list], "PRISM-50: reference implementation, frozen evaluation protocol and per-video
-> results," Zenodo, 2026, version `v1.0.0-prism-srep-revision2`. doi: **[INSERT ZENODO DOI]**
+> results," Zenodo, 2026, version `v1.0.0-prism-srep-revision2`. doi: **10.5281/zenodo.22285227**
 
 The same DOI appears in the paper's Code Availability statement and reference list. `CITATION.cff`
 carries it in machine-readable form — update both when Zenodo issues it.

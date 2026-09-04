@@ -20,6 +20,7 @@ authors:
       Department of Computer Science and Engineering, Indian Institute of
       Information Technology, Nagpur, India
 repository-code: "https://github.com/miheer-smk/phantom-lens"
+doi: "10.5281/zenodo.22285227"
 license: MIT
 version: "1.0.0-prism-srep-revision2"
 date-released: "2026-09-01"

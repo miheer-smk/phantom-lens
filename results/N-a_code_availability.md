@@ -13,7 +13,7 @@ issues it.
 > forensic descriptors, reproduce the identity-disjoint data partitions, train and evaluate the
 > statistical classifiers, perform group-wise ablation, bootstrap confidence-interval estimation,
 > calibration, SHAP analysis and generate the reported experimental outputs has been archived in
-> Zenodo at DOI: **[INSERT ZENODO DOI]**. The archived release corresponds to version
+> Zenodo at DOI: **10.5281/zenodo.22285227**. The archived release corresponds to version
 > **v1.0.0-prism-srep-revision2** used for the results reported in this manuscript and is also
 > maintained at **[GITHUB REPOSITORY]**. The repository includes environment specifications, fixed
 > configuration files, evaluation manifests and instructions for reproducing the principal
@@ -71,7 +71,7 @@ Registered in `README.md` and added to the clean-room test, which now exercises 
 
 | Placeholder | Blocked on |
 |---|---|
-| `[INSERT ZENODO DOI]` | Zenodo deposition (N-b depends on this too) |
+| `10.5281/zenodo.22285227` | Zenodo deposition (N-b depends on this too) |
 | `[GITHUB REPOSITORY]` | the author's decision on the public GitHub URL |
 | version string | filled: `v1.0.0-prism-srep-revision2` — tag held for 5 September |
 
